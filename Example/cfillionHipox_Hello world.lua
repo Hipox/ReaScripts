@@ -1,7 +1,7 @@
 
 -- @description Hello world
 -- @author cfillionHipox
--- @version 1.5
+-- @version 1.0
 -- @about
 --   This is an example of a package file. It installs itself as a ReaScript that
 --   does nothing but show "Hello World!" in REAPER's scripting console.
