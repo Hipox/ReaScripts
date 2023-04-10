@@ -10,4 +10,4 @@
 --   This text is the documentation shown when using ReaPack's "About this package"
 --   feature. [Markdown](https://commonmark.org/) *formatting* is supported.
 
-reaper.ShowConsoleMsg 'Hello World!'
+reaper.ShowConsoleMsg 'Hello World! Hipox version'
