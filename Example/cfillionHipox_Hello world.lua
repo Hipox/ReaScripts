@@ -1,5 +1,5 @@
 -- @description Hello world
--- @author cfillion
+-- @author cfillionHipox
 -- @version 1.0
 -- @about
 --   This is an example of a package file. It installs itself as a ReaScript that
