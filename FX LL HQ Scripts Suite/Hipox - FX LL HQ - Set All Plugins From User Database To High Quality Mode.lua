@@ -2,7 +2,6 @@
 -- @author Hipox
 -- @version 1.0
 -- @about
--- @noindex
 
 local path = ({reaper.get_action_context()})[2]:match('^.+[\\//]')
 package.path = path .. "?.lua"

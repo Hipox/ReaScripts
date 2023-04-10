@@ -49,7 +49,7 @@ fx_ll_hq.number_of_non_native_columns_in_table = 1
 
 fx_ll_hq.official_count_of_columns_in_database_file = #fx_ll_hq.database_fomat_table
 
-fx_ll_hq.separator_reallm = ","
+fx_ll_hq.separator_reallm = ";"
 fx_ll_hq.separator_csv = ";"
 
 function fx_ll_hq.print(content)
@@ -1108,7 +1108,7 @@ function fx_ll_hq.SetReaLlm_FX_LL_HQ_FromUserDatabase()
       for i = 1, cnt_rows_user_database do
          _, fx_identifier, par_id, ll_val, hq_val, _, _, flag_active  = fx_ll_hq.GetValuesFromCsvTableLineFxDatabase(fx_ll_hq.csvUserDatabase,i)
          if flag_active == true then
-            string = fx_identifier .. "," .. par_id .. "," .. ll_val .. "," .. hq_val
+            string = fx_identifier .. fx_ll_hq.separator_reallm .. par_id .. fx_ll_hq.separator_reallm  .. ll_val .. fx_ll_hq.separator_reallm  .. hq_val
             fx_ll_hq.print("Set LLM and HQM for plugin: " .. string .. "\n")
             reaper.Llm_Set("PARAMCHANGE", string)
          end
@@ -1369,7 +1369,7 @@ function fx_ll_hq.IsDatabaseFileValidFeedbackTextReturn(file_path, text_default,
       local row_user_parameter_index = csv.get_attribute(fx_ll_hq.csvUserDatabase, row_user, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Parameter Index"))
       fx_ll_hq.print("row_user_fx_identifier == " .. tostring(row_user_fx_identifier) .. " row_user_parameter_index == " .. tostring(row_user_parameter_index) .. "\n")
       fx_ll_hq.print("fx_identifier == " .. tostring(fx_identifier) .. " paramnumber == " .. tostring(paramnumber) .. "\n")
-      fx_ll_hq.print("row_user_identifier:find(fx_identifier, 1, true) == " .. tostring(row_user_fx_identifier):find(fx_identifier, 1, true) .. "\n")
+      fx_ll_hq.print("row_user_identifier:find(fx_identifier, 1, true) == " .. tostring(tostring(row_user_fx_identifier):find(fx_identifier, 1, true)) .. "\n")
 
       if fx_identifier == "" then
          flag_new_line = false

@@ -2,7 +2,6 @@
 -- @author Hipox
 -- @version 1.0
 -- @about
--- @noindex
 
 local reaper = reaper
 -- local reallmID = reaper.NamedCommandLookup("_AK5K_REALLM")

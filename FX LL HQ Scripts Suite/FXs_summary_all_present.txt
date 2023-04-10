@@ -3434,7 +3434,2722 @@ Chordjam_64.dll=00B461FB0E1ED901,1130916461,Chordjam (Audiomodern)!!!VSTi
 Loopmix.dll=002EAFF7371DD901,1282436472,Loopmix (Audiomodern) (14 out)!!!VSTi
 Playbeat_3.dll=0097BD94371DD901,1349280307,Playbeat 3 (Audiomodern) (18 out)!!!VSTi
 Riffer_64.dll=0062B032361DD901,1382639206,Riffer (Audiomodern)!!!VSTi
-
+VERSION 1
+NAME "ACendan Scripts/Utility/acendan_Center Control.jsfx" "JS: acendan_Center Control"
+NAME "ACendan Scripts/Utility/acendan_De-Click Discontinuous Waveform.jsfx" "JS: acendan_De-Click Discontinuous Waveform"
+NAME "ACendan Scripts/Utility/Parallel Joiner (Linear).jsfx" "JS: Parallel Joiner (Linear)"
+NAME "ACendan Scripts/Utility/Parallel Joiner x3.jsfx" "JS: Parallel Joiner x3"
+NAME "ACendan Scripts/Utility/Parallel Joiner.jsfx" "JS: Parallel Joiner"
+NAME "ACendan Scripts/Utility/Parallel Splitter x3.jsfx" "JS: Parallel Splitter x3"
+NAME "ACendan Scripts/Utility/Parallel Splitter.jsfx" "JS: Parallel Splitter"
+NAME analysis/compscope "JS: compscope_src -> compressor -> compscope"
+NAME analysis/compscope_src "JS: compscope_src -> compressor -> compscope [analysis/compscope_src]"
+NAME analysis/fft_noise_generator "JS: fft noise generator"
+NAME analysis/gain_reduction_scope "JS: Gain Reduction Scope (Cockos)"
+NAME analysis/gfxanalyzer "JS: Frequency Spectrum Analyzer Meter (Cockos)"
+NAME analysis/gfxscope "JS: Oscilloscope Meter (Cockos)"
+NAME analysis/gfxspectrograph "JS: Spectrograph Spectrogram Meter (Cockos)"
+NAME analysis/loudness_meter "JS: Loudness Meter Peak/RMS/LUFS (Cockos)"
+NAME analysis/spectropaint "JS: Spectropaint Synthesis"
+NAME analysis/WigMCVUMeter "JS: WigWare Multi-channel Peak VU Meter"
+NAME analysis/zoomanalyzer "JS: Zoom Analyzer Demo"
+NAME "Arran/MIDI Note Channel CC Keyswitcher" "JS: Midi Channel CC Keyswitcher"
+NAME Bangzero/midi_arp_controller "JS: midi arp controller"
+NAME Bangzero/midi_arpbangzero "JS: arp!0 - groovy midi arpeggiator - v0.90rc - click [arp!0] for settings/help"
+NAME Bangzero/sidechain_delay "JS: sidechain delay - pdc undelayed on outputs 1/2; negative delayed on 3/4"
+NAME "Bangzero/Wild Wave Fu" "JS: wild wave fu - extreme dynamic nonlinear waveshaper - v0.31beta"
+NAME Bangzero/wildwavefu "JS: wild wave fu - extreme dynamic nonlinear waveshaper - v0.31beta [Bangzero/wildwavefu]"
+NAME "Beaunus Scripts/JSFX/beaunus_Gravity.jsfx" "JS: Gravity"
+NAME "Beaunus Scripts/JSFX/beaunus_Offset.jsfx" "JS: Offset"
+NAME "Beaunus Scripts/JSFX/beaunus_Rectify.jsfx" "JS: Rectify"
+NAME "Beaunus Scripts/JSFX/beaunus_Wave Shaper.jsfx" "JS: Wave Shaper"
+NAME "BinbinHfr Scripts/Jsfx/bbh_midi_compressor.jsfx" "JS: Bbh MIDI Velocity Compressor with AutoGain"
+NAME "BinbinHfr Scripts/Jsfx/bbh_midi_keyboard_sensitivity.jsfx" "JS: Bbh MIDI Keyboard Sensivity"
+NAME "BinbinHfr Scripts/Jsfx/bbh_midi_transpose_project.jsfx" "JS: MIDI Transpose Project"
+NAME "BinbinHfr Scripts/Jsfx/bbh_midi_transpose_track.jsfx" "JS: MIDI Transpose Track"
+NAME "BinbinHfr Scripts/Jsfx/bbh_MS_decoder_gains.jsfx" "JS: MS Decoder with separate decoding gains"
+NAME "BinbinHfr Scripts/Jsfx/bbh_MS_encoder_gains.jsfx" "JS: MS Encoder with separate encoding gains"
+NAME "BirdBird ReaScript Testing/Global Sampler/BirdBird_Global Sampler.jsfx" "JS: Global Sampler"
+NAME "BirdBird ReaScript Testing/Very Important Compressor/BirdBird_Very Important Compressor.jsfx" "JS: BirdBird Very Important Compressor"
+NAME "Boreg/MIDI Chord Memory" "JS: MIDI Chord Memory."
+NAME "Boreg/MIDI Note Channel Switcher" "JS: MIDI controlled channel switcher"
+NAME "Boreg/MIDI Note Filter" "JS: Extended midi note filter."
+NAME "Boreg/MIDI Routing Matrix" "JS: MIDI routing matrix"
+NAME "Boreg/MIDI Transpose" "JS: switchable MIDI transpose"
+NAME "Boreg/MIDI Volume Control" "JS: volume reducer"
+NAME breeder/-------- "JS: --------"
+NAME "breeder/Aftertouch to CC" "JS: Map aftertouch to CC"
+NAME "breeder/BPM Calculator" "JS: Calculate BPM to milliseconds or hertz"
+NAME "breeder/CC Mapper" "JS: MIDI CC Mapper"
+NAME "breeder/Dummy Parameters" "JS: Dummy Parameters"
+NAME "breeder/Invert CC" "JS: Invert CC value"
+NAME "breeder/MIDI Time Delay" "JS: MIDI Delay"
+NAME breeder/sequencer_megababy_nm_mod "JS: sequencer megababy - awesome sequencer v3/jnif - nandy's mod + breeder's mod"
+NAME "breeder/SWS dummy loudness graph" "JS: Dummy JS plugin for graphing loudness with SWS"
+NAME breeder/test "JS: Invert CC value [breeder/test]"
+NAME breeder/Volume "JS: Volume/Pan Smoother v5"
+NAME "BRSO Articulate/channel_articulations" "JS: Channel Articulations"
+NAME "BRSO Articulate/midi_articulate_keyswitch" "JS: MIDI channel to Keyswitch"
+NAME "BRSO Articulate/midi_articulate_keyswitch_keep_ch (modded)" "JS: MIDI channel to Keyswitch [BRSO Articulate/midi_articulate_keyswitch_keep_ch (modded)]"
+NAME "BRSO Articulate/midi_articulate_uacc_cc" "JS: MIDI channel to UACC"
+NAME "BRSO Articulate/midi_articulate_uacc_ks" "JS: MIDI channel to UACC keyswitch"
+NAME "cfillion/Sustain to note length" "JS: Sustain pedal to note length"
+NAME "chmaha Scripts/Consoles/Analog-a-licious.jsfx" "JS: Analog-a-licious Console Colors (chmaha)"
+NAME "chmaha Scripts/Consoles/Cora.jsfx" "JS: Cora Analog Circuitry (chmaha)"
+NAME "chmaha Scripts/Consoles/desk-a-docious.jsfx" "JS: Desk-a-docious Console Colors (chmaha)"
+NAME "chmaha Scripts/Consoles/Elsa.jsfx" "JS: ELSA: Extremely Light Saturation Applier (chmaha)"
+NAME "chmaha Scripts/Consoles/Eurydice_Bus.jsfx" "JS: Eurydice Console Bus (chmaha)"
+NAME "chmaha Scripts/Consoles/Eurydice_Channel.jsfx" "JS: Eurydice Console Channel (chmaha)"
+NAME "chmaha Scripts/Consoles/GenesisBus.jsfx" "JS: Genesis Console Bus (chmaha)"
+NAME "chmaha Scripts/Consoles/GenesisChannel.jsfx" "JS: Genesis Console Channel (chmaha)"
+NAME "chmaha Scripts/Consoles/MagicFairyDust.jsfx" "JS: MagicFairyDust Console Saturation (chmaha)"
+NAME "chmaha Scripts/Consoles/Orpheus_Bus_In.jsfx" "JS: Orpheus Console Bus In (chmaha)"
+NAME "chmaha Scripts/Consoles/Orpheus_Bus_Out.jsfx" "JS: Orpheus Console Bus Out (chmaha)"
+NAME "chmaha Scripts/Consoles/Orpheus_Channel_In.jsfx" "JS: Orpheus Console Channel In (chmaha)"
+NAME "chmaha Scripts/Consoles/Orpheus_Channel_Out.jsfx" "JS: Orpheus Console Channel Out (chmaha)"
+NAME "chmaha Scripts/Consoles/Orpheus_Lite_Bus.jsfx" "JS: Orpheus Lite Console Bus (chmaha)"
+NAME "chmaha Scripts/Consoles/Orpheus_Lite_Channel.jsfx" "JS: Orpheus Lite Console Channel (chmaha)"
+NAME "chmaha Scripts/Consoles/Orpheus_Sub_In.jsfx" "JS: Orpheus Console Sub|Aux In (chmaha)"
+NAME "chmaha Scripts/Consoles/Orpheus_Sub_Out.jsfx" "JS: Orpheus Console Sub|Aux Out (chmaha)"
+NAME "chmaha Scripts/Consoles/Supersonic.jsfx" "JS: Supersonic Filter (chmaha)"
+NAME "chmaha Scripts/Dithers/EssenzaDither.jsfx" "JS: Essenza Dither (chmaha)"
+NAME "chmaha Scripts/Dithers/GroovyDither.jsfx" "JS: GroovyDither (chmaha)"
+NAME "chmaha Scripts/Dithers/Nintenda.jsfx" "JS: Nintenda Dither (chmaha)"
+NAME "chmaha Scripts/Dithers/PirateDither.jsfx" "JS: PirateDither (chmaha)"
+NAME "chmaha Scripts/Dithers/ReelDither.jsfx" "JS: ReelDither (chmaha)"
+NAME "chmaha Scripts/Dithers/six-dither_sid.jsfx" "JS: Six-Dither Sid (chmaha)"
+NAME "chmaha Scripts/Dithers/Stan.jsfx" "JS: Stan Dither (chmaha)"
+NAME "chmaha Scripts/Dithers/Twilight.jsfx" "JS: Twilight Dither (chmaha)"
+NAME "chmaha Scripts/Dithers/WTFDither.jsfx" "JS: WTFDither (chmaha)"
+NAME "chmaha Scripts/Dithers/Xonnos Dither.jsfx" "JS: Xonnos Dither (chmaha)"
+NAME "chmaha Scripts/RCPlugs/RCComp.jsfx" "JS: RCCompressor"
+NAME "chmaha Scripts/RCPlugs/RCDeEss.jsfx" "JS: RCDeEss Standard  (chmaha)"
+NAME "chmaha Scripts/RCPlugs/RCDeEss_Advanced.jsfx" "JS: RCDeEss Advanced  (chmaha)"
+NAME "chmaha Scripts/RCPlugs/RCDither.jsfx" "JS: RCDither (chmaha)"
+NAME "chmaha Scripts/RCPlugs/RCEQ.jsfx" "JS: RCEQ  (chmaha)"
+NAME "chmaha Scripts/RCPlugs/RCGain.jsfx" "JS: RCGain  (chmaha)"
+NAME "chmaha Scripts/RCPlugs/RCLimiter.jsfx" "JS: RCLimiter  (chmaha)"
+NAME "chmaha Scripts/RCPlugs/RCParallelK.jsfx" "JS: RCParallelK Compressor  (chmaha)"
+NAME "chmaha Scripts/Reverbs/Bricastic.jsfx" "JS: Bricastic Reverb (chmaha)"
+NAME "chmaha Scripts/Reverbs/Bricastic2.jsfx" "JS: Bricastic2 Reverb (chmaha)"
+NAME "chmaha Scripts/Reverbs/Interstellar.jsfx" "JS: Interstellar Reverb (chmaha)"
+NAME "chmaha Scripts/Reverbs/NW8PlateReverb.jsfx" "JS: NW8 Plate Reverb (chmaha)"
+NAME "chmaha Scripts/Reverbs/PhiVerb.jsfx" "JS: PhiVerb Reverb (chmaha)"
+NAME "chmaha Scripts/Various/A-coo-sticks.jsfx" "JS: A-coo-sticks tape delay echo (chmaha)"
+NAME "chmaha Scripts/Various/AllEars.jsfx" "JS: All Ears Monitoring Utility (chmaha)"
+NAME "chmaha Scripts/Various/Altitude.jsfx" "JS: Altitude Brightness EQ (chmaha)"
+NAME "chmaha Scripts/Various/Ambrosia.jsfx" "JS: Ambrosia Tape Emulation (chmaha)"
+NAME "chmaha Scripts/Various/Amphitrite.jsfx" "JS: Amphitrite Compressor (chmaha)"
+NAME "chmaha Scripts/Various/Aurora.jsfx" "JS: Aurora Exciter (chmaha)"
+NAME "chmaha Scripts/Various/Biquadicus.jsfx" "JS: Biquadicus Biquad Filters (chmaha)"
+NAME "chmaha Scripts/Various/Buttress.jsfx" "JS: Buttress Bass (chmaha)"
+NAME "chmaha Scripts/Various/ClippySquish.jsfx" "JS: ClippySquish Compressor Soft Clipper (chmaha)"
+NAME "chmaha Scripts/Various/CoralBones.jsfx" "JS: Coral Bones Bass (chmaha)"
+NAME "chmaha Scripts/Various/Discordia.jsfx" "JS: Discordia Distortion (chmaha)"
+NAME "chmaha Scripts/Various/Domar.jsfx" "JS: Domar Brightness Acceleration Limiter (chmaha)"
+NAME "chmaha Scripts/Various/Eris.jsfx" "JS: Eris Distortion (chmaha)"
+NAME "chmaha Scripts/Various/Evolution.jsfx" "JS: Evolution Channel Strip (chmaha)"
+NAME "chmaha Scripts/Various/FILM.jsfx" "JS: FILM: Flippin' Incredible Loudness Maximizer (chmaha)"
+NAME "chmaha Scripts/Various/flattop.jsfx" "JS: Flattop Clipper (chmaha)"
+NAME "chmaha Scripts/Various/Flutternutter.jsfx" "JS: Flutternutter (chmaha)"
+NAME "chmaha Scripts/Various/Heft.jsfx" "JS: Heft Bass (chmaha)"
+NAME "chmaha Scripts/Various/Hippity Hoppity.jsfx" "JS: Hippity Hoppity Lo-Fi (chmaha)"
+NAME "chmaha Scripts/Various/Lyra.jsfx" "JS: Lyra Compressor (chmaha)"
+NAME "chmaha Scripts/Various/MadHatter.jsfx" "JS: Mad Hatter Compressor (chmaha)"
+NAME "chmaha Scripts/Various/Magnetique.jsfx" "JS: Magnétique Tape Emulation (chmaha)"
+NAME "chmaha Scripts/Various/Millie.jsfx" "JS: Millie Brightness EQ (chmaha)"
+NAME "chmaha Scripts/Various/multisine.jsfx" "JS: Multisine Chebyshev Filter (chmaha)"
+NAME "chmaha Scripts/Various/MuTube.jsfx" "JS: MuTube Compressor (chmaha)"
+NAME "chmaha Scripts/Various/Oxonia.jsfx" "JS: Oxonia Compressor (chmaha)"
+NAME "chmaha Scripts/Various/Pascal.jsfx" "JS: Pascal Compressor (chmaha)"
+NAME "chmaha Scripts/Various/Phasity.jsfx" "JS: Phasity Delay Timing Tool (chmaha)"
+NAME "chmaha Scripts/Various/port-and-lemon.jsfx" "JS: Port-and-Lemon Compressor / Gate (chmaha)"
+NAME "chmaha Scripts/Various/Reelty.jsfx" "JS: Reelty Tape Emulation (chmaha)"
+NAME "chmaha Scripts/Various/SeriouslyAmazingWidener.jsfx" "JS: SAW — Seriously Amazing Widener (chmaha)"
+NAME "chmaha Scripts/Various/SeriouslyAmazingWidener2.jsfx" "JS: SAW2 — Seriously Amazing Widener 2 (chmaha)"
+NAME "chmaha Scripts/Various/Sillons.jsfx" "JS: Sillons Vinyl Emulation (chmaha)"
+NAME "chmaha Scripts/Various/Snippity.jsfx" "JS: Snippity Soft Clipper (chmaha)"
+NAME "chmaha Scripts/Various/Solar_Wind.jsfx" "JS: Solar Wind Aural Exciter (chmaha)"
+NAME "chmaha Scripts/Various/Titan.jsfx" "JS: Titan Capacitor Distortion (chmaha)"
+NAME "chmaha Scripts/Various/Valvity.jsfx" "JS: Valvity Tube Saturation (chmaha)"
+NAME "Chris Tessmer/midi_cc2cc" "JS: MIDI CC-to-CC remapper"
+NAME "Claudiohbsantos Scripts/JSFX/CS Channel 32 Channel Mixer.jsfx" "JS: CS Channel 32 Channel Mixer [Claudiohbsantos Scripts/JSFX/CS Channel 32 Channel Mixer.jsfx]"
+NAME "Claudiohbsantos Scripts/JSFX/CS Channel Router.jsfx" "JS: CS Channel Router"
+NAME "Claudiohbsantos Scripts/JSFX/CS LR to Center Channel Send (Ch 3 Mixer).jsfx" "JS: CS LR to Center Channel Send (Ch 3 Mixer)"
+NAME "Claudiohbsantos Scripts/JSFX/CS Stereo Phase Meter.jsfx" "JS: CS Stereo Phase Meter"
+NAME "Claudiohbsantos Scripts/JSFX/CS Surround Channel Order Converter.jsfx" "JS: CS Surround Channel Order Converter"
+NAME "Claudiohbsantos Scripts/JSFX/CS Surround LFE Send.jsfx" "JS: CS Surround LFE Send"
+NAME "Commala/MIDI Filter XL" "JS: MIDI Event Filter XL"
+NAME "CS Channel 32 Channel Mixer.jsfx" "JS: CS Channel 32 Channel Mixer"
+NAME "Daniel Lumertz Scripts/Live/Layers/Layers Volume.jsfx" "JS: Layers Volume"
+NAME "DarkStar/MIDI Automation to CC" "JS: Convvert Automation to CC messages"
+NAME "DarkStar/MIDI CC Monitor" "JS: CC Monitor a08"
+NAME "DarkStar/MIDI CC Ranger" "JS: MIDI CC Ranger"
+NAME "DarkStar/MIDI Channel Filter" "JS: Filters 1 MIDI Channel or a range"
+NAME "DarkStar/MIDI Channelizer" "JS: MIDI Channelizer (d01)"
+NAME "DarkStar/MIDI Compressor" "JS: MIDI Compressor 6N"
+NAME "DarkStar/MIDI Compressor n2" "JS: MIDI Compressor 4N"
+NAME "DarkStar/MIDI Compressor n4" "JS: MIDI Compressor 4N [DarkStar/MIDI Compressor n4]"
+NAME "DarkStar/MIDI Compressor n6" "JS: MIDI Compressor 6N [DarkStar/MIDI Compressor n6]"
+NAME "DarkStar/MIDI Curver" "JS: MIDI Curver"
+NAME "DarkStar/MIDI KeyMonitor" "JS: Monitor played keys"
+NAME "DarkStar/MIDI Negative Harmony" "JS: Negative Harmony"
+NAME "DarkStar/MIDI Note Analyser" "JS: MIDI Note Analyser (d03)"
+NAME "DarkStar/MIDI Note Generator" "JS: Generate Sampling Notes (a10)"
+NAME "DarkStar/MIDI Nudge" "JS: MIDI time adjustment"
+NAME "DarkStar/MIDI Program Change Channel" "JS: Incoming Program Change messages change the MIDI channel"
+NAME "DarkStar/MIDI Program Change Split" "JS: Split MIDI on each Program Change"
+NAME "DarkStar/MIDI Recorder" "JS: Load/Playback MIDI (Alpha_03)"
+NAME "DarkStar/MIDI Remove Redundant CC" "JS: Remove redundant CC messages [v1.06]"
+NAME "DarkStar/MIDI Scale Monitor" "JS: MIDI Monitor scale playing"
+NAME "DarkStar/MIDI Velocity Ranger" "JS: MIDI Velocity Ranger"
+NAME "DarkStar/Playrate Calculator" "JS: BPM / Play Rate calculator"
+NAME Davisan/dvn-InstrumentRange "JS: Shows the range of an instrument in concert pitch or written range, and filter notes outside the range."
+NAME delay/delay "JS: Delay"
+NAME delay/delay_chfun "JS: Delay w/Stereo Bounce"
+NAME delay/delay_chorus "JS: Delay w/Chorus"
+NAME delay/delay_lowres "JS: Delay (Lo-Fi)"
+NAME delay/delay_sustain "JS: Delay w/Sustain"
+NAME delay/delay_tone "JS: Delay w/Tone Control"
+NAME delay/delay_varlen "JS: Delay w/LFO-Modulated Length"
+NAME delay/fft-delay "JS: FFT delayer"
+NAME delay/scratchy "JS: scratchy"
+NAME "delay/Time Adjustment" "JS: Time Adjustment Delay"
+NAME delay/time_adjustment "JS: Time Adjustment Delay [delay/time_adjustment]"
+NAME dynamics/general_dynamics "JS: General Dynamics (Cockos)"
+NAME dynamics/general_dynamics_track_inspector "JS: General Dynamics (Cockos) Track Inspector"
+NAME dynamics/graphical_dynamics "JS: Graphical Dynamics"
+NAME Erriez/MIDI/erriez_midi_velocity_viewer.jsfx "JS: MIDI Velocity Viewer (By Erriez) [Erriez/MIDI/erriez_midi_velocity_viewer.jsfx]"
+NAME Erriez/MIDI/erriez_midi_velocity_viewer_drums.jsfx "JS: MIDI Velocity Viewer for Drums and Percussion (By Erriez)"
+NAME Erriez/midi_velocity_viewer "JS: MIDI velocity viewer."
+NAME "ERSH plugins and effects/JSFX/ersh_agc.jsfx" "JS: AGC - Automatic Gain Control"
+NAME "ERSH plugins and effects/JSFX/ersh_cabinet_emu.jsfx" "JS: Waveshaping Overloaded Cabinet Emulator"
+NAME "ERSH plugins and effects/JSFX/ersh_simplelp6db.jsfx" "JS: Simple 1-Pole Filter (phase corrected)"
+NAME "ERSH plugins and effects/JSFX/ersh_speaker_mix.jsfx" "JS: Speaker Mix"
+NAME "ERSH plugins and effects/JSFX/ersh_TransientController2.jsfx" "JS: Transient Controller 2"
+NAME filters/autopeakfilter "JS: FFT Peak-Following Filter"
+NAME filters/bandpass "JS: band pass filter"
+NAME filters/dc_remove "JS: DC Filter"
+NAME filters/fft-filter "JS: New FFT filter"
+NAME filters/FIR_8 "JS: 8 tap FIR filter"
+NAME filters/lowpass "JS: low pass filter"
+NAME filters/mdct-filter "JS: MDCT Filter"
+NAME filters/mdct-volsweep "JS: MDCT Sweeping Filter"
+NAME filters/parametric_eq "JS: parametric equalizer"
+NAME filters/resonantlowpass "JS: Resonant Lowpass Filter"
+NAME filters/spectro_filter_paint "JS: Spectropaint Filter"
+NAME filters/sweepinglowpass "JS: Sweeping Resonant Lowpass Filter"
+NAME "FTC Tools/JSFX/Nymphes Control Freak.jsfx" "JS: Nymphes Control Freak"
+NAME "FX Devices Gain Reduction Scope.jsfx" "JS: FX Devices Gain Reduction Scope"
+NAME "FXRack - by Eugen2777/(Mix)RackMixer" "JS: (Mix)RackMixer"
+NAME FXRack/(Mix)RackMixer "JS: FXRack 1.01"
+NAME FXRack/(Split)RackSplitter "JS: FXRack 1.01 [FXRack/(Split)RackSplitter]"
+NAME "Geraint's JSFX/Delay/Atlantis-Reverb/atlantis-reverb.jsfx" "JS: Atlantis Reverb (by Geraint Luff)"
+NAME "Geraint's JSFX/Delay/Cross-Polyphonic-FM/Cross-Polyphonic-FM.jsfx" "JS: Cross-Polyphonic FM (by Geraint Luff)"
+NAME "Geraint's JSFX/Delay/Echo-Cycles/Echo-Cycles.jsfx" "JS: Echo Cycles (by Geraint Luff)"
+NAME "Geraint's JSFX/Delay/Ripple/Ripple.jsfx" "JS: Ripple Phaser (by Geraint Luff)"
+NAME "Geraint's JSFX/Delay/Spring-Box/Spring-Box.jsfx" "JS: Spring-Box Delay-Reverb (by Geraint Luff)"
+NAME "Geraint's JSFX/Delay/Stereo-Alignment-Delay/Stereo Alignment Delay.jsfx" "JS: Stereo Alignment Delay (by Geraint Luff)"
+NAME "Geraint's JSFX/Delay/Vibrato/Vibrato.jsfx" "JS: Vibrato (by Geraint Luff)"
+NAME "Geraint's JSFX/Distortion/Bad-Connection/Bad Connection.jsfx" "JS: Bad Connection (by Geraint Luff)"
+NAME "Geraint's JSFX/Distortion/Sandwich-Amp/Sandwich Amp.jsfx" "JS: Sandwich Amp Distortion (by Geraint Luff)"
+NAME "Geraint's JSFX/MIDI/Droplets/Droplets.jsfx" "JS: Droplets (by Geraint Luff) [Geraint's JSFX/MIDI/Droplets/Droplets.jsfx]"
+NAME "Geraint's JSFX/MIDI/MIDI-Gate/MIDI Gate.jsfx" "JS: MIDI Gate (by Geraint Luff) [Geraint's JSFX/MIDI/MIDI-Gate/MIDI Gate.jsfx]"
+NAME "Geraint's JSFX/MIDI/MIDI-Harmony/MIDI Harmony.jsfx" "JS: MIDI Harmony (by Geraint Luff) [Geraint's JSFX/MIDI/MIDI-Harmony/MIDI Harmony.jsfx]"
+NAME "Geraint's JSFX/Pitch Correction/Warble/Warble.jsfx" "JS: Warble - Pitch Shifter (by Geraint Luff)"
+NAME "Geraint's JSFX/Synth/Hammer-And-Chord/Hammer And Chord.jsfx" "JS: Hammer And Chord (Polyphonic Synth/Resonator by Geraint Luff)"
+NAME "Geraint's JSFX/Synth/Hammer-And-String/Hammer And String.jsfx" "JS: Hammer And String (Synth/Resonator by Geraint Luff)"
+NAME "Geraint's JSFX/Synth/Humonica/Humonica.jsfx" "JS: Humonica - Synth & Harmoniser (by Geraint Luff)"
+NAME "Geraint's JSFX/Synth/Learning-Sampler/Learning Sampler.jsfx" "JS: Learning Sampler (by Geraint Luff)"
+NAME "Geraint's JSFX/Synth/PadSynth/pad-synth.jsfx" "JS: PadSynth (by Geraint Luff)"
+NAME "Geraint's JSFX/Synth/Soft-Bell/Soft-Bell.jsfx" "JS: Soft Bell/Chime (by Geraint Luff)"
+NAME "Geraint's JSFX/Utility/Level-Meter/Level Meter.jsfx" "JS: Level Meter - LUFS (by Geraint Luff)"
+NAME "Geraint's JSFX/Utility/Panalysis/Panalysis.jsfx" "JS: Panalysis (by Geraint Luff) [Geraint's JSFX/Utility/Panalysis/Panalysis.jsfx]"
+NAME "Geraint's JSFX/Utility/Piano-Display/piano-display.jsfx" "JS: Piano Display (by Geraint Luff) [Geraint's JSFX/Utility/Piano-Display/piano-display.jsfx]"
+NAME "Geraint's JSFX/Utility/Smooth-Limiter/Smooth Limiter.jsfx" "JS: Smooth Limiter (by Geraint Luff)"
+NAME "Geraint's JSFX/Utility/Spectrum-Matcher/Spectrum Matcher.jsfx" "JS: Spectrum Matcher (by Geraint Luff)"
+NAME "Geraint's JSFX/Utility/Vocoder/Vocoder.jsfx" "JS: Vocoder (by Geraint Luff)"
+NAME Geraint/Droplets "JS: Droplets (by Geraint Luff)"
+NAME "Geraint/MIDI Gate" "JS: MIDI Gate (by Geraint Luff)"
+NAME "Geraint/MIDI Harmony" "JS: MIDI Harmony (by Geraint Luff)"
+NAME Geraint/Panalysis "JS: Panalysis (by Geraint Luff)"
+NAME "Geraint/Piano Display" "JS: Piano Display (by Geraint Luff)"
+NAME guitar/amp-model "JS: Convolution Amp/Cab Modeler"
+NAME guitar/amp-model-dual "JS: Convolution Dual Amp Modeler"
+NAME guitar/chorus "JS: Chorus"
+NAME guitar/distort-fuzz "JS: Distortion (Fuzz)"
+NAME guitar/distortion "JS: Distortion"
+NAME guitar/flanger "JS: Flanger"
+NAME guitar/phaser "JS: 4-Tap Phaser"
+NAME guitar/tremolo "JS: Tremolo"
+NAME guitar/wah "JS: Wah-Wah"
+NAME HeDa/gain "JS: volume adjustment"
+NAME HeDa/Track_Inspector "JS: Track Inspector"
+NAME Hubi/midi_cc_map_v_1 "JS: midi cc map"
+NAME "Ijijn/VI Compensator 120K" "JS: VI Compensator 120K: version 1.4.0706"
+NAME "Ijijn/VI Officer" "JS: VI Officer: version 0.7.15.0322"
+NAME "Ijijn/VI PDC Compensator" "JS: VI PDC Compensator 1.3.1204"
+NAME "Ijijn/VI Sculpt" "JS: VI Sculpt: version 1.4.0706"
+NAME "IX/DC Generator.jsfx" "JS: DC Generator"
+NAME IX/GlobalSliders.jsfx "JS: GlobalSliders (globally synchronised sliders)"
+NAME IX/MIDI_Antiflam.jsfx "JS: MIDI_Antiflam (duplicate note blocker)"
+NAME IX/MIDI_CCRider "JS: MIDI CC LFO Generator"
+NAME IX/MIDI_ChokingHazard "JS: MIDI_ChokingHazard (Note choke utility)"
+NAME IX/MIDI_DuplicateFilter "JS: MIDI Duplicate Note Filter"
+NAME IX/MIDI_HighPriority.jsfx "JS: MIDI_HighPriority (monosynth behaviour for polysynth)"
+NAME IX/MIDI_KeyMap "JS: MIDI Map To Key v2"
+NAME "IX/MIDI_KeyMap II" "JS: MIDI_KeyMap II (note mapping tool)"
+NAME IX/MIDI_KeySnap "JS: MIDI Snap To Key"
+NAME IX/MIDI_Latch "JS: MIDI_Latch (note latching tool)"
+NAME IX/MIDI_Looper "JS: MIDI_Looper"
+NAME IX/MIDI_PatchUtil "JS: MIDI_PatchUtil (bank/patch select utility)"
+NAME IX/MIDI_Probalocity "JS: MIDI_Probalocity (pattern variation generator)"
+NAME IX/MIDI_Router "JS: MIDI Router/Transpose"
+NAME IX/MIDI_SerialKiller.jsfx "JS: MIDI_SerialKiller (pass one note at a time)"
+NAME IX/MIDI_Tool "JS: MIDI Tool"
+NAME "IX/MIDI_Tool II" "JS: MIDI Tool v2"
+NAME IX/MIDI_Variant "JS: MIDI Pattern/Scale Variation Generator"
+NAME "IX/MIDI_Velocifier II" "JS: MIDI Velocity Variation Generator"
+NAME IX/MIDI_Wobulator "JS: MIDI Pitch Wheel LFO"
+NAME "IX/Mixer 8x2" "JS: 8x Mono to 1x Stereo Mixer"
+NAME IX/Mixer_8xM-1xS "JS: 8x Mono to 1x Stereo Mixer [IX/Mixer_8xM-1xS]"
+NAME IX/Mixer_8xS-1xS "JS: 8x Stereo to 1x Stereo Mixer"
+NAME IX/MuteOnStop.jsfx "JS: MuteOnStop"
+NAME IX/MuteRangeOnStop.jsfx "JS: MuteRangeOnStop"
+NAME IX/PhaseAdjustingRouter "JS: Channel Router w/Polarity"
+NAME IX/StereoPhaseInvert "JS: Channel Polarity Control"
+NAME IX/Switcher "JS: 8 channel input switcher"
+NAME IX/Switcher2 "JS: 8-Channel Input Switcher"
+NAME IX/Switcher3 "JS: Switcher3 (channel input selector)"
+NAME IX/Switcher5.jsfx "JS: Switcher5 (channel input selector)"
+NAME IX/SwixMitch "JS: SwixMitch (4x Stereo In, 2 Bus X-Fader)"
+NAME IXix/GlobalSliders "JS: Globally synchronised sliders (for parameter linking)"
+NAME "IXix/MIDI AntiFlam" "JS: MIDI Anti-flam"
+NAME "IXix/MIDI ChokingHazard" "JS: Each input note can choke (note-off) up to four other notes on separate channels"
+NAME "IXix/MIDI KeyMap II" "JS: Key re-mapping utility"
+NAME "IXix/MIDI KeySnapChord III" "JS: MIDI note constrain plus 'one finger chords' v3.1"
+NAME "IXix/MIDI Latch" "JS: Latched keys hold until next keypress."
+NAME "IXix/MIDI Looper" "JS: MIDI Looper"
+NAME "IXix/MIDI PatchUtil" "JS: Bank/Patch Select Utility"
+NAME "IXix/MIDI Probalocity" "JS: Velocity == Probability"
+NAME IXix/Switcher3 "JS: Input switcher. Useful for A/B comparisons. v3.1"
+NAME IXix/SwixMitch "JS: SwixMitch (4x Stereo In, 2 Bus X-Fader) [IXix/SwixMitch]"
+NAME IXix/SwixMitchGUI "JS: 8 Input (4 stereo), 2 Bus X-Fade Thing"
+NAME "Juan_R's Reaperism/MIDI/MIDI-floating-split.jsfx" "JS: Juan_R MIDI Floating Split"
+NAME "Juan_R's Reaperism/MIDI/MIDI-Fret-and-pick.jsfx" "JS: Juan_R MIDI Fret and pick"
+NAME "Juan_R's Reaperism/MIDI/MIDI-jrk_juan_r-stepped-pitchbend-by-semitones.jsfx" "JS: JRK/Juan_R bend by semitones"
+NAME "Juan_R's Reaperism/MIDI/MIDI-mirror-invert-keyboard.jsfx" "JS: Juan_R Keyboard Mirror/Invert"
+NAME "Juan_R's Reaperism/MIDI/MIDI-round-robin-midi_channelize.jsfx" "JS: Juan_R MIDI Round Robin Channelize Notes"
+NAME "Juan_R's Reaperism/MIDI/MIDI-round-robin-midi_transpose.jsfx" "JS: Juan_R MIDI Round Robin Transpose Notes"
+NAME "kawa Scripts/JSFX effects/kawa_GonionMeter_Ex.jsfx" "JS: Goniometer_EX"
+NAME "kawa Scripts/JSFX effects/kawa_Simple_Mid_Side.jsfx" "JS: kawa_Simple_Mid_Side_JSFX"
+NAME "kawa Scripts/JSFX effects/kawa_XY_BitCrusher.jsfx" "JS: kawa_XY_BitCrusher"
+NAME "kawa Scripts/JSFX effects/kawa_XY_Chorus.jsfx" "JS: kawa_XY_Chorus"
+NAME "kawa Scripts/JSFX effects/kawa_XY_Delay.jsfx" "JS: kawa_XY_Delay"
+NAME "kawa Scripts/JSFX effects/kawa_XY_Delay_Type2.jsfx" "JS: kawa_XY_Delay_Type2"
+NAME "kawa Scripts/JSFX effects/kawa_XY_Flanger.jsfx" "JS: kawa_XY_Flanger"
+NAME Kite/ColorSpiral "JS: midi color spiral by Kite Giedraitis / TallKite Software"
+NAME Kuus0/midi_chordmem "JS: MIDI Chord Memorizer"
+NAME Kuus0/midi_hexview "JS: MIDI Hex Grid"
+NAME Kuus0/midi_peggiator "JS: MIDI Peggiator"
+NAME Kuus0/recordist "JS: MIDI controlled record & (reverse) playback"
+NAME "LBX Plugins/1175 LBX (ZenoMOD)" "JS: 1175 Compressor (ZenoMOD)"
+NAME "LBX Plugins/Correlation Meter LBX (ZenoMOD)" "JS: Correlation Meter (ZenoMod)"
+NAME "LBX Plugins/DDC LBX (ZenoMOD)" "JS: Digital Drum Compressor (ZenoMOD)"
+NAME "LBX Plugins/Downward Expander LBX (ZenoMOD)" "JS: Downward Expander (ZenoMOD)"
+NAME "LBX Plugins/DVC2JS LBX (ZenoMOD)" "JS: Digital Versatile Compressor v2 (ZenoMOD)"
+NAME "LBX Plugins/DVCJS LBX (ZenoMOD)" "JS: Digital Versatile Compressor (ZenoMOD)"
+NAME "LBX Plugins/Dynamic Range Meter LBX (ZenoMOD)" "JS: Dynamic Range Meter (ZenoMOD)"
+NAME "LBX Plugins/Expressbus LBX (ZenoMOD)" "JS: Express Bus Compressor (ZenoMOD)"
+NAME "LBX Plugins/fairlychildish LBX (ZenoMOD)" "JS: Fairly Childish Compressor/Limiter (ZenoMOD)"
+NAME "LBX Plugins/fairlychildish2 LBX (ZenoMOD)" "JS: Fairly Childish Stereo Compressor/Limiter (ZenoMOD)"
+NAME "LBX Plugins/HBC-2 Stereo Hybrid Bus Compressor (ZenoMOD)" "JS: HBC-2 Stereo Hybrid Bus Compressor (ZenoMOD)"
+NAME "LBX Plugins/majortom LBX (ZenoMOD)" "JS: Major Tom Compressor (ZenoMOD)"
+NAME "LBX Plugins/mastertom LBX (ZenoMOD)" "JS: Master Tom Compressor (ZenoMOD)"
+NAME "LBX Plugins/MGA_JSLimiter LBX (ZenoMOD)" "JS: MGA JS Limiter (ZenoMOD)"
+NAME "LBX Plugins/MGA_JSLimiterST LBX (ZenoMOD)" "JS: MGA JS Limiter (Unlinked Stereo) (ZenoMOD)"
+NAME "LBX Plugins/np1136peaklimiter LBX (ZenoMOD)" "JS: NP1136 Peak Limiter (ZenoMOD)"
+NAME "LBX Plugins/Saike Stereo Bub II LBX (ZenoMOD).jsfx" "JS: Saike Stereo Bub II Stereoizer (ZenoMOD)"
+NAME "LBX Plugins/Saike Stereo Bub III (ZenoMOD).jsfx" "JS: Saike Stereo Bub III Stereoizer (ZenoMOD)"
+NAME "LBX Plugins/Saturation LBX (ZenoMOD)" "JS: Saturation (ZenoMOD)"
+NAME "LBX Plugins/Smooth Limiter LBX (ZenoMOD)" "JS: Smooth Limiter (by Geraint Luff) (ZenoMOD)"
+NAME "LBX Plugins/SonicAnomaly JSFX (ZenoMOD)/SLAX LBX (ZenoMOD).jsfx" "JS: S.LA.X (ZenoMOD)"
+NAME "LBX Plugins/SonicAnomaly JSFX (ZenoMOD)/VOLA2 LBX (ZenoMOD).jsfx" "JS: VOLA2 (ZenoMOD)"
+NAME "LBX Plugins/VU Meter (ZenoMOD)" "JS: VU Meter (ZenoMOD)"
+NAME "LBX Plugins/w_comp LBX (ZenoMOD)" "JS: W_Comp (ZenoMOD)"
+NAME "LBX Plugins/WaveShapingDstr LBX (ZenoMOD)" "JS: Waveshaping Distortion (ZenoMOD)"
+NAME LBX/gfxanalyzer_lbxstrippermod "JS: LBX FSA Mod"
+NAME LBX/LBX-MidiFilter "JS: LBX-MidiFilter"
+NAME LBX/LBX_CM_LRN "JS: LBX_CM_LRN"
+NAME LBX/LBX_FBOut "JS: LBX_FBOut"
+NAME LBX/LBX_FSA_MOD2 "JS: LBX FSA Mod2"
+NAME LBX/LBX_RRMIDI "JS: LBX_RRMIDI"
+NAME LBX/LBX_SKCC "JS: LBX_SKCC3"
+NAME LBX/LBX_SKCTL "JS: LBX-SKFaderBox4"
+NAME LBX/LBX_SYSXBlocker "JS: LBX_SYSXBlocker"
+NAME LBX/LBX_SYSXOut "JS: LBX_SYSXOut"
+NAME lbx_jsfx/gfxanalyzer-lbxmod "JS: Frequency Spectrum Analyzer Meter (Cockos + LBX Mod)"
+NAME lbx_jsfx/gfxanalyzer-lbxmod_SO "JS: Frequency Spectrum Analyzer Meter (Cockos + LBX Mod (SO))"
+NAME lbx_jsfx/LBX-FaderBox(32x) "JS: LBX-FaderBox(32x)"
+NAME lbx_jsfx/LBX-Insert.jsfx "JS: - LBX Insert FX -"
+NAME lbx_jsfx/LBX-WigMCVUMeter "JS: LBX WigWare Multi-channel Peak VU Meter"
+NAME lbx_jsfx/LBX_TrackUtility "JS: LBX Track Utility"
+NAME "Leandro Facchinetti/Utility/leafac_Automixer.jsfx" "JS: leafac_Automixer"
+NAME "Leandro Facchinetti/Utility/leafac_Volume (Gain) (Trim) (Mixer Control Panel - MCP) (Track Control Panel - TCP)/leafac_Volume (Gain) (Trim) (Mixer Control Panel - MCP) (Track Control Panel - TCP).jsfx" "JS: leafac_Volume (Gain) (Trim) (Mixer Control Panel - MCP) (Track Control Panel - TCP)"
+NAME "Leandro Facchinetti/Utility/leafac_Waveform/leafac_Waveform.jsfx" "JS: leafac_Waveform"
+NAME Liteon/3bandpeakfilter "JS: 3-Band Peak Filter"
+NAME Liteon/applefilter12db "JS: Apple 2-Pole Lowpass Filter"
+NAME Liteon/applefilter72db "JS: Apple 12-Pole Filter"
+NAME Liteon/bassmanager "JS: Bass Manager/Booster"
+NAME Liteon/butterworth24db "JS: Butterworth 4-Pole Filter"
+NAME Liteon/cheby24db "JS: Chebyshev 4-Pole Filter"
+NAME Liteon/deesser "JS: De-esser"
+NAME Liteon/farmodulator "JS: F/A/R Modulator"
+NAME Liteon/lo-fi "JS: Lo-Fi"
+NAME Liteon/lorenzattractor "JS: Lorenz Attractor"
+NAME Liteon/moog24db "JS: Moog 4-Pole Filter"
+NAME Liteon/nonlinear "JS: Non-Linear Processor"
+NAME Liteon/np1136peaklimiter "JS: NP1136 Peak Limiter"
+NAME Liteon/phasemetergfx "JS: Phase-Meter (Click to refresh)"
+NAME Liteon/pinknoisegen "JS: Pink Noise Generator"
+NAME Liteon/presenceeq "JS: Presence EQ"
+NAME Liteon/prngplot "JS: PRNG Plotter"
+NAME Liteon/pseudostereo "JS: MDA Pseudo-Stereo"
+NAME Liteon/rbjstereofilter12db "JS: RBJ Stereo Image Filter"
+NAME Liteon/ringmodulator "JS: Ring Modulator"
+NAME Liteon/shelvingfilter "JS: Shelving Filter"
+NAME Liteon/simplelp6db "JS: Simple 1-Pole Filter"
+NAME Liteon/sonic_enhancer "JS: Sonic Enhancer"
+NAME Liteon/statevariable "JS: State Variable Morphing Filter"
+NAME Liteon/stereotilt "JS: StereoTilt (Mono-to-Stereo)"
+NAME Liteon/tilteq "JS: Tilt Equalizer"
+NAME Liteon/tubeharmonics "JS: Tube Harmonics"
+NAME Liteon/tubeharmonics_amp "JS: Tube Harmonics ( Amp Version )"
+NAME Liteon/vumetergfx "JS: VU Meter"
+NAME Liteon/vumetergfxsum "JS: VU Meter (Summed)"
+NAME Liteon/waveshapermulti "JS: Multi Waveshaper"
+NAME loopsamplers/autoloop "JS: Auto Looper"
+NAME loopsamplers/loopsampler-granul "JS: Granular Loop Sampler"
+NAME loopsamplers/loopsampler-m2 "JS: Loop Sampler"
+NAME loopsamplers/loopsampler-m2-midi "JS: Loop Sampler w/MIDI Triggers"
+NAME loopsamplers/super8 "JS: Super8 MIDI-controlled synchronized looper (Cockos)"
+NAME loser/3BandEQ "JS: 3-Band EQ"
+NAME loser/3BandJoiner "JS: 3-Band Joiner"
+NAME loser/3BandSplitter "JS: 3-Band Splitter"
+NAME loser/4BandEQ "JS: 4-Band EQ"
+NAME loser/4BandJoiner "JS: 4-Band Joiner"
+NAME loser/4BandSplitter "JS: 4-Band Splitter"
+NAME loser/50HzKicker "JS: 50 Hz Kicker"
+NAME loser/5BandJoiner "JS: 5-Band Joiner"
+NAME loser/5BandSplitter "JS: 5-Band Splitter"
+NAME loser/amplitudeModulator "JS: Amplitude Modulator"
+NAME loser/CenterCanceler "JS: Center Canceler"
+NAME "loser/Channel Time Delay" "JS: Channel Time Delayer"
+NAME loser/Compciter "JS: Compciter"
+NAME loser/DDC "JS: Digital Drum Compressor"
+NAME loser/DVC2JS "JS: Digital Versatile Compressor v2"
+NAME loser/DVCJS "JS: Digital Versatile Compressor"
+NAME loser/Exciter "JS: Exciter"
+NAME loser/gfxGoniometer "JS: Goniometer"
+NAME loser/gmemReceive "JS: gmem Receive"
+NAME loser/gmemSend "JS: gmem Send"
+NAME loser/Goniometer "JS: Goniometer [loser/Goniometer]"
+NAME "loser/Haas Delay Pan" "JS: Time Difference Pan"
+NAME loser/masterLimiter "JS: Master Limiter"
+NAME loser/MGA_JSLimiter "JS: MGA JS Limiter"
+NAME loser/MGA_JSLimiterST "JS: MGA JS Limiter (Unlinked Stereo)"
+NAME loser/MIDI_EQ_Ducker "JS: MIDI EQ Ducker"
+NAME loser/phaseMeter "JS: Channel Phase Meter"
+NAME loser/ppp "JS: Ping Pong Pan"
+NAME loser/Saturation "JS: Saturation"
+NAME loser/SP1LimiterJS "JS: Simple Peak-1 Limiter"
+NAME loser/stereo "JS: Stereo Upmix"
+NAME "loser/Stereo Enhancer" "JS: Stereo Enhancer"
+NAME "loser/Stereo Field" "JS: Stereo Field Manipulator"
+NAME loser/stereoEnhancer "JS: Stereo Enhancer [loser/stereoEnhancer]"
+NAME loser/StereoField "JS: Stereo Field Manipulator [loser/StereoField]"
+NAME loser/TimeDelayer "JS: Channel Time Delayer [loser/TimeDelayer]"
+NAME loser/timeDifferencePan "JS: Time Difference Pan [loser/timeDifferencePan]"
+NAME loser/transhape "JS: Transhape (for Drums)"
+NAME loser/TransientController "JS: Transient Controller"
+NAME loser/TransientKiller "JS: Transient Killer"
+NAME loser/UpwardExpander "JS: Upward Expander"
+NAME loser/waveShapingDstr "JS: Waveshaping Distortion"
+NAME loser/WhiteNoise "JS: White Noise Generator"
+NAME loser/ZeroCrossingMaximizer "JS: Zero Crossing Maximizer"
+NAME Mabian/MB_Filter2 "JS: MB MIDI Event Filter2 (v1.0)"
+NAME Macros.jsfx "JS: Macros"
+NAME "mbncp/MIDI Note Hold" "JS: Holds each note until next note is pressed."
+NAME meters/bit_meter "JS: Bit Meter (Cockos)"
+NAME meters/dynamics_meter "JS: Dynamic Range Meter"
+NAME meters/tonemeter "JS: tone meter (left channel only) -- doesnt really work"
+NAME meters/tuner "JS: schmitt-triggering tuner"
+NAME meters/vumeter "JS: VU meter"
+NAME "midi/Drum Trigger" "JS: Audio To MIDI Drum Trigger"
+NAME midi/drumtrigger "JS: Audio To MIDI Drum Trigger [midi/drumtrigger]"
+NAME midi/MB_Filter2 "JS: MB MIDI Event Filter2 (v1.0) [midi/MB_Filter2]"
+NAME midi/MB_Note_Quantize "JS: MB Note Quantize (v1.1)"
+NAME "midi/MIDI Velocity Viewer" "JS: MIDI Velocity Viewer (By Erriez)"
+NAME midi/midi_arp "JS: MIDI Arpeggiator"
+NAME midi/midi_CC_mapper "JS: MIDI CC Mapper [midi/midi_CC_mapper]"
+NAME midi/midi_choke "JS: MIDI Choke"
+NAME midi/MIDI_ChokingHazard "JS: Each input note can choke (note-off) up to four other notes on separate channels [midi/MIDI_ChokingHazard]"
+NAME midi/midi_chorderizer "JS: MIDI Chorderizer"
+NAME midi/midi_chordkey "JS: MIDI Chord In Key"
+NAME midi/midi_delay "JS: MIDI Delay [midi/midi_delay]"
+NAME midi/midi_eater "JS: midi eater"
+NAME "midi/MIDI_KeyMap II" "JS: Key re-mapping utility [midi/MIDI_KeyMap II]"
+NAME midi/MIDI_Latch "JS: MIDI_Latch"
+NAME midi/midi_logger "JS: MIDI Logger"
+NAME midi/MIDI_Looper "JS: MIDI Looper [midi/MIDI_Looper]"
+NAME midi/midi_maptokey "JS: MIDI Map To Key"
+NAME midi/midi_note2channel "JS: MIDI Route Note To Channel"
+NAME midi/midi_note_filter "JS: MIDI Note Filter"
+NAME midi/midi_note_hold "JS: MIDI Note Hold"
+NAME midi/midi_note_repeater "JS: MIDI Note Repeater"
+NAME midi/midi_note_sanitizer "JS: MIDI note sanitizer"
+NAME midi/MIDI_PatchUtil "JS: Bank/Patch Select Utility [midi/MIDI_PatchUtil]"
+NAME midi/MIDI_Probalocity "JS: Velocity == Probability [midi/MIDI_Probalocity]"
+NAME midi/midi_transpose "JS: MIDI Transpose Notes"
+NAME midi/midi_velocitycontrol "JS: MIDI Velocity Control"
+NAME midi/midinoteondelay "JS: MIDI Note-On Delay"
+NAME midi/mtc_logger "JS: MTC Logger"
+NAME midi/program_bank_onload "JS: MIDI Program/Bank Switch on Load"
+NAME midi/sequencer_baby "JS: MIDI Sequencer Baby"
+NAME midi/sequencer_baby_v2 "JS: MIDI Sequencer Baby v2"
+NAME midi/sequencer_megababy "JS: MIDI Sequencer Megababy"
+NAME midi/sequencer_megababy_nm "JS: sequencer megababy - awesome sequencer v3/jnif - nandy's mod"
+NAME misc/adpcm_simulator "JS: ADPCM Simulator"
+NAME misc/noisegate "JS: noise gate (simple)"
+NAME misc/reverseness "JS: Delay w/Reverseness"
+NAME misc/tonifier "JS: Tonifier"
+NAME misc/tonifier2 "JS: Tonifier v2"
+NAME misc/video_sample_peeker "JS: video sample peeker"
+NAME MonkeyBars-ReaScripts/JSFX/dual_mono_volume.jsfx "JS: Dual Mono Volume"
+NAME MonkeyBars-ReaScripts/JSFX/volume_0db.jsfx "JS: Volume Adjustment 0dB"
+NAME "MPL Scripts/FX specific/mpl_RS5k_manager_MacroControls.jsfx" "JS: RS5K_manager_MacroControls"
+NAME "MPL Scripts/FX specific/mpl_RS5K_manager_MIDIBUS_choke.jsfx" "JS: RS5K_manager_MIDIBUS_choke"
+NAME "MPL Scripts/JSFX/Convert Pitch(L) Gate(R) pair from Reaktor Blocks to MIDI.jsfx" "JS: Convert Pitch(L) Gate(R) pair from Reaktor Blocks to MIDI"
+NAME "MPL Scripts/JSFX/DC offset.jsfx" "JS: DC offset"
+NAME "MPL Scripts/JSFX/MappingPanel_master.jsfx" "JS: MappingPanel_master"
+NAME "MPL Scripts/JSFX/MappingPanel_slave.jsfx" "JS: MappingPanel_slave"
+NAME "MPL Scripts/JSFX/RetrospectiveRecord_tracker.jsfx" "JS: RetrospectiveRecord_tracker"
+NAME "mrlimbic scripts/JSFX/4-ch 4-band joiner.jsfx" "JS: 4-ch 4-band joiner [mrlimbic]"
+NAME "mrlimbic scripts/JSFX/4-ch 4-band splitter.jsfx" "JS: 4-ch 4-band splitter [mrlimbic]"
+NAME "mrlimbic scripts/JSFX/4-ch limiter.jsfx" "JS: 4-ch limiter [mrlimbic]"
+NAME "mrlimbic scripts/JSFX/4-ch sidechain compressor.jsfx" "JS: 4-ch sidechain compressor [mrlimbic]"
+NAME "mrlimbic scripts/JSFX/Dopp Wobbler.jsfx" "JS: Dopp Wobbler"
+NAME "mrlimbic scripts/JSFX/MMC locate.jsfx" "JS: MMC locate"
+NAME "mrlimbic scripts/JSFX/mrlimbic_LCR_mono_panner.jsfx" "JS: LCR Panner - Simple Mono [mrlimbic]"
+NAME "mrlimbic scripts/JSFX/mrlimbic_square_pusher_distorion.jsfx" "JS: Square Pusher Distortion [mrlimbic]"
+NAME "Mustgroove/MIDI Chorderizer" "JS: mustgroove's  MIDI Chorderizer (with Neg values)"
+NAME "Nabla Tools/midi_nabla_delay" "JS: Nabla MIDI Delay"
+NAME old_unsupported/bitred "JS: bit depth reduction"
+NAME old_unsupported/dither "JS: Bit Reduction/Dither"
+NAME "pcartwright/MIDI Chord Splitter" "JS: MIDI Polyphonic Splitter"
+NAME "pcartwright/MIDI Humanizer" "JS: MIDI Velocity and Timing Humanizer (pcartwright)"
+NAME "pcartwright/MIDI Strummer" "JS: MIDI Strummer"
+NAME "pcartwright/MIDI Vocoder" 'JS: MIDI "Vocoder"'
+NAME "pcp/Let It Key (global scale tool)/Let_It_Key_(Master).jsfx" "JS: Let It Key (MASTER)"
+NAME "Phroneris/MIDI CC Swapper" "JS: MIDI CC Swapper"
+NAME pitch/fft-ps "JS: New FFT pitch-experimenter"
+NAME pitch/mdct-shift "JS: MDCT Shifter"
+NAME pitch/octavedown "JS: Pitch an Octave Down"
+NAME pitch/octaveup "JS: Pitch an Octave Up"
+NAME pitch/pitch2 "JS: Pitch Down-Shifter 2"
+NAME pitch/pitchdown "JS: Pitch Down-Shifter"
+NAME pitch/superpitch "JS: Pitch Shifter 2"
+NAME "ply Scripts/JSFX/Routing/ply_5.1 output router.jsfx" "JS: 5.1 output router"
+NAME "ply Scripts/JSFX/Routing/ply_output_switcher.jsfx" "JS: Output switcher"
+NAME "ply Scripts/Various/BricastiM7/ply_M7util.jsfx" "JS: Bricasti M7 v2 utility (ply)"
+NAME Punkduck/BreakManager "JS: Punk Duck Break Manager"
+NAME "RCJacH Scripts/JSFX/Audio/AB Comparison - 1INnOUT Stereo.jsfx" "JS: AB Comparison - 1INnOut Stereo"
+NAME "RCJacH Scripts/JSFX/Audio/AB Comparison.jsfx" "JS: AB Comparison"
+NAME "RCJacH Scripts/JSFX/Audio/NoiseBuzz.jsfx" "JS: NoiseBuzz"
+NAME "RCJacH Scripts/JSFX/Audio/RCBitRangeGain.jsfx" "JS: RCBitRangeGain"
+NAME "RCJacH Scripts/JSFX/Audio/RCEveryGain.jsfx" "JS: RCEveryGain"
+NAME "RCJacH Scripts/JSFX/Audio/RCInflator.jsfx" "JS: RCInflator"
+NAME "RCJacH Scripts/JSFX/Audio/RCNoiseBuzz.jsfx" "JS: RCNoiseBuzz"
+NAME "RCJacH Scripts/JSFX/Game/RCMShip Perfect Pitch.jsfx" "JS: RCMShip Perfect Pitch"
+NAME "RCJacH Scripts/JSFX/MIDI/midi_cc_eater.jsfx" "JS: MIDI CC Eater"
+NAME "RCJacH Scripts/JSFX/MIDI/midi_note_beat_repeater.jsfx" "JS: MIDI Note Beat Repeater [RCJacH Scripts/JSFX/MIDI/midi_note_beat_repeater.jsfx]"
+NAME "RCJacH Scripts/JSFX/MIDI/RC MIDI Channel Router.jsfx" "JS: RC MIDI Channel Router"
+NAME "RCJacH Scripts/JSFX/Synth/ReaModular/RCAutoPanner.jsfx" "JS: ReaModular - RCAutoPanner"
+NAME "RCJacH Scripts/JSFX/Synth/Tone Sweep.jsfx" "JS: Tone Sweep"
+NAME "RCJacH/MIDI Note Repeater" "JS: MIDI Note Beat Repeater"
+NAME ReaperTon-MIDIChordState "JS: ReaperTon-MIDIChordState"
+NAME "ReaTeam JSFX/Distortion/Loudener.jsfx" "JS: Loudener"
+NAME "ReaTeam JSFX/Distortion/RCInflator2_Ideal.jsfx" "JS: RCInflator 2 (Ideal Edition)"
+NAME "ReaTeam JSFX/Distortion/RCInflator2_Oxford.jsfx" "JS: RCInflator 2 (Oxford Edition)"
+NAME "ReaTeam JSFX/Distortion/rcjach_RCInflator.jsfx" "JS: RCInflator (Oxford Edition)"
+NAME "ReaTeam JSFX/Distortion/TiaR_Ze Morpho Dist.jsfx" "JS: Ze Morpho Dist"
+NAME "ReaTeam JSFX/Dynamic/ersh_Transient Controller 2.jsfx" "JS: Transient Controller 2 [ReaTeam JSFX/Dynamic/ersh_Transient Controller 2.jsfx]"
+NAME "ReaTeam JSFX/Dynamic/sinefabula_Hard Clipper.jsfx" "JS: Hard Clipper"
+NAME "ReaTeam JSFX/Filter/bellesondes_eq1979.jsfx" "JS: EQ1979"
+NAME "ReaTeam JSFX/Filter/TiaR_Lattice Filter.jsfx" "JS: Lattice Filter"
+NAME "ReaTeam JSFX/Guitar/anomaly_Bass professor MK2.jsfx" "JS: Bass professor MK2"
+NAME "ReaTeam JSFX/MIDI/bertbouwhuis_MIDI controller for S8 looper with fade in and out.jsfx" "JS: MIDI controller for S8 looper with fade in and out"
+NAME "ReaTeam JSFX/MIDI/bor-T_MIDI_XY_Pad_Controller.jsfx" "JS: MIDI XY Pad Controller (bor-T)"
+NAME "ReaTeam JSFX/MIDI/boreg_MIDI routing matrix.jsfx" "JS: MIDI routing matrix [ReaTeam JSFX/MIDI/boreg_MIDI routing matrix.jsfx]"
+NAME "ReaTeam JSFX/MIDI/cfillion_MIDI note length control.jsfx" "JS: MIDI note length control"
+NAME "ReaTeam JSFX/MIDI/cfillion_MIDI Taps Repeater.jsfx" "JS: MIDI Taps Repeater"
+NAME "ReaTeam JSFX/MIDI/cfillion_Note Duplicator.jsfx" "JS: Note Duplicator"
+NAME "ReaTeam JSFX/MIDI/cfillion_Sustain pedal to note length.jsfx" "JS: Sustain pedal to note length [ReaTeam JSFX/MIDI/cfillion_Sustain pedal to note length.jsfx]"
+NAME "ReaTeam JSFX/MIDI/ee33_Triggered Random Modal Riffer.jsfx" "JS: Triggered Random Modal Riffer"
+NAME "ReaTeam JSFX/MIDI/erantalmor_MIDI Rhythm Trainer.jsfx" "JS: MIDI Rhythm Trainer"
+NAME "ReaTeam JSFX/MIDI/juan_r_Keyboard MirrorInvert (Juan_R).jsfx" "JS: Keyboard Mirror/Invert"
+NAME "ReaTeam JSFX/MIDI/juan_r_MIDI Floating Split.jsfx" "JS: MIDI Floating Split"
+NAME "ReaTeam JSFX/MIDI/juan_r_MIDI Fret and Pick.jsfx" "JS: MIDI Fret and Pick"
+NAME "ReaTeam JSFX/MIDI/mathphreak_Learningbaby.jsfx" "JS: Learningbaby"
+NAME "ReaTeam JSFX/MIDI/MB_MIDI Event Filter.jsfx" "JS: MB MIDI Event Filter"
+NAME "ReaTeam JSFX/MIDI/MB_ReautoMate.jsfx" "JS: MB ReautoMate"
+NAME "ReaTeam JSFX/MIDI/mbncp_Legato Control.jsfx" "JS: Legato control"
+NAME "ReaTeam JSFX/MIDI/mbncp_PitchWheel.jsfx" "JS: PitchWheel Control Center"
+NAME "ReaTeam JSFX/MIDI/mschnell_MIDI CC fluctuation.jsfx" "JS: MIDI CC fluctuation"
+NAME "ReaTeam JSFX/MIDI/mschnell_MIDI glissando.jsfx" "JS: MIDI glissando"
+NAME "ReaTeam JSFX/MIDI/mschnell_MIDI MPE to single channel.jsfx" "JS: MIDI MPE to single channel"
+NAME "ReaTeam JSFX/MIDI/mschnell_MIDI PB x X.jsfx" "JS: MIDI Pitch Bend Factor"
+NAME "ReaTeam JSFX/MIDI/mschnell_MIDI route via GMEM.jsfx" "JS: MIDI route via GMEM"
+NAME "ReaTeam JSFX/MIDI/mschnell_MIDI Slider and MIDI CC.jsfx" "JS: Slider and MIDI CC"
+NAME "ReaTeam JSFX/MIDI/mschnell_Note On under X velocity to Note Off and send All Notes Off.jsfx" "JS: Note On under X velocity to Note Off and send All Notes Off"
+NAME "ReaTeam JSFX/MIDI/mschnell_Send All Notes Off.jsfx" "JS: Send All Notes Off"
+NAME "ReaTeam JSFX/MIDI/mschnell_Slider to MIDI NRPM.jsfx" "JS: Slider to MIDI NRPM"
+NAME "ReaTeam JSFX/MIDI/mschnell_XY Pad.jsfx" "JS: XY Pad"
+NAME "ReaTeam JSFX/MIDI/polgo_MIDI Envelocity.jsfx" "JS: MIDI Envelocity"
+NAME "ReaTeam JSFX/MIDI/polgo_MIDI Varocity.jsfx" "JS: MIDI Varocity"
+NAME "ReaTeam JSFX/MIDI/rekseffeks_MIDI CC to pitchbend.jsfx" "JS: MIDI CC to pitchbend"
+NAME "ReaTeam JSFX/MIDI/talagan_MIDI CC Bistate Button.jsfx" "JS: MIDI CC Bistate Button"
+NAME "ReaTeam JSFX/MIDI/talagan_MIDI CC Mapper X.jsfx" "JS: MIDI CC Mapper X"
+NAME "ReaTeam JSFX/MIDI/TJA_MIDI note-banked CC multiplier.jsfx" "JS: MIDI note-banked CC multiplier"
+NAME "ReaTeam JSFX/MIDI/TJA_MIDI Performer2.jsfx" "JS: MIDI Performer2"
+NAME "ReaTeam JSFX/MIDI/urtzurd_MIDI Glissando.jsfx" "JS: MIDI Glissando"
+NAME "ReaTeam JSFX/MIDI/willdevelop_every_note_the_same.jsfx" "JS: every_note_the_same"
+NAME "ReaTeam JSFX/MIDI/willdevelop_MIDI every note the same.jsfx" "JS: MIDI every note the same"
+NAME "ReaTeam JSFX/MIDI/willdevelop_MIDI Note Repeater [Default Key Map B1 - A4].jsfx" "JS: MIDI Note Repeater [Default Key Map B1 - A4]"
+NAME "ReaTeam JSFX/MIDI/willdevelop_MIDI Velocity Filter.jsfx" "JS: MIDI Velocity Filter"
+NAME "ReaTeam JSFX/MIDI/XQ_Drum Converter.jsfx" "JS: Drum Converter"
+NAME "ReaTeam JSFX/MIDI/XQ_Drum Deviator.jsfx" "JS: Drum Deviator"
+NAME "ReaTeam JSFX/MIDI/XQ_Drum Equalizer.jsfx" "JS: Drum Equalizer"
+NAME "ReaTeam JSFX/Misc/brumbear_LiveBeatRepeater.jsfx" "JS: LiveBeatRepeater"
+NAME "ReaTeam JSFX/Misc/brumbear_LiveScrubberDucky.jsfx" "JS: LiveScrubberDucky"
+NAME "ReaTeam JSFX/Misc/TiaR_PM_Resynth.jsfx" "JS: MIDI PM Resynth"
+NAME "ReaTeam JSFX/Modulation/mschnell_Delay_Modulator.jsfx" "JS: Delay Modulator"
+NAME "ReaTeam JSFX/Modulation/TiaR_ChopChop.jsfx" "JS: Stereo Chop chop"
+NAME "ReaTeam JSFX/Modulation/TiaR_Ze Big Chorus.jsfx" "JS: Ze Big Chorus"
+NAME "ReaTeam JSFX/Modulation/TiaR_Ze Little Scanner Chorus.jsfx" "JS: Ze Scanner Chorus"
+NAME "ReaTeam JSFX/Reverb/TiaR_HadamVerb.jsfx" "JS: Hadamard Variable Delay Array"
+NAME "ReaTeam JSFX/Routing/MDF_51 to DMS.jsfx" "JS: 5.1 to DoubleMidSide"
+NAME "ReaTeam JSFX/Routing/MDF_DMS to 51.jsfx" "JS: DoubleMidSide to 5.1"
+NAME "ReaTeam JSFX/Routing/MDF_DMS to FOA.jsfx" "JS: DoubleMidSide to FOA"
+NAME "ReaTeam JSFX/Routing/MDF_DMS to Quad.jsfx" "JS: DoubleMidSide to Quadraphonic"
+NAME "ReaTeam JSFX/Routing/MDF_DMS to Stereo.jsfx" "JS: DoubleMidSide to Stereo"
+NAME "ReaTeam JSFX/Routing/MDF_FOA to DMS.jsfx" "JS: FOA to DoubleMidSide"
+NAME "ReaTeam JSFX/Routing/MDF_Quad to DMS.jsfx" "JS: Quadraphonic to DoubleMidSide"
+NAME "ReaTeam JSFX/Routing/mschnell_Midi_Route_Note_On.jsfx" "JS: Route Note On"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Amplifier.jsfx" "JS: ReaRack2 - Amplifier"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Audio-MIDI.jsfx" "JS: ReaRack2 - Audio<-->MIDI"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 EnvGen.jsfx" "JS: ReaRack2 - Envelope Generator"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 EnvMultiTool.jsfx" "JS: ReaRack2 - Envelope Multi-Tool"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Filter.jsfx" "JS: ReaRack2 - Filter"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 FilterMoog24db.jsfx" "JS: ReaRack2 - Filter Moog 24 db"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 KeyFollower.jsfx" "JS: ReaRack2 - Key Follower"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 KSDelay.jsfx" "JS: ReaRack2 - Karplus-Strong Delay"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 LFO.jsfx" "JS: ReaRack2 - LFO"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 MIDImixer.jsfx" "JS: ReaRack2 - MIDI Mixer"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Nonlinearizer.jsfx" "JS: ReaRack2 - Nonlinearizer"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 NoteFilter.jsfx" "JS: ReaRack2 - Note Filter"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 NoteScope.jsfx" "JS: ReaRack2 - Note Scope"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Oscillator-Additive.jsfx" "JS: ReaRack2 - Oscillator-Additive"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Oscillator-Noise.jsfx" "JS: ReaRack2 - Oscillator-Noise"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Oscillator-Trapezoidal.jsfx" "JS: ReaRack2 - Oscillator-Trapezoidal"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Oscillator-TwinSaw.jsfx" "JS: ReaRack2 - Oscillator-Twin-Saw"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 PolySplitter.jsfx" "JS: ReaRack2 - Poly Splitter"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/Timewaster_ReaRack2 SampleAndHold.jsfx" "JS: ReaRack2 - Sample and Hold"
+NAME "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Trigger.jsfx" "JS: ReaRack2 - Trigger"
+NAME "ReaTeam JSFX/Synth/TiaR_2op PM Synth.jsfx" "JS: 2op PM Synth"
+NAME "ReaTeam JSFX/Synth/TiaR_Chua Oscillator.jsfx" "JS: Chua Oscillator"
+NAME "ReaTeam JSFX/Synth/TiaR_Complex X Filter Synth.jsfx" "JS: Complex X Filter Synth"
+NAME "ReaTeam JSFX/Synth/TiaR_Shepard Paradoxical Synth.jsfx" "JS: Shepard Paradoxical Synth"
+NAME "ReaTeam JSFX/Synth/TiaR_Ze Cheesy Harmonic Synth.jsfx" "JS: Ze Cheesy Harmonic Synth"
+NAME "ReaTeam JSFX/Synth/TiaR_Ze DigiThArmOrgan.jsfx" "JS: Ze DigiThArmOrgan"
+NAME "ReaTeam JSFX/Synth/TiaR_Ze Musette Organ.jsfx" "JS: Ze Musette Organ"
+NAME "ReaTeam JSFX/Utility/az_Automute.jsfx" "JS: Automute"
+NAME "ReaTeam JSFX/Utility/belovw_Goniometer.jsfx" "JS: Goniometer [ReaTeam JSFX/Utility/belovw_Goniometer.jsfx]"
+NAME "ReaTeam JSFX/Utility/CoreyScogin_AutoMixer.jsfx" "JS: AutoMixer"
+NAME "ReaTeam JSFX/Utility/CoreyScogin_TimeDelayByDistance.jsfx" "JS: Time Delay by Distance"
+NAME "ReaTeam JSFX/Utility/dylanmadigan_Automatic Gain Stager.jsfx" "JS: Automatic Gain Stager"
+NAME "ReaTeam JSFX/Utility/jcgurango_MIDI Arranged Looper.jsfx" "JS: Pre-Arranged MIDI Looper"
+NAME "ReaTeam JSFX/Utility/jcgurango_Pre-Arranged Looper.jsfx" "JS: Pre-Arranged Looper"
+NAME "ReaTeam JSFX/Utility/jsh_Inline Input Viewer (MCP embedded).jsfx" "JS: Inline Input Viewer (MCP embedded)"
+NAME "ReaTeam JSFX/Utility/jw_gfxscope-beat-retrigger.jsfx" "JS: Oscilloscope w/ beat retrigger"
+NAME "ReaTeam JSFX/Utility/mschnell_Dual Time adjustment.jsfx" "JS: Dual Time adjustment +/- Delay"
+NAME "ReaTeam JSFX/Utility/mschnell_Inter Track Parameter Modulation.jsfx" "JS: Inter Track Parameter Modulation"
+NAME "ReaTeam JSFX/Utility/mschnell_Midi Auto Engage.jsfx" "JS: Midi Auto Engage"
+NAME "ReaTeam JSFX/Utility/mschnell_Midi CC Table.jsfx" "JS: Midi CC Table"
+NAME "ReaTeam JSFX/Utility/mschnell_MIDI CC2SYSEX.jsfx" "JS: MIDI CC to SysEx"
+NAME "ReaTeam JSFX/Utility/mschnell_MIDI Convert to CC.jsfx" "JS: MIDI convert to CC"
+NAME "ReaTeam JSFX/Utility/mschnell_MIDI Display 3 CCs.jsfx" "JS: MIDI Display 3 CCs"
+NAME "ReaTeam JSFX/Utility/mschnell_MIDI Display Patch Name.jsfx" "JS: MIDI Display Patch Name"
+NAME "ReaTeam JSFX/Utility/mschnell_MIDI Fade.jsfx" "JS: MIDI Fade X"
+NAME "ReaTeam JSFX/Utility/mschnell_MIDI Trigger CC.jsfx" "JS: MIDI Trigger CC"
+NAME "ReaTeam JSFX/Utility/mschnell_MIDI Volume Control.jsfx" "JS: Midi Volume Control"
+NAME "ReaTeam JSFX/Utility/mschnell_Multi_Sin_Generator.jsfx" "JS: Multi Sine Generator"
+NAME "ReaTeam JSFX/Utility/mschnell_Mute monitor when recording.jsfx" "JS: Mute monitor when recording"
+NAME "ReaTeam JSFX/Utility/mschnell_Slider to Midi PS.jsfx" "JS: Slider to Midi PS"
+NAME "ReaTeam JSFX/Utility/nofish_Volume utility +-10db (sample accurate automation).jsfx" "JS: Volume utility +-10db (sample accurate automation)"
+NAME "ReaTeam JSFX/Utility/ReaperBlog_-12dB Dim.jsfx" "JS: -12dB Dim"
+NAME "ReaTeam JSFX/Utility/ReaperBlog_Multichannel Volume Trim 2.jsfx" "JS: Multichannel Volume Trim 2"
+NAME "ReaTeam JSFX/Utility/ReaperBlog_Multichannel Volume Trim.jsfx" "JS: Multichannel Volume Trim"
+NAME "ReaTeam JSFX/Utility/TimeWaster MIDI-Mouse.jsfx" "JS: MIDI Mouse"
+NAME "ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx" "JS: VU Meter (ZenoMOD) [ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx]"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-mono-template" "JS: FFT Mono Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-mono-template]"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-stereo-template" "JS: FFT Stereo Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-stereo-template]"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pv-mono-template" "JS: Phase Vocoder Mono Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pv-mono-template]"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pv-stereo-template" "JS: Phase Vocoder Stereo Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pv-stereo-template]"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pvtrans-example" "JS: Phase Vocoder Stereo Transposer [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pvtrans-example]"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD (Mix)RackMixer.jsfx" "JS: FXD (Mix)RackMixer"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Band Joiner.jsfx" "JS: FXD Band Joiner"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Gain Reduction Scope.jsfx" "JS: FXD Gain Reduction Scope"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Macros.jsfx" "JS: FXD Macros"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD ReSpectrum.jsfx" "JS: FXD ReSpectrum"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Saike BandSplitter.jsfx" "JS: FXD Saike BandSplitter"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Split to 32 Channels.jsfx" "JS: FXD Split to 32 Channels"
+NAME "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Split To 4 Channels.jsfx" "JS: FXD Split to 4 channels"
+NAME "ReaTeam Scripts/MIDI Editor/cfillion_Step sequencing (replace mode).jsfx" "JS: Step sequencing (replace mode) by cfillion"
+NAME "ReaTeam Scripts/MIDI Editor/kl_Preset velocity/Note Preview.jsfx" "JS: Note Preview"
+NAME "ReaTeam Scripts/MIDI Editor/kl_Preset velocity/Velocity Slider.jsfx" "JS: Velocity Slider"
+NAME "Reaticulate/jsfx/Feedback Translate.jsfx" "JS: Bus Translator for MIDI Feedback (Reaticulate)"
+NAME Reaticulate/jsfx/Reaticulate.jsfx "JS: Reaticulate"
+NAME "Reddiesel41264/Multi Channel MIDI Keyswitch" "JS: Multi Channel MIDI Keyswitch"
+NAME ReJJ/ReEQ/ReEQ.jsfx "JS: ReEQ - Parametric Graphic Equalizer"
+NAME ReJJ/ReSpectrum/ReSpectrum.jsfx "JS: ReSpectrum"
+NAME "remaincalm_org/Avocado Glitch" "JS: Avocado Ducking Glitch Generator"
+NAME remaincalm_org/avocado_glitch "JS: Avocado Ducking Glitch Generator [remaincalm_org/avocado_glitch]"
+NAME "remaincalm_org/Floaty Delay" "JS: Delay (Floaty)"
+NAME remaincalm_org/floaty_delay "JS: Delay (Floaty) [remaincalm_org/floaty_delay]"
+NAME "remaincalm_org/Paranoia Mangler" "JS: Paranoia Mangler"
+NAME remaincalm_org/paranoia_mangler "JS: Paranoia Mangler [remaincalm_org/paranoia_mangler]"
+NAME "remaincalm_org/Tone Gate" "JS: Tone Gate"
+NAME remaincalm_org/tonegate "JS: Tone Gate [remaincalm_org/tonegate]"
+NAME "Saike Tools/Abyss/saike_abyss.jsfx" "JS: Abyss Reverb (Saike) [BETA]"
+NAME "Saike Tools/Amaranth/Amaranth.jsfx" "JS: Amaranth (Saike) [BETA]"
+NAME "Saike Tools/Basics/BandJoiner.jsfx" "JS: Saike BandJoiner"
+NAME "Saike Tools/Basics/BandSplitter.jsfx" "JS: Saike 4-pole BandSplitter"
+NAME "Saike Tools/Basics/BandSplitter_phasematcher.jsfx" "JS: Saike 4-pole phase matcher for IIR BandSplitter"
+NAME "Saike Tools/Basics/MS-20.jsfx" "JS: Saike MS-20 filter emulation"
+NAME "Saike Tools/Basics/Saike Stereo Bub II.jsfx" "JS: Saike Stereo Bub II Stereoizer"
+NAME "Saike Tools/Basics/Saike Stereo Bub III.jsfx" "JS: Saike Stereo Bub III Stereoizer"
+NAME "Saike Tools/Basics/Saike_Morph.jsfx" "JS: Saike Morphing Filter"
+NAME "Saike Tools/Basics/saike_never_odd_or_even.jsfx" "JS: Saike Never Odd or Even (Distortion)"
+NAME "Saike Tools/Basics/Saike_Pitch_Shift.jsfx" "JS: Saike Pitch Shifter"
+NAME "Saike Tools/Basics/Saike_Routing_Utility.jsfx" "JS: Saike Monitor Routing Utility [ALPHA]"
+NAME "Saike Tools/Basics/saike_smooth.jsfx" "JS: Saike Smooth"
+NAME "Saike Tools/Basics/Tanh_Saturator_AA.jsfx" "JS: Saike Tanh Saturation with anti aliasing"
+NAME "Saike Tools/Basics/Tight_Compressor.jsfx" "JS: Saike Tight Compressor"
+NAME "Saike Tools/Basics/ToneStacks.jsfx" "JS: Saike ToneStacks (BETA)"
+NAME "Saike Tools/Basics/Transience.jsfx" "JS: Saike Transience (transient shaper)"
+NAME "Saike Tools/Basics/wahriffic.jsfx" "JS: Saike Wahriffic"
+NAME "Saike Tools/bric-a-brac/saike_bric_a_brac.jsfx" "JS: bric-a-brac (ALPHA)"
+NAME "Saike Tools/DuskVerb/saike_duskverb.jsfx" "JS: Dusk Verb (saike) (Public alpha)"
+NAME "Saike Tools/Filther/Filther.jsfx" "JS: Filther"
+NAME "Saike Tools/FMFilter/FM Filter.jsfx" "JS: Saike FM Filter"
+NAME "Saike Tools/lavaverb/saike_lava.jsfx" "JS: Lava Reverb (Saike) [ALPHA]"
+NAME "Saike Tools/Modizer/modizer.jsfx" "JS: Mod-izer"
+NAME "Saike Tools/Nostalgizer/saike_nostalgizer.jsfx" "JS: Saike / Nostalgizer / Lo-Fi (BETA)"
+NAME "Saike Tools/NOTT/nott.jsfx" "JS: Saike Not OTT (ALPHA)"
+NAME "Saike Tools/Nuker/saike_nuker.jsfx" "JS: Saike Nuker (EARLY ALPHA - DO NOT USE)"
+NAME "Saike Tools/partials/saike_partials.jsfx" "JS: Partials (Saike)"
+NAME "Saike Tools/PhaseMangler/saike_phase_mangler.jsfx" "JS: Saike Phase Mangler (BETA)"
+NAME "Saike Tools/Poprocks/poprocks.jsfx" "JS: Pop rocks"
+NAME "Saike Tools/Ravager/Ravager_MB.jsfx" "JS: Saike Multiband Ravager (BETA)"
+NAME "Saike Tools/ReaBee/ReaBee.jsfx" "JS: ReaBee"
+NAME "Saike Tools/reajs_compatibility/Filther_compat.jsfx" "JS: Filther [ReaJS-Compatibility]"
+NAME "Saike Tools/reajs_compatibility/Saike_Pitch_Shift_compat.jsfx" "JS: Saike Pitch Shifter [ReaJS-Compatibility]"
+NAME "Saike Tools/reajs_compatibility/saike_plugins_reajs.jsfx" "JS: ReaJS Compatibility Pack"
+NAME "Saike Tools/Reflectosaurus/Reflectosaurus.jsfx" "JS: Saike Reflectosaurus (beta)"
+NAME "Saike Tools/Ripple/ripple.jsfx" "JS: Ripple"
+NAME "Saike Tools/saike_midi_arp/saike_midi_arp.jsfx" "JS: Saike MIDI ARP (beta)"
+NAME "Saike Tools/SatanVerb/SatanVerb.jsfx" "JS: Satan verb"
+NAME "Saike Tools/SequencedFX/SequencedFX.jsfx" "JS: Saike SEQS (Sequenced FX) (beta)"
+NAME "Saike Tools/SpectrumAnalyzer/SaikeMultiSpectralAnalyzer.jsfx" "JS: Saike Spectral Analyzer (beta)"
+NAME "Saike Tools/SpectrumAnalyzer/SaikeMultiSpectralAnalyzer_MK2.jsfx" "JS: Saike Spectral Analyzer (Alternative)"
+NAME "Saike Tools/SpectrumAnalyzer/StereoManipulator.jsfx" "JS: Saike StereoManipulator"
+NAME "Saike Tools/SpectrumAnalyzer/StereoSpectrumSplit.jsfx" "JS: Saike SideSpectrum Meter"
+NAME "Saike Tools/Squashman/Squashman.jsfx" "JS: Squashman (beta)"
+NAME "Saike Tools/Swellotron/Swellotron.jsfx" "JS: Saike Swellotron"
+NAME "Saike Tools/Yutani/Saike_FMFilter2.jsfx" "JS: Saike FM Filter 2"
+NAME "Saike Tools/Yutani/Saike_Yutani.jsfx" "JS: Yutani Mono Bass Synth [Saike] (BETA)"
+NAME schwa/audio_statistics "JS: Audio Statistics"
+NAME schwa/fft_splitter "JS: FFT Splitter"
+NAME schwa/gaussian_noise_generator "JS: Gaussian Noise Generator"
+NAME "schwa/MIDI Modal Randomness" "JS: MIDI Modal Randomness"
+NAME schwa/midi_examine "JS: MIDI Examiner"
+NAME schwa/midi_humanizer "JS: MIDI Velocity and Timing Humanizer"
+NAME schwa/midi_modal_randomness "JS: MIDI Modal Randomness [schwa/midi_modal_randomness]"
+NAME schwa/soft_clipper "JS: Soft Clipper/Limiter"
+NAME solarfall/ReaAnalog.txt "JS: ReaAnalog"
+NAME "SonicAnomaly JSFX/Plugins/5.1 Master Limiter.jsfx" "JS: 5.1 Master Limiter"
+NAME "SonicAnomaly JSFX/Plugins/Bass Professor Mark II.jsfx" "JS: Bass Professor Mark II"
+NAME "SonicAnomaly JSFX/Plugins/Bassprofessor.jsfx" "JS: Bass Professor"
+NAME "SonicAnomaly JSFX/Plugins/HBC-2.jsfx" "JS: HBC-2 Stereo Hybrid Bus Compressor"
+NAME "SonicAnomaly JSFX/Plugins/HBC-5.jsfx" "JS: HBC-5 5.1 Hybrid Bus Compressor"
+NAME "SonicAnomaly JSFX/Plugins/Leet Delay 2.jsfx" "JS: Leet Delay 2"
+NAME "SonicAnomaly JSFX/Plugins/QuadraCom.jsfx" "JS: QuadraCom"
+NAME "SonicAnomaly JSFX/Plugins/SEGX2 Gate.jsfx" "JS: SEGX2 Gate"
+NAME "SonicAnomaly JSFX/Plugins/Skope2.jsfx" "JS: Skope II [Build 160930]"
+NAME "SonicAnomaly JSFX/Plugins/SLAX.jsfx" "JS: S.LA.X"
+NAME "SonicAnomaly JSFX/Plugins/Stero2SurroundRotator.jsfx" "JS: Stereo To Surround Rotator [Build 20151002]"
+NAME "SonicAnomaly JSFX/Plugins/Surround Pan 2.jsfx" "JS: Surround Pan 2.1"
+NAME "SonicAnomaly JSFX/Plugins/Transpire.jsfx" "JS: Transpire"
+NAME "SonicAnomaly JSFX/Plugins/TriLeveler2.jsfx" "JS: TriLeveler2"
+NAME "SonicAnomaly JSFX/Plugins/VOLA2.jsfx" "JS: VOLA2"
+NAME "Souk21 ReaPack/JSFX/MIDI Velocity Compressor.jsfx" "JS: MIDI Velocity Compressor : Souk21"
+NAME "Souk21 ReaPack/JSFX/PlayState Mixer.jsfx" "JS: PlayState Mixer : Souk21"
+NAME "SpacemenTree/MIDI CC Transposer" "JS: MIDI CC Transposer"
+NAME "Split To 4 Channels.jsfx" "JS: Split to 4 channels"
+NAME sstillwell/1175 "JS: 1175 Compressor"
+NAME sstillwell/3x3 "JS: 3x3 EQ"
+NAME sstillwell/3x3_6dbSlope "JS: 3x3 EQ (1-Pole Crossover)"
+NAME sstillwell/4x4 "JS: 4x4 EQ"
+NAME sstillwell/autoexpand "JS: Auto Expander"
+NAME sstillwell/badbussmojo "JS: Bad Buss Mojo Waveshaper"
+NAME sstillwell/badbussmojo_aa "JS: Bad Buss Mojo Waveshaper w/AA"
+NAME sstillwell/chorus "JS: Chorus (Improved Shaping)"
+NAME sstillwell/chorus_stereo "JS: Chorus (Stereo)"
+NAME sstillwell/delay_pong "JS: Delay w/Tempo Ping-Pong"
+NAME sstillwell/delay_tempo "JS: Delay w/Tempo Length"
+NAME sstillwell/dirtsqueeze "JS: Dirt Squeeze Compressor"
+NAME sstillwell/drumtrigger "JS: Turn audio signal into velocity-sensitive drum trigger"
+NAME sstillwell/eventhorizon "JS: Event Horizon Clipper"
+NAME sstillwell/eventhorizon2 "JS: Event Horizon Limiter/Clipper"
+NAME sstillwell/exciter "JS: Exciter (Treble Enhancer)"
+NAME sstillwell/expander "JS: Downward Expander"
+NAME sstillwell/expressbus "JS: Express Bus Compressor"
+NAME sstillwell/fairlychildish "JS: Fairly Childish Compressor/Limiter"
+NAME sstillwell/fairlychildish2 "JS: Fairly Childish Stereo Compressor/Limiter"
+NAME sstillwell/flangebaby "JS: Flange Baby"
+NAME sstillwell/hpflpf "JS: RBJ Highpass/Lowpass Filters"
+NAME sstillwell/hugebooty "JS: Huge Booty Bass Enhancer"
+NAME sstillwell/louderizer "JS: Louderizer"
+NAME sstillwell/louderizer_lpf "JS: Louderizer LP"
+NAME sstillwell/majortom "JS: Major Tom Compressor"
+NAME sstillwell/mastertom "JS: Master Tom Compressor"
+NAME sstillwell/ozzifier "JS: Ozzifier Chorus"
+NAME sstillwell/randomizer "JS: MIDI Note Randomize"
+NAME sstillwell/rbj1073 "JS: RBJ 1073 EQ"
+NAME sstillwell/rbj4eq "JS: RBJ 4-Band Semi-Parametric EQ"
+NAME sstillwell/rbj7eq "JS: RBJ 7-Band Graphic EQ"
+NAME sstillwell/realoud "JS: ReaLoud"
+NAME sstillwell/realoud_lpf "JS: ReaLoud LP"
+NAME "sstillwell/Stereo Width" "JS: Stereo Width"
+NAME sstillwell/stereowidth "JS: Stereo Width [sstillwell/stereowidth]"
+NAME sstillwell/thunderkick "JS: Thunderkick"
+NAME sstillwell/volscale "JS: MIDI Velocity Scaler/Compressor"
+NAME sstillwell/width "JS: Subtractive Stereo Enhancer"
+NAME "Supermaailma/5.1 Master Limiter" "JS: 5.1 Master Limiter [Build 141218]"
+NAME Supermaailma/Growl "JS: Growl [Build 140730]"
+NAME "Supermaailma/SEG Gate" "JS: SEG - Smooth Expander Gate"
+NAME "Supermaailma/SEGX2 Gate" "JS: SEGX2 - Smooth Dual Band Expander Gate"
+NAME Supermaailma/Skope "JS: Skope [Build 140325]"
+NAME "Supermaailma/Surround Pan" "JS: Surround Pan - Stereo To 5.1"
+NAME Supermaailma/VOLA "JS: Voice Optimized Leveling Amplifier [Build 131121]"
+NAME Supermaailma/VOLA-EX "JS: VOLA-EX [Build 141013]"
+NAME Supermaailma/VOLA-EX-M "JS: VOLA-EX-M [Build 141013]"
+NAME synthesis/midi_drumseq "JS: MIDI drum sequencer"
+NAME synthesis/sine_sweep "JS: Sine Sweep Generator"
+NAME synthesis/spectral_hold "JS: Spectral Hold (Cockos)"
+NAME "synthesis/Tone Generator" "JS: Tone Generator"
+NAME synthesis/tonegenerator "JS: Tone Generator [synthesis/tonegenerator]"
+NAME "Tack Scripts/JSFX/tack_MIDI CC Sync.jsfx" "JS: CC Sync"
+NAME "Talagan/MIDI CC Mapper X" "JS: MIDI CC Mapper X (Talagan)"
+NAME Tale/ab_mono "JS: A/B two mono channels"
+NAME Tale/colored_noise "JS: Colored noise generator"
+NAME Tale/drum_synth "JS: Simple drum synth"
+NAME Tale/examples/adsr "JS: Mono synth with ADSR"
+NAME Tale/examples/array1 "JS: Last-note priority mono synth"
+NAME Tale/examples/array2 "JS: Mono/poly synth"
+NAME Tale/examples/fft_real_synth "JS: Real FFT sawtooth oscillator"
+NAME Tale/examples/fft_synth "JS: FFT sawtooth oscillator"
+NAME Tale/examples/fourier_series "JS: Fourier series square wave oscillator"
+NAME Tale/examples/lfo "JS: Tremolo [Tale/examples/lfo]"
+NAME Tale/examples/malloc "JS: Delay [Tale/examples/malloc]"
+NAME Tale/examples/midi_queue1 "JS: Simple MIDI mono synth"
+NAME Tale/examples/midi_queue2 "JS: MIDI queue mono synth"
+NAME Tale/examples/noise "JS: Pink noise generator"
+NAME Tale/examples/oversample1 "JS: Oversampled distortion"
+NAME Tale/examples/oversample2 "JS: Oversampled sawtooth oscillator"
+NAME Tale/examples/poly_blep "JS: Bandlimited sawtooth oscillator"
+NAME Tale/examples/rbj_filter "JS: Low-pass filter"
+NAME Tale/examples/rc_filter "JS: RC filter"
+NAME Tale/examples/sine "JS: Sine/cosine wave oscillator"
+NAME Tale/examples/uint "JS: Xorshift noise generator"
+NAME Tale/examples/wavetable "JS: Sine wave wavetable oscillator"
+NAME Tale/examples/window1 "JS: Low-pass windowed FIR filter"
+NAME Tale/examples/window2 "JS: Low-pass windowed FIR/FFT filter"
+NAME Tale/examples/window_viewer "JS: Window function viewer"
+NAME Tale/examples/zdf_filter "JS: Low-pass filter [Tale/examples/zdf_filter]"
+NAME Tale/midi_sustain "JS: MIDI sustain emulator"
+NAME Tale/mono_synth "JS: Simple mono/poly synth"
+NAME "Tale/Noise Generator" "JS: Colored noise generator [Tale/Noise Generator]"
+NAME Tale/poly_mono_midi_router "JS: Dynamic poly/mono MIDI router"
+NAME Tale/random_midi_notes "JS: Random MIDI note generator"
+NAME Tale/rc_filter "JS: Multimode RC filter"
+NAME Tale/tube_amp "JS: Tube amp"
+NAME "TBProAudio/AB Level Match - Control" "JS: AB Level Matching Control JSFX V3.2b (TBProAudio)"
+NAME "TBProAudio/AB Level Match - Source" "JS: AB Level Matching Source JSFX V3.2b (TB Pro Audio)"
+NAME "TBProAudio/AB Level Match Lite - Control" "JS: AB Level Matching Control JSFX V3.2b Lite (TBProAudio)"
+NAME TBProAudio/AB_LM_cntrl "JS: AB Level Matching Control JSFX V3.2b (TBProAudio) [TBProAudio/AB_LM_cntrl]"
+NAME TBProAudio/AB_LM_src "JS: AB Level Matching Source JSFX V3.2b (TB Pro Audio) [TBProAudio/AB_LM_src]"
+NAME TBProAudio/AB_LMLT_cntrl "JS: AB Level Matching Control JSFX V3.2b Lite (TBProAudio) [TBProAudio/AB_LMLT_cntrl]"
+NAME TBProAudio/AutoGainStage_cntrl "JS: AutoGainStage Control JSFX V1.8 (TBProAudio)"
+NAME TBProAudio/AutoGainStage_src "JS: AutoGainStage Source JSFX V1.8 (TB Pro Audio)"
+NAME Teej/rbj12eq-teej "JS: RBJ 12-Band EQ w/HPF"
+NAME Teej/rbj4eq-teej "JS: RBJ 4-Band Semi-Parametric EQ v2"
+NAME Teej/rbj4notch-teej "JS: RBJ 4-Band Notch Filter"
+NAME "Till/Auto-Wideness v1.0" "JS: Auto-Wideness"
+NAME "Till/Transient-driven Auto-Pan v1.0 (Receiver)" "JS: Transient-Driven Auto-Pan (Receiver)"
+NAME "Till/Transient-driven Auto-Pan v1.0 (Transmitter)" "JS: Transient-Driven Auto-Pan (Transmitter)"
+NAME "Till/Transient-driven Auto-Pan v1.1 (Receiver)" "JS: Transient-Driven Auto-Pan v1.1 (Receiver)"
+NAME "Till/Transient-driven Auto-Pan v1.1 (Transmitter)" "JS: Transient-Driven Auto-Pan v1.1 (Transmitter)"
+NAME "TJA/MIDI Keyboard Deploy" "JS: MIDI Keyboard Splitter, with Xackley Zero Tricks & TJAmods2"
+NAME "TJA/MIDI Performer" "JS: MIDI Performer"
+NAME "Tracker tools/Tracker/Hackey Trackey Channel Cycler.jsfx" "JS: Hackey Trackey Channel Cycler"
+NAME "Tracker tools/Tracker/Hackey_MIDI_Detector.jsfx" "JS: Hackey_MIDI_Detector"
+NAME "Tracker tools/Tracker/Hackey_Sample_Playback.jsfx" "JS: Hackey Trackey Sample Playback Module (pre-alpha)"
+NAME True-grue/euclid "JS: Euclidean rhythms"
+NAME True-grue/musinum "JS: Simple algorithmic music generator"
+NAME True-grue/velrand "JS: Velocity randomizer"
+NAME "Tukan/AC Trem (Tukan)" "JS: AC Trem (Tukan)"
+NAME "Tukan/Black DeNoiser S2 (Tukan)" "JS: Black DeNoiser S2 (Tukan)"
+NAME "Tukan/Blacklight Modulation S2 (Tukan)" "JS: Blacklight Modulation S2 (Tukan)"
+NAME "Tukan/Blue Compressor S2 (Tukan)" "JS: Blue Compressor S2 (Tukan)"
+NAME "Tukan/Bus Comp (Tukan)" "JS: Bus Comp (Tukan)"
+NAME "Tukan/Bus Comp S2 (Tukan)" "JS: Bus Comp S2 (Tukan)"
+NAME "Tukan/CMeter Send (Tukan)" "JS: CMeter Send (Tukan)"
+NAME "Tukan/Compressor 2 (Tukan)" "JS: Compressor 2 (Tukan)"
+NAME "Tukan/Compressor 3 (Tukan)" "JS: Compressor 3 (Tukan)"
+NAME "Tukan/ConsoleMeter (Tukan)" "JS: ConsoleMeter (Tukan)"
+NAME "Tukan/Deesser (Tukan)" "JS: Deesser (Tukan)"
+NAME "Tukan/Delaymachine (Tukan)" "JS: Delay Machine (Tukan)"
+NAME "Tukan/Delaymachine2 (Tukan)" "JS: Delay Machine2 (Tukan)"
+NAME "Tukan/DeNoiser (Tukan)" "JS: DeNoiser (Tukan)"
+NAME "Tukan/Dis-Treasure (Tukan)" "JS: Dis-Treasure (Tukan)"
+NAME "Tukan/Dis-Treasure Compact (Tukan)" "JS: Dis-Treasure Compact (Tukan)"
+NAME "Tukan/Envelope (Tukan)" "JS: Envelope Shaper (Tukan)"
+NAME "Tukan/EQ 1.1 (Tukan)" "JS: EQ1.1 (Tukan)"
+NAME "Tukan/EQT-1A (Tukan)" "JS: EQT-1A (Tukan)"
+NAME "Tukan/EQT-2Kan S2 (Tukan)" "JS: EQT-2Kan S2 (Tukan)"
+NAME "Tukan/Exciter+Sub (Tukan)" "JS: Exciter+Sub (Tukan)"
+NAME "Tukan/ExpGate 2 (Tukan)" "JS: ExpGate 2 (Tukan)"
+NAME "Tukan/Goniometer (Tukan)" "JS: Goniometer (Tukan)"
+NAME "Tukan/Green Circles Meter S2 (Tukan)" "JS: Green Circles Meter S2 (Tukan)"
+NAME "Tukan/Green Dynamic EQ S2 (Tukan)" "JS: Green Dynamic EQ S2 (Tukan)"
+NAME "Tukan/Guitar Amp (Tukan)" "JS: Guitar Amp (Tukan)"
+NAME "Tukan/Khaki Delay S2 (Tukan)" "JS: Khaki Delay S2 (Tukan)"
+NAME "Tukan/LA-1A (Tukan)" "JS: LA-1A (Tukan)"
+NAME "Tukan/LA-2KAN S2 (Tukan)" "JS: LA-2KAN S2 (Tukan)"
+NAME "Tukan/Lexikan (Tukan)" "JS: Lexikan (Tukan)"
+NAME "Tukan/Lexikan 2 (Tukan)" "JS: Lexikan 2 (Tukan)"
+NAME "Tukan/Lime Deesser S2 (Tukan)" "JS: Lime Deesser S2 (Tukan)"
+NAME "Tukan/Limiter 2 (Tukan)" "JS: Limiter 2 (Tukan)"
+NAME "Tukan/Limiter 3 (Tukan)" "JS: Limiter 3 (Tukan)"
+NAME "Tukan/Meter (Tukan)" "JS: MCP Meter (Tukan)"
+NAME "Tukan/Modulation (Tukan)" "JS: Modulation (Tukan)"
+NAME "Tukan/Modulation 2 (Tukan)" "JS: Modulation 2 (Tukan)"
+NAME "Tukan/Multiband Processor (Tukan)" "JS: Multiband Processor (Tukan)"
+NAME "Tukan/NC76 (Tukan)" "JS: NC76 (Tukan)"
+NAME "Tukan/NC76 S2 (Tukan)" "JS: NC76 S2 (Tukan)"
+NAME "Tukan/NC76B (Tukan)" "JS: NC76B (Tukan)"
+NAME "Tukan/Orange EQ S2 (Tukan)" "JS: Orange EQ S2 (Tukan)"
+NAME "Tukan/Peak Needle (Tukan)" "JS: Peak Needle 2 (Tukan)"
+NAME "Tukan/PreAmp (Tukan)" "JS: PreAmp (Tukan)"
+NAME "Tukan/Purple Gate Expander S2 (Tukan)" "JS: Purple Gate Expander S2 (Tukan)"
+NAME "Tukan/Red Lexikan S2 (Tukan)" "JS: Red Lexikan S2 (Tukan)"
+NAME Tukan/S2GFX/cookdsp/fft-mono-template "JS: FFT Mono Template"
+NAME Tukan/S2GFX/cookdsp/fft-stereo-template "JS: FFT Stereo Template"
+NAME Tukan/S2GFX/cookdsp/pv-mono-template "JS: Phase Vocoder Mono Template"
+NAME Tukan/S2GFX/cookdsp/pv-stereo-template "JS: Phase Vocoder Stereo Template"
+NAME Tukan/S2GFX/cookdsp/pvtrans-example "JS: Phase Vocoder Stereo Transposer"
+NAME "Tukan/SC Filter (Tukan)" "JS: SC Filter (Tukan)"
+NAME "Tukan/Sphinx (Tukan)" "JS: Sphinx (Tukan)"
+NAME "Tukan/SumChannel (Tukan)" "JS: SUM CHANNEL (Tukan)"
+NAME "Tukan/SumThing (Tukan)" "JS: SumThing (Tukan)"
+NAME "Tukan/SumThing SI (Tukan)" "JS: SumThing SI (Tukan)"
+NAME "Tukan/Tape (Tukan)" "JS: Tape Recorder (Tukan)"
+NAME "Tukan/Tape Recorder S2 (Tukan)" "JS: Tape Recorder S2 (Tukan)"
+NAME "Tukan/Tool (Tukan)" "JS: Tool (Tukan)"
+NAME "Tukan/Tool S2 (Tukan)" "JS: Tool S2 (Tukan)"
+NAME "Tukan/Turquoise Limiter S2 (Tukan)" "JS: Turquoise Limiter S2 (Tukan)"
+NAME "Tukan/VariBus Comp (Tukan)" "JS: VariBus Comp (Tukan)"
+NAME "Tukan/VariBus Comp S2 (Tukan)" "JS: VariBus Comp S2 (Tukan)"
+NAME "Tukan/Verb Ducker (Tukan)" "JS: Verb Ducker (Tukan)"
+NAME "Tukan/Violet Envelope Shaper S2 (Tukan)" "JS: Violet Envelope Shaper S2 (Tukan)"
+NAME utility/bufsave "JS: buffer save/restore"
+NAME utility/chanmix2 "JS: Stereo Channel Volume/Pan/Polarity Control"
+NAME utility/channel_mapper "JS: Channel Mapper-Downmixer (Cockos)"
+NAME utility/channelmixer "JS: Channel Mixer"
+NAME utility/dither_psycho "JS: Bit Reduction/Dither w/Noise Shaping"
+NAME "utility/ForRetroRec(Audio) v20151213(b1)" "JS: ForRetroRec(Audio) v20151213(b1)"
+NAME "utility/ForRetroRec(MIDI) v20151213" "JS: ForRetroRec(MIDI) v20151213"
+NAME utility/KanakaMS5 "JS: Mid/Side Decoder"
+NAME utility/KanakaMSEncoder1 "JS: Mid/Side Encoder"
+NAME utility/limiter "JS: hard limiter"
+NAME "utility/Phase Adjust" "JS: Phase Rotator"
+NAME utility/phase_adjust "JS: Phase Rotator [utility/phase_adjust]"
+NAME utility/smpte_ltc_reader "JS: SMPTE LTC Reader/Meter"
+NAME utility/vca_follow "JS: VCA Follow"
+NAME utility/vca_lead "JS: VCA Lead"
+NAME utility/volume "JS: Volume Adjustment"
+NAME utility/volume_pan "JS: Volume/Pan Smoother"
+NAME utility/volume_pan_sample_accurate_auto "JS: Volume/Pan Smoother v5 [utility/volume_pan_sample_accurate_auto]"
+NAME "utility/vVIMTC SMPTE Generator" "JS: vVIMTC Generator     (click Edit.. for help)--->"
+NAME waveshapers/graphdist "JS: Graphical Waveshaper"
+NAME waveshapers/graphdist-dyn "JS: Graphical Dynamic Waveshaper"
+NAME Whatsup/Audio_Capture "JS: capture last input"
+NAME Whatsup/Audio_Tool "JS: delay and pan controller"
+NAME Whatsup/MIDI_Capture "JS: capture last input [Whatsup/MIDI_Capture]"
+NAME Whatsup/MIDI_Delay "JS: MIDI delay"
+NAME Whatsup/MIDI_Super_ArpeggiatorGUI "JS: MIDI Super Arpeggiator (GUI version)"
+NAME Whatsup/MIDI_Tool "JS: MIDI tool - transpose, velocity, filter, router"
+NAME Whatsup/Parameter_Modulator "JS: Plugin Parameters Modulator"
+NAME Whatsup/ShowTempo "JS: Show Current Tempo"
+NAME Whatsup/Synthesizer "JS: whatsup_synthesizer"
+NAME Witti/Dynamics/w_limiter "JS: 1ms lookahead"
+NAME Witti/Dynamics/w_limiter_bpm "JS: 1ms lookahead [Witti/Dynamics/w_limiter_bpm]"
+NAME Witti/Filter/3band_eq_x "JS: lookahead 3 samples"
+NAME Witti/Filter/lowpass_resonant_13 "JS: Mono."
+NAME Witti/FX/pitcher "JS: Mono. [Witti/FX/pitcher]"
+NAME Witti/MDA/mda_3band_split "JS: Lo:1+2  Mid:3+4  Hi:5+6"
+NAME Witti/MDA/mda_de-esser "JS: Mono. [Witti/MDA/mda_de-esser]"
+NAME Witti/MDA/mda_degrade_00 "JS: Mono. [Witti/MDA/mda_degrade_00]"
+NAME Witti/MDA/mda_degrade_01 "JS: Mono. [Witti/MDA/mda_degrade_01]"
+NAME Witti/MDA/mda_rezfilter "JS: Mono. [Witti/MDA/mda_rezfilter]"
+NAME Witti/MDA/mda_shepard "JS: Mono"
+NAME Witti/ParaMod/control_slider_fine "JS: Use slider1 for parameter modulation linking."
+NAME Witti/ParaMod/control_slider_fine_2 "JS: Use slider1 for parameter modulation linking. [Witti/ParaMod/control_slider_fine_2]"
+NAME Witti/Utility/auto_level_receive "JS: Trigger0=scan ON/OFF // Trigger1=rescan // Trigger2=reset"
+NAME Witti/Utility/gain_plus "JS: Read info..."
+NAME Witti/Utility/input_selector "JS: Stereo 1+2 out, select input pair(s)"
+NAME Witti/Utility/metronome "JS: Read info... [Witti/Utility/metronome]"
+NAME Witti/Utility/metronome_midi "JS: Read info... [Witti/Utility/metronome_midi]"
+NAME Witti/Utility/mono_to_stereo "JS: Read info... [Witti/Utility/mono_to_stereo]"
+NAME Witti/Utility/MS_side_hp "JS: Read info... [Witti/Utility/MS_side_hp]"
+NAME Witti/Utility/output_selector "JS: Stereo 1+2 in, select output pair(s)"
+NAME Witti/Utility/phase_meter_cc "JS: Read info... [Witti/Utility/phase_meter_cc]"
+NAME Witti/Utility/volpan_8xS "JS: 0=all_off   ,   9=all_on"
+NAME "X-Raym MIDI Makey Makey/JSFX/X-Raym_Makey Makey MIDI Notes Channel.jsfx" "JS: Makey Makey MIDI Notes Channel"
+NAME "X-Raym MIDI Makey Makey/JSFX/X-Raym_Makey Makey MIDI Notes Map.jsfx" "JS: Makey Makey MIDI Notes Map"
+NAME "X-Raym MIDI Makey Makey/JSFX/X-Raym_Makey Makey MIDI Notes Monitor.jsfx" "JS: Makey Makey MIDI Notes Monitor"
+NAME "X-Raym MIDI Makey Makey/JSFX/X-Raym_Makey Makey MIDI Notes Velocity.jsfx" "JS: Makey Makey MIDI Notes Velocity"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_16 pads MIDI Notes Map.jsfx" "JS: 16 pads MIDI Notes Map"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_Last MIDI event monitor.jsfx" "JS: Last MIDI event monitor"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI CC Channel Router.jsfx" "JS: MIDI CC Channel Router"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI CC Mapper (-24 +24 range).jsfx" "JS: MIDI CC Mapper (-24 + 24 range)"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI note generator.jsfx" "JS: Note Generator"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI notes octave transpose shift.jsfx" "JS: MIDI Notes Octave Transpose Shift"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI notes sequence from CSV file.jsfx" "JS: MIDI notes sequence from CSV file"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI single note map.jsfx" "JS: MIDI single note map"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_Note On under X velocity to Note Off.jsfx" "JS: Note On under X velocity to Note Off"
+NAME "X-Raym Scripts/JSFX/MIDI/X-Raym_Note to CC.jsfx" "JS: Note to CC"
+NAME "X-Raym Scripts/JSFX/X-Raym_4 Mono channels switcher.jsfx" "JS: 4 Mono channels switcher"
+NAME "X-Raym Scripts/JSFX/X-Raym_4 Stereo channels switcher.jsfx" "JS: 4 stereo channels switcher"
+NAME "X-Raym Scripts/JSFX/X-Raym_Mute on loop.jsfx" "JS: Mute on loop"
+NAME "X-Raym Scripts/JSFX/X-Raym_Silence meter.jsfx" "JS: Silence Meter"
+NAME "X-Raym Scripts/JSFX/X-Raym_Tone generator with playstate.jsfx" "JS: Tone Generator with playstate"
+NAME "xeewaj/XQ Drum Converter" "JS: XQ Drum Converter"
+NAME "xeewaj/XQ Drum Deviator" "JS: XQ Drum Deviator"
+NAME "xeewaj/XQ Drum Equalizer" "JS: XQ Drum Equalizer"
+NAME "Youn/8 Channel Router" "JS: 8 Channel Router"
+NAME Youn/8-Channel-Router "JS: 8 Channel Router [Youn/8-Channel-Router]"
+NAME Youn/lfo "JS: lfo generator"
+NAME "zaibuyidao Scripts/JSFX/Articulation Map.jsfx" "JS: Articulation Map"
+NAME "zaibuyidao Scripts/JSFX/MIDI Off Velocity Limiter.jsfx" "JS: MIDI Off Velocity Limiter"
+NAME "zaibuyidao Scripts/JSFX/MIDI Route CC To Channel.jsfx" "JS: MIDI Route CC To Channel"
+NAME "zaibuyidao Scripts/JSFX/MIDI Route PC To Channel.jsfx" "JS: MIDI Route PC To Channel"
+NAME "zaibuyidao Scripts/JSFX/MIDI Transform CC.jsfx" "JS: MIDI Transform CC"
+NAME "zaibuyidao Scripts/JSFX/MIDI路由CC到通道.jsfx" "JS: MIDI路由CC到通道"
+NAME "zaibuyidao Scripts/JSFX/MIDI路由PC到通道.jsfx" "JS: MIDI路由PC到通道"
+NAME "zaibuyidao Scripts/JSFX/MIDI轉換CC.jsfx" "JS: MIDI轉換CC"
+NAME "zaibuyidao Scripts/JSFX/MIDI釋鍵限制器.jsfx" "JS: MIDI釋鍵限制器"
+NAME "zaibuyidao Scripts/JSFX/技法映射.jsfx" "JS: 技法映射"
+NAME "BinbinHfr Scripts/Jsfx/bbh_simple_gain.jsfx"
+NAME "BinbinHfr Scripts/Jsfx/bbh_simple_smooth_gain.jsfx"
+NAME Dependencies/Icon_
+NAME "FXRack - by Eugen2777/Icon_"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Bit crusher.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Broken white noise.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Burn-in speakers.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Copy channel to all channels.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Copy left to right.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Copy right to left.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_DC offset.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Enveloper.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Gain.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Invert left and right.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Invert phase.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Limiter hard clipper.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Mid-side decoder.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Mid-side encoder.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Mixdown to mono.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Mute.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Null tester.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Oscillator (Tone generator) (LFO).jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Oscilloscope.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Rectifier full-wave.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Rectifier half-wave.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_RMS.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_Stereo mixer.jsfx"
+NAME "Leandro Facchinetti/Programming Audio Effects/leafac_White noise.jsfx"
+NAME loudness_meter
+NAME "ReaTeam JSFX/Utility/ReaperBlog_Macro Controller.jsfx"
+NAME ReSpectrum.jsfx
+NAME "Saike Tools/reajs_compatibility/BandJoiner_compat.jsfx"
+NAME "Saike Tools/reajs_compatibility/BandSplitter_compat.jsfx"
+NAME "Saike Tools/reajs_compatibility/BandSplitter_phasematcher_compat.jsfx"
+NAME "Saike Tools/reajs_compatibility/nott_compat.jsfx"
+NAME "Saike Tools/reajs_compatibility/Ravager_MB_compat.jsfx"
+NAME "Saike Tools/reajs_compatibility/Reflectosaurus_compat.jsfx"
+NAME "Saike Tools/reajs_compatibility/saike_abyss_compat.jsfx"
+NAME "Saike Tools/reajs_compatibility/SequencedFX_compat.jsfx"
+NAME "Saike Tools/reajs_compatibility/Squashman_compat.jsfx"
+NAME "Saike Tools/reajs_compatibility/ToneStacks_compat.jsfx"
+NAME solarfall/ReaAnalog.sharestrip
+NAME Supermaailma/Bassprofessor
+NAME Supermaailma/Buscomp
+NAME Supermaailma/Quadracom
+NAME Supermaailma/Surrcomp
+NAME "Supermaailma/VCX Retro Compressor"
+NAME Track_Inspector
+NAME "Tukan/SNR Meter (Tukan)"
+NAME Witti/Delay/bbd_echo
+NAME Witti/Delay/delay_2_mod
+NAME Witti/Delay/delay_2_sidechain
+NAME Witti/Delay/delay_filter
+NAME Witti/Delay/delay_filter_x
+NAME Witti/Delay/delay_reverse
+NAME Witti/Delay/delay_sat_x
+NAME Witti/Delay/delay_scratchy
+NAME Witti/Delay/delay_scratchy_off
+NAME Witti/Delay/delay_tempo_2
+NAME Witti/Delay/delayline
+NAME Witti/Dynamics/channel_strip
+NAME Witti/Dynamics/channel_strip_vu
+NAME Witti/Dynamics/clipper_soft_basic
+NAME Witti/Dynamics/clipper_soft_basic_2
+NAME Witti/Dynamics/clipper_soft_basic_3
+NAME Witti/Dynamics/gate_inverted
+NAME Witti/Dynamics/gate_midi
+NAME Witti/Dynamics/gate_rms
+NAME Witti/Dynamics/softknee_clipper
+NAME Witti/Dynamics/softknee_comp
+NAME Witti/Dynamics/softknee_limiter
+NAME Witti/Dynamics/transient_shaper_db
+NAME Witti/Dynamics/w_clipper
+NAME Witti/Dynamics/w_comp
+NAME Witti/Dynamics/w_comp_auto
+NAME Witti/Dynamics/w_comp_auto_2
+NAME Witti/Dynamics/w_comp_auto_3
+NAME Witti/Dynamics/w_comp_bpm
+NAME Witti/Dynamics/w_comp_bpm_2
+NAME Witti/Dynamics/w_comp_fast
+NAME Witti/Dynamics/w_comp_feedback
+NAME Witti/Dynamics/w_comp_gate
+NAME Witti/Dynamics/w_comp_kick
+NAME Witti/Dynamics/w_comp_limit
+NAME Witti/Dynamics/w_comp_multi
+NAME Witti/Dynamics/w_comp_punch
+NAME Witti/Dynamics/w_comp_rms
+NAME Witti/Dynamics/w_comp_sat
+NAME Witti/Dynamics/w_comp_simple
+NAME Witti/Dynamics/w_comp_simple_2
+NAME Witti/Dynamics/w_comp_simple_3
+NAME Witti/Dynamics/w_comp_simple_4
+NAME Witti/Dynamics/w_comp_simple_5
+NAME Witti/Dynamics/w_comp_soft
+NAME Witti/Dynamics/w_comp_softknee
+NAME Witti/Dynamics/w_comp_stereo
+NAME Witti/Dynamics/w_comp_tube
+NAME Witti/Dynamics/w_comp_up
+NAME Witti/Dynamics/w_expander_down
+NAME Witti/Dynamics/w_gate
+NAME Witti/Dynamics/w_gate_bpm
+NAME Witti/Dynamics/w_gate_multi
+NAME Witti/Dynamics/w_limiter_2
+NAME Witti/Dynamics/w_limiter_multi
+NAME Witti/Dynamics/x_enveloper
+NAME Witti/Dynamics/x_sustainer
+NAME Witti/Filter/bass_boost
+NAME Witti/Filter/lowpass_resonant_01
+NAME Witti/Filter/lowpass_resonant_02
+NAME Witti/Filter/lowpass_resonant_03
+NAME Witti/Filter/lowpass_resonant_04
+NAME Witti/Filter/lowpass_resonant_05
+NAME Witti/Filter/lowpass_resonant_06
+NAME Witti/Filter/lowpass_resonant_07
+NAME Witti/Filter/lowpass_resonant_08
+NAME Witti/Filter/lowpass_resonant_09
+NAME Witti/Filter/lowpass_resonant_10
+NAME Witti/Filter/lowpass_resonant_11
+NAME Witti/Filter/lowpass_resonant_12
+NAME Witti/Filter/lphp_cascaded_res
+NAME Witti/Filter/MS_filter
+NAME Witti/Filter/push_pull_eq
+NAME Witti/Filter/rbj_7band_eq_guitar
+NAME Witti/Filter/rbj_filters
+NAME Witti/Filter/zoelzer_filters
+NAME Witti/Filter/zoelzer_filters_midi
+NAME Witti/FX/bitcrusher
+NAME Witti/FX/distortion_2
+NAME Witti/FX/distortion_3
+NAME Witti/FX/distortion_fold_back
+NAME Witti/FX/distortion_fuzz_2
+NAME Witti/FX/distortion_x
+NAME Witti/FX/overdrive
+NAME Witti/FX/reverb_hall_3
+NAME Witti/FX/tremolo_multi
+NAME Witti/FX/x_chorus_00
+NAME Witti/FX/x_chorus_01
+NAME Witti/FX/x_flanger
+NAME Witti/FX/x_phaser
+NAME Witti/FX/x_pitcher
+NAME "Witti/MDA/MDA Stereo"
+NAME Witti/MDA/mda_3band_eq
+NAME Witti/MDA/mda_3band_join
+NAME Witti/MDA/mda_ambience
+NAME Witti/MDA/mda_bandisto_00
+NAME Witti/MDA/mda_bandisto_01
+NAME Witti/MDA/mda_bandisto_02
+NAME Witti/MDA/mda_beatbox
+NAME Witti/MDA/mda_combo_00
+NAME Witti/MDA/mda_combo_01
+NAME Witti/MDA/mda_combo_02
+NAME Witti/MDA/mda_delay
+NAME Witti/MDA/mda_detune
+NAME Witti/MDA/mda_dither
+NAME Witti/MDA/mda_dub_delay_00
+NAME Witti/MDA/mda_dub_delay_01
+NAME Witti/MDA/mda_dub_delay_02
+NAME Witti/MDA/mda_dynamics
+NAME Witti/MDA/mda_envelope
+NAME Witti/MDA/mda_image
+NAME Witti/MDA/mda_leslie
+NAME Witti/MDA/mda_limiter
+NAME Witti/MDA/mda_loudness
+NAME Witti/MDA/mda_multiband_00
+NAME Witti/MDA/mda_multiband_01
+NAME Witti/MDA/mda_multiband_02
+NAME Witti/MDA/mda_overdrive
+NAME Witti/MDA/mda_respycho_00
+NAME Witti/MDA/mda_respycho_01
+NAME Witti/MDA/mda_respycho_02
+NAME Witti/MDA/mda_respycho_03
+NAME Witti/MDA/mda_ringmod
+NAME Witti/MDA/mda_roundpanner
+NAME Witti/MDA/mda_splitter
+NAME Witti/MDA/mda_stereo
+NAME Witti/MDA/mda_subsynth
+NAME Witti/MDA/mda_thruzero
+NAME Witti/MDA/mda_tracker
+NAME Witti/MDA/mda_transient
+NAME Witti/Midi/audio_to_cc
+NAME Witti/Midi/audio_to_cc_2
+NAME Witti/Midi/midi_cc_crossfader
+NAME Witti/Midi/midi_sfz_buddy
+NAME Witti/Midi/midi_synth1_buddy
+NAME Witti/Midi/midi_xy_pad
+NAME Witti/Midi/midi_xy_pad_2
+NAME Witti/ParaMod/delay_time_control
+NAME Witti/ParaMod/lfo_generator
+NAME Witti/PreAmpSim/tube_thingy_x
+NAME Witti/PreAmpSim/tube_thingy_x_2
+NAME Witti/PreAmpSim/tube_thingy_x_nocap
+NAME Witti/PreAmpSim/tube_thingy_x_nocap_2
+NAME Witti/Synth/provolone_32bit
+NAME Witti/Synth/RGB_mouse_00
+NAME Witti/Synth/RGB_mouse_01
+NAME Witti/Synth/synth_simple
+NAME Witti/Utility/auto_level_send
+NAME Witti/Utility/auto_mute
+NAME Witti/Utility/calc_bpm_pitch
+NAME Witti/Utility/calc_dB_to_percentage
+NAME Witti/Utility/calc_disc_space
+NAME Witti/Utility/calc_dmx_dip_switch
+NAME Witti/Utility/calc_note_to_freq
+NAME Witti/Utility/calc_perfect_tempo_00
+NAME Witti/Utility/calc_perfect_tempo_01
+NAME Witti/Utility/calc_pitch_to_playrate
+NAME Witti/Utility/calc_reasampler_probability
+NAME Witti/Utility/calc_tempo_to_playrate
+NAME Witti/Utility/calc_velocity_leveler
+NAME Witti/Utility/calc_velocity_to_dB
+NAME Witti/Utility/calc_WALTER_helper
+NAME Witti/Utility/channel_mixer_x
+NAME Witti/Utility/channel_mixer_x_meter
+NAME "Witti/Utility/Clock - Day Time"
+NAME "Witti/Utility/Clock - Project Time"
+NAME "Witti/Utility/Clock - System Time"
+NAME Witti/Utility/clock_day_time
+NAME Witti/Utility/clock_project_time
+NAME Witti/Utility/clock_system_time
+NAME Witti/Utility/color_tool
+NAME Witti/Utility/crossfade_input
+NAME Witti/Utility/crossfade_output
+NAME Witti/Utility/delta_receive
+NAME Witti/Utility/delta_send
+NAME Witti/Utility/diff_meter_receive
+NAME Witti/Utility/diff_meter_send
+NAME Witti/Utility/mono_master
+NAME Witti/Utility/mono_pass
+NAME Witti/Utility/MS_editor
+NAME Witti/Utility/MS_mixer_meter
+NAME Witti/Utility/noise_white_pink
+NAME Witti/Utility/pan_pong
+NAME Witti/Utility/pan_pong_off
+NAME Witti/Utility/receiver_x
+NAME Witti/Utility/scope_simple
+NAME Witti/Utility/sender_x
+NAME Witti/Utility/signal_gen
+NAME Witti/Utility/volpan_meter
+NAME Witti/Utility/volpan_tubes
+NAME Witti/Utility/volume_meter_3xS
+NAME Witti/Utility/volume_meter_4xS
+NAME Witti/Waveshaper/harmonics
+NAME Witti/Waveshaper/tube_thingy
+NAME Witti/Waveshaper/tube_thingy_2
+NAME Witti/Waveshaper/tube_thingy_3
+NAME Witti/Waveshaper/tube_thingy_4
+NAME Witti/Waveshaper/tube_thingy_5
+NAME Witti/Waveshaper/tube_thingy_6
+NAME Witti/Waveshaper/waveshaper_2
+NAME Witti/Waveshaper/waveshaper_2_mod
+NAME Witti/Waveshaper/waveshaper_3
+NAME Witti/Waveshaper/waveshaper_4
+NAME Witti/Waveshaper/waveshaper_5
+NAME Witti/Waveshaper/waveshaper_nonlinear
+NAME "X-Raym ReaScripts Premium Placeholders/JSFX/X-Raym_placeholder_MIDI_Single-note-analyzer.jsfx"
+NAME "X-Raym ReaScripts Premium Placeholders/JSFX/X-Raym_placeholder_Schmitt-tuner.jsfx"
+REV (Mix)RackMixer "FXRack - by Eugen2777/(Mix)RackMixer"
+REV "- LBX Insert FX -" lbx_jsfx/LBX-Insert.jsfx
+REV -------- breeder/--------
+REV "-12dB Dim" "ReaTeam JSFX/Utility/ReaperBlog_-12dB Dim.jsfx"
+REV "0=all_off   ,   9=all_on" Witti/Utility/volpan_8xS
+REV "1175 Compressor" sstillwell/1175
+REV "1175 Compressor (ZenoMOD)" "LBX Plugins/1175 LBX (ZenoMOD)"
+REV "16 pads MIDI Notes Map" "X-Raym Scripts/JSFX/MIDI/X-Raym_16 pads MIDI Notes Map.jsfx"
+REV "1ms lookahead" Witti/Dynamics/w_limiter
+REV "1ms lookahead [Witti/Dynamics/w_limiter_bpm]" Witti/Dynamics/w_limiter_bpm
+REV "2op PM Synth" "ReaTeam JSFX/Synth/TiaR_2op PM Synth.jsfx"
+REV "3-Band EQ" loser/3BandEQ
+REV "3-Band Joiner" loser/3BandJoiner
+REV "3-Band Peak Filter" Liteon/3bandpeakfilter
+REV "3-Band Splitter" loser/3BandSplitter
+REV "3x3 EQ" sstillwell/3x3
+REV "3x3 EQ (1-Pole Crossover)" sstillwell/3x3_6dbSlope
+REV "4 Mono channels switcher" "X-Raym Scripts/JSFX/X-Raym_4 Mono channels switcher.jsfx"
+REV "4 stereo channels switcher" "X-Raym Scripts/JSFX/X-Raym_4 Stereo channels switcher.jsfx"
+REV "4-Band EQ" loser/4BandEQ
+REV "4-Band Joiner" loser/4BandJoiner
+REV "4-Band Splitter" loser/4BandSplitter
+REV "4-Tap Phaser" guitar/phaser
+REV "4-ch 4-band joiner [mrlimbic]" "mrlimbic scripts/JSFX/4-ch 4-band joiner.jsfx"
+REV "4-ch 4-band splitter [mrlimbic]" "mrlimbic scripts/JSFX/4-ch 4-band splitter.jsfx"
+REV "4-ch limiter [mrlimbic]" "mrlimbic scripts/JSFX/4-ch limiter.jsfx"
+REV "4-ch sidechain compressor [mrlimbic]" "mrlimbic scripts/JSFX/4-ch sidechain compressor.jsfx"
+REV "4x4 EQ" sstillwell/4x4
+REV "5-Band Joiner" loser/5BandJoiner
+REV "5-Band Splitter" loser/5BandSplitter
+REV "5.1 Master Limiter" "SonicAnomaly JSFX/Plugins/5.1 Master Limiter.jsfx"
+REV "5.1 Master Limiter [Build 141218]" "Supermaailma/5.1 Master Limiter"
+REV "5.1 output router" "ply Scripts/JSFX/Routing/ply_5.1 output router.jsfx"
+REV "5.1 to DoubleMidSide" "ReaTeam JSFX/Routing/MDF_51 to DMS.jsfx"
+REV "50 Hz Kicker" loser/50HzKicker
+REV "8 Channel Router" "Youn/8 Channel Router"
+REV "8 Channel Router [Youn/8-Channel-Router]" Youn/8-Channel-Router
+REV "8 Input (4 stereo), 2 Bus X-Fade Thing" IXix/SwixMitchGUI
+REV "8 channel input switcher" IX/Switcher
+REV "8 tap FIR filter" filters/FIR_8
+REV "8-Channel Input Switcher" IX/Switcher2
+REV "8x Mono to 1x Stereo Mixer" "IX/Mixer 8x2"
+REV "8x Mono to 1x Stereo Mixer [IX/Mixer_8xM-1xS]" IX/Mixer_8xM-1xS
+REV "8x Stereo to 1x Stereo Mixer" IX/Mixer_8xS-1xS
+REV "A-coo-sticks tape delay echo (chmaha)" "chmaha Scripts/Various/A-coo-sticks.jsfx"
+REV "A/B two mono channels" Tale/ab_mono
+REV "AB Comparison" "RCJacH Scripts/JSFX/Audio/AB Comparison.jsfx"
+REV "AB Comparison - 1INnOut Stereo" "RCJacH Scripts/JSFX/Audio/AB Comparison - 1INnOUT Stereo.jsfx"
+REV "AB Level Matching Control JSFX V3.2b (TBProAudio)" "TBProAudio/AB Level Match - Control"
+REV "AB Level Matching Control JSFX V3.2b (TBProAudio) [TBProAudio/AB_LM_cntrl]" TBProAudio/AB_LM_cntrl
+REV "AB Level Matching Control JSFX V3.2b Lite (TBProAudio)" "TBProAudio/AB Level Match Lite - Control"
+REV "AB Level Matching Control JSFX V3.2b Lite (TBProAudio) [TBProAudio/AB_LMLT_cntrl]" TBProAudio/AB_LMLT_cntrl
+REV "AB Level Matching Source JSFX V3.2b (TB Pro Audio)" "TBProAudio/AB Level Match - Source"
+REV "AB Level Matching Source JSFX V3.2b (TB Pro Audio) [TBProAudio/AB_LM_src]" TBProAudio/AB_LM_src
+REV "AC Trem (Tukan)" "Tukan/AC Trem (Tukan)"
+REV "ADPCM Simulator" misc/adpcm_simulator
+REV "AGC - Automatic Gain Control" "ERSH plugins and effects/JSFX/ersh_agc.jsfx"
+REV "Abyss Reverb (Saike) [BETA]" "Saike Tools/Abyss/saike_abyss.jsfx"
+REV "All Ears Monitoring Utility (chmaha)" "chmaha Scripts/Various/AllEars.jsfx"
+REV "Altitude Brightness EQ (chmaha)" "chmaha Scripts/Various/Altitude.jsfx"
+REV "Amaranth (Saike) [BETA]" "Saike Tools/Amaranth/Amaranth.jsfx"
+REV "Ambrosia Tape Emulation (chmaha)" "chmaha Scripts/Various/Ambrosia.jsfx"
+REV "Amphitrite Compressor (chmaha)" "chmaha Scripts/Various/Amphitrite.jsfx"
+REV "Amplitude Modulator" loser/amplitudeModulator
+REV "Analog-a-licious Console Colors (chmaha)" "chmaha Scripts/Consoles/Analog-a-licious.jsfx"
+REV "Apple 12-Pole Filter" Liteon/applefilter72db
+REV "Apple 2-Pole Lowpass Filter" Liteon/applefilter12db
+REV "Articulation Map" "zaibuyidao Scripts/JSFX/Articulation Map.jsfx"
+REV "Atlantis Reverb (by Geraint Luff)" "Geraint's JSFX/Delay/Atlantis-Reverb/atlantis-reverb.jsfx"
+REV "Audio Statistics" schwa/audio_statistics
+REV "Audio To MIDI Drum Trigger" "midi/Drum Trigger"
+REV "Audio To MIDI Drum Trigger [midi/drumtrigger]" midi/drumtrigger
+REV "Aurora Exciter (chmaha)" "chmaha Scripts/Various/Aurora.jsfx"
+REV "Auto Expander" sstillwell/autoexpand
+REV "Auto Looper" loopsamplers/autoloop
+REV Auto-Wideness "Till/Auto-Wideness v1.0"
+REV "AutoGainStage Control JSFX V1.8 (TBProAudio)" TBProAudio/AutoGainStage_cntrl
+REV "AutoGainStage Source JSFX V1.8 (TB Pro Audio)" TBProAudio/AutoGainStage_src
+REV AutoMixer "ReaTeam JSFX/Utility/CoreyScogin_AutoMixer.jsfx"
+REV "Automatic Gain Stager" "ReaTeam JSFX/Utility/dylanmadigan_Automatic Gain Stager.jsfx"
+REV Automute "ReaTeam JSFX/Utility/az_Automute.jsfx"
+REV "Avocado Ducking Glitch Generator" "remaincalm_org/Avocado Glitch"
+REV "Avocado Ducking Glitch Generator [remaincalm_org/avocado_glitch]" remaincalm_org/avocado_glitch
+REV "BPM / Play Rate calculator" "DarkStar/Playrate Calculator"
+REV "Bad Buss Mojo Waveshaper" sstillwell/badbussmojo
+REV "Bad Buss Mojo Waveshaper w/AA" sstillwell/badbussmojo_aa
+REV "Bad Connection (by Geraint Luff)" "Geraint's JSFX/Distortion/Bad-Connection/Bad Connection.jsfx"
+REV "Bandlimited sawtooth oscillator" Tale/examples/poly_blep
+REV "Bank/Patch Select Utility" "IXix/MIDI PatchUtil"
+REV "Bank/Patch Select Utility [midi/MIDI_PatchUtil]" midi/MIDI_PatchUtil
+REV "Bass Manager/Booster" Liteon/bassmanager
+REV "Bass Professor" "SonicAnomaly JSFX/Plugins/Bassprofessor.jsfx"
+REV "Bass Professor Mark II" "SonicAnomaly JSFX/Plugins/Bass Professor Mark II.jsfx"
+REV "Bass professor MK2" "ReaTeam JSFX/Guitar/anomaly_Bass professor MK2.jsfx"
+REV "Bbh MIDI Keyboard Sensivity" "BinbinHfr Scripts/Jsfx/bbh_midi_keyboard_sensitivity.jsfx"
+REV "Bbh MIDI Velocity Compressor with AutoGain" "BinbinHfr Scripts/Jsfx/bbh_midi_compressor.jsfx"
+REV "Biquadicus Biquad Filters (chmaha)" "chmaha Scripts/Various/Biquadicus.jsfx"
+REV "BirdBird Very Important Compressor" "BirdBird ReaScript Testing/Very Important Compressor/BirdBird_Very Important Compressor.jsfx"
+REV "Bit Meter (Cockos)" meters/bit_meter
+REV "Bit Reduction/Dither" old_unsupported/dither
+REV "Bit Reduction/Dither w/Noise Shaping" utility/dither_psycho
+REV "Black DeNoiser S2 (Tukan)" "Tukan/Black DeNoiser S2 (Tukan)"
+REV "Blacklight Modulation S2 (Tukan)" "Tukan/Blacklight Modulation S2 (Tukan)"
+REV "Blue Compressor S2 (Tukan)" "Tukan/Blue Compressor S2 (Tukan)"
+REV "Bricasti M7 v2 utility (ply)" "ply Scripts/Various/BricastiM7/ply_M7util.jsfx"
+REV "Bricastic Reverb (chmaha)" "chmaha Scripts/Reverbs/Bricastic.jsfx"
+REV "Bricastic2 Reverb (chmaha)" "chmaha Scripts/Reverbs/Bricastic2.jsfx"
+REV "Bus Comp (Tukan)" "Tukan/Bus Comp (Tukan)"
+REV "Bus Comp S2 (Tukan)" "Tukan/Bus Comp S2 (Tukan)"
+REV "Bus Translator for MIDI Feedback (Reaticulate)" "Reaticulate/jsfx/Feedback Translate.jsfx"
+REV "Butterworth 4-Pole Filter" Liteon/butterworth24db
+REV "Buttress Bass (chmaha)" "chmaha Scripts/Various/Buttress.jsfx"
+REV "CC Monitor a08" "DarkStar/MIDI CC Monitor"
+REV "CC Sync" "Tack Scripts/JSFX/tack_MIDI CC Sync.jsfx"
+REV "CMeter Send (Tukan)" "Tukan/CMeter Send (Tukan)"
+REV "CS Channel 32 Channel Mixer" "CS Channel 32 Channel Mixer.jsfx"
+REV "CS Channel 32 Channel Mixer [Claudiohbsantos Scripts/JSFX/CS Channel 32 Channel Mixer.jsfx]" "Claudiohbsantos Scripts/JSFX/CS Channel 32 Channel Mixer.jsfx"
+REV "CS Channel Router" "Claudiohbsantos Scripts/JSFX/CS Channel Router.jsfx"
+REV "CS LR to Center Channel Send (Ch 3 Mixer)" "Claudiohbsantos Scripts/JSFX/CS LR to Center Channel Send (Ch 3 Mixer).jsfx"
+REV "CS Stereo Phase Meter" "Claudiohbsantos Scripts/JSFX/CS Stereo Phase Meter.jsfx"
+REV "CS Surround Channel Order Converter" "Claudiohbsantos Scripts/JSFX/CS Surround Channel Order Converter.jsfx"
+REV "CS Surround LFE Send" "Claudiohbsantos Scripts/JSFX/CS Surround LFE Send.jsfx"
+REV "Calculate BPM to milliseconds or hertz" "breeder/BPM Calculator"
+REV "Center Canceler" loser/CenterCanceler
+REV "Channel Articulations" "BRSO Articulate/channel_articulations"
+REV "Channel Mapper-Downmixer (Cockos)" utility/channel_mapper
+REV "Channel Mixer" utility/channelmixer
+REV "Channel Phase Meter" loser/phaseMeter
+REV "Channel Polarity Control" IX/StereoPhaseInvert
+REV "Channel Router w/Polarity" IX/PhaseAdjustingRouter
+REV "Channel Time Delayer" "loser/Channel Time Delay"
+REV "Channel Time Delayer [loser/TimeDelayer]" loser/TimeDelayer
+REV "Chebyshev 4-Pole Filter" Liteon/cheby24db
+REV Chorus guitar/chorus
+REV "Chorus (Improved Shaping)" sstillwell/chorus
+REV "Chorus (Stereo)" sstillwell/chorus_stereo
+REV "Chua Oscillator" "ReaTeam JSFX/Synth/TiaR_Chua Oscillator.jsfx"
+REV "ClippySquish Compressor Soft Clipper (chmaha)" "chmaha Scripts/Various/ClippySquish.jsfx"
+REV "Colored noise generator" Tale/colored_noise
+REV "Colored noise generator [Tale/Noise Generator]" "Tale/Noise Generator"
+REV Compciter loser/Compciter
+REV "Complex X Filter Synth" "ReaTeam JSFX/Synth/TiaR_Complex X Filter Synth.jsfx"
+REV "Compressor 2 (Tukan)" "Tukan/Compressor 2 (Tukan)"
+REV "Compressor 3 (Tukan)" "Tukan/Compressor 3 (Tukan)"
+REV "ConsoleMeter (Tukan)" "Tukan/ConsoleMeter (Tukan)"
+REV "Convert Pitch(L) Gate(R) pair from Reaktor Blocks to MIDI" "MPL Scripts/JSFX/Convert Pitch(L) Gate(R) pair from Reaktor Blocks to MIDI.jsfx"
+REV "Convolution Amp/Cab Modeler" guitar/amp-model
+REV "Convolution Dual Amp Modeler" guitar/amp-model-dual
+REV "Convvert Automation to CC messages" "DarkStar/MIDI Automation to CC"
+REV "Cora Analog Circuitry (chmaha)" "chmaha Scripts/Consoles/Cora.jsfx"
+REV "Coral Bones Bass (chmaha)" "chmaha Scripts/Various/CoralBones.jsfx"
+REV "Correlation Meter (ZenoMod)" "LBX Plugins/Correlation Meter LBX (ZenoMOD)"
+REV "Cross-Polyphonic FM (by Geraint Luff)" "Geraint's JSFX/Delay/Cross-Polyphonic-FM/Cross-Polyphonic-FM.jsfx"
+REV "DC Filter" filters/dc_remove
+REV "DC Generator" "IX/DC Generator.jsfx"
+REV "DC offset" "MPL Scripts/JSFX/DC offset.jsfx"
+REV De-esser Liteon/deesser
+REV "DeNoiser (Tukan)" "Tukan/DeNoiser (Tukan)"
+REV "Deesser (Tukan)" "Tukan/Deesser (Tukan)"
+REV Delay delay/delay
+REV "Delay (Floaty)" "remaincalm_org/Floaty Delay"
+REV "Delay (Floaty) [remaincalm_org/floaty_delay]" remaincalm_org/floaty_delay
+REV "Delay (Lo-Fi)" delay/delay_lowres
+REV "Delay Machine (Tukan)" "Tukan/Delaymachine (Tukan)"
+REV "Delay Machine2 (Tukan)" "Tukan/Delaymachine2 (Tukan)"
+REV "Delay Modulator" "ReaTeam JSFX/Modulation/mschnell_Delay_Modulator.jsfx"
+REV "Delay [Tale/examples/malloc]" Tale/examples/malloc
+REV "Delay w/Chorus" delay/delay_chorus
+REV "Delay w/LFO-Modulated Length" delay/delay_varlen
+REV "Delay w/Reverseness" misc/reverseness
+REV "Delay w/Stereo Bounce" delay/delay_chfun
+REV "Delay w/Sustain" delay/delay_sustain
+REV "Delay w/Tempo Length" sstillwell/delay_tempo
+REV "Delay w/Tempo Ping-Pong" sstillwell/delay_pong
+REV "Delay w/Tone Control" delay/delay_tone
+REV "Desk-a-docious Console Colors (chmaha)" "chmaha Scripts/Consoles/desk-a-docious.jsfx"
+REV "Digital Drum Compressor" loser/DDC
+REV "Digital Drum Compressor (ZenoMOD)" "LBX Plugins/DDC LBX (ZenoMOD)"
+REV "Digital Versatile Compressor" loser/DVCJS
+REV "Digital Versatile Compressor (ZenoMOD)" "LBX Plugins/DVCJS LBX (ZenoMOD)"
+REV "Digital Versatile Compressor v2" loser/DVC2JS
+REV "Digital Versatile Compressor v2 (ZenoMOD)" "LBX Plugins/DVC2JS LBX (ZenoMOD)"
+REV "Dirt Squeeze Compressor" sstillwell/dirtsqueeze
+REV "Dis-Treasure (Tukan)" "Tukan/Dis-Treasure (Tukan)"
+REV "Dis-Treasure Compact (Tukan)" "Tukan/Dis-Treasure Compact (Tukan)"
+REV "Discordia Distortion (chmaha)" "chmaha Scripts/Various/Discordia.jsfx"
+REV Distortion guitar/distortion
+REV "Distortion (Fuzz)" guitar/distort-fuzz
+REV "Domar Brightness Acceleration Limiter (chmaha)" "chmaha Scripts/Various/Domar.jsfx"
+REV "Dopp Wobbler" "mrlimbic scripts/JSFX/Dopp Wobbler.jsfx"
+REV "DoubleMidSide to 5.1" "ReaTeam JSFX/Routing/MDF_DMS to 51.jsfx"
+REV "DoubleMidSide to FOA" "ReaTeam JSFX/Routing/MDF_DMS to FOA.jsfx"
+REV "DoubleMidSide to Quadraphonic" "ReaTeam JSFX/Routing/MDF_DMS to Quad.jsfx"
+REV "DoubleMidSide to Stereo" "ReaTeam JSFX/Routing/MDF_DMS to Stereo.jsfx"
+REV "Downward Expander" sstillwell/expander
+REV "Downward Expander (ZenoMOD)" "LBX Plugins/Downward Expander LBX (ZenoMOD)"
+REV "Droplets (by Geraint Luff)" Geraint/Droplets
+REV "Droplets (by Geraint Luff) [Geraint's JSFX/MIDI/Droplets/Droplets.jsfx]" "Geraint's JSFX/MIDI/Droplets/Droplets.jsfx"
+REV "Drum Converter" "ReaTeam JSFX/MIDI/XQ_Drum Converter.jsfx"
+REV "Drum Deviator" "ReaTeam JSFX/MIDI/XQ_Drum Deviator.jsfx"
+REV "Drum Equalizer" "ReaTeam JSFX/MIDI/XQ_Drum Equalizer.jsfx"
+REV "Dual Mono Volume" MonkeyBars-ReaScripts/JSFX/dual_mono_volume.jsfx
+REV "Dual Time adjustment +/- Delay" "ReaTeam JSFX/Utility/mschnell_Dual Time adjustment.jsfx"
+REV "Dummy JS plugin for graphing loudness with SWS" "breeder/SWS dummy loudness graph"
+REV "Dummy Parameters" "breeder/Dummy Parameters"
+REV "Dusk Verb (saike) (Public alpha)" "Saike Tools/DuskVerb/saike_duskverb.jsfx"
+REV "Dynamic Range Meter" meters/dynamics_meter
+REV "Dynamic Range Meter (ZenoMOD)" "LBX Plugins/Dynamic Range Meter LBX (ZenoMOD)"
+REV "Dynamic poly/mono MIDI router" Tale/poly_mono_midi_router
+REV "ELSA: Extremely Light Saturation Applier (chmaha)" "chmaha Scripts/Consoles/Elsa.jsfx"
+REV "EQ1.1 (Tukan)" "Tukan/EQ 1.1 (Tukan)"
+REV EQ1979 "ReaTeam JSFX/Filter/bellesondes_eq1979.jsfx"
+REV "EQT-1A (Tukan)" "Tukan/EQT-1A (Tukan)"
+REV "EQT-2Kan S2 (Tukan)" "Tukan/EQT-2Kan S2 (Tukan)"
+REV "Each input note can choke (note-off) up to four other notes on separate channels" "IXix/MIDI ChokingHazard"
+REV "Each input note can choke (note-off) up to four other notes on separate channels [midi/MIDI_ChokingHazard]" midi/MIDI_ChokingHazard
+REV "Echo Cycles (by Geraint Luff)" "Geraint's JSFX/Delay/Echo-Cycles/Echo-Cycles.jsfx"
+REV "Envelope Shaper (Tukan)" "Tukan/Envelope (Tukan)"
+REV "Eris Distortion (chmaha)" "chmaha Scripts/Various/Eris.jsfx"
+REV "Essenza Dither (chmaha)" "chmaha Scripts/Dithers/EssenzaDither.jsfx"
+REV "Euclidean rhythms" True-grue/euclid
+REV "Eurydice Console Bus (chmaha)" "chmaha Scripts/Consoles/Eurydice_Bus.jsfx"
+REV "Eurydice Console Channel (chmaha)" "chmaha Scripts/Consoles/Eurydice_Channel.jsfx"
+REV "Event Horizon Clipper" sstillwell/eventhorizon
+REV "Event Horizon Limiter/Clipper" sstillwell/eventhorizon2
+REV "Evolution Channel Strip (chmaha)" "chmaha Scripts/Various/Evolution.jsfx"
+REV Exciter loser/Exciter
+REV "Exciter (Treble Enhancer)" sstillwell/exciter
+REV "Exciter+Sub (Tukan)" "Tukan/Exciter+Sub (Tukan)"
+REV "ExpGate 2 (Tukan)" "Tukan/ExpGate 2 (Tukan)"
+REV "Express Bus Compressor" sstillwell/expressbus
+REV "Express Bus Compressor (ZenoMOD)" "LBX Plugins/Expressbus LBX (ZenoMOD)"
+REV "Extended midi note filter." "Boreg/MIDI Note Filter"
+REV "F/A/R Modulator" Liteon/farmodulator
+REV "FFT Mono Template" Tukan/S2GFX/cookdsp/fft-mono-template
+REV "FFT Mono Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-mono-template]" "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-mono-template"
+REV "FFT Peak-Following Filter" filters/autopeakfilter
+REV "FFT Splitter" schwa/fft_splitter
+REV "FFT Stereo Template" Tukan/S2GFX/cookdsp/fft-stereo-template
+REV "FFT Stereo Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-stereo-template]" "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-stereo-template"
+REV "FFT delayer" delay/fft-delay
+REV "FFT sawtooth oscillator" Tale/examples/fft_synth
+REV "FILM: Flippin' Incredible Loudness Maximizer (chmaha)" "chmaha Scripts/Various/FILM.jsfx"
+REV "FOA to DoubleMidSide" "ReaTeam JSFX/Routing/MDF_FOA to DMS.jsfx"
+REV "FX Devices Gain Reduction Scope" "FX Devices Gain Reduction Scope.jsfx"
+REV "FXD (Mix)RackMixer" "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD (Mix)RackMixer.jsfx"
+REV "FXD Band Joiner" "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Band Joiner.jsfx"
+REV "FXD Gain Reduction Scope" "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Gain Reduction Scope.jsfx"
+REV "FXD Macros" "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Macros.jsfx"
+REV "FXD ReSpectrum" "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD ReSpectrum.jsfx"
+REV "FXD Saike BandSplitter" "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Saike BandSplitter.jsfx"
+REV "FXD Split to 32 Channels" "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Split to 32 Channels.jsfx"
+REV "FXD Split to 4 channels" "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Split To 4 Channels.jsfx"
+REV "FXRack 1.01" FXRack/(Mix)RackMixer
+REV "FXRack 1.01 [FXRack/(Split)RackSplitter]" FXRack/(Split)RackSplitter
+REV "Fairly Childish Compressor/Limiter" sstillwell/fairlychildish
+REV "Fairly Childish Compressor/Limiter (ZenoMOD)" "LBX Plugins/fairlychildish LBX (ZenoMOD)"
+REV "Fairly Childish Stereo Compressor/Limiter" sstillwell/fairlychildish2
+REV "Fairly Childish Stereo Compressor/Limiter (ZenoMOD)" "LBX Plugins/fairlychildish2 LBX (ZenoMOD)"
+REV "Filters 1 MIDI Channel or a range" "DarkStar/MIDI Channel Filter"
+REV Filther "Saike Tools/Filther/Filther.jsfx"
+REV "Filther [ReaJS-Compatibility]" "Saike Tools/reajs_compatibility/Filther_compat.jsfx"
+REV "Flange Baby" sstillwell/flangebaby
+REV Flanger guitar/flanger
+REV "Flattop Clipper (chmaha)" "chmaha Scripts/Various/flattop.jsfx"
+REV "Flutternutter (chmaha)" "chmaha Scripts/Various/Flutternutter.jsfx"
+REV "ForRetroRec(Audio) v20151213(b1)" "utility/ForRetroRec(Audio) v20151213(b1)"
+REV "ForRetroRec(MIDI) v20151213" "utility/ForRetroRec(MIDI) v20151213"
+REV "Fourier series square wave oscillator" Tale/examples/fourier_series
+REV "Frequency Spectrum Analyzer Meter (Cockos + LBX Mod (SO))" lbx_jsfx/gfxanalyzer-lbxmod_SO
+REV "Frequency Spectrum Analyzer Meter (Cockos + LBX Mod)" lbx_jsfx/gfxanalyzer-lbxmod
+REV "Frequency Spectrum Analyzer Meter (Cockos)" analysis/gfxanalyzer
+REV "Gain Reduction Scope (Cockos)" analysis/gain_reduction_scope
+REV "Gaussian Noise Generator" schwa/gaussian_noise_generator
+REV "General Dynamics (Cockos)" dynamics/general_dynamics
+REV "General Dynamics (Cockos) Track Inspector" dynamics/general_dynamics_track_inspector
+REV "Generate Sampling Notes (a10)" "DarkStar/MIDI Note Generator"
+REV "Genesis Console Bus (chmaha)" "chmaha Scripts/Consoles/GenesisBus.jsfx"
+REV "Genesis Console Channel (chmaha)" "chmaha Scripts/Consoles/GenesisChannel.jsfx"
+REV "Global Sampler" "BirdBird ReaScript Testing/Global Sampler/BirdBird_Global Sampler.jsfx"
+REV "GlobalSliders (globally synchronised sliders)" IX/GlobalSliders.jsfx
+REV "Globally synchronised sliders (for parameter linking)" IXix/GlobalSliders
+REV Goniometer loser/gfxGoniometer
+REV "Goniometer (Tukan)" "Tukan/Goniometer (Tukan)"
+REV "Goniometer [ReaTeam JSFX/Utility/belovw_Goniometer.jsfx]" "ReaTeam JSFX/Utility/belovw_Goniometer.jsfx"
+REV "Goniometer [loser/Goniometer]" loser/Goniometer
+REV Goniometer_EX "kawa Scripts/JSFX effects/kawa_GonionMeter_Ex.jsfx"
+REV "Granular Loop Sampler" loopsamplers/loopsampler-granul
+REV "Graphical Dynamic Waveshaper" waveshapers/graphdist-dyn
+REV "Graphical Dynamics" dynamics/graphical_dynamics
+REV "Graphical Waveshaper" waveshapers/graphdist
+REV Gravity "Beaunus Scripts/JSFX/beaunus_Gravity.jsfx"
+REV "Green Circles Meter S2 (Tukan)" "Tukan/Green Circles Meter S2 (Tukan)"
+REV "Green Dynamic EQ S2 (Tukan)" "Tukan/Green Dynamic EQ S2 (Tukan)"
+REV "GroovyDither (chmaha)" "chmaha Scripts/Dithers/GroovyDither.jsfx"
+REV "Growl [Build 140730]" Supermaailma/Growl
+REV "Guitar Amp (Tukan)" "Tukan/Guitar Amp (Tukan)"
+REV "HBC-2 Stereo Hybrid Bus Compressor" "SonicAnomaly JSFX/Plugins/HBC-2.jsfx"
+REV "HBC-2 Stereo Hybrid Bus Compressor (ZenoMOD)" "LBX Plugins/HBC-2 Stereo Hybrid Bus Compressor (ZenoMOD)"
+REV "HBC-5 5.1 Hybrid Bus Compressor" "SonicAnomaly JSFX/Plugins/HBC-5.jsfx"
+REV "Hackey Trackey Channel Cycler" "Tracker tools/Tracker/Hackey Trackey Channel Cycler.jsfx"
+REV "Hackey Trackey Sample Playback Module (pre-alpha)" "Tracker tools/Tracker/Hackey_Sample_Playback.jsfx"
+REV Hackey_MIDI_Detector "Tracker tools/Tracker/Hackey_MIDI_Detector.jsfx"
+REV "Hadamard Variable Delay Array" "ReaTeam JSFX/Reverb/TiaR_HadamVerb.jsfx"
+REV "Hammer And Chord (Polyphonic Synth/Resonator by Geraint Luff)" "Geraint's JSFX/Synth/Hammer-And-Chord/Hammer And Chord.jsfx"
+REV "Hammer And String (Synth/Resonator by Geraint Luff)" "Geraint's JSFX/Synth/Hammer-And-String/Hammer And String.jsfx"
+REV "Hard Clipper" "ReaTeam JSFX/Dynamic/sinefabula_Hard Clipper.jsfx"
+REV "Heft Bass (chmaha)" "chmaha Scripts/Various/Heft.jsfx"
+REV "Hippity Hoppity Lo-Fi (chmaha)" "chmaha Scripts/Various/Hippity Hoppity.jsfx"
+REV "Holds each note until next note is pressed." "mbncp/MIDI Note Hold"
+REV "Huge Booty Bass Enhancer" sstillwell/hugebooty
+REV "Humonica - Synth & Harmoniser (by Geraint Luff)" "Geraint's JSFX/Synth/Humonica/Humonica.jsfx"
+REV "Incoming Program Change messages change the MIDI channel" "DarkStar/MIDI Program Change Channel"
+REV "Inline Input Viewer (MCP embedded)" "ReaTeam JSFX/Utility/jsh_Inline Input Viewer (MCP embedded).jsfx"
+REV "Input switcher. Useful for A/B comparisons. v3.1" IXix/Switcher3
+REV "Inter Track Parameter Modulation" "ReaTeam JSFX/Utility/mschnell_Inter Track Parameter Modulation.jsfx"
+REV "Interstellar Reverb (chmaha)" "chmaha Scripts/Reverbs/Interstellar.jsfx"
+REV "Invert CC value" "breeder/Invert CC"
+REV "Invert CC value [breeder/test]" breeder/test
+REV "JRK/Juan_R bend by semitones" "Juan_R's Reaperism/MIDI/MIDI-jrk_juan_r-stepped-pitchbend-by-semitones.jsfx"
+REV "Juan_R Keyboard Mirror/Invert" "Juan_R's Reaperism/MIDI/MIDI-mirror-invert-keyboard.jsfx"
+REV "Juan_R MIDI Floating Split" "Juan_R's Reaperism/MIDI/MIDI-floating-split.jsfx"
+REV "Juan_R MIDI Fret and pick" "Juan_R's Reaperism/MIDI/MIDI-Fret-and-pick.jsfx"
+REV "Juan_R MIDI Round Robin Channelize Notes" "Juan_R's Reaperism/MIDI/MIDI-round-robin-midi_channelize.jsfx"
+REV "Juan_R MIDI Round Robin Transpose Notes" "Juan_R's Reaperism/MIDI/MIDI-round-robin-midi_transpose.jsfx"
+REV "Key re-mapping utility" "IXix/MIDI KeyMap II"
+REV "Key re-mapping utility [midi/MIDI_KeyMap II]" "midi/MIDI_KeyMap II"
+REV "Keyboard Mirror/Invert" "ReaTeam JSFX/MIDI/juan_r_Keyboard MirrorInvert (Juan_R).jsfx"
+REV "Khaki Delay S2 (Tukan)" "Tukan/Khaki Delay S2 (Tukan)"
+REV "LA-1A (Tukan)" "Tukan/LA-1A (Tukan)"
+REV "LA-2KAN S2 (Tukan)" "Tukan/LA-2KAN S2 (Tukan)"
+REV "LBX FSA Mod" LBX/gfxanalyzer_lbxstrippermod
+REV "LBX FSA Mod2" LBX/LBX_FSA_MOD2
+REV "LBX Track Utility" lbx_jsfx/LBX_TrackUtility
+REV "LBX WigWare Multi-channel Peak VU Meter" lbx_jsfx/LBX-WigMCVUMeter
+REV LBX-FaderBox(32x) lbx_jsfx/LBX-FaderBox(32x)
+REV LBX-MidiFilter LBX/LBX-MidiFilter
+REV LBX-SKFaderBox4 LBX/LBX_SKCTL
+REV LBX_CM_LRN LBX/LBX_CM_LRN
+REV LBX_FBOut LBX/LBX_FBOut
+REV LBX_RRMIDI LBX/LBX_RRMIDI
+REV LBX_SKCC3 LBX/LBX_SKCC
+REV LBX_SYSXBlocker LBX/LBX_SYSXBlocker
+REV LBX_SYSXOut LBX/LBX_SYSXOut
+REV "LCR Panner - Simple Mono [mrlimbic]" "mrlimbic scripts/JSFX/mrlimbic_LCR_mono_panner.jsfx"
+REV "Last MIDI event monitor" "X-Raym Scripts/JSFX/MIDI/X-Raym_Last MIDI event monitor.jsfx"
+REV "Last-note priority mono synth" Tale/examples/array1
+REV "Latched keys hold until next keypress." "IXix/MIDI Latch"
+REV "Lattice Filter" "ReaTeam JSFX/Filter/TiaR_Lattice Filter.jsfx"
+REV "Lava Reverb (Saike) [ALPHA]" "Saike Tools/lavaverb/saike_lava.jsfx"
+REV "Layers Volume" "Daniel Lumertz Scripts/Live/Layers/Layers Volume.jsfx"
+REV "Learning Sampler (by Geraint Luff)" "Geraint's JSFX/Synth/Learning-Sampler/Learning Sampler.jsfx"
+REV Learningbaby "ReaTeam JSFX/MIDI/mathphreak_Learningbaby.jsfx"
+REV "Leet Delay 2" "SonicAnomaly JSFX/Plugins/Leet Delay 2.jsfx"
+REV "Legato control" "ReaTeam JSFX/MIDI/mbncp_Legato Control.jsfx"
+REV "Let It Key (MASTER)" "pcp/Let It Key (global scale tool)/Let_It_Key_(Master).jsfx"
+REV "Level Meter - LUFS (by Geraint Luff)" "Geraint's JSFX/Utility/Level-Meter/Level Meter.jsfx"
+REV "Lexikan (Tukan)" "Tukan/Lexikan (Tukan)"
+REV "Lexikan 2 (Tukan)" "Tukan/Lexikan 2 (Tukan)"
+REV "Lime Deesser S2 (Tukan)" "Tukan/Lime Deesser S2 (Tukan)"
+REV "Limiter 2 (Tukan)" "Tukan/Limiter 2 (Tukan)"
+REV "Limiter 3 (Tukan)" "Tukan/Limiter 3 (Tukan)"
+REV LiveBeatRepeater "ReaTeam JSFX/Misc/brumbear_LiveBeatRepeater.jsfx"
+REV LiveScrubberDucky "ReaTeam JSFX/Misc/brumbear_LiveScrubberDucky.jsfx"
+REV Lo-Fi Liteon/lo-fi
+REV "Lo:1+2  Mid:3+4  Hi:5+6" Witti/MDA/mda_3band_split
+REV "Load/Playback MIDI (Alpha_03)" "DarkStar/MIDI Recorder"
+REV "Loop Sampler" loopsamplers/loopsampler-m2
+REV "Loop Sampler w/MIDI Triggers" loopsamplers/loopsampler-m2-midi
+REV "Lorenz Attractor" Liteon/lorenzattractor
+REV Loudener "ReaTeam JSFX/Distortion/Loudener.jsfx"
+REV Louderizer sstillwell/louderizer
+REV "Louderizer LP" sstillwell/louderizer_lpf
+REV "Loudness Meter Peak/RMS/LUFS (Cockos)" analysis/loudness_meter
+REV "Low-pass filter" Tale/examples/rbj_filter
+REV "Low-pass filter [Tale/examples/zdf_filter]" Tale/examples/zdf_filter
+REV "Low-pass windowed FIR filter" Tale/examples/window1
+REV "Low-pass windowed FIR/FFT filter" Tale/examples/window2
+REV "Lyra Compressor (chmaha)" "chmaha Scripts/Various/Lyra.jsfx"
+REV "MB MIDI Event Filter" "ReaTeam JSFX/MIDI/MB_MIDI Event Filter.jsfx"
+REV "MB MIDI Event Filter2 (v1.0)" Mabian/MB_Filter2
+REV "MB MIDI Event Filter2 (v1.0) [midi/MB_Filter2]" midi/MB_Filter2
+REV "MB Note Quantize (v1.1)" midi/MB_Note_Quantize
+REV "MB ReautoMate" "ReaTeam JSFX/MIDI/MB_ReautoMate.jsfx"
+REV "MCP Meter (Tukan)" "Tukan/Meter (Tukan)"
+REV "MDA Pseudo-Stereo" Liteon/pseudostereo
+REV "MDCT Filter" filters/mdct-filter
+REV "MDCT Shifter" pitch/mdct-shift
+REV "MDCT Sweeping Filter" filters/mdct-volsweep
+REV "MGA JS Limiter" loser/MGA_JSLimiter
+REV "MGA JS Limiter (Unlinked Stereo)" loser/MGA_JSLimiterST
+REV "MGA JS Limiter (Unlinked Stereo) (ZenoMOD)" "LBX Plugins/MGA_JSLimiterST LBX (ZenoMOD)"
+REV "MGA JS Limiter (ZenoMOD)" "LBX Plugins/MGA_JSLimiter LBX (ZenoMOD)"
+REV 'MIDI "Vocoder"' "pcartwright/MIDI Vocoder"
+REV "MIDI Anti-flam" "IXix/MIDI AntiFlam"
+REV "MIDI Arpeggiator" midi/midi_arp
+REV "MIDI CC Bistate Button" "ReaTeam JSFX/MIDI/talagan_MIDI CC Bistate Button.jsfx"
+REV "MIDI CC Channel Router" "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI CC Channel Router.jsfx"
+REV "MIDI CC Eater" "RCJacH Scripts/JSFX/MIDI/midi_cc_eater.jsfx"
+REV "MIDI CC LFO Generator" IX/MIDI_CCRider
+REV "MIDI CC Mapper" "breeder/CC Mapper"
+REV "MIDI CC Mapper (-24 + 24 range)" "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI CC Mapper (-24 +24 range).jsfx"
+REV "MIDI CC Mapper X" "ReaTeam JSFX/MIDI/talagan_MIDI CC Mapper X.jsfx"
+REV "MIDI CC Mapper X (Talagan)" "Talagan/MIDI CC Mapper X"
+REV "MIDI CC Mapper [midi/midi_CC_mapper]" midi/midi_CC_mapper
+REV "MIDI CC Ranger" "DarkStar/MIDI CC Ranger"
+REV "MIDI CC Swapper" "Phroneris/MIDI CC Swapper"
+REV "MIDI CC Transposer" "SpacemenTree/MIDI CC Transposer"
+REV "MIDI CC fluctuation" "ReaTeam JSFX/MIDI/mschnell_MIDI CC fluctuation.jsfx"
+REV "MIDI CC to SysEx" "ReaTeam JSFX/Utility/mschnell_MIDI CC2SYSEX.jsfx"
+REV "MIDI CC to pitchbend" "ReaTeam JSFX/MIDI/rekseffeks_MIDI CC to pitchbend.jsfx"
+REV "MIDI CC-to-CC remapper" "Chris Tessmer/midi_cc2cc"
+REV "MIDI Channelizer (d01)" "DarkStar/MIDI Channelizer"
+REV "MIDI Choke" midi/midi_choke
+REV "MIDI Chord In Key" midi/midi_chordkey
+REV "MIDI Chord Memorizer" Kuus0/midi_chordmem
+REV "MIDI Chord Memory." "Boreg/MIDI Chord Memory"
+REV "MIDI Chorderizer" midi/midi_chorderizer
+REV "MIDI Compressor 4N" "DarkStar/MIDI Compressor n2"
+REV "MIDI Compressor 4N [DarkStar/MIDI Compressor n4]" "DarkStar/MIDI Compressor n4"
+REV "MIDI Compressor 6N" "DarkStar/MIDI Compressor"
+REV "MIDI Compressor 6N [DarkStar/MIDI Compressor n6]" "DarkStar/MIDI Compressor n6"
+REV "MIDI Curver" "DarkStar/MIDI Curver"
+REV "MIDI Delay" "breeder/MIDI Time Delay"
+REV "MIDI Delay [midi/midi_delay]" midi/midi_delay
+REV "MIDI Display 3 CCs" "ReaTeam JSFX/Utility/mschnell_MIDI Display 3 CCs.jsfx"
+REV "MIDI Display Patch Name" "ReaTeam JSFX/Utility/mschnell_MIDI Display Patch Name.jsfx"
+REV "MIDI Duplicate Note Filter" IX/MIDI_DuplicateFilter
+REV "MIDI EQ Ducker" loser/MIDI_EQ_Ducker
+REV "MIDI Envelocity" "ReaTeam JSFX/MIDI/polgo_MIDI Envelocity.jsfx"
+REV "MIDI Event Filter XL" "Commala/MIDI Filter XL"
+REV "MIDI Examiner" schwa/midi_examine
+REV "MIDI Fade X" "ReaTeam JSFX/Utility/mschnell_MIDI Fade.jsfx"
+REV "MIDI Floating Split" "ReaTeam JSFX/MIDI/juan_r_MIDI Floating Split.jsfx"
+REV "MIDI Fret and Pick" "ReaTeam JSFX/MIDI/juan_r_MIDI Fret and Pick.jsfx"
+REV "MIDI Gate (by Geraint Luff)" "Geraint/MIDI Gate"
+REV "MIDI Gate (by Geraint Luff) [Geraint's JSFX/MIDI/MIDI-Gate/MIDI Gate.jsfx]" "Geraint's JSFX/MIDI/MIDI-Gate/MIDI Gate.jsfx"
+REV "MIDI Glissando" "ReaTeam JSFX/MIDI/urtzurd_MIDI Glissando.jsfx"
+REV "MIDI Harmony (by Geraint Luff)" "Geraint/MIDI Harmony"
+REV "MIDI Harmony (by Geraint Luff) [Geraint's JSFX/MIDI/MIDI-Harmony/MIDI Harmony.jsfx]" "Geraint's JSFX/MIDI/MIDI-Harmony/MIDI Harmony.jsfx"
+REV "MIDI Hex Grid" Kuus0/midi_hexview
+REV "MIDI Keyboard Splitter, with Xackley Zero Tricks & TJAmods2" "TJA/MIDI Keyboard Deploy"
+REV "MIDI Logger" midi/midi_logger
+REV "MIDI Looper" "IXix/MIDI Looper"
+REV "MIDI Looper [midi/MIDI_Looper]" midi/MIDI_Looper
+REV "MIDI MPE to single channel" "ReaTeam JSFX/MIDI/mschnell_MIDI MPE to single channel.jsfx"
+REV "MIDI Map To Key" midi/midi_maptokey
+REV "MIDI Map To Key v2" IX/MIDI_KeyMap
+REV "MIDI Modal Randomness" "schwa/MIDI Modal Randomness"
+REV "MIDI Modal Randomness [schwa/midi_modal_randomness]" schwa/midi_modal_randomness
+REV "MIDI Monitor scale playing" "DarkStar/MIDI Scale Monitor"
+REV "MIDI Mouse" "ReaTeam JSFX/Utility/TimeWaster MIDI-Mouse.jsfx"
+REV "MIDI Note Analyser (d03)" "DarkStar/MIDI Note Analyser"
+REV "MIDI Note Beat Repeater" "RCJacH/MIDI Note Repeater"
+REV "MIDI Note Beat Repeater [RCJacH Scripts/JSFX/MIDI/midi_note_beat_repeater.jsfx]" "RCJacH Scripts/JSFX/MIDI/midi_note_beat_repeater.jsfx"
+REV "MIDI Note Filter" midi/midi_note_filter
+REV "MIDI Note Hold" midi/midi_note_hold
+REV "MIDI Note Randomize" sstillwell/randomizer
+REV "MIDI Note Repeater" midi/midi_note_repeater
+REV "MIDI Note Repeater [Default Key Map B1 - A4]" "ReaTeam JSFX/MIDI/willdevelop_MIDI Note Repeater [Default Key Map B1 - A4].jsfx"
+REV "MIDI Note-On Delay" midi/midinoteondelay
+REV "MIDI Notes Octave Transpose Shift" "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI notes octave transpose shift.jsfx"
+REV "MIDI Off Velocity Limiter" "zaibuyidao Scripts/JSFX/MIDI Off Velocity Limiter.jsfx"
+REV "MIDI PM Resynth" "ReaTeam JSFX/Misc/TiaR_PM_Resynth.jsfx"
+REV "MIDI Pattern/Scale Variation Generator" IX/MIDI_Variant
+REV "MIDI Peggiator" Kuus0/midi_peggiator
+REV "MIDI Performer" "TJA/MIDI Performer"
+REV "MIDI Performer2" "ReaTeam JSFX/MIDI/TJA_MIDI Performer2.jsfx"
+REV "MIDI Pitch Bend Factor" "ReaTeam JSFX/MIDI/mschnell_MIDI PB x X.jsfx"
+REV "MIDI Pitch Wheel LFO" IX/MIDI_Wobulator
+REV "MIDI Polyphonic Splitter" "pcartwright/MIDI Chord Splitter"
+REV "MIDI Program/Bank Switch on Load" midi/program_bank_onload
+REV "MIDI Rhythm Trainer" "ReaTeam JSFX/MIDI/erantalmor_MIDI Rhythm Trainer.jsfx"
+REV "MIDI Route CC To Channel" "zaibuyidao Scripts/JSFX/MIDI Route CC To Channel.jsfx"
+REV "MIDI Route Note To Channel" midi/midi_note2channel
+REV "MIDI Route PC To Channel" "zaibuyidao Scripts/JSFX/MIDI Route PC To Channel.jsfx"
+REV "MIDI Router/Transpose" IX/MIDI_Router
+REV "MIDI Sequencer Baby" midi/sequencer_baby
+REV "MIDI Sequencer Baby v2" midi/sequencer_baby_v2
+REV "MIDI Sequencer Megababy" midi/sequencer_megababy
+REV "MIDI Snap To Key" IX/MIDI_KeySnap
+REV "MIDI Strummer" "pcartwright/MIDI Strummer"
+REV "MIDI Super Arpeggiator (GUI version)" Whatsup/MIDI_Super_ArpeggiatorGUI
+REV "MIDI Taps Repeater" "ReaTeam JSFX/MIDI/cfillion_MIDI Taps Repeater.jsfx"
+REV "MIDI Tool" IX/MIDI_Tool
+REV "MIDI Tool v2" "IX/MIDI_Tool II"
+REV "MIDI Transform CC" "zaibuyidao Scripts/JSFX/MIDI Transform CC.jsfx"
+REV "MIDI Transpose Notes" midi/midi_transpose
+REV "MIDI Transpose Project" "BinbinHfr Scripts/Jsfx/bbh_midi_transpose_project.jsfx"
+REV "MIDI Transpose Track" "BinbinHfr Scripts/Jsfx/bbh_midi_transpose_track.jsfx"
+REV "MIDI Trigger CC" "ReaTeam JSFX/Utility/mschnell_MIDI Trigger CC.jsfx"
+REV "MIDI Varocity" "ReaTeam JSFX/MIDI/polgo_MIDI Varocity.jsfx"
+REV "MIDI Velocity Compressor : Souk21" "Souk21 ReaPack/JSFX/MIDI Velocity Compressor.jsfx"
+REV "MIDI Velocity Control" midi/midi_velocitycontrol
+REV "MIDI Velocity Filter" "ReaTeam JSFX/MIDI/willdevelop_MIDI Velocity Filter.jsfx"
+REV "MIDI Velocity Ranger" "DarkStar/MIDI Velocity Ranger"
+REV "MIDI Velocity Scaler/Compressor" sstillwell/volscale
+REV "MIDI Velocity Variation Generator" "IX/MIDI_Velocifier II"
+REV "MIDI Velocity Viewer (By Erriez)" "midi/MIDI Velocity Viewer"
+REV "MIDI Velocity Viewer (By Erriez) [Erriez/MIDI/erriez_midi_velocity_viewer.jsfx]" Erriez/MIDI/erriez_midi_velocity_viewer.jsfx
+REV "MIDI Velocity Viewer for Drums and Percussion (By Erriez)" Erriez/MIDI/erriez_midi_velocity_viewer_drums.jsfx
+REV "MIDI Velocity and Timing Humanizer" schwa/midi_humanizer
+REV "MIDI Velocity and Timing Humanizer (pcartwright)" "pcartwright/MIDI Humanizer"
+REV "MIDI XY Pad Controller (bor-T)" "ReaTeam JSFX/MIDI/bor-T_MIDI_XY_Pad_Controller.jsfx"
+REV "MIDI channel to Keyswitch" "BRSO Articulate/midi_articulate_keyswitch"
+REV "MIDI channel to Keyswitch [BRSO Articulate/midi_articulate_keyswitch_keep_ch (modded)]" "BRSO Articulate/midi_articulate_keyswitch_keep_ch (modded)"
+REV "MIDI channel to UACC" "BRSO Articulate/midi_articulate_uacc_cc"
+REV "MIDI channel to UACC keyswitch" "BRSO Articulate/midi_articulate_uacc_ks"
+REV "MIDI controlled channel switcher" "Boreg/MIDI Note Channel Switcher"
+REV "MIDI controlled record & (reverse) playback" Kuus0/recordist
+REV "MIDI controller for S8 looper with fade in and out" "ReaTeam JSFX/MIDI/bertbouwhuis_MIDI controller for S8 looper with fade in and out.jsfx"
+REV "MIDI convert to CC" "ReaTeam JSFX/Utility/mschnell_MIDI Convert to CC.jsfx"
+REV "MIDI delay" Whatsup/MIDI_Delay
+REV "MIDI drum sequencer" synthesis/midi_drumseq
+REV "MIDI every note the same" "ReaTeam JSFX/MIDI/willdevelop_MIDI every note the same.jsfx"
+REV "MIDI glissando" "ReaTeam JSFX/MIDI/mschnell_MIDI glissando.jsfx"
+REV "MIDI note constrain plus 'one finger chords' v3.1" "IXix/MIDI KeySnapChord III"
+REV "MIDI note length control" "ReaTeam JSFX/MIDI/cfillion_MIDI note length control.jsfx"
+REV "MIDI note sanitizer" midi/midi_note_sanitizer
+REV "MIDI note-banked CC multiplier" "ReaTeam JSFX/MIDI/TJA_MIDI note-banked CC multiplier.jsfx"
+REV "MIDI notes sequence from CSV file" "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI notes sequence from CSV file.jsfx"
+REV "MIDI queue mono synth" Tale/examples/midi_queue2
+REV "MIDI route via GMEM" "ReaTeam JSFX/MIDI/mschnell_MIDI route via GMEM.jsfx"
+REV "MIDI routing matrix" "Boreg/MIDI Routing Matrix"
+REV "MIDI routing matrix [ReaTeam JSFX/MIDI/boreg_MIDI routing matrix.jsfx]" "ReaTeam JSFX/MIDI/boreg_MIDI routing matrix.jsfx"
+REV "MIDI single note map" "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI single note map.jsfx"
+REV "MIDI sustain emulator" Tale/midi_sustain
+REV "MIDI time adjustment" "DarkStar/MIDI Nudge"
+REV "MIDI tool - transpose, velocity, filter, router" Whatsup/MIDI_Tool
+REV "MIDI velocity viewer." Erriez/midi_velocity_viewer
+REV "MIDI_Antiflam (duplicate note blocker)" IX/MIDI_Antiflam.jsfx
+REV "MIDI_ChokingHazard (Note choke utility)" IX/MIDI_ChokingHazard
+REV "MIDI_HighPriority (monosynth behaviour for polysynth)" IX/MIDI_HighPriority.jsfx
+REV "MIDI_KeyMap II (note mapping tool)" "IX/MIDI_KeyMap II"
+REV MIDI_Latch midi/MIDI_Latch
+REV "MIDI_Latch (note latching tool)" IX/MIDI_Latch
+REV MIDI_Looper IX/MIDI_Looper
+REV "MIDI_PatchUtil (bank/patch select utility)" IX/MIDI_PatchUtil
+REV "MIDI_Probalocity (pattern variation generator)" IX/MIDI_Probalocity
+REV "MIDI_SerialKiller (pass one note at a time)" IX/MIDI_SerialKiller.jsfx
+REV MIDI路由CC到通道 "zaibuyidao Scripts/JSFX/MIDI路由CC到通道.jsfx"
+REV MIDI路由PC到通道 "zaibuyidao Scripts/JSFX/MIDI路由PC到通道.jsfx"
+REV MIDI轉換CC "zaibuyidao Scripts/JSFX/MIDI轉換CC.jsfx"
+REV MIDI釋鍵限制器 "zaibuyidao Scripts/JSFX/MIDI釋鍵限制器.jsfx"
+REV "MMC locate" "mrlimbic scripts/JSFX/MMC locate.jsfx"
+REV "MS Decoder with separate decoding gains" "BinbinHfr Scripts/Jsfx/bbh_MS_decoder_gains.jsfx"
+REV "MS Encoder with separate encoding gains" "BinbinHfr Scripts/Jsfx/bbh_MS_encoder_gains.jsfx"
+REV "MTC Logger" midi/mtc_logger
+REV Macros Macros.jsfx
+REV "Mad Hatter Compressor (chmaha)" "chmaha Scripts/Various/MadHatter.jsfx"
+REV "MagicFairyDust Console Saturation (chmaha)" "chmaha Scripts/Consoles/MagicFairyDust.jsfx"
+REV "Magnétique Tape Emulation (chmaha)" "chmaha Scripts/Various/Magnetique.jsfx"
+REV "Major Tom Compressor" sstillwell/majortom
+REV "Major Tom Compressor (ZenoMOD)" "LBX Plugins/majortom LBX (ZenoMOD)"
+REV "Makey Makey MIDI Notes Channel" "X-Raym MIDI Makey Makey/JSFX/X-Raym_Makey Makey MIDI Notes Channel.jsfx"
+REV "Makey Makey MIDI Notes Map" "X-Raym MIDI Makey Makey/JSFX/X-Raym_Makey Makey MIDI Notes Map.jsfx"
+REV "Makey Makey MIDI Notes Monitor" "X-Raym MIDI Makey Makey/JSFX/X-Raym_Makey Makey MIDI Notes Monitor.jsfx"
+REV "Makey Makey MIDI Notes Velocity" "X-Raym MIDI Makey Makey/JSFX/X-Raym_Makey Makey MIDI Notes Velocity.jsfx"
+REV "Map aftertouch to CC" "breeder/Aftertouch to CC"
+REV MappingPanel_master "MPL Scripts/JSFX/MappingPanel_master.jsfx"
+REV MappingPanel_slave "MPL Scripts/JSFX/MappingPanel_slave.jsfx"
+REV "Master Limiter" loser/masterLimiter
+REV "Master Tom Compressor" sstillwell/mastertom
+REV "Master Tom Compressor (ZenoMOD)" "LBX Plugins/mastertom LBX (ZenoMOD)"
+REV "Mid/Side Decoder" utility/KanakaMS5
+REV "Mid/Side Encoder" utility/KanakaMSEncoder1
+REV "Midi Auto Engage" "ReaTeam JSFX/Utility/mschnell_Midi Auto Engage.jsfx"
+REV "Midi CC Table" "ReaTeam JSFX/Utility/mschnell_Midi CC Table.jsfx"
+REV "Midi Channel CC Keyswitcher" "Arran/MIDI Note Channel CC Keyswitcher"
+REV "Midi Volume Control" "ReaTeam JSFX/Utility/mschnell_MIDI Volume Control.jsfx"
+REV "Millie Brightness EQ (chmaha)" "chmaha Scripts/Various/Millie.jsfx"
+REV Mod-izer "Saike Tools/Modizer/modizer.jsfx"
+REV "Modulation (Tukan)" "Tukan/Modulation (Tukan)"
+REV "Modulation 2 (Tukan)" "Tukan/Modulation 2 (Tukan)"
+REV "Monitor played keys" "DarkStar/MIDI KeyMonitor"
+REV Mono Witti/MDA/mda_shepard
+REV "Mono synth with ADSR" Tale/examples/adsr
+REV Mono. Witti/Filter/lowpass_resonant_13
+REV "Mono. [Witti/FX/pitcher]" Witti/FX/pitcher
+REV "Mono. [Witti/MDA/mda_de-esser]" Witti/MDA/mda_de-esser
+REV "Mono. [Witti/MDA/mda_degrade_00]" Witti/MDA/mda_degrade_00
+REV "Mono. [Witti/MDA/mda_degrade_01]" Witti/MDA/mda_degrade_01
+REV "Mono. [Witti/MDA/mda_rezfilter]" Witti/MDA/mda_rezfilter
+REV "Mono/poly synth" Tale/examples/array2
+REV "Moog 4-Pole Filter" Liteon/moog24db
+REV "MuTube Compressor (chmaha)" "chmaha Scripts/Various/MuTube.jsfx"
+REV "Multi Channel MIDI Keyswitch" "Reddiesel41264/Multi Channel MIDI Keyswitch"
+REV "Multi Sine Generator" "ReaTeam JSFX/Utility/mschnell_Multi_Sin_Generator.jsfx"
+REV "Multi Waveshaper" Liteon/waveshapermulti
+REV "Multiband Processor (Tukan)" "Tukan/Multiband Processor (Tukan)"
+REV "Multichannel Volume Trim" "ReaTeam JSFX/Utility/ReaperBlog_Multichannel Volume Trim.jsfx"
+REV "Multichannel Volume Trim 2" "ReaTeam JSFX/Utility/ReaperBlog_Multichannel Volume Trim 2.jsfx"
+REV "Multimode RC filter" Tale/rc_filter
+REV "Multisine Chebyshev Filter (chmaha)" "chmaha Scripts/Various/multisine.jsfx"
+REV "Mute monitor when recording" "ReaTeam JSFX/Utility/mschnell_Mute monitor when recording.jsfx"
+REV "Mute on loop" "X-Raym Scripts/JSFX/X-Raym_Mute on loop.jsfx"
+REV MuteOnStop IX/MuteOnStop.jsfx
+REV MuteRangeOnStop IX/MuteRangeOnStop.jsfx
+REV "NC76 (Tukan)" "Tukan/NC76 (Tukan)"
+REV "NC76 S2 (Tukan)" "Tukan/NC76 S2 (Tukan)"
+REV "NC76B (Tukan)" "Tukan/NC76B (Tukan)"
+REV "NP1136 Peak Limiter" Liteon/np1136peaklimiter
+REV "NP1136 Peak Limiter (ZenoMOD)" "LBX Plugins/np1136peaklimiter LBX (ZenoMOD)"
+REV "NW8 Plate Reverb (chmaha)" "chmaha Scripts/Reverbs/NW8PlateReverb.jsfx"
+REV "Nabla MIDI Delay" "Nabla Tools/midi_nabla_delay"
+REV "Negative Harmony" "DarkStar/MIDI Negative Harmony"
+REV "New FFT filter" filters/fft-filter
+REV "New FFT pitch-experimenter" pitch/fft-ps
+REV "Nintenda Dither (chmaha)" "chmaha Scripts/Dithers/Nintenda.jsfx"
+REV NoiseBuzz "RCJacH Scripts/JSFX/Audio/NoiseBuzz.jsfx"
+REV "Non-Linear Processor" Liteon/nonlinear
+REV "Note Duplicator" "ReaTeam JSFX/MIDI/cfillion_Note Duplicator.jsfx"
+REV "Note Generator" "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI note generator.jsfx"
+REV "Note On under X velocity to Note Off" "X-Raym Scripts/JSFX/MIDI/X-Raym_Note On under X velocity to Note Off.jsfx"
+REV "Note On under X velocity to Note Off and send All Notes Off" "ReaTeam JSFX/MIDI/mschnell_Note On under X velocity to Note Off and send All Notes Off.jsfx"
+REV "Note Preview" "ReaTeam Scripts/MIDI Editor/kl_Preset velocity/Note Preview.jsfx"
+REV "Note to CC" "X-Raym Scripts/JSFX/MIDI/X-Raym_Note to CC.jsfx"
+REV "Nymphes Control Freak" "FTC Tools/JSFX/Nymphes Control Freak.jsfx"
+REV Offset "Beaunus Scripts/JSFX/beaunus_Offset.jsfx"
+REV "Orange EQ S2 (Tukan)" "Tukan/Orange EQ S2 (Tukan)"
+REV "Orpheus Console Bus In (chmaha)" "chmaha Scripts/Consoles/Orpheus_Bus_In.jsfx"
+REV "Orpheus Console Bus Out (chmaha)" "chmaha Scripts/Consoles/Orpheus_Bus_Out.jsfx"
+REV "Orpheus Console Channel In (chmaha)" "chmaha Scripts/Consoles/Orpheus_Channel_In.jsfx"
+REV "Orpheus Console Channel Out (chmaha)" "chmaha Scripts/Consoles/Orpheus_Channel_Out.jsfx"
+REV "Orpheus Console Sub|Aux In (chmaha)" "chmaha Scripts/Consoles/Orpheus_Sub_In.jsfx"
+REV "Orpheus Console Sub|Aux Out (chmaha)" "chmaha Scripts/Consoles/Orpheus_Sub_Out.jsfx"
+REV "Orpheus Lite Console Bus (chmaha)" "chmaha Scripts/Consoles/Orpheus_Lite_Bus.jsfx"
+REV "Orpheus Lite Console Channel (chmaha)" "chmaha Scripts/Consoles/Orpheus_Lite_Channel.jsfx"
+REV "Oscilloscope Meter (Cockos)" analysis/gfxscope
+REV "Oscilloscope w/ beat retrigger" "ReaTeam JSFX/Utility/jw_gfxscope-beat-retrigger.jsfx"
+REV "Output switcher" "ply Scripts/JSFX/Routing/ply_output_switcher.jsfx"
+REV "Oversampled distortion" Tale/examples/oversample1
+REV "Oversampled sawtooth oscillator" Tale/examples/oversample2
+REV "Oxonia Compressor (chmaha)" "chmaha Scripts/Various/Oxonia.jsfx"
+REV "Ozzifier Chorus" sstillwell/ozzifier
+REV "PRNG Plotter" Liteon/prngplot
+REV "PadSynth (by Geraint Luff)" "Geraint's JSFX/Synth/PadSynth/pad-synth.jsfx"
+REV "Panalysis (by Geraint Luff)" Geraint/Panalysis
+REV "Panalysis (by Geraint Luff) [Geraint's JSFX/Utility/Panalysis/Panalysis.jsfx]" "Geraint's JSFX/Utility/Panalysis/Panalysis.jsfx"
+REV "Parallel Joiner" "ACendan Scripts/Utility/Parallel Joiner.jsfx"
+REV "Parallel Joiner (Linear)" "ACendan Scripts/Utility/Parallel Joiner (Linear).jsfx"
+REV "Parallel Joiner x3" "ACendan Scripts/Utility/Parallel Joiner x3.jsfx"
+REV "Parallel Splitter" "ACendan Scripts/Utility/Parallel Splitter.jsfx"
+REV "Parallel Splitter x3" "ACendan Scripts/Utility/Parallel Splitter x3.jsfx"
+REV "Paranoia Mangler" "remaincalm_org/Paranoia Mangler"
+REV "Paranoia Mangler [remaincalm_org/paranoia_mangler]" remaincalm_org/paranoia_mangler
+REV "Partials (Saike)" "Saike Tools/partials/saike_partials.jsfx"
+REV "Pascal Compressor (chmaha)" "chmaha Scripts/Various/Pascal.jsfx"
+REV "Peak Needle 2 (Tukan)" "Tukan/Peak Needle (Tukan)"
+REV "Phase Rotator" "utility/Phase Adjust"
+REV "Phase Rotator [utility/phase_adjust]" utility/phase_adjust
+REV "Phase Vocoder Mono Template" Tukan/S2GFX/cookdsp/pv-mono-template
+REV "Phase Vocoder Mono Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pv-mono-template]" "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pv-mono-template"
+REV "Phase Vocoder Stereo Template" Tukan/S2GFX/cookdsp/pv-stereo-template
+REV "Phase Vocoder Stereo Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pv-stereo-template]" "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pv-stereo-template"
+REV "Phase Vocoder Stereo Transposer" Tukan/S2GFX/cookdsp/pvtrans-example
+REV "Phase Vocoder Stereo Transposer [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pvtrans-example]" "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pvtrans-example"
+REV "Phase-Meter (Click to refresh)" Liteon/phasemetergfx
+REV "Phasity Delay Timing Tool (chmaha)" "chmaha Scripts/Various/Phasity.jsfx"
+REV "PhiVerb Reverb (chmaha)" "chmaha Scripts/Reverbs/PhiVerb.jsfx"
+REV "Piano Display (by Geraint Luff)" "Geraint/Piano Display"
+REV "Piano Display (by Geraint Luff) [Geraint's JSFX/Utility/Piano-Display/piano-display.jsfx]" "Geraint's JSFX/Utility/Piano-Display/piano-display.jsfx"
+REV "Ping Pong Pan" loser/ppp
+REV "Pink Noise Generator" Liteon/pinknoisegen
+REV "Pink noise generator" Tale/examples/noise
+REV "PirateDither (chmaha)" "chmaha Scripts/Dithers/PirateDither.jsfx"
+REV "Pitch Down-Shifter" pitch/pitchdown
+REV "Pitch Down-Shifter 2" pitch/pitch2
+REV "Pitch Shifter 2" pitch/superpitch
+REV "Pitch an Octave Down" pitch/octavedown
+REV "Pitch an Octave Up" pitch/octaveup
+REV "PitchWheel Control Center" "ReaTeam JSFX/MIDI/mbncp_PitchWheel.jsfx"
+REV "PlayState Mixer : Souk21" "Souk21 ReaPack/JSFX/PlayState Mixer.jsfx"
+REV "Plugin Parameters Modulator" Whatsup/Parameter_Modulator
+REV "Pop rocks" "Saike Tools/Poprocks/poprocks.jsfx"
+REV "Port-and-Lemon Compressor / Gate (chmaha)" "chmaha Scripts/Various/port-and-lemon.jsfx"
+REV "Pre-Arranged Looper" "ReaTeam JSFX/Utility/jcgurango_Pre-Arranged Looper.jsfx"
+REV "Pre-Arranged MIDI Looper" "ReaTeam JSFX/Utility/jcgurango_MIDI Arranged Looper.jsfx"
+REV "PreAmp (Tukan)" "Tukan/PreAmp (Tukan)"
+REV "Presence EQ" Liteon/presenceeq
+REV "Punk Duck Break Manager" Punkduck/BreakManager
+REV "Purple Gate Expander S2 (Tukan)" "Tukan/Purple Gate Expander S2 (Tukan)"
+REV QuadraCom "SonicAnomaly JSFX/Plugins/QuadraCom.jsfx"
+REV "Quadraphonic to DoubleMidSide" "ReaTeam JSFX/Routing/MDF_Quad to DMS.jsfx"
+REV "RBJ 1073 EQ" sstillwell/rbj1073
+REV "RBJ 12-Band EQ w/HPF" Teej/rbj12eq-teej
+REV "RBJ 4-Band Notch Filter" Teej/rbj4notch-teej
+REV "RBJ 4-Band Semi-Parametric EQ" sstillwell/rbj4eq
+REV "RBJ 4-Band Semi-Parametric EQ v2" Teej/rbj4eq-teej
+REV "RBJ 7-Band Graphic EQ" sstillwell/rbj7eq
+REV "RBJ Highpass/Lowpass Filters" sstillwell/hpflpf
+REV "RBJ Stereo Image Filter" Liteon/rbjstereofilter12db
+REV "RC MIDI Channel Router" "RCJacH Scripts/JSFX/MIDI/RC MIDI Channel Router.jsfx"
+REV "RC filter" Tale/examples/rc_filter
+REV RCBitRangeGain "RCJacH Scripts/JSFX/Audio/RCBitRangeGain.jsfx"
+REV RCCompressor "chmaha Scripts/RCPlugs/RCComp.jsfx"
+REV "RCDeEss Advanced  (chmaha)" "chmaha Scripts/RCPlugs/RCDeEss_Advanced.jsfx"
+REV "RCDeEss Standard  (chmaha)" "chmaha Scripts/RCPlugs/RCDeEss.jsfx"
+REV "RCDither (chmaha)" "chmaha Scripts/RCPlugs/RCDither.jsfx"
+REV "RCEQ  (chmaha)" "chmaha Scripts/RCPlugs/RCEQ.jsfx"
+REV RCEveryGain "RCJacH Scripts/JSFX/Audio/RCEveryGain.jsfx"
+REV "RCGain  (chmaha)" "chmaha Scripts/RCPlugs/RCGain.jsfx"
+REV RCInflator "RCJacH Scripts/JSFX/Audio/RCInflator.jsfx"
+REV "RCInflator (Oxford Edition)" "ReaTeam JSFX/Distortion/rcjach_RCInflator.jsfx"
+REV "RCInflator 2 (Ideal Edition)" "ReaTeam JSFX/Distortion/RCInflator2_Ideal.jsfx"
+REV "RCInflator 2 (Oxford Edition)" "ReaTeam JSFX/Distortion/RCInflator2_Oxford.jsfx"
+REV "RCLimiter  (chmaha)" "chmaha Scripts/RCPlugs/RCLimiter.jsfx"
+REV "RCMShip Perfect Pitch" "RCJacH Scripts/JSFX/Game/RCMShip Perfect Pitch.jsfx"
+REV RCNoiseBuzz "RCJacH Scripts/JSFX/Audio/RCNoiseBuzz.jsfx"
+REV "RCParallelK Compressor  (chmaha)" "chmaha Scripts/RCPlugs/RCParallelK.jsfx"
+REV RS5K_manager_MIDIBUS_choke "MPL Scripts/FX specific/mpl_RS5K_manager_MIDIBUS_choke.jsfx"
+REV RS5K_manager_MacroControls "MPL Scripts/FX specific/mpl_RS5k_manager_MacroControls.jsfx"
+REV "Random MIDI note generator" Tale/random_midi_notes
+REV "ReEQ - Parametric Graphic Equalizer" ReJJ/ReEQ/ReEQ.jsfx
+REV ReSpectrum ReJJ/ReSpectrum/ReSpectrum.jsfx
+REV ReaAnalog solarfall/ReaAnalog.txt
+REV ReaBee "Saike Tools/ReaBee/ReaBee.jsfx"
+REV "ReaJS Compatibility Pack" "Saike Tools/reajs_compatibility/saike_plugins_reajs.jsfx"
+REV ReaLoud sstillwell/realoud
+REV "ReaLoud LP" sstillwell/realoud_lpf
+REV "ReaModular - RCAutoPanner" "RCJacH Scripts/JSFX/Synth/ReaModular/RCAutoPanner.jsfx"
+REV "ReaRack2 - Amplifier" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Amplifier.jsfx"
+REV "ReaRack2 - Audio<-->MIDI" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Audio-MIDI.jsfx"
+REV "ReaRack2 - Envelope Generator" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 EnvGen.jsfx"
+REV "ReaRack2 - Envelope Multi-Tool" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 EnvMultiTool.jsfx"
+REV "ReaRack2 - Filter" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Filter.jsfx"
+REV "ReaRack2 - Filter Moog 24 db" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 FilterMoog24db.jsfx"
+REV "ReaRack2 - Karplus-Strong Delay" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 KSDelay.jsfx"
+REV "ReaRack2 - Key Follower" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 KeyFollower.jsfx"
+REV "ReaRack2 - LFO" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 LFO.jsfx"
+REV "ReaRack2 - MIDI Mixer" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 MIDImixer.jsfx"
+REV "ReaRack2 - Nonlinearizer" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Nonlinearizer.jsfx"
+REV "ReaRack2 - Note Filter" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 NoteFilter.jsfx"
+REV "ReaRack2 - Note Scope" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 NoteScope.jsfx"
+REV "ReaRack2 - Oscillator-Additive" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Oscillator-Additive.jsfx"
+REV "ReaRack2 - Oscillator-Noise" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Oscillator-Noise.jsfx"
+REV "ReaRack2 - Oscillator-Trapezoidal" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Oscillator-Trapezoidal.jsfx"
+REV "ReaRack2 - Oscillator-Twin-Saw" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Oscillator-TwinSaw.jsfx"
+REV "ReaRack2 - Poly Splitter" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 PolySplitter.jsfx"
+REV "ReaRack2 - Sample and Hold" "ReaTeam JSFX/Synth/ReaRack Modular Synth/Timewaster_ReaRack2 SampleAndHold.jsfx"
+REV "ReaRack2 - Trigger" "ReaTeam JSFX/Synth/ReaRack Modular Synth/TimeWaster_ReaRack2 Trigger.jsfx"
+REV "Read info..." Witti/Utility/gain_plus
+REV "Read info... [Witti/Utility/MS_side_hp]" Witti/Utility/MS_side_hp
+REV "Read info... [Witti/Utility/metronome]" Witti/Utility/metronome
+REV "Read info... [Witti/Utility/metronome_midi]" Witti/Utility/metronome_midi
+REV "Read info... [Witti/Utility/mono_to_stereo]" Witti/Utility/mono_to_stereo
+REV "Read info... [Witti/Utility/phase_meter_cc]" Witti/Utility/phase_meter_cc
+REV "Real FFT sawtooth oscillator" Tale/examples/fft_real_synth
+REV ReaperTon-MIDIChordState ReaperTon-MIDIChordState
+REV Reaticulate Reaticulate/jsfx/Reaticulate.jsfx
+REV Rectify "Beaunus Scripts/JSFX/beaunus_Rectify.jsfx"
+REV "Red Lexikan S2 (Tukan)" "Tukan/Red Lexikan S2 (Tukan)"
+REV "ReelDither (chmaha)" "chmaha Scripts/Dithers/ReelDither.jsfx"
+REV "Reelty Tape Emulation (chmaha)" "chmaha Scripts/Various/Reelty.jsfx"
+REV "Remove redundant CC messages [v1.06]" "DarkStar/MIDI Remove Redundant CC"
+REV "Resonant Lowpass Filter" filters/resonantlowpass
+REV RetrospectiveRecord_tracker "MPL Scripts/JSFX/RetrospectiveRecord_tracker.jsfx"
+REV "Ring Modulator" Liteon/ringmodulator
+REV Ripple "Saike Tools/Ripple/ripple.jsfx"
+REV "Ripple Phaser (by Geraint Luff)" "Geraint's JSFX/Delay/Ripple/Ripple.jsfx"
+REV "Route Note On" "ReaTeam JSFX/Routing/mschnell_Midi_Route_Note_On.jsfx"
+REV S.LA.X "SonicAnomaly JSFX/Plugins/SLAX.jsfx"
+REV "S.LA.X (ZenoMOD)" "LBX Plugins/SonicAnomaly JSFX (ZenoMOD)/SLAX LBX (ZenoMOD).jsfx"
+REV "SAW — Seriously Amazing Widener (chmaha)" "chmaha Scripts/Various/SeriouslyAmazingWidener.jsfx"
+REV "SAW2 — Seriously Amazing Widener 2 (chmaha)" "chmaha Scripts/Various/SeriouslyAmazingWidener2.jsfx"
+REV "SC Filter (Tukan)" "Tukan/SC Filter (Tukan)"
+REV "SEG - Smooth Expander Gate" "Supermaailma/SEG Gate"
+REV "SEGX2 - Smooth Dual Band Expander Gate" "Supermaailma/SEGX2 Gate"
+REV "SEGX2 Gate" "SonicAnomaly JSFX/Plugins/SEGX2 Gate.jsfx"
+REV "SMPTE LTC Reader/Meter" utility/smpte_ltc_reader
+REV "SUM CHANNEL (Tukan)" "Tukan/SumChannel (Tukan)"
+REV "Saike / Nostalgizer / Lo-Fi (BETA)" "Saike Tools/Nostalgizer/saike_nostalgizer.jsfx"
+REV "Saike 4-pole BandSplitter" "Saike Tools/Basics/BandSplitter.jsfx"
+REV "Saike 4-pole phase matcher for IIR BandSplitter" "Saike Tools/Basics/BandSplitter_phasematcher.jsfx"
+REV "Saike BandJoiner" "Saike Tools/Basics/BandJoiner.jsfx"
+REV "Saike FM Filter" "Saike Tools/FMFilter/FM Filter.jsfx"
+REV "Saike FM Filter 2" "Saike Tools/Yutani/Saike_FMFilter2.jsfx"
+REV "Saike MIDI ARP (beta)" "Saike Tools/saike_midi_arp/saike_midi_arp.jsfx"
+REV "Saike MS-20 filter emulation" "Saike Tools/Basics/MS-20.jsfx"
+REV "Saike Monitor Routing Utility [ALPHA]" "Saike Tools/Basics/Saike_Routing_Utility.jsfx"
+REV "Saike Morphing Filter" "Saike Tools/Basics/Saike_Morph.jsfx"
+REV "Saike Multiband Ravager (BETA)" "Saike Tools/Ravager/Ravager_MB.jsfx"
+REV "Saike Never Odd or Even (Distortion)" "Saike Tools/Basics/saike_never_odd_or_even.jsfx"
+REV "Saike Not OTT (ALPHA)" "Saike Tools/NOTT/nott.jsfx"
+REV "Saike Nuker (EARLY ALPHA - DO NOT USE)" "Saike Tools/Nuker/saike_nuker.jsfx"
+REV "Saike Phase Mangler (BETA)" "Saike Tools/PhaseMangler/saike_phase_mangler.jsfx"
+REV "Saike Pitch Shifter" "Saike Tools/Basics/Saike_Pitch_Shift.jsfx"
+REV "Saike Pitch Shifter [ReaJS-Compatibility]" "Saike Tools/reajs_compatibility/Saike_Pitch_Shift_compat.jsfx"
+REV "Saike Reflectosaurus (beta)" "Saike Tools/Reflectosaurus/Reflectosaurus.jsfx"
+REV "Saike SEQS (Sequenced FX) (beta)" "Saike Tools/SequencedFX/SequencedFX.jsfx"
+REV "Saike SideSpectrum Meter" "Saike Tools/SpectrumAnalyzer/StereoSpectrumSplit.jsfx"
+REV "Saike Smooth" "Saike Tools/Basics/saike_smooth.jsfx"
+REV "Saike Spectral Analyzer (Alternative)" "Saike Tools/SpectrumAnalyzer/SaikeMultiSpectralAnalyzer_MK2.jsfx"
+REV "Saike Spectral Analyzer (beta)" "Saike Tools/SpectrumAnalyzer/SaikeMultiSpectralAnalyzer.jsfx"
+REV "Saike Stereo Bub II Stereoizer" "Saike Tools/Basics/Saike Stereo Bub II.jsfx"
+REV "Saike Stereo Bub II Stereoizer (ZenoMOD)" "LBX Plugins/Saike Stereo Bub II LBX (ZenoMOD).jsfx"
+REV "Saike Stereo Bub III Stereoizer" "Saike Tools/Basics/Saike Stereo Bub III.jsfx"
+REV "Saike Stereo Bub III Stereoizer (ZenoMOD)" "LBX Plugins/Saike Stereo Bub III (ZenoMOD).jsfx"
+REV "Saike StereoManipulator" "Saike Tools/SpectrumAnalyzer/StereoManipulator.jsfx"
+REV "Saike Swellotron" "Saike Tools/Swellotron/Swellotron.jsfx"
+REV "Saike Tanh Saturation with anti aliasing" "Saike Tools/Basics/Tanh_Saturator_AA.jsfx"
+REV "Saike Tight Compressor" "Saike Tools/Basics/Tight_Compressor.jsfx"
+REV "Saike ToneStacks (BETA)" "Saike Tools/Basics/ToneStacks.jsfx"
+REV "Saike Transience (transient shaper)" "Saike Tools/Basics/Transience.jsfx"
+REV "Saike Wahriffic" "Saike Tools/Basics/wahriffic.jsfx"
+REV "Sandwich Amp Distortion (by Geraint Luff)" "Geraint's JSFX/Distortion/Sandwich-Amp/Sandwich Amp.jsfx"
+REV "Satan verb" "Saike Tools/SatanVerb/SatanVerb.jsfx"
+REV Saturation loser/Saturation
+REV "Saturation (ZenoMOD)" "LBX Plugins/Saturation LBX (ZenoMOD)"
+REV "Send All Notes Off" "ReaTeam JSFX/MIDI/mschnell_Send All Notes Off.jsfx"
+REV "Shelving Filter" Liteon/shelvingfilter
+REV "Shepard Paradoxical Synth" "ReaTeam JSFX/Synth/TiaR_Shepard Paradoxical Synth.jsfx"
+REV "Show Current Tempo" Whatsup/ShowTempo
+REV "Shows the range of an instrument in concert pitch or written range, and filter notes outside the range." Davisan/dvn-InstrumentRange
+REV "Silence Meter" "X-Raym Scripts/JSFX/X-Raym_Silence meter.jsfx"
+REV "Sillons Vinyl Emulation (chmaha)" "chmaha Scripts/Various/Sillons.jsfx"
+REV "Simple 1-Pole Filter" Liteon/simplelp6db
+REV "Simple 1-Pole Filter (phase corrected)" "ERSH plugins and effects/JSFX/ersh_simplelp6db.jsfx"
+REV "Simple MIDI mono synth" Tale/examples/midi_queue1
+REV "Simple Peak-1 Limiter" loser/SP1LimiterJS
+REV "Simple algorithmic music generator" True-grue/musinum
+REV "Simple drum synth" Tale/drum_synth
+REV "Simple mono/poly synth" Tale/mono_synth
+REV "Sine Sweep Generator" synthesis/sine_sweep
+REV "Sine wave wavetable oscillator" Tale/examples/wavetable
+REV "Sine/cosine wave oscillator" Tale/examples/sine
+REV "Six-Dither Sid (chmaha)" "chmaha Scripts/Dithers/six-dither_sid.jsfx"
+REV "Skope II [Build 160930]" "SonicAnomaly JSFX/Plugins/Skope2.jsfx"
+REV "Skope [Build 140325]" Supermaailma/Skope
+REV "Slider and MIDI CC" "ReaTeam JSFX/MIDI/mschnell_MIDI Slider and MIDI CC.jsfx"
+REV "Slider to MIDI NRPM" "ReaTeam JSFX/MIDI/mschnell_Slider to MIDI NRPM.jsfx"
+REV "Slider to Midi PS" "ReaTeam JSFX/Utility/mschnell_Slider to Midi PS.jsfx"
+REV "Smooth Limiter (by Geraint Luff)" "Geraint's JSFX/Utility/Smooth-Limiter/Smooth Limiter.jsfx"
+REV "Smooth Limiter (by Geraint Luff) (ZenoMOD)" "LBX Plugins/Smooth Limiter LBX (ZenoMOD)"
+REV "Snippity Soft Clipper (chmaha)" "chmaha Scripts/Various/Snippity.jsfx"
+REV "Soft Bell/Chime (by Geraint Luff)" "Geraint's JSFX/Synth/Soft-Bell/Soft-Bell.jsfx"
+REV "Soft Clipper/Limiter" schwa/soft_clipper
+REV "Solar Wind Aural Exciter (chmaha)" "chmaha Scripts/Various/Solar_Wind.jsfx"
+REV "Sonic Enhancer" Liteon/sonic_enhancer
+REV "Speaker Mix" "ERSH plugins and effects/JSFX/ersh_speaker_mix.jsfx"
+REV "Spectral Hold (Cockos)" synthesis/spectral_hold
+REV "Spectrograph Spectrogram Meter (Cockos)" analysis/gfxspectrograph
+REV "Spectropaint Filter" filters/spectro_filter_paint
+REV "Spectropaint Synthesis" analysis/spectropaint
+REV "Spectrum Matcher (by Geraint Luff)" "Geraint's JSFX/Utility/Spectrum-Matcher/Spectrum Matcher.jsfx"
+REV "Sphinx (Tukan)" "Tukan/Sphinx (Tukan)"
+REV "Split MIDI on each Program Change" "DarkStar/MIDI Program Change Split"
+REV "Split to 4 channels" "Split To 4 Channels.jsfx"
+REV "Spring-Box Delay-Reverb (by Geraint Luff)" "Geraint's JSFX/Delay/Spring-Box/Spring-Box.jsfx"
+REV "Square Pusher Distortion [mrlimbic]" "mrlimbic scripts/JSFX/mrlimbic_square_pusher_distorion.jsfx"
+REV "Squashman (beta)" "Saike Tools/Squashman/Squashman.jsfx"
+REV "Stan Dither (chmaha)" "chmaha Scripts/Dithers/Stan.jsfx"
+REV "State Variable Morphing Filter" Liteon/statevariable
+REV "Step sequencing (replace mode) by cfillion" "ReaTeam Scripts/MIDI Editor/cfillion_Step sequencing (replace mode).jsfx"
+REV "Stereo 1+2 in, select output pair(s)" Witti/Utility/output_selector
+REV "Stereo 1+2 out, select input pair(s)" Witti/Utility/input_selector
+REV "Stereo Alignment Delay (by Geraint Luff)" "Geraint's JSFX/Delay/Stereo-Alignment-Delay/Stereo Alignment Delay.jsfx"
+REV "Stereo Channel Volume/Pan/Polarity Control" utility/chanmix2
+REV "Stereo Chop chop" "ReaTeam JSFX/Modulation/TiaR_ChopChop.jsfx"
+REV "Stereo Enhancer" "loser/Stereo Enhancer"
+REV "Stereo Enhancer [loser/stereoEnhancer]" loser/stereoEnhancer
+REV "Stereo Field Manipulator" "loser/Stereo Field"
+REV "Stereo Field Manipulator [loser/StereoField]" loser/StereoField
+REV "Stereo To Surround Rotator [Build 20151002]" "SonicAnomaly JSFX/Plugins/Stero2SurroundRotator.jsfx"
+REV "Stereo Upmix" loser/stereo
+REV "Stereo Width" "sstillwell/Stereo Width"
+REV "Stereo Width [sstillwell/stereowidth]" sstillwell/stereowidth
+REV "StereoTilt (Mono-to-Stereo)" Liteon/stereotilt
+REV "Subtractive Stereo Enhancer" sstillwell/width
+REV "SumThing (Tukan)" "Tukan/SumThing (Tukan)"
+REV "SumThing SI (Tukan)" "Tukan/SumThing SI (Tukan)"
+REV "Super8 MIDI-controlled synchronized looper (Cockos)" loopsamplers/super8
+REV "Supersonic Filter (chmaha)" "chmaha Scripts/Consoles/Supersonic.jsfx"
+REV "Surround Pan - Stereo To 5.1" "Supermaailma/Surround Pan"
+REV "Surround Pan 2.1" "SonicAnomaly JSFX/Plugins/Surround Pan 2.jsfx"
+REV "Sustain pedal to note length" "cfillion/Sustain to note length"
+REV "Sustain pedal to note length [ReaTeam JSFX/MIDI/cfillion_Sustain pedal to note length.jsfx]" "ReaTeam JSFX/MIDI/cfillion_Sustain pedal to note length.jsfx"
+REV "Sweeping Resonant Lowpass Filter" filters/sweepinglowpass
+REV "Switcher3 (channel input selector)" IX/Switcher3
+REV "Switcher5 (channel input selector)" IX/Switcher5.jsfx
+REV "SwixMitch (4x Stereo In, 2 Bus X-Fader)" IX/SwixMitch
+REV "SwixMitch (4x Stereo In, 2 Bus X-Fader) [IXix/SwixMitch]" IXix/SwixMitch
+REV "Tape Recorder (Tukan)" "Tukan/Tape (Tukan)"
+REV "Tape Recorder S2 (Tukan)" "Tukan/Tape Recorder S2 (Tukan)"
+REV Thunderkick sstillwell/thunderkick
+REV "Tilt Equalizer" Liteon/tilteq
+REV "Time Adjustment Delay" "delay/Time Adjustment"
+REV "Time Adjustment Delay [delay/time_adjustment]" delay/time_adjustment
+REV "Time Delay by Distance" "ReaTeam JSFX/Utility/CoreyScogin_TimeDelayByDistance.jsfx"
+REV "Time Difference Pan" "loser/Haas Delay Pan"
+REV "Time Difference Pan [loser/timeDifferencePan]" loser/timeDifferencePan
+REV "Titan Capacitor Distortion (chmaha)" "chmaha Scripts/Various/Titan.jsfx"
+REV "Tone Gate" "remaincalm_org/Tone Gate"
+REV "Tone Gate [remaincalm_org/tonegate]" remaincalm_org/tonegate
+REV "Tone Generator" "synthesis/Tone Generator"
+REV "Tone Generator [synthesis/tonegenerator]" synthesis/tonegenerator
+REV "Tone Generator with playstate" "X-Raym Scripts/JSFX/X-Raym_Tone generator with playstate.jsfx"
+REV "Tone Sweep" "RCJacH Scripts/JSFX/Synth/Tone Sweep.jsfx"
+REV Tonifier misc/tonifier
+REV "Tonifier v2" misc/tonifier2
+REV "Tool (Tukan)" "Tukan/Tool (Tukan)"
+REV "Tool S2 (Tukan)" "Tukan/Tool S2 (Tukan)"
+REV "Track Inspector" HeDa/Track_Inspector
+REV "Transhape (for Drums)" loser/transhape
+REV "Transient Controller" loser/TransientController
+REV "Transient Controller 2" "ERSH plugins and effects/JSFX/ersh_TransientController2.jsfx"
+REV "Transient Controller 2 [ReaTeam JSFX/Dynamic/ersh_Transient Controller 2.jsfx]" "ReaTeam JSFX/Dynamic/ersh_Transient Controller 2.jsfx"
+REV "Transient Killer" loser/TransientKiller
+REV "Transient-Driven Auto-Pan (Receiver)" "Till/Transient-driven Auto-Pan v1.0 (Receiver)"
+REV "Transient-Driven Auto-Pan (Transmitter)" "Till/Transient-driven Auto-Pan v1.0 (Transmitter)"
+REV "Transient-Driven Auto-Pan v1.1 (Receiver)" "Till/Transient-driven Auto-Pan v1.1 (Receiver)"
+REV "Transient-Driven Auto-Pan v1.1 (Transmitter)" "Till/Transient-driven Auto-Pan v1.1 (Transmitter)"
+REV Transpire "SonicAnomaly JSFX/Plugins/Transpire.jsfx"
+REV Tremolo guitar/tremolo
+REV "Tremolo [Tale/examples/lfo]" Tale/examples/lfo
+REV TriLeveler2 "SonicAnomaly JSFX/Plugins/TriLeveler2.jsfx"
+REV "Trigger0=scan ON/OFF // Trigger1=rescan // Trigger2=reset" Witti/Utility/auto_level_receive
+REV "Triggered Random Modal Riffer" "ReaTeam JSFX/MIDI/ee33_Triggered Random Modal Riffer.jsfx"
+REV "Tube Harmonics" Liteon/tubeharmonics
+REV "Tube Harmonics ( Amp Version )" Liteon/tubeharmonics_amp
+REV "Tube amp" Tale/tube_amp
+REV "Turn audio signal into velocity-sensitive drum trigger" sstillwell/drumtrigger
+REV "Turquoise Limiter S2 (Tukan)" "Tukan/Turquoise Limiter S2 (Tukan)"
+REV "Twilight Dither (chmaha)" "chmaha Scripts/Dithers/Twilight.jsfx"
+REV "Upward Expander" loser/UpwardExpander
+REV "Use slider1 for parameter modulation linking." Witti/ParaMod/control_slider_fine
+REV "Use slider1 for parameter modulation linking. [Witti/ParaMod/control_slider_fine_2]" Witti/ParaMod/control_slider_fine_2
+REV "VCA Follow" utility/vca_follow
+REV "VCA Lead" utility/vca_lead
+REV "VI Compensator 120K: version 1.4.0706" "Ijijn/VI Compensator 120K"
+REV "VI Officer: version 0.7.15.0322" "Ijijn/VI Officer"
+REV "VI PDC Compensator 1.3.1204" "Ijijn/VI PDC Compensator"
+REV "VI Sculpt: version 1.4.0706" "Ijijn/VI Sculpt"
+REV "VOLA-EX [Build 141013]" Supermaailma/VOLA-EX
+REV "VOLA-EX-M [Build 141013]" Supermaailma/VOLA-EX-M
+REV VOLA2 "SonicAnomaly JSFX/Plugins/VOLA2.jsfx"
+REV "VOLA2 (ZenoMOD)" "LBX Plugins/SonicAnomaly JSFX (ZenoMOD)/VOLA2 LBX (ZenoMOD).jsfx"
+REV "VU Meter" Liteon/vumetergfx
+REV "VU Meter (Summed)" Liteon/vumetergfxsum
+REV "VU Meter (ZenoMOD)" "LBX Plugins/VU Meter (ZenoMOD)"
+REV "VU Meter (ZenoMOD) [ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx]" "ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx"
+REV "VU meter" meters/vumeter
+REV "Valvity Tube Saturation (chmaha)" "chmaha Scripts/Various/Valvity.jsfx"
+REV "VariBus Comp (Tukan)" "Tukan/VariBus Comp (Tukan)"
+REV "VariBus Comp S2 (Tukan)" "Tukan/VariBus Comp S2 (Tukan)"
+REV "Velocity == Probability" "IXix/MIDI Probalocity"
+REV "Velocity == Probability [midi/MIDI_Probalocity]" midi/MIDI_Probalocity
+REV "Velocity Slider" "ReaTeam Scripts/MIDI Editor/kl_Preset velocity/Velocity Slider.jsfx"
+REV "Velocity randomizer" True-grue/velrand
+REV "Verb Ducker (Tukan)" "Tukan/Verb Ducker (Tukan)"
+REV "Vibrato (by Geraint Luff)" "Geraint's JSFX/Delay/Vibrato/Vibrato.jsfx"
+REV "Violet Envelope Shaper S2 (Tukan)" "Tukan/Violet Envelope Shaper S2 (Tukan)"
+REV "Vocoder (by Geraint Luff)" "Geraint's JSFX/Utility/Vocoder/Vocoder.jsfx"
+REV "Voice Optimized Leveling Amplifier [Build 131121]" Supermaailma/VOLA
+REV "Volume Adjustment" utility/volume
+REV "Volume Adjustment 0dB" MonkeyBars-ReaScripts/JSFX/volume_0db.jsfx
+REV "Volume utility +-10db (sample accurate automation)" "ReaTeam JSFX/Utility/nofish_Volume utility +-10db (sample accurate automation).jsfx"
+REV "Volume/Pan Smoother" utility/volume_pan
+REV "Volume/Pan Smoother v5" breeder/Volume
+REV "Volume/Pan Smoother v5 [utility/volume_pan_sample_accurate_auto]" utility/volume_pan_sample_accurate_auto
+REV "WTFDither (chmaha)" "chmaha Scripts/Dithers/WTFDither.jsfx"
+REV "W_Comp (ZenoMOD)" "LBX Plugins/w_comp LBX (ZenoMOD)"
+REV Wah-Wah guitar/wah
+REV "Warble - Pitch Shifter (by Geraint Luff)" "Geraint's JSFX/Pitch Correction/Warble/Warble.jsfx"
+REV "Wave Shaper" "Beaunus Scripts/JSFX/beaunus_Wave Shaper.jsfx"
+REV "Waveshaping Distortion" loser/waveShapingDstr
+REV "Waveshaping Distortion (ZenoMOD)" "LBX Plugins/WaveShapingDstr LBX (ZenoMOD)"
+REV "Waveshaping Overloaded Cabinet Emulator" "ERSH plugins and effects/JSFX/ersh_cabinet_emu.jsfx"
+REV "White Noise Generator" loser/WhiteNoise
+REV "WigWare Multi-channel Peak VU Meter" analysis/WigMCVUMeter
+REV "Window function viewer" Tale/examples/window_viewer
+REV "XQ Drum Converter" "xeewaj/XQ Drum Converter"
+REV "XQ Drum Deviator" "xeewaj/XQ Drum Deviator"
+REV "XQ Drum Equalizer" "xeewaj/XQ Drum Equalizer"
+REV "XY Pad" "ReaTeam JSFX/MIDI/mschnell_XY Pad.jsfx"
+REV "Xonnos Dither (chmaha)" "chmaha Scripts/Dithers/Xonnos Dither.jsfx"
+REV "Xorshift noise generator" Tale/examples/uint
+REV "Yutani Mono Bass Synth [Saike] (BETA)" "Saike Tools/Yutani/Saike_Yutani.jsfx"
+REV "Ze Big Chorus" "ReaTeam JSFX/Modulation/TiaR_Ze Big Chorus.jsfx"
+REV "Ze Cheesy Harmonic Synth" "ReaTeam JSFX/Synth/TiaR_Ze Cheesy Harmonic Synth.jsfx"
+REV "Ze DigiThArmOrgan" "ReaTeam JSFX/Synth/TiaR_Ze DigiThArmOrgan.jsfx"
+REV "Ze Morpho Dist" "ReaTeam JSFX/Distortion/TiaR_Ze Morpho Dist.jsfx"
+REV "Ze Musette Organ" "ReaTeam JSFX/Synth/TiaR_Ze Musette Organ.jsfx"
+REV "Ze Scanner Chorus" "ReaTeam JSFX/Modulation/TiaR_Ze Little Scanner Chorus.jsfx"
+REV "Zero Crossing Maximizer" loser/ZeroCrossingMaximizer
+REV "Zoom Analyzer Demo" analysis/zoomanalyzer
+REV "acendan_Center Control" "ACendan Scripts/Utility/acendan_Center Control.jsfx"
+REV "acendan_De-Click Discontinuous Waveform" "ACendan Scripts/Utility/acendan_De-Click Discontinuous Waveform.jsfx"
+REV "arp!0 - groovy midi arpeggiator - v0.90rc - click [arp!0] for settings/help" Bangzero/midi_arpbangzero
+REV "band pass filter" filters/bandpass
+REV "bit depth reduction" old_unsupported/bitred
+REV "bric-a-brac (ALPHA)" "Saike Tools/bric-a-brac/saike_bric_a_brac.jsfx"
+REV "buffer save/restore" utility/bufsave
+REV "capture last input" Whatsup/Audio_Capture
+REV "capture last input [Whatsup/MIDI_Capture]" Whatsup/MIDI_Capture
+REV "compscope_src -> compressor -> compscope" analysis/compscope
+REV "compscope_src -> compressor -> compscope [analysis/compscope_src]" analysis/compscope_src
+REV "delay and pan controller" Whatsup/Audio_Tool
+REV every_note_the_same "ReaTeam JSFX/MIDI/willdevelop_every_note_the_same.jsfx"
+REV "fft noise generator" analysis/fft_noise_generator
+REV "gmem Receive" loser/gmemReceive
+REV "gmem Send" loser/gmemSend
+REV "hard limiter" utility/limiter
+REV kawa_Simple_Mid_Side_JSFX "kawa Scripts/JSFX effects/kawa_Simple_Mid_Side.jsfx"
+REV kawa_XY_BitCrusher "kawa Scripts/JSFX effects/kawa_XY_BitCrusher.jsfx"
+REV kawa_XY_Chorus "kawa Scripts/JSFX effects/kawa_XY_Chorus.jsfx"
+REV kawa_XY_Delay "kawa Scripts/JSFX effects/kawa_XY_Delay.jsfx"
+REV kawa_XY_Delay_Type2 "kawa Scripts/JSFX effects/kawa_XY_Delay_Type2.jsfx"
+REV kawa_XY_Flanger "kawa Scripts/JSFX effects/kawa_XY_Flanger.jsfx"
+REV leafac_Automixer "Leandro Facchinetti/Utility/leafac_Automixer.jsfx"
+REV "leafac_Volume (Gain) (Trim) (Mixer Control Panel - MCP) (Track Control Panel - TCP)" "Leandro Facchinetti/Utility/leafac_Volume (Gain) (Trim) (Mixer Control Panel - MCP) (Track Control Panel - TCP)/leafac_Volume (Gain) (Trim) (Mixer Control Panel - MCP) (Track Control Panel - TCP).jsfx"
+REV leafac_Waveform "Leandro Facchinetti/Utility/leafac_Waveform/leafac_Waveform.jsfx"
+REV "lfo generator" Youn/lfo
+REV "lookahead 3 samples" Witti/Filter/3band_eq_x
+REV "low pass filter" filters/lowpass
+REV "midi arp controller" Bangzero/midi_arp_controller
+REV "midi cc map" Hubi/midi_cc_map_v_1
+REV "midi color spiral by Kite Giedraitis / TallKite Software" Kite/ColorSpiral
+REV "midi eater" midi/midi_eater
+REV "mustgroove's  MIDI Chorderizer (with Neg values)" "Mustgroove/MIDI Chorderizer"
+REV "noise gate (simple)" misc/noisegate
+REV "parametric equalizer" filters/parametric_eq
+REV "schmitt-triggering tuner" meters/tuner
+REV scratchy delay/scratchy
+REV "sequencer megababy - awesome sequencer v3/jnif - nandy's mod" midi/sequencer_megababy_nm
+REV "sequencer megababy - awesome sequencer v3/jnif - nandy's mod + breeder's mod" breeder/sequencer_megababy_nm_mod
+REV "sidechain delay - pdc undelayed on outputs 1/2; negative delayed on 3/4" Bangzero/sidechain_delay
+REV "switchable MIDI transpose" "Boreg/MIDI Transpose"
+REV "tone meter (left channel only) -- doesnt really work" meters/tonemeter
+REV "vVIMTC Generator     (click Edit.. for help)--->" "utility/vVIMTC SMPTE Generator"
+REV "video sample peeker" misc/video_sample_peeker
+REV "volume adjustment" HeDa/gain
+REV "volume reducer" "Boreg/MIDI Volume Control"
+REV whatsup_synthesizer Whatsup/Synthesizer
+REV "wild wave fu - extreme dynamic nonlinear waveshaper - v0.31beta" "Bangzero/Wild Wave Fu"
+REV "wild wave fu - extreme dynamic nonlinear waveshaper - v0.31beta [Bangzero/wildwavefu]" Bangzero/wildwavefu
+REV 技法映射 "zaibuyidao Scripts/JSFX/技法映射.jsfx"
+TAGS "ACendan Scripts/Utility/acendan_Center Control.jsfx" "utility mid-side processing"
+TAGS "ACendan Scripts/Utility/acendan_De-Click Discontinuous Waveform.jsfx" "declick click discontinuous discontinuity"
+TAGS "ACendan Scripts/Utility/Parallel Joiner (Linear).jsfx" "parallel channel merge mix split"
+TAGS "ACendan Scripts/Utility/Parallel Joiner x3.jsfx" "parallel channel merge mix split"
+TAGS "ACendan Scripts/Utility/Parallel Joiner.jsfx" "parallel channel merge mix split"
+TAGS "ACendan Scripts/Utility/Parallel Splitter x3.jsfx" "parallel channel duplicate mix split"
+TAGS "ACendan Scripts/Utility/Parallel Splitter.jsfx" "parallel channel duplicate mix split"
+TAGS analysis/gain_reduction_scope "analysis scope meter"
+TAGS analysis/gfxanalyzer "analysis FFT meter spectrum"
+TAGS analysis/gfxscope "analysis scope meter"
+TAGS analysis/gfxspectrograph "analysis FFT meter spectrum"
+TAGS analysis/loudness_meter "analysis loudness meter cockos"
+TAGS analysis/spectropaint "analysis spectral generator FFT"
+TAGS analysis/zoomanalyzer "visualization scope analysis FFT"
+TAGS "breeder/CC Mapper" "MIDI processing routing"
+TAGS breeder/Volume "utility gain stereo"
+TAGS delay/delay "delay guitar"
+TAGS delay/delay_chfun "delay ping-pong"
+TAGS delay/delay_chorus "delay chorus modulation"
+TAGS delay/delay_lowres "delay lo-fi bitreduce"
+TAGS delay/delay_sustain "delay compressor dynamics"
+TAGS delay/delay_tone delay
+TAGS delay/delay_varlen "delay modulation LFO"
+TAGS "delay/Time Adjustment" "delay time PDC"
+TAGS delay/time_adjustment "delay time PDC"
+TAGS dynamics/general_dynamics "graphical processing compressor expander gate"
+TAGS dynamics/general_dynamics_track_inspector "graphical processing compressor expander gate"
+TAGS dynamics/graphical_dynamics "graphical processing compressor expander gate"
+TAGS "ERSH plugins and effects/JSFX/ersh_agc.jsfx" "analysis loudness dynamics"
+TAGS "ERSH plugins and effects/JSFX/ersh_cabinet_emu.jsfx" "processing distortion waveshaper modeller"
+TAGS "ERSH plugins and effects/JSFX/ersh_simplelp6db.jsfx" filter
+TAGS "ERSH plugins and effects/JSFX/ersh_speaker_mix.jsfx" processing
+TAGS "ERSH plugins and effects/JSFX/ersh_TransientController2.jsfx" "processing dynamics transient"
+TAGS filters/autopeakfilter "FFT PDC filter"
+TAGS filters/dc_remove "filter repair"
+TAGS filters/mdct-filter filter
+TAGS filters/mdct-volsweep "filter LFO"
+TAGS filters/resonantlowpass filter
+TAGS filters/spectro_filter_paint "analysis spectral generator FFT filter"
+TAGS filters/sweepinglowpass "LFO filter"
+TAGS "FX Devices Gain Reduction Scope.jsfx" "analysis scope meter"
+TAGS guitar/amp-model "guitar amplifier convolution FFT"
+TAGS guitar/amp-model-dual "guitar amplifier convolution FFT"
+TAGS guitar/chorus "guitar modulation chorus"
+TAGS guitar/distort-fuzz "guitar distortion waveshaper"
+TAGS guitar/distortion "guitar distortion waveshaper"
+TAGS guitar/flanger "guitar flanger modulation"
+TAGS guitar/phaser "guitar modulation filter"
+TAGS guitar/tremolo "guitar tremolo gain modulation"
+TAGS guitar/wah "guitar modulation filter gain"
+TAGS IX/MIDI_CCRider "MIDI modulation generator LFO"
+TAGS IX/MIDI_ChokingHazard "MIDI processing"
+TAGS IX/MIDI_DuplicateFilter "MIDI filter processing"
+TAGS IX/MIDI_KeyMap "MIDI processing mapping"
+TAGS "IX/MIDI_KeyMap II" "MIDI processing mapping"
+TAGS IX/MIDI_KeySnap "MIDI processing mapping"
+TAGS IX/MIDI_Router "MIDI processing routing"
+TAGS IX/MIDI_Tool "MIDI processing"
+TAGS "IX/MIDI_Tool II" "MIDI processing"
+TAGS IX/MIDI_Variant "MIDI processing mapping"
+TAGS "IX/MIDI_Velocifier II" "MIDI processing mapping"
+TAGS IX/MIDI_Wobulator "MIDI modulation generator LFO"
+TAGS "IX/Mixer 8x2" "mixer gain pan"
+TAGS IX/Mixer_8xM-1xS "mixer gain pan"
+TAGS IX/Mixer_8xS-1xS "mixer gain"
+TAGS IX/PhaseAdjustingRouter "processing routing polarity phase"
+TAGS IX/StereoPhaseInvert "processing phase polarity"
+TAGS IX/Switcher2 "processing routing mixer"
+TAGS IX/SwixMitch "processing routing mixer"
+TAGS IXix/SwixMitch "processing routing mixer"
+TAGS "Juan_R's Reaperism/MIDI/MIDI-round-robin-midi_channelize.jsfx" "MIDI processing"
+TAGS "Juan_R's Reaperism/MIDI/MIDI-round-robin-midi_transpose.jsfx" "MIDI processing"
+TAGS "kawa Scripts/JSFX effects/kawa_GonionMeter_Ex.jsfx" "analysis visualization"
+TAGS "LBX Plugins/1175 LBX (ZenoMOD)" "dynamics compressor"
+TAGS "LBX Plugins/Correlation Meter LBX (ZenoMOD)" "utility pan panorama stereo channel correlation phase scope meter"
+TAGS "LBX Plugins/DDC LBX (ZenoMOD)" "dynamics compressor"
+TAGS "LBX Plugins/Downward Expander LBX (ZenoMOD)" "dynamics expander"
+TAGS "LBX Plugins/DVC2JS LBX (ZenoMOD)" "dynamics compressor limiter"
+TAGS "LBX Plugins/DVCJS LBX (ZenoMOD)" "dynamics compressor"
+TAGS "LBX Plugins/Dynamic Range Meter LBX (ZenoMOD)" "analysis utility dynamics (ZenoMOD)"
+TAGS "LBX Plugins/Expressbus LBX (ZenoMOD)" "dynamics compressor zeno"
+TAGS "LBX Plugins/fairlychildish LBX (ZenoMOD)" "dynamics compressor limiter"
+TAGS "LBX Plugins/fairlychildish2 LBX (ZenoMOD)" "dynamics compressor limiter stereo"
+TAGS "LBX Plugins/majortom LBX (ZenoMOD)" "dynamics compressor"
+TAGS "LBX Plugins/mastertom LBX (ZenoMOD)" "dynamics compressor"
+TAGS "LBX Plugins/MGA_JSLimiter LBX (ZenoMOD)" "dynamics limiter zeno"
+TAGS "LBX Plugins/MGA_JSLimiterST LBX (ZenoMOD)" "dynamics limiter stereo zeno"
+TAGS "LBX Plugins/np1136peaklimiter LBX (ZenoMOD)" "limiter dynamics"
+TAGS "LBX Plugins/Saike Stereo Bub II LBX (ZenoMOD).jsfx" "comb stereoizer stereo widener"
+TAGS "LBX Plugins/Saike Stereo Bub III (ZenoMOD).jsfx" "comb stereoizer stereo"
+TAGS "LBX Plugins/Saturation LBX (ZenoMOD)" "processing amplitude gain saturation zeno"
+TAGS "LBX Plugins/VU Meter (ZenoMOD)" "analysis analyzer vu meter"
+TAGS "LBX Plugins/WaveShapingDstr LBX (ZenoMOD)" "processing distortion waveshaper zeno"
+TAGS LBX/gfxanalyzer_lbxstrippermod "analysis FFT meter spectrum"
+TAGS LBX/LBX_FSA_MOD2 "analysis FFT meter spectrum"
+TAGS lbx_jsfx/gfxanalyzer-lbxmod "analysis FFT meter spectrum"
+TAGS lbx_jsfx/gfxanalyzer-lbxmod_SO "analysis FFT meter spectrum"
+TAGS Liteon/3bandpeakfilter "filter equalizer"
+TAGS Liteon/applefilter12db filter
+TAGS Liteon/applefilter72db filter
+TAGS Liteon/bassmanager "processing gain filter stereo limiter"
+TAGS Liteon/butterworth24db "filter multimode"
+TAGS Liteon/cheby24db "filter multimode"
+TAGS Liteon/deesser "filter dynamics processing repair"
+TAGS Liteon/lorenzattractor "generator visualization"
+TAGS Liteon/moog24db "filter multimode"
+TAGS Liteon/nonlinear "processing gain distortion"
+TAGS Liteon/np1136peaklimiter "limiter dynamics"
+TAGS Liteon/pinknoisegen "analysis generator synthesis"
+TAGS Liteon/presenceeq equalizer
+TAGS Liteon/pseudostereo "processing stereo delay"
+TAGS Liteon/rbjstereofilter12db "processing stereo filter mid-side distortion"
+TAGS Liteon/ringmodulator "processing amplitude modulation"
+TAGS Liteon/shelvingfilter "filter equalizer"
+TAGS Liteon/simplelp6db filter
+TAGS Liteon/statevariable "filter multimode"
+TAGS Liteon/tilteq equalizer
+TAGS Liteon/vumetergfx "analysis visualization metering stereo"
+TAGS Liteon/vumetergfxsum "analysis visualization metering"
+TAGS Liteon/waveshapermulti "processing distortion waveshaper"
+TAGS loopsamplers/autoloop "processing sampler"
+TAGS loopsamplers/loopsampler-granul "processing sampler granular"
+TAGS loopsamplers/loopsampler-m2 "processing sampler"
+TAGS loopsamplers/loopsampler-m2-midi "processing sampler"
+TAGS loser/3BandEQ equalizer
+TAGS loser/3BandJoiner "processing routing"
+TAGS loser/3BandSplitter "processing routing"
+TAGS loser/4BandEQ equalizer
+TAGS loser/4BandJoiner "processing routing"
+TAGS loser/4BandSplitter "processing routing"
+TAGS loser/50HzKicker "processing equalizer"
+TAGS loser/5BandJoiner "processing routing"
+TAGS loser/5BandSplitter "processing routing"
+TAGS loser/amplitudeModulator "processing amplitude modulation"
+TAGS loser/CenterCanceler "processing stereo"
+TAGS "loser/Channel Time Delay" "stereo delay"
+TAGS loser/Compciter "processing distortion exciter"
+TAGS loser/DDC "dynamics compressor"
+TAGS loser/DVC2JS "dynamics compressor limiter"
+TAGS loser/DVCJS "dynamics compressor"
+TAGS loser/Exciter "processing exciter distortion"
+TAGS loser/gfxGoniometer "analysis visualization"
+TAGS loser/Goniometer "analysis visualization"
+TAGS "loser/Haas Delay Pan" "processing stereo"
+TAGS loser/masterLimiter "dynamics limiter"
+TAGS loser/MGA_JSLimiter "dynamics limiter"
+TAGS loser/MGA_JSLimiterST "dynamics limiter stereo"
+TAGS loser/MIDI_EQ_Ducker "dynamics equalizer compressor processing MIDI"
+TAGS loser/phaseMeter "analysis utility"
+TAGS loser/ppp "modulation stereo"
+TAGS loser/Saturation "processing amplitude gain saturation"
+TAGS loser/SP1LimiterJS "dynamics limiter"
+TAGS loser/stereo "processing stereo"
+TAGS "loser/Stereo Enhancer" "processing stereo"
+TAGS "loser/Stereo Field" "processing stereo"
+TAGS loser/stereoEnhancer "processing stereo"
+TAGS loser/StereoField "processing stereo"
+TAGS loser/TimeDelayer "stereo delay"
+TAGS loser/timeDifferencePan "processing stereo"
+TAGS loser/TransientController "processing dynamics transient"
+TAGS loser/TransientKiller "dynamics compressor"
+TAGS loser/UpwardExpander "dynamics expander"
+TAGS loser/waveShapingDstr "processing distortion waveshaper"
+TAGS loser/WhiteNoise "analysis generator synthesis"
+TAGS loser/ZeroCrossingMaximizer "processing dynamics"
+TAGS meters/bit_meter "analysis utility"
+TAGS meters/dynamics_meter "analysis utility dynamics"
+TAGS "midi/Drum Trigger" "processing MIDI generator"
+TAGS midi/drumtrigger "processing MIDI generator"
+TAGS midi/midi_arp "MIDI processing"
+TAGS midi/midi_CC_mapper "MIDI processing routing"
+TAGS midi/midi_choke "MIDI processing"
+TAGS midi/midi_chorderizer "MIDI processing"
+TAGS midi/midi_chordkey "MIDI processing"
+TAGS midi/midi_logger "MIDI analysis utility"
+TAGS midi/midi_maptokey "MIDI processing"
+TAGS midi/midi_note2channel "MIDI processing routing"
+TAGS midi/midi_note_filter "MIDI processing filter"
+TAGS midi/midi_note_hold "MIDI processing"
+TAGS midi/midi_note_repeater "MIDI processing"
+TAGS midi/midi_note_sanitizer "MIDI filter processing"
+TAGS midi/midi_transpose "MIDI processing"
+TAGS midi/midi_velocitycontrol "MIDI processing"
+TAGS midi/midinoteondelay "MIDI processing delay"
+TAGS midi/mtc_logger "MIDI analysis utility"
+TAGS midi/program_bank_onload "MIDI generator"
+TAGS midi/sequencer_baby "MIDI generator sequencing"
+TAGS midi/sequencer_baby_v2 "MIDI generator sequencing"
+TAGS midi/sequencer_megababy "MIDI generator sequencing"
+TAGS misc/adpcm_simulator "processing lo-fi"
+TAGS misc/reverseness "processing sampler mangler delay"
+TAGS misc/tonifier "processing generator mangler"
+TAGS misc/tonifier2 "processing generator mangler"
+TAGS MonkeyBars-ReaScripts/JSFX/dual_mono_volume.jsfx "utility gain mono"
+TAGS MonkeyBars-ReaScripts/JSFX/volume_0db.jsfx "utility gain 0dB default"
+TAGS "mrlimbic scripts/JSFX/4-ch 4-band joiner.jsfx" "processing routing"
+TAGS "mrlimbic scripts/JSFX/4-ch 4-band splitter.jsfx" "processing routing"
+TAGS "mrlimbic scripts/JSFX/4-ch limiter.jsfx" "dynamics limiter"
+TAGS "mrlimbic scripts/JSFX/4-ch sidechain compressor.jsfx" "dynamics compressor limiter"
+TAGS "mrlimbic scripts/JSFX/mrlimbic_LCR_mono_panner.jsfx" "Surround LCR pan panner 3.1 5.1"
+TAGS "mrlimbic scripts/JSFX/mrlimbic_square_pusher_distorion.jsfx" distortion
+TAGS old_unsupported/dither "processing lo-fi dither"
+TAGS "pcartwright/MIDI Humanizer" "MIDI processing"
+TAGS "Phroneris/MIDI CC Swapper" "MIDI processing routing"
+TAGS pitch/mdct-shift "processing pitch mangler"
+TAGS pitch/octavedown "processing pitch"
+TAGS pitch/octaveup "processing pitch"
+TAGS pitch/pitch2 "processing pitch"
+TAGS pitch/pitchdown "processing pitch"
+TAGS pitch/superpitch "processing pitch"
+TAGS "RCJacH Scripts/JSFX/MIDI/midi_note_beat_repeater.jsfx" "MIDI processing"
+TAGS "RCJacH/MIDI Note Repeater" "MIDI processing"
+TAGS "ReaTeam JSFX/Dynamic/ersh_Transient Controller 2.jsfx" "processing dynamics transient"
+TAGS "ReaTeam JSFX/MIDI/bor-T_MIDI_XY_Pad_Controller.jsfx" "midi controller"
+TAGS "ReaTeam JSFX/MIDI/mschnell_MIDI CC fluctuation.jsfx" "MIDI processing filter"
+TAGS "ReaTeam JSFX/MIDI/mschnell_MIDI glissando.jsfx" "MIDI processing filter"
+TAGS "ReaTeam JSFX/MIDI/rekseffeks_MIDI CC to pitchbend.jsfx" "MIDI processing routing"
+TAGS "ReaTeam JSFX/MIDI/willdevelop_MIDI every note the same.jsfx" "MIDI processing"
+TAGS "ReaTeam JSFX/Modulation/mschnell_Delay_Modulator.jsfx" "stereo delay"
+TAGS "ReaTeam JSFX/Utility/belovw_Goniometer.jsfx" "analysis visualization"
+TAGS "ReaTeam JSFX/Utility/CoreyScogin_AutoMixer.jsfx" "volume, attenuation, automation"
+TAGS "ReaTeam JSFX/Utility/CoreyScogin_TimeDelayByDistance.jsfx" "utility, time, adjustment"
+TAGS "ReaTeam JSFX/Utility/jw_gfxscope-beat-retrigger.jsfx" "analysis scope meter"
+TAGS "ReaTeam JSFX/Utility/nofish_Volume utility +-10db (sample accurate automation).jsfx" "utility gain stereo"
+TAGS "ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx" "analysis analyzer vu meter loudness"
+TAGS "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Gain Reduction Scope.jsfx" "analysis scope meter"
+TAGS "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD Saike BandSplitter.jsfx" bandsplitter
+TAGS "remaincalm_org/Avocado Glitch" "processing mangler glitch"
+TAGS remaincalm_org/avocado_glitch "processing mangler glitch"
+TAGS "remaincalm_org/Floaty Delay" "delay modulation mangler"
+TAGS remaincalm_org/floaty_delay "delay modulation mangler"
+TAGS "remaincalm_org/Paranoia Mangler" "lo-fi distortion filter mangler"
+TAGS remaincalm_org/paranoia_mangler "lo-fi distortion filter mangler"
+TAGS "remaincalm_org/Tone Gate" "generator processing gate"
+TAGS remaincalm_org/tonegate "generator processing gate"
+TAGS "Saike Tools/Abyss/saike_abyss.jsfx" reverb
+TAGS "Saike Tools/Amaranth/Amaranth.jsfx" "amaranth granular synth graintable grains"
+TAGS "Saike Tools/Basics/BandSplitter.jsfx" bandsplitter
+TAGS "Saike Tools/Basics/BandSplitter_phasematcher.jsfx" "phasematcher for bandsplitter"
+TAGS "Saike Tools/Basics/MS-20.jsfx" "filter non-linear"
+TAGS "Saike Tools/Basics/Saike Stereo Bub II.jsfx" "comb stereoizer stereo"
+TAGS "Saike Tools/Basics/Saike Stereo Bub III.jsfx" "comb stereoizer stereo"
+TAGS "Saike Tools/Basics/Saike_Morph.jsfx" "filter non-linear"
+TAGS "Saike Tools/Basics/saike_never_odd_or_even.jsfx" "static waveshaper"
+TAGS "Saike Tools/Basics/Saike_Pitch_Shift.jsfx" "Saike - Basic pitch shifter"
+TAGS "Saike Tools/Basics/Saike_Routing_Utility.jsfx" "Routing utility"
+TAGS "Saike Tools/Basics/saike_smooth.jsfx" "Saturation with even and odd harmonics."
+TAGS "Saike Tools/Basics/Tanh_Saturator_AA.jsfx" "saturation distortion anti-aliased"
+TAGS "Saike Tools/Basics/Tight_Compressor.jsfx" "Tight Compressor"
+TAGS "Saike Tools/Basics/ToneStacks.jsfx" "parametric eq equalization tonestack tone guitar"
+TAGS "Saike Tools/Basics/Transience.jsfx" "Transient Shaper Saike"
+TAGS "Saike Tools/Basics/wahriffic.jsfx" "filter non-linear wah"
+TAGS "Saike Tools/bric-a-brac/saike_bric_a_brac.jsfx" "texture adder"
+TAGS "Saike Tools/DuskVerb/saike_duskverb.jsfx" "effect, reverb, atmosphere, granular, long"
+TAGS "Saike Tools/Filther/Filther.jsfx" Filther
+TAGS "Saike Tools/FMFilter/FM Filter.jsfx" "audio-rate filters"
+TAGS "Saike Tools/lavaverb/saike_lava.jsfx" "shimmer reverb"
+TAGS "Saike Tools/Modizer/modizer.jsfx" "lo-fi effect"
+TAGS "Saike Tools/Nostalgizer/saike_nostalgizer.jsfx" "detune / envelope muffler / chorus"
+TAGS "Saike Tools/NOTT/nott.jsfx" "multiband compression"
+TAGS "Saike Tools/Nuker/saike_nuker.jsfx" "Distortion tool"
+TAGS "Saike Tools/partials/saike_partials.jsfx" "modal effect"
+TAGS "Saike Tools/PhaseMangler/saike_phase_mangler.jsfx" "phase shifting plugin"
+TAGS "Saike Tools/Poprocks/poprocks.jsfx" "noise generator"
+TAGS "Saike Tools/Ravager/Ravager_MB.jsfx" Ravager
+TAGS "Saike Tools/ReaBee/ReaBee.jsfx" "unique effect"
+TAGS "Saike Tools/reajs_compatibility/Filther_compat.jsfx" Filther
+TAGS "Saike Tools/reajs_compatibility/Saike_Pitch_Shift_compat.jsfx" "Saike - Basic pitch shifter"
+TAGS "Saike Tools/reajs_compatibility/saike_plugins_reajs.jsfx" compatibility
+TAGS "Saike Tools/Reflectosaurus/Reflectosaurus.jsfx" "multi-tap delay plugin"
+TAGS "Saike Tools/Ripple/ripple.jsfx" "Ripple (work in progress | not ready for use!)"
+TAGS "Saike Tools/saike_midi_arp/saike_midi_arp.jsfx" "midi arpeggiator"
+TAGS "Saike Tools/SatanVerb/SatanVerb.jsfx" "Satan verb (work in progress)"
+TAGS "Saike Tools/SequencedFX/SequencedFX.jsfx" "time-based effect"
+TAGS "Saike Tools/SpectrumAnalyzer/SaikeMultiSpectralAnalyzer.jsfx" "analysis FFT meter spectrum"
+TAGS "Saike Tools/SpectrumAnalyzer/SaikeMultiSpectralAnalyzer_MK2.jsfx" "analysis FFT meter spectrum"
+TAGS "Saike Tools/SpectrumAnalyzer/StereoManipulator.jsfx" "processing stereo"
+TAGS "Saike Tools/SpectrumAnalyzer/StereoSpectrumSplit.jsfx" "analysis FFT meter spectrum"
+TAGS "Saike Tools/Squashman/Squashman.jsfx" "multiband saturation plugin"
+TAGS "Saike Tools/Swellotron/Swellotron.jsfx" "ambient, soundscape, long, reverb, convolution, stft"
+TAGS "Saike Tools/Yutani/Saike_FMFilter2.jsfx" "audio-rate filters"
+TAGS "Saike Tools/Yutani/Saike_Yutani.jsfx" "synth bass"
+TAGS schwa/audio_statistics "analysis utility visualization"
+TAGS schwa/fft_splitter "processing FFT routing"
+TAGS schwa/gaussian_noise_generator "analysis generator synthesis"
+TAGS "schwa/MIDI Modal Randomness" "MIDI generator"
+TAGS schwa/midi_examine "MIDI analysis utility"
+TAGS schwa/midi_humanizer "MIDI processing"
+TAGS schwa/midi_modal_randomness "MIDI generator"
+TAGS schwa/soft_clipper "processing gain amplitude saturation limiter"
+TAGS solarfall/ReaAnalog.txt "saturation glue tonal shaping"
+TAGS sstillwell/1175 "dynamics compressor"
+TAGS sstillwell/3x3 "equalizer saturation"
+TAGS sstillwell/3x3_6dbSlope "equalizer saturation"
+TAGS sstillwell/4x4 "equalizer saturation"
+TAGS sstillwell/autoexpand "dynamics expander"
+TAGS sstillwell/badbussmojo "processing distortion waveshaper"
+TAGS sstillwell/badbussmojo_aa "processing distortion waveshaper"
+TAGS sstillwell/chorus "modulation chorus"
+TAGS sstillwell/chorus_stereo "modulation chorus stereo"
+TAGS sstillwell/delay_pong "delay stereo"
+TAGS sstillwell/delay_tempo delay
+TAGS sstillwell/dirtsqueeze "dynamics compressor"
+TAGS sstillwell/eventhorizon "dynamics limiter saturation"
+TAGS sstillwell/eventhorizon2 "dynamics limiter"
+TAGS sstillwell/exciter "processing exciter distortion"
+TAGS sstillwell/expander "dynamics expander"
+TAGS sstillwell/expressbus "dynamics compressor"
+TAGS sstillwell/fairlychildish "dynamics compressor limiter"
+TAGS sstillwell/fairlychildish2 "dynamics compressor limiter stereo"
+TAGS sstillwell/flangebaby "modulation flanger"
+TAGS sstillwell/hpflpf filter
+TAGS sstillwell/hugebooty "processing saturation"
+TAGS sstillwell/louderizer "processing saturation"
+TAGS sstillwell/louderizer_lpf "processing saturation filter"
+TAGS sstillwell/majortom "dynamics compressor"
+TAGS sstillwell/mastertom "dynamics compressor"
+TAGS sstillwell/ozzifier "modulation pitch delay stereo"
+TAGS sstillwell/randomizer "MIDI processing generator"
+TAGS sstillwell/rbj1073 "equalizer filter"
+TAGS sstillwell/rbj4eq equalizer
+TAGS sstillwell/rbj7eq "equalizer filter"
+TAGS sstillwell/realoud "dynamics saturation"
+TAGS sstillwell/realoud_lpf "dynamics saturation filter"
+TAGS "sstillwell/Stereo Width" "processing stereo"
+TAGS sstillwell/stereowidth "processing stereo"
+TAGS sstillwell/thunderkick "processing generator filter synthesis"
+TAGS sstillwell/volscale "MIDI processing"
+TAGS sstillwell/width "processing stereo"
+TAGS synthesis/sine_sweep "analysis generator synthesis"
+TAGS synthesis/spectral_hold "FFT spectral hold"
+TAGS "synthesis/Tone Generator" "analysis generator synthesis"
+TAGS synthesis/tonegenerator "analysis generator synthesis"
+TAGS "Talagan/MIDI CC Mapper X" "MIDI processing and routing"
+TAGS Tale/ab_mono "utility processing routing"
+TAGS Tale/colored_noise "analysis generator synthesis"
+TAGS Tale/drum_synth "generator synthesis"
+TAGS Tale/midi_sustain "MIDI processing"
+TAGS Tale/mono_synth "generator synthesis"
+TAGS "Tale/Noise Generator" "analysis generator synthesis"
+TAGS Tale/poly_mono_midi_router "MIDI processing routing"
+TAGS Tale/random_midi_notes "MIDI generator"
+TAGS Tale/rc_filter filter
+TAGS Tale/tube_amp "processing distortion waveshaper"
+TAGS Teej/rbj12eq-teej "equalizer filter"
+TAGS Teej/rbj4eq-teej "equalizer filter"
+TAGS Teej/rbj4notch-teej filter
+TAGS "Till/Auto-Wideness v1.0" "processing stereo"
+TAGS "Till/Transient-driven Auto-Pan v1.0 (Receiver)" "processing stereo modulation"
+TAGS "Till/Transient-driven Auto-Pan v1.0 (Transmitter)" "processing stereo modulation"
+TAGS "Till/Transient-driven Auto-Pan v1.1 (Receiver)" "processing stereo modulation"
+TAGS "Till/Transient-driven Auto-Pan v1.1 (Transmitter)" "processing stereo modulation"
+TAGS "Tracker tools/Tracker/Hackey Trackey Channel Cycler.jsfx" "channel cycler meant for hackey trackey"
+TAGS "Tracker tools/Tracker/Hackey_Sample_Playback.jsfx" "tracker-style sampler"
+TAGS "Tukan/Envelope (Tukan)" "processing dynamics transient"
+TAGS "Tukan/Exciter+Sub (Tukan)" "processing exciter distortion"
+TAGS "Tukan/Green Circles Meter S2 (Tukan)" "analysis loudness meter cockos"
+TAGS "Tukan/Guitar Amp (Tukan)" "guitar amplifier convolution FFT"
+TAGS "Tukan/LA-1A (Tukan)" "dynamics compressor"
+TAGS "Tukan/LA-2KAN S2 (Tukan)" "dynamics compressor"
+TAGS "Tukan/Lime Deesser S2 (Tukan)" "analysis FFT meter spectrum"
+TAGS "Tukan/Modulation (Tukan)" "modulation flanger"
+TAGS "Tukan/Multiband Processor (Tukan)" "analysis FFT meter spectrum"
+TAGS "Tukan/NC76 (Tukan)" "dynamics compressor"
+TAGS "Tukan/NC76B (Tukan)" "dynamics compressor"
+TAGS "Tukan/Peak Needle (Tukan)" "analysis loudness meter cockos"
+TAGS "Tukan/Tape (Tukan)" "processing gain distortion"
+TAGS "Tukan/Violet Envelope Shaper S2 (Tukan)" "processing dynamics transient"
+TAGS utility/chanmix2 "utility processing stereo phase polarity gain"
+TAGS utility/channel_mapper "utility channel mapper downmix"
+TAGS utility/channelmixer "utility processing stereo"
+TAGS utility/dither_psycho "utility processing dither"
+TAGS utility/KanakaMS5 "utility mid-side processing"
+TAGS utility/KanakaMSEncoder1 "utility mid-side processing"
+TAGS "utility/Phase Adjust" "processing FFT phase"
+TAGS utility/phase_adjust "processing FFT phase"
+TAGS utility/smpte_ltc_reader "utility visualization"
+TAGS utility/vca_follow "utility gain"
+TAGS utility/vca_lead "utility gain"
+TAGS utility/volume "utility gain"
+TAGS utility/volume_pan "utility gain stereo"
+TAGS utility/volume_pan_sample_accurate_auto "utility gain stereo"
+TAGS waveshapers/graphdist "processing distortion waveshaper"
+TAGS waveshapers/graphdist-dyn "processing distortion waveshaper"
+TAGS "X-Raym Scripts/JSFX/X-Raym_Tone generator with playstate.jsfx" "analysis generator synthesis"
 [Surge XT Effects.clap]
 _=00283693F5EDD80189C2514F7E5ED901
 org.surge-synth-team.surge-xt-fx=0|Surge XT Effects (Surge Synth Team)

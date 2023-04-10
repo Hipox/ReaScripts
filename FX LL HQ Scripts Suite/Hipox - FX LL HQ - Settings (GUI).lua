@@ -1228,7 +1228,14 @@ end
 
       ImGui.SameLine(ctx)
       if ImGui.Button(ctx, 'Test') then
-        fx_ll_hq.UpdateRowsNumbersCsvTableDatabase(fx_ll_hq.csvUserDatabase)
+        -- fx_ll_hq.UpdateRowsNumbersCsvTableDatabase(fx_ll_hq.csvUserDatabase)
+        local fx_identifier = "VST: ReaLimit (Cockos)"
+        local par_id = 2
+        local ll_val = nil
+        local hq_val = nil
+        string = fx_identifier .. fx_ll_hq.separator_reallm .. par_id .. fx_ll_hq.separator_reallm  .. fx_ll_hq.separator_reallm 
+        fx_ll_hq.print("Set LLM and HQM for plugin: " .. string .. "\n")
+        reaper.Llm_Set("PARAMCHANGE", string)
           -- fx_ll_hq.SetReaLlm_FX_LL_HQ_FromUserDatabase()
           -- local column_row = fx_ll_hq.row_num_IDX
           -- fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, 3, column_row, 7)
