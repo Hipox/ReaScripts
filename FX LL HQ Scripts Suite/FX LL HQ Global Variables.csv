@@ -1,0 +1,21 @@
+file_name_community_database;FX LL HQ Community Database.csv
+file_name_user_database;FX LL HQ User Database_4.csv
+file_name_user_database_backup;FX LL HQ User Database Backup.csv
+file_name_reference_database;FX LL HQ Community Database.csv
+--- Global Mode Switch Settings ---
+global_mode_switch_ProcessTrackFXs;true
+global_mode_switch_ProcessTakeFXs;true
+--- ReaLlm Preferences Settings ---
+reallm_pref_action_AllowAutomaticStartup;false
+reallm_pref_action_ProcessMonitorChain;true
+reallm_pref_action_SetLlmAndHqmForPlugins;true
+reallm_pref_action_PDC_Limit;0.1
+--- GUI Settings ---
+paths_section_header_open;1
+global_mode_switch_settings_header_open;1
+reallm_current_settings_header_open;1
+reallm_startup_settings_header_open;1
+user_database_configurator_header_open;1
+value_checkbox_edit_popup_1;true
+value_checkbox_close_script_1;false
+global_mode_switch_ProcessInputFx;true
