@@ -4,7 +4,6 @@
 -- @about
 
 --[[ TODO 
-
 [ ] remember and restore open/close of CollapsingHeaders (let user pick in settings if they want to)
 [ ] implement setters and getters for all API ReaLlm for current settings change
   [ ] also add a way to recognize (resp. store the state of PARAMCHANGE activated or not) PARAMSTATE and if user need to, give him advice/possibility to restart Reaper (save and restart)
