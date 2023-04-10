@@ -36,6 +36,14 @@
 [ ] Add option in menu to direct them to reaper forum thread about this script.
 [ ] reset parameter, ll val and hq val and default values when name of plugin changes (by user probably)
 [ ] repair search - not following changes in order in table properly
+[ ] When search active, block action 'Make tracks order permanent'
+[ ] Add option to have 'Make Tracks Order Permanent' automatic when search is not active AND tracks are sorted only by column (ascending) (probably just verify row_number's are in ascending order and apply then if...).
+This has to be applied only in two scenarios - when some track is removed or some track is moved (and obviously on import from another database)
+If either of these scenarios happen, a snapshot BEFORE has to be taken and verify that tracks before this action were definitely in ascending order. Also, search has to be OFF. Only then let this happen (make rows order permanent).
+[ ] Add scaling of whole GUI option
+https://github.com/ocornut/imgui/issues/6176
+[ ] Copy & include ReaLlm's destrings for GET and SET, description can't get better (print them like a hint or in the console)
+[ ] Explore ReaLlm's DO action if can be used
 ]]--
 
 local reaper, r = reaper, reaper
