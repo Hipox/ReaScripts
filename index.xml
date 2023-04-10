@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Hipox Scripts" commit="c6bddc223ab2771193feae0b8f882cc3731e4284">
+<index version="1" name="Hipox Scripts" commit="41744da7de55cad859724cba40d6f30f8d4296d1">
   <category name="Example">
-    <reapack name="cfillion_Hello world.lua" type="script" desc="Hello world">
+    <reapack name="Hipox_Hello world.lua" type="script" desc="Hello world">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -16,8 +16,8 @@ Markdown
 }
 ]]></description>
       </metadata>
-      <version name="1.0" author="cfillion" time="2023-04-10T13:57:34Z">
-        <source main="main">https://github.com/Hipox/ReaScripts/raw/c6bddc223ab2771193feae0b8f882cc3731e4284/Example/cfillion_Hello%20world.lua</source>
+      <version name="1.0" author="Hipox" time="2023-04-10T14:08:53Z">
+        <source main="main">https://github.com/Hipox/ReaScripts/raw/41744da7de55cad859724cba40d6f30f8d4296d1/Example/Hipox_Hello%20world.lua</source>
       </version>
     </reapack>
   </category>
