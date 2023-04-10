@@ -1,23 +1,17 @@
-# ReaPack Repository Template
+# Hipox's Scripts for [Cockos REAPER](http://reaper.fm)
 
-A template for GitHub-hosted ReaPack repositories with automated
-[reapack-index](https://github.com/cfillion/reapack-index)
-running from GitHub Actions.
+This repository is compatible with the ReaPack [REAPER extension](http://reapack.com/) for easy downloading and updating. It is embedded into Reapack by default.
 
-Replace the name of the repository in [index.xml](/index.xml) when using this template.
-This will be the name shown in ReaPack.
+-----------
 
-```xml
-<index version="1" name="Name of your repository here">
+## ReaPack Download Instructions
+This repository is now linked natively in the [ReaPack](http://www.reapack.com) REAPER extension, the free scripts/packages download manager made by [cfillion](https://github.com/cfillion/).
+
+You will get auto-update each time your synchronize packages.
+
+## Manual ReaPack Installation
+If for some reasons you deleted the link to this repo from ReaPack, you can add it back by importing the following [index.xml](https://github.com/X-Raym/REAPER-ReaScripts/raw/master/index.xml) link from the Import a repository window.
+
 ```
-
-Replace the contents of this file ([README.md](/README.md)).
-This will be the text shown when using ReaPack's "About this repository" feature.
-
-reapack-index looks for package files in subfolders.
-The folder tree represents the package categories shown in ReaPack.
-
-Each package file is expected to begin with a metadata header.
-See [Packaging Documentation](https://github.com/cfillion/reapack-index/wiki/Packaging-Documentation) on reapack-index's wiki.
-
-The URL to import in ReaPack is [https://github.com/`<your username>`/`<repository name>`/raw/master/index.xml](https://github.com/cfillion/reapack-repository-template/raw/master/index.xml).
+https://github.com/Hipox/ReaScripts/raw/master/index.xml
+```
