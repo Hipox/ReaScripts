@@ -1,3 +1,8 @@
+-- @description Hipox - FX LL HQ - Settings (GUI).lua
+-- @author Hipox
+-- @version 1.0
+-- @about
+
 --[[ TODO 
 
 [ ] remember and restore open/close of CollapsingHeaders (let user pick in settings if they want to)
