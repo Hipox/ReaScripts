@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Hipox Scripts" commit="41744da7de55cad859724cba40d6f30f8d4296d1">
+<index version="1" name="Hipox Scripts" commit="7e07585e13d2d853076a91d90f155f2cadb20e6f">
   <category name="Example">
     <reapack name="Hipox_Hello world.lua" type="script" desc="Hello world">
       <metadata>
@@ -18,6 +18,9 @@ Markdown
       </metadata>
       <version name="1.0" author="Hipox" time="2023-04-10T14:08:53Z">
         <source main="main">https://github.com/Hipox/ReaScripts/raw/41744da7de55cad859724cba40d6f30f8d4296d1/Example/Hipox_Hello%20world.lua</source>
+      </version>
+      <version name="1.1" author="Hipox" time="2023-04-10T14:45:04Z">
+        <source main="main">https://github.com/Hipox/ReaScripts/raw/7e07585e13d2d853076a91d90f155f2cadb20e6f/Example/Hipox_Hello%20world.lua</source>
       </version>
     </reapack>
   </category>
