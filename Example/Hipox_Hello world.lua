@@ -11,3 +11,4 @@
 --   feature. [Markdown](https://commonmark.org/) *formatting* is supported.
 
 reaper.ShowConsoleMsg 'Hello World! Hipox version'
+reaper.ShowConsoleMsg 'Edited in VS Code Desktop'
