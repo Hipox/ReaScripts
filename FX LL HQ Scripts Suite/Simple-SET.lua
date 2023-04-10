@@ -1,3 +1,9 @@
+-- @description Simple-SET.lua
+-- @author Hipox
+-- @version 1.0
+-- @about
+-- @noindex
+
 -- https://riptutorial.com/lua/example/19065/using-a-table-as-a-set
 SimpleSET = {}
 

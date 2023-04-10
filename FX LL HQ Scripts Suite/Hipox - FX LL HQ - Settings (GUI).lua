@@ -44,6 +44,7 @@ If either of these scenarios happen, a snapshot BEFORE has to be taken and verif
 https://github.com/ocornut/imgui/issues/6176
 [ ] Copy & include ReaLlm's destrings for GET and SET, description can't get better (print them like a hint or in the console)
 [ ] Explore ReaLlm's DO action if can be used
+[ ] move all Database Files to another folder inside this directory
 ]]--
 
 local reaper, r = reaper, reaper

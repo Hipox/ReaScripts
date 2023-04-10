@@ -1,3 +1,9 @@
+-- @description Hipox - FX LL HQ - Functions.lua
+-- @author Hipox
+-- @version 1.0
+-- @about
+-- @noindex
+
 --inspired by scripts:
 -- SEXAN dd FX TO SEL TRACKS SLOT
 

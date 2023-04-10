@@ -1,3 +1,9 @@
+-- @description Hipox - FX LL HQ - Set All Plugins From User Database To High Quality Mode.lua
+-- @author Hipox
+-- @version 1.0
+-- @about
+-- @noindex
+
 local path = ({reaper.get_action_context()})[2]:match('^.+[\\//]')
 package.path = path .. "?.lua"
 

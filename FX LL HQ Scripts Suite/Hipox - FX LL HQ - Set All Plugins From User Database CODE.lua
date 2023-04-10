@@ -1,3 +1,9 @@
+-- @description Hipox - FX LL HQ - Set All Plugins From User Database CODE.lua
+-- @author Hipox
+-- @version 1.0
+-- @about
+-- @noindex Hipox - FX LL HQ - Set All Plugins From User Database CODE
+
 local arg={...}
 local reaper = reaper
 local reallmID = reaper.NamedCommandLookup("_AK5K_REALLM")

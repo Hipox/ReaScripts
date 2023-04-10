@@ -1,3 +1,9 @@
+-- @description Hipox - FX LL HQ - Initialize ReaLlm with User Settings.lua
+-- @author Hipox
+-- @version 1.0
+-- @about
+-- @noindex
+
 local reaper = reaper
 -- local reallmID = reaper.NamedCommandLookup("_AK5K_REALLM")
 -- if reallmID == 0 then return end

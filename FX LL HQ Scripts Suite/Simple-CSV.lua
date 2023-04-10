@@ -1,3 +1,9 @@
+-- @description Simple-CSV.lua
+-- @author Hipox
+-- @version 1.0
+-- @about
+-- @noindex
+
 --creator's github: https://gist.github.com/obikag/6118422#file-simple-csv-lua
 local reaper = reaper
 --Initialise

@@ -1,3 +1,9 @@
+-- @description Hipox - FX LL HQ - GUI Functions.lua
+-- @author Hipox
+-- @version 1.0
+-- @about
+-- @noindex
+
 local fx_ll_hq_gui = {}
 
 local reaper, r = reaper, reaper
