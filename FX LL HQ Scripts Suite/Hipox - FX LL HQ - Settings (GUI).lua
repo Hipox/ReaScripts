@@ -4,7 +4,7 @@
 -- @about
 
 --[[ TODO 
-[ ] remember and restore open/close of CollapsingHeaders (let user pick in settings if they want to)
+[X] remember and restore open/close of CollapsingHeaders
 [ ] implement setters and getters for all API ReaLlm for current settings change
   [ ] also add a way to recognize (resp. store the state of PARAMCHANGE activated or not) PARAMSTATE and if user need to, give him advice/possibility to restart Reaper (save and restart)
   [ ] implement readable printout of getters like Safe plugins (so user know which track and plugin has this parameter set) and stuff like that
@@ -39,16 +39,17 @@
 [ ] Add option in menu to direct them to donation page (PayPal probably)
 [ ] Add option in menu to direct them to reaper forum thread about this script.
 [ ] reset parameter, ll val and hq val and default values when name of plugin changes (by user probably)
-[ ] repair search - not following changes in order in table properly
-[ ] When search active, block action 'Make tracks order permanent'
-[ ] Add option to have 'Make Tracks Order Permanent' automatic when search is not active AND tracks are sorted only by column (ascending) (probably just verify row_number's are in ascending order and apply then if...).
+[X] repair search - not following changes in order in table properly
+[X] When search active, block action 'Make tracks order permanent' and mark search as active (green color accent)
+[X] Add option to have 'Make Tracks Order Permanent' automatic when search is not active AND tracks are sorted only by column (ascending) (probably just verify row_number's are in ascending order and apply then if...).
 This has to be applied only in two scenarios - when some track is removed or some track is moved (and obviously on import from another database)
 If either of these scenarios happen, a snapshot BEFORE has to be taken and verify that tracks before this action were definitely in ascending order. Also, search has to be OFF. Only then let this happen (make rows order permanent).
-[ ] Add scaling of whole GUI option
-https://github.com/ocornut/imgui/issues/6176
-[ ] Copy & include ReaLlm's destrings for GET and SET, description can't get better (print them like a hint or in the console)
+[ ] Add scaling of whole GUI option https://github.com/ocornut/imgui/issues/6176
+[ ] Copy & include ReaLlm's defstrings for GET and SET, description can't get better (print them like a hint or in the console)
 [ ] Explore ReaLlm's DO action if can be used
-[ ] move all Database Files to another folder inside this directory
+[X] move all Database Files to another folder inside this directory
+[ ] when autosave on, before changing to another valid database, save current database
+[ ] add capture button to FX Identifier table cell to capture all parameters in existing row (probably just modify "Capture Last Touched FX Parameter" button) 
 ]]--
 
 local reaper, r = reaper, reaper
@@ -79,12 +80,12 @@ for name, func in pairs(reaper) do
   if name then ImGui[name] = func end
 end
 
+local closeWindow = false
+
 local TEXT_BASE_WIDTH  = ImGui.CalcTextSize(ctx, 'A')
 local TEXT_BASE_HEIGHT = ImGui.GetTextLineHeightWithSpacing(ctx)
 local FLT_MIN, FLT_MAX = ImGui.NumericLimits_Float()
 local INT_MIN, INT_MAX = ImGui.NumericLimits_Int()
-
-
 
 local flag_try_again = false
 local default_value_trigger_tab = {}
@@ -98,7 +99,7 @@ local flag_timed_reallm_update = false
 local flag_refresh_table = false
 
 local database_search_set_focus = false
-local dabase_search_text_buffer = ''
+local dabase_search_text_buffer = ""
 
 local strbuf, llm_pdc_latency, llm_pdc_limit, llm_safe_plugins, reallmID, llm_state, llm_graph, llm_p_state
 local current_state_monitoring_fx = false
@@ -236,6 +237,7 @@ fx_identifier_tab = fx_ll_hq.ConvertUniqueTableToIterativeTable(fx_identifier_un
 fx_ll_hq.print("#fx_identifier_tab == " .. tostring(#fx_identifier_tab) .. "\n")
 -- ????????????????????????????????
 
+fx_ll_hq.SaveAllExistingFXsIntoFilesSameDirAsAcript()
 
 --check values above with print
 fx_ll_hq.print("fx_ll_hq.global_mode_switch_ProcessTrackFXs == " .. tostring(fx_ll_hq.global_mode_switch_ProcessTrackFXs) .. " fx_ll_hq.global_mode_switch_ProcessTakeFXs == " .. tostring(fx_ll_hq.global_mode_switch_ProcessTakeFXs) .. "\n")
@@ -289,24 +291,24 @@ end
 function demo.ShowExampleMenuFile()
   local rv, value
 
-  ImGui.MenuItem(ctx, '(demo menu)', nil, false, false)
-  if ImGui.MenuItem(ctx, 'New') then end
-  if ImGui.MenuItem(ctx, 'Open', 'Ctrl+O') then end
-  if ImGui.BeginMenu(ctx, 'Open Recent') then
-    ImGui.MenuItem(ctx, 'fish_hat.c')
-    ImGui.MenuItem(ctx, 'fish_hat.inl')
-    ImGui.MenuItem(ctx, 'fish_hat.h')
-    if ImGui.BeginMenu(ctx,'More..') then
-      ImGui.MenuItem(ctx, 'Hello')
-      ImGui.MenuItem(ctx, 'Sailor')
-      if ImGui.BeginMenu(ctx, 'Recurse..') then
-        demo.ShowExampleMenuFile()
-        ImGui.EndMenu(ctx)
-      end
-      ImGui.EndMenu(ctx)
-      end
-    ImGui.EndMenu(ctx)
-  end
+  -- ImGui.MenuItem(ctx, '(demo menu)', nil, false, false)
+  if ImGui.MenuItem(ctx, 'New User Database') then end
+  if ImGui.MenuItem(ctx, 'Open User Database', 'Ctrl+O') then end
+  -- if ImGui.BeginMenu(ctx, 'Open Recent') then
+  --   ImGui.MenuItem(ctx, 'fish_hat.c')
+  --   ImGui.MenuItem(ctx, 'fish_hat.inl')
+  --   ImGui.MenuItem(ctx, 'fish_hat.h')
+  --   if ImGui.BeginMenu(ctx,'More..') then
+  --     ImGui.MenuItem(ctx, 'Hello')
+  --     ImGui.MenuItem(ctx, 'Sailor')
+  --     if ImGui.BeginMenu(ctx, 'Recurse..') then
+  --       demo.ShowExampleMenuFile()
+  --       ImGui.EndMenu(ctx)
+  --     end
+  --     ImGui.EndMenu(ctx)
+  --     end
+  --   ImGui.EndMenu(ctx)
+  -- end
   if ImGui.MenuItem(ctx, 'Save All', 'Ctrl/Cmd+S') then 
     count_changes = fx_ll_hq.SafeSaveTableToCsvFileAndReload(fx_ll_hq.csvUserDatabase, fx_ll_hq.file_path_user_database)
     rows_count = fx_ll_hq.ReturnNumberOfRowsInCsvTable(fx_ll_hq.csvUserDatabase)
@@ -324,7 +326,7 @@ function demo.ShowExampleMenuFile()
 
   if ImGui.MenuItem(ctx, 'Save User Database & Exit', 'Ctrl/Cmd+Q') then 
     count_changes = fx_ll_hq.SafeSaveTableToCsvFileAndReload(fx_ll_hq.csvUserDatabase, fx_ll_hq.file_path_user_database)
-    return true
+    closeWindow = true
   end
 
 
@@ -334,59 +336,59 @@ function demo.ShowExampleMenuFile()
   if ImGui.BeginMenu(ctx, 'Options') then
 
 
-    rv, value = ImGui.MenuItem(ctx, "Don't show popup when altering User Database Path (autosave)", '', fx_ll_hq.value_checkbox_edit_popup_1)
+    rv, value = ImGui.Checkbox(ctx, "Don't show popup when altering User Database Path (autosave)", fx_ll_hq.value_checkbox_edit_popup_1)
     if rv then
       fx_ll_hq.print("value_checkbox_edit_popup_1 = " .. tostring(value) .. "\n")
       fx_ll_hq.value_checkbox_edit_popup_1 = value
     end
 
-    rv, value = ImGui.MenuItem(ctx, "Don't show popup when closing script (autosave)", '', fx_ll_hq.value_checkbox_close_script_1)
+    rv, value = ImGui.Checkbox(ctx, "Don't show popup when closing script (autosave)", fx_ll_hq.value_checkbox_close_script_1)
     if rv then
       fx_ll_hq.print("value_checkbox_close_script_1 = " .. tostring(value) .. "\n")
       fx_ll_hq.value_checkbox_close_script_1 = value
     end
 
 
-    rv,demo.menu.enabled = ImGui.MenuItem(ctx, 'Enabled', '', demo.menu.enabled)
-    if ImGui.BeginChild(ctx, 'child', 0, 60, true) then
-      for i = 0, 9 do
-        ImGui.Text(ctx, ('Scrolling Text %d'):format(i))
-      end
-      ImGui.EndChild(ctx)
-    end
-    rv,demo.menu.f = ImGui.SliderDouble(ctx, 'Value', demo.menu.f, 0.0, 1.0)
-    rv,demo.menu.f = ImGui.InputDouble(ctx, 'Input', demo.menu.f, 0.1)
-    rv,demo.menu.n = ImGui.Combo(ctx, 'Combo', demo.menu.n, 'Yes\0No\0Maybe\0')
+    -- rv,demo.menu.enabled = ImGui.MenuItem(ctx, 'Enabled', '', demo.menu.enabled)
+    -- if ImGui.BeginChild(ctx, 'child', 0, 60, true) then
+    --   for i = 0, 9 do
+    --     ImGui.Text(ctx, ('Scrolling Text %d'):format(i))
+    --   end
+    --   ImGui.EndChild(ctx)
+    -- end
+    -- rv,demo.menu.f = ImGui.SliderDouble(ctx, 'Value', demo.menu.f, 0.0, 1.0)
+    -- rv,demo.menu.f = ImGui.InputDouble(ctx, 'Input', demo.menu.f, 0.1)
+    -- rv,demo.menu.n = ImGui.Combo(ctx, 'Combo', demo.menu.n, 'Yes\0No\0Maybe\0')
     ImGui.EndMenu(ctx)
   end
 
-  if ImGui.BeginMenu(ctx, 'Colors') then
-    local sz = ImGui.GetTextLineHeight(ctx)
-    local draw_list = ImGui.GetWindowDrawList(ctx)
-    for i, name in demo.EachEnum('Col') do
-      local x, y = ImGui.GetCursorScreenPos(ctx)
-      ImGui.DrawList_AddRectFilled(draw_list, x, y, x + sz, y + sz, ImGui.GetColor(ctx, i))
-      ImGui.Dummy(ctx, sz, sz)
-      ImGui.SameLine(ctx)
-      ImGui.MenuItem(ctx, name)
-    end
-    ImGui.EndMenu(ctx)
-  end
+  -- if ImGui.BeginMenu(ctx, 'Colors') then
+  --   local sz = ImGui.GetTextLineHeight(ctx)
+  --   local draw_list = ImGui.GetWindowDrawList(ctx)
+  --   for i, name in demo.EachEnum('Col') do
+  --     local x, y = ImGui.GetCursorScreenPos(ctx)
+  --     ImGui.DrawList_AddRectFilled(draw_list, x, y, x + sz, y + sz, ImGui.GetColor(ctx, i))
+  --     ImGui.Dummy(ctx, sz, sz)
+  --     ImGui.SameLine(ctx)
+  --     ImGui.MenuItem(ctx, name)
+  --   end
+  --   ImGui.EndMenu(ctx)
+  -- end
 
   -- Here we demonstrate appending again to the "Options" menu (which we already created above)
   -- Of course in this demo it is a little bit silly that this function calls BeginMenu("Options") twice.
   -- In a real code-base using it would make senses to use this feature from very different code locations.
-  if ImGui.BeginMenu(ctx, 'Options') then -- <-- Append!
-    rv,demo.menu.b = ImGui.Checkbox(ctx, 'SomeOption', demo.menu.b)
-    ImGui.EndMenu(ctx)
-  end
+  -- if ImGui.BeginMenu(ctx, 'Options') then -- <-- Append!
+  --   rv,demo.menu.b = ImGui.Checkbox(ctx, 'SomeOption', demo.menu.b)
+  --   ImGui.EndMenu(ctx)
+  -- end
 
-  if ImGui.BeginMenu(ctx, 'Disabled', false) then -- Disabled
-    error('never called')
-  end
-  if ImGui.MenuItem(ctx, 'Checked', nil, true) then end
+  -- if ImGui.BeginMenu(ctx, 'Disabled', false) then -- Disabled
+  --   error('never called')
+  -- end
+  -- if ImGui.MenuItem(ctx, 'Checked', nil, true) then end
   ImGui.Separator(ctx)
-  if ImGui.MenuItem(ctx, 'Quit', 'Alt+F4') then end
+  if ImGui.MenuItem(ctx, 'Quit', 'Alt+F4') then closeWindow = true end
 end
 
 local show_app = {
@@ -513,6 +515,14 @@ end
 --   fx_ll_hq.SetExtState("current_state_monitoring_fx", "false")
 -- end
 
+local function CreateSnapshotRowsNumbers()
+  local t = {}
+  for i = 1, rows_count do
+    t[i] = fx_ll_hq.GetAttributeByRowAndColumnFromCsvTable(fx_ll_hq.csvUserDatabase, i, fx_ll_hq.row_num_IDX)
+  end 
+  return t
+end
+
 local function exit()
   -- SetExtStatesOnExit()
   SaveGUIStateForElement()
@@ -545,7 +555,7 @@ UpdateObservedValuesReaLlm()
 local function myWindow()
   local rv, value
   local key_pressed, ctrl_mod, shift_mod, alt_mod, win_mod = fx_ll_hq.CheckKeyPressed(ctx, keys)
-  flag_filtered_database = false
+  -- flag_filtered_database = false
   if key_pressed ~= nil then
     if ctrl_mod and shift_mod then
       ExecuteKeyActionCtrlShift(key_pressed)
@@ -571,46 +581,46 @@ local function myWindow()
       demo.ShowExampleMenuFile()
       ImGui.EndMenu(ctx)
     end
-    if ImGui.BeginMenu(ctx, 'Examples') then
-      -- rv,show_app.main_menu_bar =
-      --   ImGui.MenuItem(ctx, 'Main menu bar', nil, show_app.main_menu_bar)
-      rv,show_app.console =
-        ImGui.MenuItem(ctx, 'Console', nil, show_app.console, false)
-      rv,show_app.log =
-        ImGui.MenuItem(ctx, 'Log', nil, show_app.log)
-      rv,show_app.layout =
-        ImGui.MenuItem(ctx, 'Simple layout', nil, show_app.layout)
-      rv,show_app.property_editor =
-        ImGui.MenuItem(ctx, 'Property editor', nil, show_app.property_editor)
-      rv,show_app.long_text =
-        ImGui.MenuItem(ctx, 'Long text display', nil, show_app.long_text)
-      rv,show_app.auto_resize =
-        ImGui.MenuItem(ctx, 'Auto-resizing window', nil, show_app.auto_resize)
-      rv,show_app.constrained_resize =
-        ImGui.MenuItem(ctx, 'Constrained-resizing window', nil, show_app.constrained_resize)
-      rv,show_app.simple_overlay =
-        ImGui.MenuItem(ctx, 'Simple overlay', nil, show_app.simple_overlay)
-      rv,show_app.fullscreen =
-        ImGui.MenuItem(ctx, 'Fullscreen window', nil, show_app.fullscreen)
-      rv,show_app.window_titles =
-        ImGui.MenuItem(ctx, 'Manipulating window titles', nil, show_app.window_titles)
-      rv,show_app.custom_rendering =
-        ImGui.MenuItem(ctx, 'Custom rendering', nil, show_app.custom_rendering)
-      -- rv,show_app.dockspace =
-      --   ImGui.MenuItem(ctx, 'Dockspace', nil, show_app.dockspace, false)
-      rv,show_app.documents =
-        ImGui.MenuItem(ctx, 'Documents', nil, show_app.documents, false)
-      ImGui.EndMenu(ctx)
-    end
-    -- if ImGui.MenuItem(ctx, 'MenuItem') then end -- You can also use MenuItem() inside a menu bar!
-    if ImGui.BeginMenu(ctx, 'Tools') then
-      rv,show_app.metrics      = ImGui.MenuItem(ctx, 'Metrics/Debugger', nil, show_app.metrics)
-      rv,show_app.debug_log    = ImGui.MenuItem(ctx, 'Debug Log',        nil, show_app.debug_log)
-      rv,show_app.stack_tool   = ImGui.MenuItem(ctx, 'Stack Tool',       nil, show_app.stack_tool)
-      rv,show_app.style_editor = ImGui.MenuItem(ctx, 'Style Editor',     nil, show_app.style_editor)
-      rv,show_app.about        = ImGui.MenuItem(ctx, 'About Dear ImGui', nil, show_app.about)
-      ImGui.EndMenu(ctx)
-    end
+    -- if ImGui.BeginMenu(ctx, 'Examples') then
+    --   -- rv,show_app.main_menu_bar =
+    --   --   ImGui.MenuItem(ctx, 'Main menu bar', nil, show_app.main_menu_bar)
+    --   rv,show_app.console =
+    --     ImGui.MenuItem(ctx, 'Console', nil, show_app.console, false)
+    --   rv,show_app.log =
+    --     ImGui.MenuItem(ctx, 'Log', nil, show_app.log)
+    --   rv,show_app.layout =
+    --     ImGui.MenuItem(ctx, 'Simple layout', nil, show_app.layout)
+    --   rv,show_app.property_editor =
+    --     ImGui.MenuItem(ctx, 'Property editor', nil, show_app.property_editor)
+    --   rv,show_app.long_text =
+    --     ImGui.MenuItem(ctx, 'Long text display', nil, show_app.long_text)
+    --   rv,show_app.auto_resize =
+    --     ImGui.MenuItem(ctx, 'Auto-resizing window', nil, show_app.auto_resize)
+    --   rv,show_app.constrained_resize =
+    --     ImGui.MenuItem(ctx, 'Constrained-resizing window', nil, show_app.constrained_resize)
+    --   rv,show_app.simple_overlay =
+    --     ImGui.MenuItem(ctx, 'Simple overlay', nil, show_app.simple_overlay)
+    --   rv,show_app.fullscreen =
+    --     ImGui.MenuItem(ctx, 'Fullscreen window', nil, show_app.fullscreen)
+    --   rv,show_app.window_titles =
+    --     ImGui.MenuItem(ctx, 'Manipulating window titles', nil, show_app.window_titles)
+    --   rv,show_app.custom_rendering =
+    --     ImGui.MenuItem(ctx, 'Custom rendering', nil, show_app.custom_rendering)
+    --   -- rv,show_app.dockspace =
+    --   --   ImGui.MenuItem(ctx, 'Dockspace', nil, show_app.dockspace, false)
+    --   rv,show_app.documents =
+    --     ImGui.MenuItem(ctx, 'Documents', nil, show_app.documents, false)
+    --   ImGui.EndMenu(ctx)
+    -- end
+    -- -- if ImGui.MenuItem(ctx, 'MenuItem') then end -- You can also use MenuItem() inside a menu bar!
+    -- if ImGui.BeginMenu(ctx, 'Tools') then
+    --   rv,show_app.metrics      = ImGui.MenuItem(ctx, 'Metrics/Debugger', nil, show_app.metrics)
+    --   rv,show_app.debug_log    = ImGui.MenuItem(ctx, 'Debug Log',        nil, show_app.debug_log)
+    --   rv,show_app.stack_tool   = ImGui.MenuItem(ctx, 'Stack Tool',       nil, show_app.stack_tool)
+    --   rv,show_app.style_editor = ImGui.MenuItem(ctx, 'Style Editor',     nil, show_app.style_editor)
+    --   rv,show_app.about        = ImGui.MenuItem(ctx, 'About Dear ImGui', nil, show_app.about)
+    --   ImGui.EndMenu(ctx)
+    -- end
     -- if ImGui.SmallButton(ctx, 'doc example') then
     --   local doc = ('%s/Data/reaper_imgui_doc.html'):format(reaper.GetResourcePath())
     --   if reaper.CF_ShellExecute then
@@ -1221,21 +1231,41 @@ end
           fx_ll_hq.SetReaLlm_FX_LL_HQ_FromUserDatabase()
       end
 
+      -- fx_ll_hq.print("flag_filtered_database: " .. tostring(flag_filtered_database) .. "\n")
+      if flag_filtered_database then
+        fx_ll_hq_gui.PushColor_Col_Button(ctx)
+        -- fx_ll_hq_gui.PushColor_Col_Header(ctx)
+        -- ImGui.ButtonFlags_MouseButtonLeft(false)
+        -- r.ShowConsoleMsg("Cannot make table sequence permanent while filtered database is active.\n")
+        -- ImGui.PushItemFlag(ImGui.ItemFlags_Disabled, true);
+        -- ImGui.PushStyleVar(ImGui.StyleVar_Alpha, ImGui.GetStyle().Alpha * 0.5);
+      end
+
       if ImGui.Button(ctx, 'Make Table Sequence Permanent') then
-        fx_ll_hq.MakeRowsSequencePermament_ReNumberRows()
-        table_refresh = true
+        -- local snapshot_rows_numbers = CreateSnapshotRowsNumbers()
+        if not flag_filtered_database then
+          fx_ll_hq.MakeRowsSequencePermament_ReNumberRows(fx_ll_hq.csvUserDatabase)
+          table_refresh = true
+        end
+      end
+
+      if flag_filtered_database then
+        -- ImGui.PopStyleColor(ctx, 1)
+        fx_ll_hq_gui.PopColor_Col_Button(ctx)
+        -- ImGui.PopItemFlag();
+        -- ImGui.PopStyleVar();
       end
 
       ImGui.SameLine(ctx)
       if ImGui.Button(ctx, 'Test') then
         -- fx_ll_hq.UpdateRowsNumbersCsvTableDatabase(fx_ll_hq.csvUserDatabase)
-        local fx_identifier = "VST: ReaLimit (Cockos)"
-        local par_id = 2
-        local ll_val = nil
-        local hq_val = nil
-        string = fx_identifier .. fx_ll_hq.separator_reallm .. par_id .. fx_ll_hq.separator_reallm  .. fx_ll_hq.separator_reallm 
-        fx_ll_hq.print("Set LLM and HQM for plugin: " .. string .. "\n")
-        reaper.Llm_Set("PARAMCHANGE", string)
+        -- local fx_identifier = "VST: ReaLimit (Cockos)"
+        -- local par_id = 2
+        -- local ll_val = nil
+        -- local hq_val = nil
+        -- string = fx_identifier .. fx_ll_hq.separator_reallm .. par_id .. fx_ll_hq.separator_reallm  .. fx_ll_hq.separator_reallm 
+        -- fx_ll_hq.print("Set LLM and HQM for plugin: " .. string .. "\n")
+        -- reaper.Llm_Set("PARAMCHANGE", string)
           -- fx_ll_hq.SetReaLlm_FX_LL_HQ_FromUserDatabase()
           -- local column_row = fx_ll_hq.row_num_IDX
           -- fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, 3, column_row, 7)
@@ -1281,10 +1311,19 @@ end
       --     database_search_isOpen = false
       -- end
       --ImGui.PushItemWidth(ctx, -FLT_MIN) -- Right-aligned
+
+      if flag_filtered_database then
+        fx_ll_hq_gui.PushColor_Col_InputText(ctx)
+      end
+
       rv, value = r.ImGui_InputText(ctx, "Filter User Database Table##autoComplete_textInput_database" , dabase_search_text_buffer, r.ImGui_InputTextFlags_AutoSelectAll())
 
       if rv then
         dabase_search_text_buffer = value
+      end
+
+      if flag_filtered_database then
+        fx_ll_hq_gui.PopColor_Col_InputText(ctx)
       end
 
       -- ImGui.PushItemWidth(ctx, -FLT_MIN) -- Right-aligned
@@ -1296,7 +1335,7 @@ end
       
 
       if dabase_search_text_buffer ~= "" then
-        fx_ll_hq.print("SEARCH ACTIVATED dabase_search_text_buffer == " ..  dabase_search_text_buffer .. "\n")
+        -- fx_ll_hq.print("SEARCH ACTIVATED dabase_search_text_buffer == " ..  dabase_search_text_buffer .. "\n")
         fx_ll_hq.MarkFilterCsvTableDatabase(fx_ll_hq.csvUserDatabase, dabase_search_text_buffer)
         -- fx_ll_hq.print("#filtered_database == " ..  #filtered_database .. "\n")
         flag_filtered_database = true
@@ -1510,23 +1549,24 @@ end
     
               --- Row ---
               r.ImGui_Selectable(ctx, ('%04d'):format(fx_ll_hq.GetAttributeByRowAndColumnFromCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.row_num_IDX)), false)
-
-              if r.ImGui_BeginDragDropSource(ctx, r.ImGui_DragDropFlags_SourceAllowNullID()) then
+              -- fx_ll_hq.print("flag_filtered_database == " .. tostring(flag_filtered_database) .. "\n")
+              if flag_filtered_database == false and r.ImGui_BeginDragDropSource(ctx, r.ImGui_DragDropFlags_SourceAllowNullID()) then
                 r.ImGui_SetDragDropPayload(ctx, 'row', row)
                 r.ImGui_EndDragDropSource(ctx)
               end
         
-              if r.ImGui_BeginDragDropTarget(ctx) then
+              if flag_filtered_database == false and r.ImGui_BeginDragDropTarget(ctx) then
                 local rv, payload = r.ImGui_AcceptDragDropPayload(ctx, 'row')
                 
                 if rv then
+                  local snapshot_rows_numbers = CreateSnapshotRowsNumbers()
                   local shift = reaper.ImGui_GetKeyMods(ctx) & reaper.ImGui_Mod_Shift() > 0
                   if shift then
                     table_refresh = fx_ll_hq.ExchangeRowsInCsvTable(fx_ll_hq.csvUserDatabase, row, payload)
                   else
                     table_refresh = fx_ll_hq.MoveRowInCsvTable(fx_ll_hq.csvUserDatabase, row, payload)
                   end
-                  
+                  fx_ll_hq.MakeRowsSequencePermament_ReNumberRows(fx_ll_hq.csvUserDatabase, snapshot_rows_numbers)
                 end
                 r.ImGui_EndDragDropTarget(ctx)
               end
@@ -1560,32 +1600,41 @@ end
                 modify_changes_counter()
               end
 
-    
+              local valid_param_capture = fx_ll_hq.CaptureVariousValuesOfLastTouchedFxParameter(row, true)
               --- Parameter ID --- 
               ImGui.TableNextColumn(ctx)
               ImGui.PushItemWidth(ctx, -FLT_MIN) -- Right-aligned
               
+              if not valid_param_capture then
+                fx_ll_hq_gui.PushColor_Col_Button(ctx)
+              end
               
               if ImGui.SmallButton(ctx, 'Capture##' .. row .. "_" .. fx_ll_hq.par_idx_IDX)  then
-                fx_ll_hq.print("Capture Parameter Index row " .. row .. " fx_ll_hq.par_idx_IDX " .. fx_ll_hq.par_idx_IDX .. "\n")
-                local ret_capture, _, _, paramnumber, _, minval, maxval = fx_ll_hq.CaptureVariousValuesOfLastTouchedFxParameter(row, true)
+                if valid_param_capture then
+                  fx_ll_hq.print("Capture Parameter Index row " .. row .. " fx_ll_hq.par_idx_IDX " .. fx_ll_hq.par_idx_IDX .. "\n")
+                  local ret_capture, _, _, paramnumber, _, minval, maxval = fx_ll_hq.CaptureVariousValuesOfLastTouchedFxParameter(row, true)
 
-                if ret_capture == false then
-                  fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == false\n")
-                else
-                  fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == true\n")
-                  fx_ll_hq.print("paramnumber == " .. tostring(paramnumber) .. "\n")
-                  fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.par_idx_IDX, paramnumber)
-                  fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Low Latency Value"), minval)
-                  fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "High Quality Value"), maxval)
-                  fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Default Low Latency Value"), minval)
-                  fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Default High Quality Value"), maxval)
-                  fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Active"), true)
+                  if ret_capture == false then
+                    fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == false\n")
+                  else
+                    fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == true\n")
+                    fx_ll_hq.print("paramnumber == " .. tostring(paramnumber) .. "\n")
+                    fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.par_idx_IDX, paramnumber)
+                    fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Low Latency Value"), minval)
+                    fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "High Quality Value"), maxval)
+                    fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Default Low Latency Value"), minval)
+                    fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Default High Quality Value"), maxval)
+                    fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Active"), true)
+                  end
                 end
               end
 
               if ImGui.IsItemHovered(ctx) then
                 ImGui.SetTooltip(ctx, fx_ll_hq.ReturnObservedStringLastTouchedParameter())
+              end
+
+              if not valid_param_capture then
+                fx_ll_hq_gui.PopColor_Col_Button(ctx)
               end
               
               --id_tab = fx_ll_hq.par_idx_IDX - 1
@@ -1606,20 +1655,30 @@ end
               -- ImGui.TableSetColumnIndex(ctx, id_tab)
               ImGui.TableNextColumn(ctx)
               ImGui.PushItemWidth(ctx, -FLT_MIN) -- Right-aligned
+              if not valid_param_capture then
+                fx_ll_hq_gui.PushColor_Col_Button(ctx)
+              end
+
               if ImGui.SmallButton(ctx, 'Capture##' .. row .. "_" .. fx_ll_hq.ll_val_IDX)  then
-                fx_ll_hq.print("Capture Low Latency Value row " .. row .. " fx_ll_hq.ll_val_IDX " .. fx_ll_hq.ll_val_IDX .. "\n")
-                local ret_capture, value_capture = fx_ll_hq.CaptureVariousValuesOfLastTouchedFxParameter(row)
-                if ret_capture == false then
-                  fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == false\n")
-                else
-                  fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == true\n")
-                  fx_ll_hq.print("value == " .. tostring(value_capture) .. "\n")
-                  fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.ll_val_IDX, value_capture)
+                if valid_param_capture then
+                  fx_ll_hq.print("Capture Low Latency Value row " .. row .. " fx_ll_hq.ll_val_IDX " .. fx_ll_hq.ll_val_IDX .. "\n")
+                  local ret_capture, value_capture = fx_ll_hq.CaptureVariousValuesOfLastTouchedFxParameter(row)
+                  if ret_capture == false then
+                    fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == false\n")
+                  else
+                    fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == true\n")
+                    fx_ll_hq.print("value == " .. tostring(value_capture) .. "\n")
+                    fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.ll_val_IDX, value_capture)
+                  end
                 end
               end
     
               if ImGui.IsItemHovered(ctx) then
                 ImGui.SetTooltip(ctx, fx_ll_hq.ReturnObservedStringLastTouchedParameter())
+              end
+
+              if not valid_param_capture then
+                fx_ll_hq_gui.PopColor_Col_Button(ctx)
               end
     
               ImGui.SameLine(ctx)
@@ -1651,23 +1710,32 @@ end
               ImGui.PushItemWidth(ctx, -FLT_MIN) -- Right-aligned
               --id_tab = fx_ll_hq.hq_val_IDX - 1
               -- ImGui.TableSetColumnIndex(ctx, id_tab)
+
+              if not valid_param_capture then
+                fx_ll_hq_gui.PushColor_Col_Button(ctx)
+              end
     
               
               if ImGui.SmallButton(ctx, 'Capture##' .. row .. "_" .. fx_ll_hq.hq_val_IDX)  then
-                fx_ll_hq.print("Capture High Quality Value row " .. row .. " fx_ll_hq.hq_val_IDX " .. fx_ll_hq.hq_val_IDX .. "\n")
-                local ret_capture, value_capture = fx_ll_hq.CaptureVariousValuesOfLastTouchedFxParameter(row)
-                if ret_capture == false then
-                  fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == false\n")
-                else
-                  fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == true\n")
-                  fx_ll_hq.print("value == " .. tostring(value_capture) .. "\n")
-                  fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.hq_val_IDX, value_capture)
+                if valid_param_capture then
+                  fx_ll_hq.print("Capture High Quality Value row " .. row .. " fx_ll_hq.hq_val_IDX " .. fx_ll_hq.hq_val_IDX .. "\n")
+                  local ret_capture, value_capture = fx_ll_hq.CaptureVariousValuesOfLastTouchedFxParameter(row)
+                  if ret_capture == false then
+                    fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == false\n")
+                  else
+                    fx_ll_hq.print("CaptureVariousValuesOfLastTouchedFxParameter(row) == true\n")
+                    fx_ll_hq.print("value == " .. tostring(value_capture) .. "\n")
+                    fx_ll_hq.SetAttributeByRowAndColumnToCsvTable(fx_ll_hq.csvUserDatabase, row, fx_ll_hq.hq_val_IDX, value_capture)
+                  end
                 end
               end
     
               if ImGui.IsItemHovered(ctx) then
-    
                 ImGui.SetTooltip(ctx, fx_ll_hq.ReturnObservedStringLastTouchedParameter())
+              end
+
+              if not valid_param_capture then
+                fx_ll_hq_gui.PopColor_Col_Button(ctx)
               end
     
               ImGui.SameLine(ctx)
@@ -1725,9 +1793,9 @@ end
                 -- --   count_removed_rows = count_removed_rows + 1
                 -- -- end
                 -- fx_ll_hq.print("New rows count without removed rows == " .. rows_count - count_removed_rows .. "\n")
-
+                local snapshot_rows_numbers = CreateSnapshotRowsNumbers()
                 rows_count = fx_ll_hq.RemoveRowFromCsvTable(fx_ll_hq.csvUserDatabase, row)
-                fx_ll_hq.UpdateRowsNumbersCsvTableDatabase(fx_ll_hq.csvUserDatabase)
+                fx_ll_hq.fx_ll_hq.MakeRowsSequencePermament_ReNumberRows(fx_ll_hq.csvUserDatabase, snapshot_rows_numbers)
                 fx_ll_hq.print("New rows count == " .. rows_count .. "\n")
                 modify_changes_counter()
                 ImGui.PopID(ctx)
@@ -1826,13 +1894,15 @@ end
 
 end
 
+
+fx_ll_hq.ExecuteAtStart()
 local ret_window = false
 local function loop()
   reaper.ImGui_PushFont(ctx, sans_serif)
   reaper.ImGui_SetNextWindowSize(ctx, 400, 80, reaper.ImGui_Cond_FirstUseEver())
   local visible, open = reaper.ImGui_Begin(ctx, 'Hipox - FX LL HQ - Settings', true, window_flags)
   if visible then
-    if myWindow() then
+    if myWindow() or closeWindow then
       open = false
     end
     reaper.ImGui_End(ctx)

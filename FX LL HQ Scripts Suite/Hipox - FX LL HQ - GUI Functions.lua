@@ -23,6 +23,49 @@ function fx_ll_hq_gui.HSV(h, s, v, a)
   return ImGui.ColorConvertDouble4ToU32(r, g, b, a or 1.0)
 end
 
+function fx_ll_hq_gui.RgbaToArgb(rgba)
+  return (rgba >> 8 & 0x00FFFFFF) | (rgba << 24 & 0xFF000000)
+end
+
+function fx_ll_hq_gui.ArgbToRgba(argb)
+  return (argb << 8 & 0xFFFFFF00) | (argb >> 24 & 0xFF)
+end
+
+function fx_ll_hq_gui.PushColor_Col_Header(ctx)
+  r.ImGui_PushStyleColor(ctx, r.ImGui_Col_Header(), 0xffffff33) -- DEFAULT BG
+  r.ImGui_PushStyleColor(ctx, r.ImGui_Col_HeaderHovered(), 0xffffff55) -- HIGHLIGHT BG
+  --r.ImGui_PushStyleColor(ctx,r.ImGui_Col_HeaderActive(), 0xffffff33) -- CLICKED
+end
+
+function fx_ll_hq_gui.PopColor_Col_header(ctx)
+  r.ImGui_PopStyleColor(ctx)
+  r.ImGui_PopStyleColor(ctx)
+end
+
+function fx_ll_hq_gui.PushColor_Col_Button(ctx)
+  r.ImGui_PushStyleColor(ctx, r.ImGui_Col_Button(), 0xffffff33) -- DEFAULT BG
+  r.ImGui_PushStyleColor(ctx, r.ImGui_Col_ButtonActive(), 0xffffff55) -- CLICKED
+  r.ImGui_PushStyleColor(ctx,r.ImGui_Col_ButtonHovered(), 0xffffff55) -- HOVERED
+end
+
+function fx_ll_hq_gui.PopColor_Col_Button(ctx)
+  r.ImGui_PopStyleColor(ctx)
+  r.ImGui_PopStyleColor(ctx)
+  r.ImGui_PopStyleColor(ctx)
+end
+
+function fx_ll_hq_gui.PushColor_Col_InputText(ctx)
+  r.ImGui_PushStyleColor(ctx, ImGui.Col_FrameBg(), 0x14ff324d) -- DEFAULT BG
+  -- r.ImGui_PushStyleColor(ctx, ImGui.Col_FrameBg(), 0xffffff55) -- CLICKED
+  -- r.ImGui_PushStyleColor(ctx, ImGui.Col_FrameBg(), 0xffffff55) -- HOVERED
+end
+
+function fx_ll_hq_gui.PopColor_Col_InputText(ctx)
+  r.ImGui_PopStyleColor(ctx)
+  -- r.ImGui_PopStyleColor(ctx)
+  -- r.ImGui_PopStyleColor(ctx)
+end
+
 function SetMinMax(Input, Min,Max )
   if Input >= Max then Input = Max 
   elseif Input <= Min then Input = Min
@@ -413,7 +456,7 @@ function fx_ll_hq_gui.autoComplete(ctx, isOpen, input, fx_identifier_tab, row)
 
             for i, choice in ipairs(filtered_fx) do
                 r.ImGui_PushID(ctx, i)
-                fx_ll_hq.PushColor(ctx)
+                fx_ll_hq_gui.PushColor_Col_Header(ctx)
                 if r.ImGui_Selectable(ctx, choice, i == addfx_sel_entry[row]) then
                     --AddFxToTracks(choice)
                     addfx_sel_entry[row] = 1
@@ -422,7 +465,7 @@ function fx_ll_hq_gui.autoComplete(ctx, isOpen, input, fx_identifier_tab, row)
                     isOpen = false
                 end
                 r.ImGui_PopID(ctx)
-                fx_ll_hq.PopColor(ctx)
+                fx_ll_hq_gui.PopColor_Col_header(ctx)
             end
 
             if r.ImGui_IsKeyPressed(ctx, r.ImGui_Key_Enter()) and r.ImGui_IsKeyDown(ctx, ImGui.Mod_Shift()) then

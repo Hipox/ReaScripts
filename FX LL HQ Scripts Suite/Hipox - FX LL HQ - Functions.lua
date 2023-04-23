@@ -176,6 +176,9 @@ fx_ll_hq.CommabdID_InitializeReaLlmWithUserSettings = findByName(AL_SECTIONS[1],
 
 ------------------------------------------------------------------CORE TOOLS END------------------------------------------------------------------
 ------------------------------------------------------------------GLOBAL VARIABLES ASSIGN------------------------------------------------------------------
+fx_ll_hq.script_path = fx_ll_hq.get_script_path()
+fx_ll_hq.resources_path = reaper.GetResourcePath()
+
 fx_ll_hq.file_name_global_variables = "FX LL HQ Global Variables.csv"
 fx_ll_hq.default_file_name_user_database = "FX LL HQ User Database.csv"
 fx_ll_hq.gv_identifier_user_database = "file_name_user_database"
@@ -185,12 +188,10 @@ fx_ll_hq.csvGlobalVariables = csv.new()
 csv.load_csvfile(fx_ll_hq.csvGlobalVariables, fx_ll_hq.file_path_global_variables)
 
 fx_ll_hq.file_name_user_database = fx_ll_hq.GetVar(fx_ll_hq.csvGlobalVariables, "file_name_user_database", true, 1)
-fx_ll_hq.file_path_user_database = fx_ll_hq.GetPathToFileSameDirectoryAsScript(fx_ll_hq.file_name_user_database)
+-- fx_ll_hq.file_path_user_database = fx_ll_hq.GetPathToFileSameDirectoryAsScript(fx_ll_hq.file_name_user_database)
+fx_ll_hq.file_path_user_database = fx_ll_hq.get_script_path() .. "/Database Files/" .. fx_ll_hq.file_name_user_database
 
 fx_ll_hq.startupFilePath = r.GetResourcePath()..'/Scripts/__startup.lua'
-
-fx_ll_hq.script_path = fx_ll_hq.get_script_path()
-fx_ll_hq.resources_path = reaper.GetResourcePath()
 
 fx_ll_hq.csvUserDatabase = csv.new()
 csv.load_csvfile(fx_ll_hq.csvUserDatabase, fx_ll_hq.file_path_user_database)
@@ -249,6 +250,10 @@ function fx_ll_hq.SaveGlobalSharedVariables()
    fx_ll_hq.SetVar(fx_ll_hq.csvGlobalVariables, fx_ll_hq.file_path_global_variables ,fx_ll_hq.global_mode_switch_ProcessTrackFXs_ID, true, 1, fx_ll_hq.global_mode_switch_ProcessTrackFXs)
    fx_ll_hq.SetVar(fx_ll_hq.csvGlobalVariables, fx_ll_hq.file_path_global_variables ,fx_ll_hq.global_mode_switch_ProcessTakeFXs_ID, true, 1, fx_ll_hq.global_mode_switch_ProcessTakeFXs)
    fx_ll_hq.SetVar(fx_ll_hq.csvGlobalVariables, fx_ll_hq.file_path_global_variables ,fx_ll_hq.global_mode_switch_ProcessInputFx_ID, true, 1, fx_ll_hq.global_mode_switch_ProcessInputFx)
+end
+
+function fx_ll_hq.ExecuteAtStart()
+   fx_ll_hq.UnmarkFilterCsvTableDatabase(fx_ll_hq.csvUserDatabase)
 end
 
 function fx_ll_hq.ExecuteAtExit()
@@ -564,7 +569,11 @@ function fx_ll_hq.FX_IDENTIFIER(str, tbl) -- Script: SEXAN dd FX TO SEL TRACKS S
       end
    elseif format_type == 2 then
       --everything after 'NAME '
-      str = str:match("NAME[ ](.*)")
+      --everything after 'JS: '
+      str = str:match("JS: (.*)")
+      if str then str = str:gsub('"','') else goto continue end
+      -- fx_ll_hq.print("JS found on line: " ..  str .. "\n")
+      -- str = str:match("NAME[ ](.*)")
       -- does str contain '"''
       if str:match('"') then
          -- set str to contain everything between first " and last "
@@ -649,17 +658,6 @@ function fx_ll_hq.GetFileContext(fp)
        f:close()
    end
    return str
-end
-
-function fx_ll_hq.PushColor(ctx)
-   r.ImGui_PushStyleColor(ctx, r.ImGui_Col_Header(), 0xffffff33) -- DEFAULT BG
-   r.ImGui_PushStyleColor(ctx, r.ImGui_Col_HeaderHovered(), 0xffffff55) -- HIGHLIGHT BG
-   --r.ImGui_PushStyleColor(ctx,r.ImGui_Col_HeaderActive(), 0xffffff33) -- CLICKED
-end
-
-function fx_ll_hq.PopColor(ctx)
-   r.ImGui_PopStyleColor(ctx)
-   r.ImGui_PopStyleColor(ctx)
 end
 
 ---comment
@@ -801,12 +799,16 @@ end
 --- SEXAN END ---
 
 function fx_ll_hq.SaveAllExistingFXsIntoFilesSameDirAsAcript()
-   local USER_FX_IDENTIFIER_TAB = Fill_fx_list()
+   local USER_FX_IDENTIFIER_TAB = fx_ll_hq.Fill_fx_list()
    --fx_ll_hq.create_fx_summary_all_present_path_file() -- USEFL FOR DEBUGGING
    local present_fx_identifiers_path = fx_ll_hq.get_script_path() .. "User Present FX - Identifiers.txt"
+   local str = fx_ll_hq.TableToString_1D(USER_FX_IDENTIFIER_TAB, false, true)
    --fx_ll_hq.print("fx_summary_all_present_path = " .. fx_summary_all_present_path .. '\n')
    fx_ll_hq.create_file_if_not_present(present_fx_identifiers_path)
-   table.save(USER_FX_IDENTIFIER_TAB, present_fx_identifiers_path) -- save "USER_FX_IDENTIFIER_TAB" table to file
+   fx_ll_hq.print("Saving all existing FXs into file: " .. tostring(present_fx_identifiers_path) .. '\n')
+   fx_ll_hq.print("Number of FXs: " .. tostring(#USER_FX_IDENTIFIER_TAB) .. '\n')
+   -- table.save(USER_FX_IDENTIFIER_TAB, present_fx_identifiers_path) -- save "USER_FX_IDENTIFIER_TAB" table to file
+   fx_ll_hq.SaveStringToCsvFile(str, present_fx_identifiers_path)
    return present_fx_identifiers_path
 end
 
@@ -925,13 +927,16 @@ function fx_ll_hq.TableToString_2D(table, newline_at_end)
    return string
 end
 
-function fx_ll_hq.TableToString_1D(table, newline_at_end)
+function fx_ll_hq.TableToString_1D(table, newline_at_end, separate_rows_with_newline)
    local string = ""
       for k, v in pairs(table) do
          --fx_ll_hq.print('k: ' .. tostring(k) .. ' v: ' .. tostring(v) .. '\n')
          string = tostring(string) .. tostring(v)
          if k ~= #table then
             string = tostring(string) .. fx_ll_hq.separator_csv
+            if separate_rows_with_newline then
+               string = string .. "\n"
+            end
          end
       end
       if newline_at_end then
@@ -939,6 +944,8 @@ function fx_ll_hq.TableToString_1D(table, newline_at_end)
       end
    return string
 end
+
+
 
 
 function fx_ll_hq.GetValuesFromCsvTableLineFxDatabase(csvMeta,line_number)
@@ -1593,8 +1600,8 @@ function fx_ll_hq.CaptureVariousValuesOfLastTouchedFxParameter(row, flag_capture
    local row_paramnumber_column = fx_ll_hq.GetPositionOfElementInIterativeTable(fx_ll_hq.database_fomat_table, "Parameter Index")
    local row_paramnumber = fx_ll_hq.GetAttributeByRowAndColumnFromCsvTable(fx_ll_hq.csvUserDatabase, row, row_paramnumber_column)
 
-   fx_ll_hq.print("row_fx_identifier == " .. row_fx_identifier .. "\n")
-   fx_ll_hq.print("row_paramnumber == " .. row_paramnumber .. "\n")
+   -- fx_ll_hq.print("row_fx_identifier == " .. row_fx_identifier .. "\n")
+   -- fx_ll_hq.print("row_paramnumber == " .. row_paramnumber .. "\n")
 
 
    local valid_capture = false
@@ -1636,19 +1643,19 @@ function fx_ll_hq.CaptureVariousValuesOfLastTouchedFxParameter(row, flag_capture
       end
    end
 
-   fx_ll_hq.print("fx_identifier == " .. tostring(fx_identifier) .. "paramnumber == " .. tostring(paramnumber) .. " minval == " .. tostring(minval) .. " maxval == " .. tostring(maxval) .. " param_name == " .. tostring(param_name) .. "\n")
+   -- fx_ll_hq.print("fx_identifier == " .. tostring(fx_identifier) .. "paramnumber == " .. tostring(paramnumber) .. " minval == " .. tostring(minval) .. " maxval == " .. tostring(maxval) .. " param_name == " .. tostring(param_name) .. "\n")
 
 
-    if fx_identifier ~= nil and fx_identifier:find(row_fx_identifier, 1, true) == 1 then
-      fx_ll_hq.print("fx_identifier == " .. tostring(fx_identifier) .. " row_fx_identifier == " .. tostring(row_fx_identifier) .. "\n")
+    if row_fx_identifier ~= "" and fx_identifier ~= nil and fx_identifier:find(row_fx_identifier, 1, true) == 1 then
+      -- fx_ll_hq.print("fx_identifier == " .. tostring(fx_identifier) .. " row_fx_identifier == " .. tostring(row_fx_identifier) .. "\n")
       if (not flag_capture_paramnumber and paramnumber ~= nil and paramnumber == row_paramnumber) or (flag_capture_paramnumber == true and paramnumber ~= row_paramnumber) then
          valid_capture = true
-         fx_ll_hq.print("VALID CAPTURE fx_identifier == " .. tostring(fx_identifier) .. " paramnumber == " .. tostring(paramnumber) .. " minval == " .. tostring(minval) .. " maxval == " .. tostring(maxval) .. "\n")
+         -- fx_ll_hq.print("VALID CAPTURE fx_identifier == " .. tostring(fx_identifier) .. " paramnumber == " .. tostring(paramnumber) .. " minval == " .. tostring(minval) .. " maxval == " .. tostring(maxval) .. "\n")
       else
-         fx_ll_hq.print("INVALID CAPTURE (capturing the same paramnumber) fx_identifier == " .. tostring(fx_identifier) .. " paramnumber == " .. tostring(paramnumber) .. " minval == " .. tostring(minval) .. " maxval == " .. tostring(maxval) .. "\n")
+         -- fx_ll_hq.print("INVALID CAPTURE (capturing the same paramnumber) fx_identifier == " .. tostring(fx_identifier) .. " paramnumber == " .. tostring(paramnumber) .. " minval == " .. tostring(minval) .. " maxval == " .. tostring(maxval) .. "\n")
       end
     else
-      fx_ll_hq.print("INVALID CAPTURE fx_identifier == " .. tostring(fx_identifier) .. " paramnumber == " .. tostring(paramnumber) .. " minval == " .. tostring(minval) .. " maxval == " .. tostring(maxval) .. "\n")
+      -- fx_ll_hq.print("INVALID CAPTURE fx_identifier == " .. tostring(fx_identifier) .. " paramnumber == " .. tostring(paramnumber) .. " minval == " .. tostring(minval) .. " maxval == " .. tostring(maxval) .. "\n")
     end
 
    return valid_capture, retval_param, param_name, paramnumber, fx_identifier, minval, maxval, f_value, track, track_name, item_index, item, take, takenumber, txt
@@ -1668,10 +1675,19 @@ end
 
 function fx_ll_hq.UpdateRowsNumbersCsvTableDatabase(csvMeta)
    csv.UpdateRowsNumbersCsvTableDatabase(csvMeta)
+   -- csv.MakeRowsSequencePermament_ReNumberRows(csvMeta)
 end
 
-function fx_ll_hq.MakeRowsSequencePermament_ReNumberRows()
-   csv.MakeRowsSequencePermament_ReNumberRows(fx_ll_hq.csvUserDatabase)
+function fx_ll_hq.MakeRowsSequencePermament_ReNumberRows(csvMeta, snapshot_rows_numbers)
+   if snapshot_rows_numbers then
+      for i = 1, #snapshot_rows_numbers do
+         if snapshot_rows_numbers[i] ~= i then
+            fx_ll_hq.print("Table was not sorted, not updating rows numbers\n")
+            return
+         end
+      end
+   end
+   csv.MakeRowsSequencePermament_ReNumberRows(csvMeta)
    -- local column = fx_ll_hq.row_num_IDX
    -- local prev_row_tab_number
    -- local num_shift = 0

@@ -179,29 +179,29 @@ iZBreakTweaker.dll=00C8B20DA556D401
 iZotope_BreakTweaker.vst3=00C8B20DA556D401,1106629620{5653545A6E4254695A6F746F70652042,iZotope BreakTweaker (iZotope, Inc.) (14 out)!!!VSTi
 Arcade.vst3=80AF46E1E24AD801,786184450{56535441524344617263616465000000,Arcade (Output)!!!VSTi
 [vstcache]
-reacast.dll=00154A468469D901,1919246691,ReaCast (Cockos)
-reacomp.dll=008A75C38469D901,1919247213,ReaComp (Cockos)
-reacontrolmidi.dll=00B56F6C8469D901,1919118692,ReaControlMIDI (Cockos)
-readelay.dll=0022ECB98469D901,1919247468,ReaDelay (Cockos)
-reaeq.dll=003013C18469D901,1919247729,ReaEQ (Cockos)
-reafir.dll=00A97FBD8469D901,1919247986,ReaFir (FFT EQ+Dynamics Processor) (Cockos)
-reagate.dll=00C889B78469D901,1919248244,ReaGate (Cockos)
-reainsert.dll=009B58B68469D901,1919250281,ReaInsert (Cockos)
-realimit.dll=00808F3B8469D901,1919708532,ReaLimit (Cockos)
-reaninjam.dll=00D6B0BE8469D901,1919250026,ReaNINJAM (Cockos)
-reapitch.dll=0041F6B38469D901,1919250531,ReaPitch (Cockos)
-reasamplomatic.dll=006E27B58469D901,1920167789,ReaSamplOmatic5000 (Cockos)!!!VSTi
-reastream.dll=0014C5B28469D901,1920169074,ReaStream (Cockos) (8ch)
-reasurround.dll=00AA04518469D901,1920168548,ReaSurround (Cockos)
-reasurround2.dll=0007233F8469D901,1920168498,ReaSurroundPan (Cockos)
-reasyndr.dll=008D31AF8469D901,1919251300,ReaSynDr (Cockos) (4 out)!!!VSTi
-reasynth.dll=006000AE8469D901,1919251321,ReaSynth (Cockos)!!!VSTi
-reatune.dll=0033CFAC8469D901,1919251566,ReaTune (Cockos)
-reaverb.dll=00E793B18469D901,1919252066,ReaVerb (Cockos)
-reaverbate.dll=004F1DBB8469D901,1920361016,ReaVerbate (Cockos)
-reavocode.dll=00D96CAA8469D901,1919252068,ReaVocode (Cockos)
-reavoice.dll=00D96CAA8469D901,1919252067,ReaVoice (Cockos)
-reaxcomp.dll=00AC3BA98469D901,1919252579,ReaXcomp (Cockos)
+reacast.dll=001C18B1B372D901,1919246691,ReaCast (Cockos)
+reacomp.dll=0091432EB472D901,1919247213,ReaComp (Cockos)
+reacontrolmidi.dll=00BC3DD7B372D901,1919118692,ReaControlMIDI (Cockos)
+readelay.dll=0056EB25B472D901,1919247468,ReaDelay (Cockos)
+reaeq.dll=0037E12BB472D901,1919247729,ReaEQ (Cockos)
+reafir.dll=00DD7E29B472D901,1919247986,ReaFir (FFT EQ+Dynamics Processor) (Cockos)
+reagate.dll=00FC8823B472D901,1919248244,ReaGate (Cockos)
+reainsert.dll=00CF5722B472D901,1919250281,ReaInsert (Cockos)
+realimit.dll=00875DA6B372D901,1919708532,ReaLimit (Cockos)
+reaninjam.dll=00DD7E29B472D901,1919250026,ReaNINJAM (Cockos)
+reapitch.dll=0075F51FB472D901,1919250531,ReaPitch (Cockos)
+reasamplomatic.dll=0075F51FB472D901,1920167789,ReaSamplOmatic5000 (Cockos)!!!VSTi
+reastream.dll=0048C41EB472D901,1920169074,ReaStream (Cockos) (8ch)
+reasurround.dll=00B1D2BBB372D901,1920168548,ReaSurround (Cockos)
+reasurround2.dll=000EF1A9B372D901,1920168498,ReaSurroundPan (Cockos)
+reasyndr.dll=00C1301BB472D901,1919251300,ReaSynDr (Cockos) (4 out)!!!VSTi
+reasynth.dll=0094FF19B472D901,1919251321,ReaSynth (Cockos)!!!VSTi
+reatune.dll=0067CE18B472D901,1919251566,ReaTune (Cockos)
+reaverb.dll=00EE611CB472D901,1919252066,ReaVerb (Cockos)
+reaverbate.dll=00831C27B472D901,1920361016,ReaVerbate (Cockos)
+reavocode.dll=000D6C16B472D901,1919252068,ReaVocode (Cockos)
+reavoice.dll=00E03A15B472D901,1919252067,ReaVoice (Cockos)
+reaxcomp.dll=00B30914B472D901,1919252579,ReaXcomp (Cockos)
 ReaLearn_x64.dll=0C6C551C076BD901,1751282284,ReaLearn (Helgoboss)!!!VSTi
 ADPTR_Sculpt.vst3=00C820603B29D801,1780928174{ABCDEF019182FAEB4164707453435054,ADPTR Sculpt (Plugin Alliance)
 ADSR_Sample_Manager.vst3=008EDDB386BCD701,1271002519{56535441786867616473722073616D70,ADSR Sample Manager (ADSR)!!!VSTi
@@ -300,7 +300,7 @@ Rev_PLATE_140.vst3=00D83ADD7BD7D801,1852238181{41727475415649535265506C50726F63,
 Rev_SPRING_636.vst3=00D83ADD7BD7D801,1574705348{41727475415649535265477250726F63,Rev SPRING-636 (Arturia)
 Scaler2.vst3=0070AEC898F0D801,554404889{ABCDEF019182FAEB654D616953636C32,Scaler 2 (Plugin Boutique)!!!VSTi
 ScalerAudio2.vst3=0070AEC898F0D801,2022066887{ABCDEF019182FAEB654D616953633272,ScalerAudio 2 (Plugin Boutique)
-smartcomp2.vst3=00B0F50C3BA1D801,817300861{565354736D4332736D617274636F6D70,smartComp2 (sonible)
+smartcomp2.vst3=00CC1460A93AD901,817300861{565354736D4332736D617274636F6D70,smartComp2 (sonible)
 Solid_Bus_Comp.vst3=1BBFD373BF3BD801,43000032{5653544E692436736F6C696420627573,Solid Bus Comp (Native Instruments)
 Solid_Dynamics.vst3=4299646ABF3BD801,1364728158{5653544E692437736F6C69642064796E,Solid Dynamics (Native Instruments)
 Solid_EQ.vst3=9254547EBF3BD801,1649996030{5653544E692438736F6C696420657100,Solid EQ (Native Instruments)
@@ -1131,14 +1131,14 @@ DrumLeveler.vst3=001871AAC8DFD601,1610108136{565354646C766C6472756D206C657665,Dr
 Pi.vst3=00D8798E5CA1D401,237055065{5653546B617365706900000000000000,Pi (Sound Radix)
 POWAIR.vst3=001825D3156AD701,434268150{565354706F7772706F77616972000000,POWAIR (Sound Radix)
 SurferEQ.vst3=001825D3156AD701,1329480289{56535473757266737572666572657100,SurferEQ (Sound Radix)
-entropyEQ_x64.vst3=007005A3DD5CD801,808515940{565354656E4571656E74726F70796571,entropyEQ+ (sonible)
-freiraum_x64.vst3=007005A3DD5CD801,1617682425{56535446726569667265697261756D00,freiraum (sonible)
-proximityEQ_x64.vst3=007005A3DD5CD801,708753853{5653547072457170726F78696D697479,proximityEQ+ (sonible)
+entropyEQ_x64.vst3=00981A6C1ADDD801,808515940{565354656E4571656E74726F70796571,entropyEQ+ (sonible)
+freiraum_x64.vst3=0017753C66D8D801,1617682425{56535446726569667265697261756D00,freiraum (sonible)
+proximityEQ_x64.vst3=00C913801DDDD801,708753853{5653547072457170726F78696D697479,proximityEQ+ (sonible)
 smartcomp_x64.vst3=007005A3DD5CD801,1809592985{ABCDEF019182FAEB536F6E6973436D70,smartComp (sonible)
-smartEQ3.vst3=00F01B48276ED801,2003406770{565354736D4533736D61727465713300,smartEQ3 (sonible)
-smartEQlive_x64.vst3=007005A3DD5CD801,57820159{565354736D456C736D61727465716C69,smartEQlive (sonible)
-smartlimit.vst3=0058C11C101BD901,674667197{565354736D4C69736D6172746C696D69,smartLimit (sonible)
-smartreverb_x64.vst3=007005A3DD5CD801,1641161011{ABCDEF019182FAEB536F6E6973567262,smartReverb (sonible)
+smartEQ3.vst3=00405A63A937D901,2003406770{565354736D4533736D61727465713300,smartEQ3 (sonible)
+smartEQlive_x64.vst3=0049C6B267D8D801,57820159{565354736D456C736D61727465716C69,smartEQlive (sonible)
+smartlimit.vst3=00901B769B3AD901,674667197{565354736D4C69736D6172746C696D69,smartLimit (sonible)
+smartreverb_x64.vst3=0008A39A01D9D801,1641161011{ABCDEF019182FAEB536F6E6973567262,smartReverb (sonible)
 SSL_Native_Bus_Compressor_v6.vst3=001871AAC8DFD601,2041819890{565354534E424373736C206E61746976,SSL Native Bus Compressor v6 (SSL)
 SSL_Native_Channelstrip_v6.vst3=001871AAC8DFD601,1061026431{565354534E435373736C206E61746976,SSL Native Channelstrip v6 (SSL)
 SSL_Native_Drumstrip_v6.vst3=001871AAC8DFD601,63222432{565354534E445373736C206E61746976,SSL Native Drumstrip v6 (SSL)
@@ -1169,7 +1169,6 @@ Unfiltered_Audio_Bass_Mint.vst3=00DABF39A1C5D701,1858447941{5653547541424D756E66
 Unfiltered_Audio_Byome.vst3=00E10F0A38C6D701,354392801{56535475614259756E66696C74657265,Unfiltered Audio Byome (Plugin Alliance)
 Unfiltered_Audio_Dent_2.vst3=00C1ACFB74C5D701,958825530{56535475614432756E66696C74657265,Unfiltered Audio Dent 2 (Plugin Alliance)
 Unfiltered_Audio_Fault.vst3=006B8B7874C5D701,935242293{56535475614661756E66696C74657265,Unfiltered Audio Fault (Plugin Alliance)
-Unfiltered_Audio_G8.vst3=00DAB78A71C5D701
 Unfiltered_Audio_Indent_2.vst3=009DAFBD74C5D701,1113508235{56535475614932756E66696C74657265,Unfiltered Audio Indent 2 (Plugin Alliance)
 Unfiltered_Audio_Instant_Delay.vst3=00C69F3F75C5D701,155193969{56535475614944756E66696C74657265,Unfiltered Audio Instant Delay (Plugin Alliance)
 Unfiltered_Audio_LION.vst3=0041171539C6D701,1993140439{56535475614C49756E66696C74657265,Unfiltered Audio LION (Plugin Alliance)!!!VSTi
@@ -1936,7 +1935,7 @@ SendReaControl.dll=00272F48BFD5CA01,1748514865,SendReaControl (x86) (S&M)
 Serato_Sample.dll=0085B5EE5CC3D701,1399681132,Serato Sample (Serato) (34 out)!!!VSTi
 SerumFX_x64.dll=0063A9987129D701,1483109209,SerumFX (Xfer Records)
 Serum_x64.dll=00C0FC87E37BD701,1483109208,Serum (Xfer Records)!!!VSTi
-smartcomp2.dll=00B0F50C3BA1D801,1936540466,smartComp2 (sonible)
+smartcomp2.dll=003DD22CA93AD901,1936540466,smartComp2 (sonible)
 Solid_Bus_Comp.dll=A4F16C74BF3BD801,1315513398,Solid Bus Comp (Native Instruments GmbH)
 Solid_Dynamics.dll=69323F8BBF3BD801,1315513399,Solid Dynamics (Native Instruments GmbH)
 Solid_EQ.dll=271AA54FBF3BD801,1315513400,Solid EQ (Native Instruments GmbH)
@@ -3403,9 +3402,9 @@ VolumeShaper_4.dll=70BBF38246EDD801,1128748596,VolumeShaper4 (Cableguys)
 WaveShaper_CM.dll=B1D2598346EDD801,1129792305,WaveShaperCM (Cableguys)
 FutzBox.vst3=A08EBB5C1316D901,197692975{5653544675747A6675747A626F780000,FutzBox (McDSP)
 FutzBox.dll=F118075A1316D901,1182102650,FutzBox (McDSP)
-purelimit.vst3=0058C11C101BD901,2120525356{5653546B4C696D707572656C696D6974,pureLimit (sonible)
-purelimit.dll=0058C11C101BD901,1800169837,pureLimit (sonible)
-smartlimit.dll=0058C11C101BD901,1936542825,smartLimit (sonible) (6ch)
+purelimit.vst3=006833BB1441D901,2120525356{5653546B4C696D707572656C696D6974,pureLimit (sonible)
+purelimit.dll=00ACBF861441D901,1800169837,pureLimit (sonible)
+smartlimit.dll=00A776409B3AD901,1936542825,smartLimit (sonible) (6ch)
 Auto_Tune_Pro.vst3=0059993A29EDD801,2130760944{565354415438314175746F2D54756E65,Auto-Tune Pro (Antares)
 Augmented_GRAND_PIANO.vst3=00D83ADD7BD7D801,823234230{41727475415649534147506E50726F63,Augmented GRAND PIANO (Arturia)!!!VSTi
 MiniFreak_V.vst3=00D83ADD7BD7D801,844208543{41727475415649534D6E465650726F63,MiniFreak V (Arturia)!!!VSTi
@@ -3416,24 +3415,49 @@ Filter_MS_20.dll=00D83ADD7BD7D801,1181306227,Filter MS-20 (Arturia)
 Mangleverb.dll=00781D097EC1CF01,1095003510,Mangleverb (x86) (Audio Damage)
 Playtime.dll=00633D5EB0F0D601,1751281780,Playtime (Helgoboss)!!!VSTi
 PlaytimeWorker.dll=007F8B6CB0F0D601,1751281783,Playtime Worker (Helgoboss) (16ch)!!!VSTi
-Kontakt_7_Portable.vst3=003A23E31C3BD901,1219583956{5653544E694B376B6F6E74616B742037,Kontakt 7 (Native Instruments) (64 out)!!!VSTi
-Kontakt_7_Portable.dll=003A23E31C3BD901,1315523383,Kontakt 7 (Native Instruments) (64 out)!!!VSTi
+Kontakt_7_Portable.vst3=008B69185171D901,1219583956{5653544E694B376B6F6E74616B742037,Kontakt 7 (Native Instruments) (64 out)!!!VSTi
+Kontakt_7_Portable.dll=008B69185171D901,1315523383,Kontakt 7 (Native Instruments) (64 out)!!!VSTi
 Surge_XT.vst3=00D5FD2CF6EDD801,661331015{ABCDEF019182FAEB566D624153675854,Surge XT (Surge Synth Team) (2->6ch)!!!VSTi
 Surge_XT_Effects.vst3=00092C99F5EDD801,1264445692{ABCDEF019182FAEB566D624153465854,Surge XT Effects (Surge Synth Team)
 master_me.vst3=F43F4D49AF60D901,641220462{445046206173636C47646E5300000000,master_me (Klaus Scheuermann)
 master_me_vst.dll=51442F49AF60D901,1399743559,master_me (Klaus Scheuermann)
-pureverb.vst3=A76A7F55B160D901,133120496{5653546B567262707572657665726200,pureVerb (sonible)
-purecomp.vst3=979CB853B160D901,1801333136{5653546B436D7070757265636F6D7000,pureComp (sonible)
+pureverb.vst3=007C623F155BD901,133120496{5653546B567262707572657665726200,pureVerb (sonible)
+purecomp.vst3=00E353F52C5DD901,1801333136{5653546B436D7070757265636F6D7000,pureComp (sonible)
 Chordjam_64.vst3=003BF5FE0E1ED901,54627490{56535443686A6D63686F72646A616D00,Chordjam (Audiomodern)!!!VSTi
 Loopmix.vst3=008811FA371DD901,314409301{5653544C706D786C6F6F706D69780000,Loopmix (Audiomodern) (14 out)!!!VSTi
 Playbeat_3.vst3=00F11F97371DD901,1775940781{ABCDEF019182FAEB41756D64506C6233,Playbeat 3 (Audiomodern) (18 out)!!!VSTi
 Riffer_64.vst3=00BC1235361DD901,2071821387{ABCDEF019182FAEB41756D6452696666,Riffer (Audiomodern)!!!VSTi
-purecomp.dll=8A3E7653B160D901,1799581040,pureComp (sonible)
-pureverb.dll=29A53155B160D901,1800827490,pureVerb (sonible)
+purecomp.dll=00FAAEBF2C5DD901,1799581040,pureComp (sonible)
+pureverb.dll=00287814155BD901,1800827490,pureVerb (sonible)
 Chordjam_64.dll=00B461FB0E1ED901,1130916461,Chordjam (Audiomodern)!!!VSTi
 Loopmix.dll=002EAFF7371DD901,1282436472,Loopmix (Audiomodern) (14 out)!!!VSTi
 Playbeat_3.dll=0097BD94371DD901,1349280307,Playbeat 3 (Audiomodern) (18 out)!!!VSTi
 Riffer_64.dll=0062B032361DD901,1382639206,Riffer (Audiomodern)!!!VSTi
+onnxruntime.dll=4E321D493C74D901
+Unfiltered_Audio_G8.vst3=00DAB78A71C5D701
+Scyclone.vst3=89EEB6493C74D901,510677091{ABCDEF019182FAEB544F524153435943,Scyclone (Torsion Audio)
+truelevel.vst3=00BB79481B41D901,177879137{565354744C6576747275656C6576656C,trueLevel (sonible)
+truebalance.vst3=000703893D40D901,963908219{5653547442616C7472756562616C616E,trueBalance (sonible)
+fast_balancer.vst3=004ECCA3368BD801,1340134337{5653546642616C666173742062616C61,FAST Balancer (Focusrite)
+fast_compressor_x64.vst3=00B83B4474D8D801,411161516{ABCDEF019182FAEB4643555366436D70,FAST Compressor (Focusrite)
+fast_equaliser_x64.vst3=004A3A6374D8D801,1919632485{ABCDEF019182FAEB4643555366457175,FAST Equaliser (Focusrite)
+fast_limiter_x64.vst3=006AD7177BD8D801,726536155{565354664C696D66617374206C696D69,FAST Limiter (Focusrite)
+fast_reveal_x64.vst3=00A521F973D8D801,1835382796{ABCDEF019182FAEB464355536652766C,FAST Reveal (Focusrite)
+fast_verb_x64.vst3=002B6780FDD8D801,46040672{56535466526576666173742076657262,FAST Verb (Focusrite)
+entropyEQ_x64.dll=00334D4E1ADDD801,1701725553,entropyEQ+ (sonible)
+freiraum_x64.dll=0028582F66D8D801,1181902185,freiraum (sonible)
+proximityEQ_x64.dll=000AE45F1DDDD801,1886537073,proximityEQ+ (sonible)
+smartEQ3.dll=0003CB02A937D901,1936540979,smartEQ3 (sonible)
+smartEQlive_x64.dll=00A6E4A067D8D801,1936541036,smartEQlive (sonible)
+smartreverb_x64.dll=0008A39A01D9D801,1935045218,smartReverb (sonible)
+truebalance.dll=00B3185E3D40D901,1950507372,trueBalance (sonible) (6ch)
+truelevel.dll=003A5E1C1B41D901,1951163766,trueLevel (sonible) (6ch)
+fast_balancer.dll=004ECCA3368BD801,1715626348,FAST Balancer (Focusrite)
+fast_compressor_x64.dll=00B83B4474D8D801,1715694960,FAST Compressor (Focusrite)
+fast_equaliser_x64.dll=00776B6474D8D801,1715827061,FAST Equaliser (Focusrite)
+fast_limiter_x64.dll=006AD7177BD8D801,1716283757,FAST Limiter (Focusrite)
+fast_reveal_x64.dll=0048030B74D8D801,1716680300,FAST Reveal (Focusrite)
+fast_verb_x64.dll=002B6780FDD8D801,1716675958,FAST Verb (Focusrite)
 VERSION 1
 NAME "ACendan Scripts/Utility/acendan_Center Control.jsfx" "JS: acendan_Center Control"
 NAME "ACendan Scripts/Utility/acendan_De-Click Discontinuous Waveform.jsfx" "JS: acendan_De-Click Discontinuous Waveform"
@@ -3494,34 +3518,78 @@ NAME "BRSO Articulate/midi_articulate_keyswitch_keep_ch (modded)" "JS: MIDI chan
 NAME "BRSO Articulate/midi_articulate_uacc_cc" "JS: MIDI channel to UACC"
 NAME "BRSO Articulate/midi_articulate_uacc_ks" "JS: MIDI channel to UACC keyswitch"
 NAME "cfillion/Sustain to note length" "JS: Sustain pedal to note length"
-NAME "chmaha Scripts/Consoles/Analog-a-licious.jsfx" "JS: Analog-a-licious Console Colors (chmaha)"
-NAME "chmaha Scripts/Consoles/Cora.jsfx" "JS: Cora Analog Circuitry (chmaha)"
-NAME "chmaha Scripts/Consoles/desk-a-docious.jsfx" "JS: Desk-a-docious Console Colors (chmaha)"
-NAME "chmaha Scripts/Consoles/Elsa.jsfx" "JS: ELSA: Extremely Light Saturation Applier (chmaha)"
-NAME "chmaha Scripts/Consoles/Eurydice_Bus.jsfx" "JS: Eurydice Console Bus (chmaha)"
-NAME "chmaha Scripts/Consoles/Eurydice_Channel.jsfx" "JS: Eurydice Console Channel (chmaha)"
-NAME "chmaha Scripts/Consoles/GenesisBus.jsfx" "JS: Genesis Console Bus (chmaha)"
-NAME "chmaha Scripts/Consoles/GenesisChannel.jsfx" "JS: Genesis Console Channel (chmaha)"
-NAME "chmaha Scripts/Consoles/MagicFairyDust.jsfx" "JS: MagicFairyDust Console Saturation (chmaha)"
-NAME "chmaha Scripts/Consoles/Orpheus_Bus_In.jsfx" "JS: Orpheus Console Bus In (chmaha)"
-NAME "chmaha Scripts/Consoles/Orpheus_Bus_Out.jsfx" "JS: Orpheus Console Bus Out (chmaha)"
-NAME "chmaha Scripts/Consoles/Orpheus_Channel_In.jsfx" "JS: Orpheus Console Channel In (chmaha)"
-NAME "chmaha Scripts/Consoles/Orpheus_Channel_Out.jsfx" "JS: Orpheus Console Channel Out (chmaha)"
-NAME "chmaha Scripts/Consoles/Orpheus_Lite_Bus.jsfx" "JS: Orpheus Lite Console Bus (chmaha)"
-NAME "chmaha Scripts/Consoles/Orpheus_Lite_Channel.jsfx" "JS: Orpheus Lite Console Channel (chmaha)"
-NAME "chmaha Scripts/Consoles/Orpheus_Sub_In.jsfx" "JS: Orpheus Console Sub|Aux In (chmaha)"
-NAME "chmaha Scripts/Consoles/Orpheus_Sub_Out.jsfx" "JS: Orpheus Console Sub|Aux Out (chmaha)"
-NAME "chmaha Scripts/Consoles/Supersonic.jsfx" "JS: Supersonic Filter (chmaha)"
-NAME "chmaha Scripts/Dithers/EssenzaDither.jsfx" "JS: Essenza Dither (chmaha)"
-NAME "chmaha Scripts/Dithers/GroovyDither.jsfx" "JS: GroovyDither (chmaha)"
-NAME "chmaha Scripts/Dithers/Nintenda.jsfx" "JS: Nintenda Dither (chmaha)"
-NAME "chmaha Scripts/Dithers/PirateDither.jsfx" "JS: PirateDither (chmaha)"
-NAME "chmaha Scripts/Dithers/ReelDither.jsfx" "JS: ReelDither (chmaha)"
-NAME "chmaha Scripts/Dithers/six-dither_sid.jsfx" "JS: Six-Dither Sid (chmaha)"
-NAME "chmaha Scripts/Dithers/Stan.jsfx" "JS: Stan Dither (chmaha)"
-NAME "chmaha Scripts/Dithers/Twilight.jsfx" "JS: Twilight Dither (chmaha)"
-NAME "chmaha Scripts/Dithers/WTFDither.jsfx" "JS: WTFDither (chmaha)"
-NAME "chmaha Scripts/Dithers/Xonnos Dither.jsfx" "JS: Xonnos Dither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Analog-a-licious.jsfx" "JS: Analog-a-licious Console Colors (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Cora.jsfx" "JS: Cora Analog Circuitry (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/desk-a-docious.jsfx" "JS: Desk-a-docious Console Colors (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Elsa.jsfx" "JS: ELSA: Extremely Light Saturation Applier (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Eurydice_Bus.jsfx" "JS: Eurydice Console Bus (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Eurydice_Channel.jsfx" "JS: Eurydice Console Channel (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/GenesisBus.jsfx" "JS: Genesis Console Bus (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/GenesisChannel.jsfx" "JS: Genesis Console Channel (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/MagicFairyDust.jsfx" "JS: MagicFairyDust Console Saturation (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Orpheus_Bus_In.jsfx" "JS: Orpheus Console Bus In (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Orpheus_Bus_Out.jsfx" "JS: Orpheus Console Bus Out (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Orpheus_Channel_In.jsfx" "JS: Orpheus Console Channel In (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Orpheus_Channel_Out.jsfx" "JS: Orpheus Console Channel Out (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Orpheus_Lite_Bus.jsfx" "JS: Orpheus Lite Console Bus (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Orpheus_Lite_Channel.jsfx" "JS: Orpheus Lite Console Channel (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Orpheus_Sub_In.jsfx" "JS: Orpheus Console Sub|Aux In (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Orpheus_Sub_Out.jsfx" "JS: Orpheus Console Sub|Aux Out (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Consoles/Supersonic.jsfx" "JS: Supersonic Filter (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/EssenzaDither.jsfx" "JS: Essenza Dither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/GroovyDither.jsfx" "JS: GroovyDither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/Nintenda.jsfx" "JS: Nintenda Dither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/PirateDither.jsfx" "JS: PirateDither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/ReelDither.jsfx" "JS: ReelDither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/six-dither_sid.jsfx" "JS: Six-Dither Sid (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/Stan.jsfx" "JS: Stan Dither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/Twilight.jsfx" "JS: Twilight Dither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/WTFDither.jsfx" "JS: WTFDither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Dithers/Xonnos Dither.jsfx" "JS: Xonnos Dither (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Reverbs/Bricastic.jsfx" "JS: Bricastic Reverb (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Reverbs/Bricastic2.jsfx" "JS: Bricastic2 Reverb (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Reverbs/Interstellar.jsfx" "JS: Interstellar Reverb (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Reverbs/NW8BPlateReverb.jsfx" 'JS: NW8 "B" Plate Reverb (chmaha)'
+NAME "chmaha airwindows JSFX Ports/Reverbs/NW8CPlateReverb.jsfx" 'JS: NW8 "C" Plate Reverb (chmaha)'
+NAME "chmaha airwindows JSFX Ports/Reverbs/NW8PlateReverb.jsfx" 'JS: NW8 "A" Plate Reverb (chmaha)'
+NAME "chmaha airwindows JSFX Ports/Reverbs/PhiVerb.jsfx" "JS: PhiVerb Reverb (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/A-coo-sticks.jsfx" "JS: A-coo-sticks tape delay echo (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/AllEars.jsfx" "JS: All Ears Monitoring Utility (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Altitude.jsfx" "JS: Altitude Brightness EQ (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Ambrosia.jsfx" "JS: Ambrosia Tape Emulation (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Amphitrite.jsfx" "JS: Amphitrite Compressor (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Aurora.jsfx" "JS: Aurora Exciter (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Biquadicus.jsfx" "JS: Biquadicus Biquad Filters (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Buttress.jsfx" "JS: Buttress Bass (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/ClippySquish.jsfx" "JS: ClippySquish Compressor Soft Clipper (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/CoralBones.jsfx" "JS: Coral Bones Bass (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Discordia.jsfx" "JS: Discordia Distortion (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Domar.jsfx" "JS: Domar Brightness Acceleration Limiter (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Eris.jsfx" "JS: Eris Distortion (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Evolution.jsfx" "JS: Evolution Channel Strip (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/FILM.jsfx" "JS: FILM: Flippin' Incredible Loudness Maximizer (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/flattop.jsfx" "JS: Flattop Clipper (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Flutternutter.jsfx" "JS: Flutternutter (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Heft.jsfx" "JS: Heft Bass (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Hippity Hoppity.jsfx" "JS: Hippity Hoppity Lo-Fi (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Lyra.jsfx" "JS: Lyra Compressor (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/MadHatter.jsfx" "JS: Mad Hatter Compressor (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Magnetique.jsfx" "JS: Magnétique Tape Emulation (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Millie.jsfx" "JS: Millie Brightness EQ (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/multisine.jsfx" "JS: Multisine Chebyshev Filter (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/MuTube.jsfx" "JS: MuTube Compressor (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Oxonia.jsfx" "JS: Oxonia Compressor (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Pascal.jsfx" "JS: Pascal Compressor (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Phasity.jsfx" "JS: Phasity Delay Timing Tool (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/port-and-lemon.jsfx" "JS: Port-and-Lemon Compressor / Gate (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Reelty.jsfx" "JS: Reelty Tape Emulation (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/SeriouslyAmazingWidener.jsfx" "JS: SAW — Seriously Amazing Widener (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/SeriouslyAmazingWidener2.jsfx" "JS: SAW2 — Seriously Amazing Widener 2 (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Sillons.jsfx" "JS: Sillons Vinyl Emulation (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Snippity.jsfx" "JS: Snippity Soft Clipper (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Solar_Wind.jsfx" "JS: Solar Wind Aural Exciter (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Titan.jsfx" "JS: Titan Capacitor Distortion (chmaha)"
+NAME "chmaha airwindows JSFX Ports/Various/Valvity.jsfx" "JS: Valvity Tube Saturation (chmaha)"
 NAME "chmaha Scripts/RCPlugs/RCComp.jsfx" "JS: RCCompressor"
 NAME "chmaha Scripts/RCPlugs/RCDeEss.jsfx" "JS: RCDeEss Standard  (chmaha)"
 NAME "chmaha Scripts/RCPlugs/RCDeEss_Advanced.jsfx" "JS: RCDeEss Advanced  (chmaha)"
@@ -3530,48 +3598,6 @@ NAME "chmaha Scripts/RCPlugs/RCEQ.jsfx" "JS: RCEQ  (chmaha)"
 NAME "chmaha Scripts/RCPlugs/RCGain.jsfx" "JS: RCGain  (chmaha)"
 NAME "chmaha Scripts/RCPlugs/RCLimiter.jsfx" "JS: RCLimiter  (chmaha)"
 NAME "chmaha Scripts/RCPlugs/RCParallelK.jsfx" "JS: RCParallelK Compressor  (chmaha)"
-NAME "chmaha Scripts/Reverbs/Bricastic.jsfx" "JS: Bricastic Reverb (chmaha)"
-NAME "chmaha Scripts/Reverbs/Bricastic2.jsfx" "JS: Bricastic2 Reverb (chmaha)"
-NAME "chmaha Scripts/Reverbs/Interstellar.jsfx" "JS: Interstellar Reverb (chmaha)"
-NAME "chmaha Scripts/Reverbs/NW8PlateReverb.jsfx" "JS: NW8 Plate Reverb (chmaha)"
-NAME "chmaha Scripts/Reverbs/PhiVerb.jsfx" "JS: PhiVerb Reverb (chmaha)"
-NAME "chmaha Scripts/Various/A-coo-sticks.jsfx" "JS: A-coo-sticks tape delay echo (chmaha)"
-NAME "chmaha Scripts/Various/AllEars.jsfx" "JS: All Ears Monitoring Utility (chmaha)"
-NAME "chmaha Scripts/Various/Altitude.jsfx" "JS: Altitude Brightness EQ (chmaha)"
-NAME "chmaha Scripts/Various/Ambrosia.jsfx" "JS: Ambrosia Tape Emulation (chmaha)"
-NAME "chmaha Scripts/Various/Amphitrite.jsfx" "JS: Amphitrite Compressor (chmaha)"
-NAME "chmaha Scripts/Various/Aurora.jsfx" "JS: Aurora Exciter (chmaha)"
-NAME "chmaha Scripts/Various/Biquadicus.jsfx" "JS: Biquadicus Biquad Filters (chmaha)"
-NAME "chmaha Scripts/Various/Buttress.jsfx" "JS: Buttress Bass (chmaha)"
-NAME "chmaha Scripts/Various/ClippySquish.jsfx" "JS: ClippySquish Compressor Soft Clipper (chmaha)"
-NAME "chmaha Scripts/Various/CoralBones.jsfx" "JS: Coral Bones Bass (chmaha)"
-NAME "chmaha Scripts/Various/Discordia.jsfx" "JS: Discordia Distortion (chmaha)"
-NAME "chmaha Scripts/Various/Domar.jsfx" "JS: Domar Brightness Acceleration Limiter (chmaha)"
-NAME "chmaha Scripts/Various/Eris.jsfx" "JS: Eris Distortion (chmaha)"
-NAME "chmaha Scripts/Various/Evolution.jsfx" "JS: Evolution Channel Strip (chmaha)"
-NAME "chmaha Scripts/Various/FILM.jsfx" "JS: FILM: Flippin' Incredible Loudness Maximizer (chmaha)"
-NAME "chmaha Scripts/Various/flattop.jsfx" "JS: Flattop Clipper (chmaha)"
-NAME "chmaha Scripts/Various/Flutternutter.jsfx" "JS: Flutternutter (chmaha)"
-NAME "chmaha Scripts/Various/Heft.jsfx" "JS: Heft Bass (chmaha)"
-NAME "chmaha Scripts/Various/Hippity Hoppity.jsfx" "JS: Hippity Hoppity Lo-Fi (chmaha)"
-NAME "chmaha Scripts/Various/Lyra.jsfx" "JS: Lyra Compressor (chmaha)"
-NAME "chmaha Scripts/Various/MadHatter.jsfx" "JS: Mad Hatter Compressor (chmaha)"
-NAME "chmaha Scripts/Various/Magnetique.jsfx" "JS: Magnétique Tape Emulation (chmaha)"
-NAME "chmaha Scripts/Various/Millie.jsfx" "JS: Millie Brightness EQ (chmaha)"
-NAME "chmaha Scripts/Various/multisine.jsfx" "JS: Multisine Chebyshev Filter (chmaha)"
-NAME "chmaha Scripts/Various/MuTube.jsfx" "JS: MuTube Compressor (chmaha)"
-NAME "chmaha Scripts/Various/Oxonia.jsfx" "JS: Oxonia Compressor (chmaha)"
-NAME "chmaha Scripts/Various/Pascal.jsfx" "JS: Pascal Compressor (chmaha)"
-NAME "chmaha Scripts/Various/Phasity.jsfx" "JS: Phasity Delay Timing Tool (chmaha)"
-NAME "chmaha Scripts/Various/port-and-lemon.jsfx" "JS: Port-and-Lemon Compressor / Gate (chmaha)"
-NAME "chmaha Scripts/Various/Reelty.jsfx" "JS: Reelty Tape Emulation (chmaha)"
-NAME "chmaha Scripts/Various/SeriouslyAmazingWidener.jsfx" "JS: SAW — Seriously Amazing Widener (chmaha)"
-NAME "chmaha Scripts/Various/SeriouslyAmazingWidener2.jsfx" "JS: SAW2 — Seriously Amazing Widener 2 (chmaha)"
-NAME "chmaha Scripts/Various/Sillons.jsfx" "JS: Sillons Vinyl Emulation (chmaha)"
-NAME "chmaha Scripts/Various/Snippity.jsfx" "JS: Snippity Soft Clipper (chmaha)"
-NAME "chmaha Scripts/Various/Solar_Wind.jsfx" "JS: Solar Wind Aural Exciter (chmaha)"
-NAME "chmaha Scripts/Various/Titan.jsfx" "JS: Titan Capacitor Distortion (chmaha)"
-NAME "chmaha Scripts/Various/Valvity.jsfx" "JS: Valvity Tube Saturation (chmaha)"
 NAME "Chris Tessmer/midi_cc2cc" "JS: MIDI CC-to-CC remapper"
 NAME "Claudiohbsantos Scripts/JSFX/CS Channel 32 Channel Mixer.jsfx" "JS: CS Channel 32 Channel Mixer [Claudiohbsantos Scripts/JSFX/CS Channel 32 Channel Mixer.jsfx]"
 NAME "Claudiohbsantos Scripts/JSFX/CS Channel Router.jsfx" "JS: CS Channel Router"
@@ -3603,6 +3629,7 @@ NAME "DarkStar/MIDI Recorder" "JS: Load/Playback MIDI (Alpha_03)"
 NAME "DarkStar/MIDI Remove Redundant CC" "JS: Remove redundant CC messages [v1.06]"
 NAME "DarkStar/MIDI Scale Monitor" "JS: MIDI Monitor scale playing"
 NAME "DarkStar/MIDI Velocity Ranger" "JS: MIDI Velocity Ranger"
+NAME "DarkStar/MIDI Velocity Wrapper" "JS: MIDI Note Velocity Warper (a04)"
 NAME "DarkStar/Playrate Calculator" "JS: BPM / Play Rate calculator"
 NAME Davisan/dvn-InstrumentRange "JS: Shows the range of an instrument in concert pitch or written range, and filter notes outside the range."
 NAME delay/delay "JS: Delay"
@@ -4306,6 +4333,7 @@ NAME TBProAudio/AutoGainStage_src "JS: AutoGainStage Source JSFX V1.8 (TB Pro Au
 NAME Teej/rbj12eq-teej "JS: RBJ 12-Band EQ w/HPF"
 NAME Teej/rbj4eq-teej "JS: RBJ 4-Band Semi-Parametric EQ v2"
 NAME Teej/rbj4notch-teej "JS: RBJ 4-Band Notch Filter"
+NAME "TheBestMeICanBe/VelocitySmoother v0.92.jsfx" "JS: Velocity Smoother v0.92"
 NAME "Till/Auto-Wideness v1.0" "JS: Auto-Wideness"
 NAME "Till/Transient-driven Auto-Pan v1.0 (Receiver)" "JS: Transient-Driven Auto-Pan (Receiver)"
 NAME "Till/Transient-driven Auto-Pan v1.0 (Transmitter)" "JS: Transient-Driven Auto-Pan (Transmitter)"
@@ -4345,6 +4373,7 @@ NAME "Tukan/Goniometer (Tukan)" "JS: Goniometer (Tukan)"
 NAME "Tukan/Green Circles Meter S2 (Tukan)" "JS: Green Circles Meter S2 (Tukan)"
 NAME "Tukan/Green Dynamic EQ S2 (Tukan)" "JS: Green Dynamic EQ S2 (Tukan)"
 NAME "Tukan/Guitar Amp (Tukan)" "JS: Guitar Amp (Tukan)"
+NAME "Tukan/Guitar Station S2 (Tukan)" "JS: Guitar Station S2 (Tukan)"
 NAME "Tukan/Khaki Delay S2 (Tukan)" "JS: Khaki Delay S2 (Tukan)"
 NAME "Tukan/LA-1A (Tukan)" "JS: LA-1A (Tukan)"
 NAME "Tukan/LA-2KAN S2 (Tukan)" "JS: LA-2KAN S2 (Tukan)"
@@ -4772,7 +4801,7 @@ REV "8-Channel Input Switcher" IX/Switcher2
 REV "8x Mono to 1x Stereo Mixer" "IX/Mixer 8x2"
 REV "8x Mono to 1x Stereo Mixer [IX/Mixer_8xM-1xS]" IX/Mixer_8xM-1xS
 REV "8x Stereo to 1x Stereo Mixer" IX/Mixer_8xS-1xS
-REV "A-coo-sticks tape delay echo (chmaha)" "chmaha Scripts/Various/A-coo-sticks.jsfx"
+REV "A-coo-sticks tape delay echo (chmaha)" "chmaha airwindows JSFX Ports/Various/A-coo-sticks.jsfx"
 REV "A/B two mono channels" Tale/ab_mono
 REV "AB Comparison" "RCJacH Scripts/JSFX/Audio/AB Comparison.jsfx"
 REV "AB Comparison - 1INnOut Stereo" "RCJacH Scripts/JSFX/Audio/AB Comparison - 1INnOUT Stereo.jsfx"
@@ -4786,13 +4815,13 @@ REV "AC Trem (Tukan)" "Tukan/AC Trem (Tukan)"
 REV "ADPCM Simulator" misc/adpcm_simulator
 REV "AGC - Automatic Gain Control" "ERSH plugins and effects/JSFX/ersh_agc.jsfx"
 REV "Abyss Reverb (Saike) [BETA]" "Saike Tools/Abyss/saike_abyss.jsfx"
-REV "All Ears Monitoring Utility (chmaha)" "chmaha Scripts/Various/AllEars.jsfx"
-REV "Altitude Brightness EQ (chmaha)" "chmaha Scripts/Various/Altitude.jsfx"
+REV "All Ears Monitoring Utility (chmaha)" "chmaha airwindows JSFX Ports/Various/AllEars.jsfx"
+REV "Altitude Brightness EQ (chmaha)" "chmaha airwindows JSFX Ports/Various/Altitude.jsfx"
 REV "Amaranth (Saike) [BETA]" "Saike Tools/Amaranth/Amaranth.jsfx"
-REV "Ambrosia Tape Emulation (chmaha)" "chmaha Scripts/Various/Ambrosia.jsfx"
-REV "Amphitrite Compressor (chmaha)" "chmaha Scripts/Various/Amphitrite.jsfx"
+REV "Ambrosia Tape Emulation (chmaha)" "chmaha airwindows JSFX Ports/Various/Ambrosia.jsfx"
+REV "Amphitrite Compressor (chmaha)" "chmaha airwindows JSFX Ports/Various/Amphitrite.jsfx"
 REV "Amplitude Modulator" loser/amplitudeModulator
-REV "Analog-a-licious Console Colors (chmaha)" "chmaha Scripts/Consoles/Analog-a-licious.jsfx"
+REV "Analog-a-licious Console Colors (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Analog-a-licious.jsfx"
 REV "Apple 12-Pole Filter" Liteon/applefilter72db
 REV "Apple 2-Pole Lowpass Filter" Liteon/applefilter12db
 REV "Articulation Map" "zaibuyidao Scripts/JSFX/Articulation Map.jsfx"
@@ -4800,7 +4829,7 @@ REV "Atlantis Reverb (by Geraint Luff)" "Geraint's JSFX/Delay/Atlantis-Reverb/at
 REV "Audio Statistics" schwa/audio_statistics
 REV "Audio To MIDI Drum Trigger" "midi/Drum Trigger"
 REV "Audio To MIDI Drum Trigger [midi/drumtrigger]" midi/drumtrigger
-REV "Aurora Exciter (chmaha)" "chmaha Scripts/Various/Aurora.jsfx"
+REV "Aurora Exciter (chmaha)" "chmaha airwindows JSFX Ports/Various/Aurora.jsfx"
 REV "Auto Expander" sstillwell/autoexpand
 REV "Auto Looper" loopsamplers/autoloop
 REV Auto-Wideness "Till/Auto-Wideness v1.0"
@@ -4824,7 +4853,7 @@ REV "Bass Professor Mark II" "SonicAnomaly JSFX/Plugins/Bass Professor Mark II.j
 REV "Bass professor MK2" "ReaTeam JSFX/Guitar/anomaly_Bass professor MK2.jsfx"
 REV "Bbh MIDI Keyboard Sensivity" "BinbinHfr Scripts/Jsfx/bbh_midi_keyboard_sensitivity.jsfx"
 REV "Bbh MIDI Velocity Compressor with AutoGain" "BinbinHfr Scripts/Jsfx/bbh_midi_compressor.jsfx"
-REV "Biquadicus Biquad Filters (chmaha)" "chmaha Scripts/Various/Biquadicus.jsfx"
+REV "Biquadicus Biquad Filters (chmaha)" "chmaha airwindows JSFX Ports/Various/Biquadicus.jsfx"
 REV "BirdBird Very Important Compressor" "BirdBird ReaScript Testing/Very Important Compressor/BirdBird_Very Important Compressor.jsfx"
 REV "Bit Meter (Cockos)" meters/bit_meter
 REV "Bit Reduction/Dither" old_unsupported/dither
@@ -4833,13 +4862,13 @@ REV "Black DeNoiser S2 (Tukan)" "Tukan/Black DeNoiser S2 (Tukan)"
 REV "Blacklight Modulation S2 (Tukan)" "Tukan/Blacklight Modulation S2 (Tukan)"
 REV "Blue Compressor S2 (Tukan)" "Tukan/Blue Compressor S2 (Tukan)"
 REV "Bricasti M7 v2 utility (ply)" "ply Scripts/Various/BricastiM7/ply_M7util.jsfx"
-REV "Bricastic Reverb (chmaha)" "chmaha Scripts/Reverbs/Bricastic.jsfx"
-REV "Bricastic2 Reverb (chmaha)" "chmaha Scripts/Reverbs/Bricastic2.jsfx"
+REV "Bricastic Reverb (chmaha)" "chmaha airwindows JSFX Ports/Reverbs/Bricastic.jsfx"
+REV "Bricastic2 Reverb (chmaha)" "chmaha airwindows JSFX Ports/Reverbs/Bricastic2.jsfx"
 REV "Bus Comp (Tukan)" "Tukan/Bus Comp (Tukan)"
 REV "Bus Comp S2 (Tukan)" "Tukan/Bus Comp S2 (Tukan)"
 REV "Bus Translator for MIDI Feedback (Reaticulate)" "Reaticulate/jsfx/Feedback Translate.jsfx"
 REV "Butterworth 4-Pole Filter" Liteon/butterworth24db
-REV "Buttress Bass (chmaha)" "chmaha Scripts/Various/Buttress.jsfx"
+REV "Buttress Bass (chmaha)" "chmaha airwindows JSFX Ports/Various/Buttress.jsfx"
 REV "CC Monitor a08" "DarkStar/MIDI CC Monitor"
 REV "CC Sync" "Tack Scripts/JSFX/tack_MIDI CC Sync.jsfx"
 REV "CMeter Send (Tukan)" "Tukan/CMeter Send (Tukan)"
@@ -4865,7 +4894,7 @@ REV Chorus guitar/chorus
 REV "Chorus (Improved Shaping)" sstillwell/chorus
 REV "Chorus (Stereo)" sstillwell/chorus_stereo
 REV "Chua Oscillator" "ReaTeam JSFX/Synth/TiaR_Chua Oscillator.jsfx"
-REV "ClippySquish Compressor Soft Clipper (chmaha)" "chmaha Scripts/Various/ClippySquish.jsfx"
+REV "ClippySquish Compressor Soft Clipper (chmaha)" "chmaha airwindows JSFX Ports/Various/ClippySquish.jsfx"
 REV "Colored noise generator" Tale/colored_noise
 REV "Colored noise generator [Tale/Noise Generator]" "Tale/Noise Generator"
 REV Compciter loser/Compciter
@@ -4877,8 +4906,8 @@ REV "Convert Pitch(L) Gate(R) pair from Reaktor Blocks to MIDI" "MPL Scripts/JSF
 REV "Convolution Amp/Cab Modeler" guitar/amp-model
 REV "Convolution Dual Amp Modeler" guitar/amp-model-dual
 REV "Convvert Automation to CC messages" "DarkStar/MIDI Automation to CC"
-REV "Cora Analog Circuitry (chmaha)" "chmaha Scripts/Consoles/Cora.jsfx"
-REV "Coral Bones Bass (chmaha)" "chmaha Scripts/Various/CoralBones.jsfx"
+REV "Cora Analog Circuitry (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Cora.jsfx"
+REV "Coral Bones Bass (chmaha)" "chmaha airwindows JSFX Ports/Various/CoralBones.jsfx"
 REV "Correlation Meter (ZenoMod)" "LBX Plugins/Correlation Meter LBX (ZenoMOD)"
 REV "Cross-Polyphonic FM (by Geraint Luff)" "Geraint's JSFX/Delay/Cross-Polyphonic-FM/Cross-Polyphonic-FM.jsfx"
 REV "DC Filter" filters/dc_remove
@@ -4903,7 +4932,7 @@ REV "Delay w/Sustain" delay/delay_sustain
 REV "Delay w/Tempo Length" sstillwell/delay_tempo
 REV "Delay w/Tempo Ping-Pong" sstillwell/delay_pong
 REV "Delay w/Tone Control" delay/delay_tone
-REV "Desk-a-docious Console Colors (chmaha)" "chmaha Scripts/Consoles/desk-a-docious.jsfx"
+REV "Desk-a-docious Console Colors (chmaha)" "chmaha airwindows JSFX Ports/Consoles/desk-a-docious.jsfx"
 REV "Digital Drum Compressor" loser/DDC
 REV "Digital Drum Compressor (ZenoMOD)" "LBX Plugins/DDC LBX (ZenoMOD)"
 REV "Digital Versatile Compressor" loser/DVCJS
@@ -4913,10 +4942,10 @@ REV "Digital Versatile Compressor v2 (ZenoMOD)" "LBX Plugins/DVC2JS LBX (ZenoMOD
 REV "Dirt Squeeze Compressor" sstillwell/dirtsqueeze
 REV "Dis-Treasure (Tukan)" "Tukan/Dis-Treasure (Tukan)"
 REV "Dis-Treasure Compact (Tukan)" "Tukan/Dis-Treasure Compact (Tukan)"
-REV "Discordia Distortion (chmaha)" "chmaha Scripts/Various/Discordia.jsfx"
+REV "Discordia Distortion (chmaha)" "chmaha airwindows JSFX Ports/Various/Discordia.jsfx"
 REV Distortion guitar/distortion
 REV "Distortion (Fuzz)" guitar/distort-fuzz
-REV "Domar Brightness Acceleration Limiter (chmaha)" "chmaha Scripts/Various/Domar.jsfx"
+REV "Domar Brightness Acceleration Limiter (chmaha)" "chmaha airwindows JSFX Ports/Various/Domar.jsfx"
 REV "Dopp Wobbler" "mrlimbic scripts/JSFX/Dopp Wobbler.jsfx"
 REV "DoubleMidSide to 5.1" "ReaTeam JSFX/Routing/MDF_DMS to 51.jsfx"
 REV "DoubleMidSide to FOA" "ReaTeam JSFX/Routing/MDF_DMS to FOA.jsfx"
@@ -4937,7 +4966,7 @@ REV "Dusk Verb (saike) (Public alpha)" "Saike Tools/DuskVerb/saike_duskverb.jsfx
 REV "Dynamic Range Meter" meters/dynamics_meter
 REV "Dynamic Range Meter (ZenoMOD)" "LBX Plugins/Dynamic Range Meter LBX (ZenoMOD)"
 REV "Dynamic poly/mono MIDI router" Tale/poly_mono_midi_router
-REV "ELSA: Extremely Light Saturation Applier (chmaha)" "chmaha Scripts/Consoles/Elsa.jsfx"
+REV "ELSA: Extremely Light Saturation Applier (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Elsa.jsfx"
 REV "EQ1.1 (Tukan)" "Tukan/EQ 1.1 (Tukan)"
 REV EQ1979 "ReaTeam JSFX/Filter/bellesondes_eq1979.jsfx"
 REV "EQT-1A (Tukan)" "Tukan/EQT-1A (Tukan)"
@@ -4946,14 +4975,14 @@ REV "Each input note can choke (note-off) up to four other notes on separate cha
 REV "Each input note can choke (note-off) up to four other notes on separate channels [midi/MIDI_ChokingHazard]" midi/MIDI_ChokingHazard
 REV "Echo Cycles (by Geraint Luff)" "Geraint's JSFX/Delay/Echo-Cycles/Echo-Cycles.jsfx"
 REV "Envelope Shaper (Tukan)" "Tukan/Envelope (Tukan)"
-REV "Eris Distortion (chmaha)" "chmaha Scripts/Various/Eris.jsfx"
-REV "Essenza Dither (chmaha)" "chmaha Scripts/Dithers/EssenzaDither.jsfx"
+REV "Eris Distortion (chmaha)" "chmaha airwindows JSFX Ports/Various/Eris.jsfx"
+REV "Essenza Dither (chmaha)" "chmaha airwindows JSFX Ports/Dithers/EssenzaDither.jsfx"
 REV "Euclidean rhythms" True-grue/euclid
-REV "Eurydice Console Bus (chmaha)" "chmaha Scripts/Consoles/Eurydice_Bus.jsfx"
-REV "Eurydice Console Channel (chmaha)" "chmaha Scripts/Consoles/Eurydice_Channel.jsfx"
+REV "Eurydice Console Bus (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Eurydice_Bus.jsfx"
+REV "Eurydice Console Channel (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Eurydice_Channel.jsfx"
 REV "Event Horizon Clipper" sstillwell/eventhorizon
 REV "Event Horizon Limiter/Clipper" sstillwell/eventhorizon2
-REV "Evolution Channel Strip (chmaha)" "chmaha Scripts/Various/Evolution.jsfx"
+REV "Evolution Channel Strip (chmaha)" "chmaha airwindows JSFX Ports/Various/Evolution.jsfx"
 REV Exciter loser/Exciter
 REV "Exciter (Treble Enhancer)" sstillwell/exciter
 REV "Exciter+Sub (Tukan)" "Tukan/Exciter+Sub (Tukan)"
@@ -4970,7 +4999,7 @@ REV "FFT Stereo Template" Tukan/S2GFX/cookdsp/fft-stereo-template
 REV "FFT Stereo Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-stereo-template]" "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/fft-stereo-template"
 REV "FFT delayer" delay/fft-delay
 REV "FFT sawtooth oscillator" Tale/examples/fft_synth
-REV "FILM: Flippin' Incredible Loudness Maximizer (chmaha)" "chmaha Scripts/Various/FILM.jsfx"
+REV "FILM: Flippin' Incredible Loudness Maximizer (chmaha)" "chmaha airwindows JSFX Ports/Various/FILM.jsfx"
 REV "FOA to DoubleMidSide" "ReaTeam JSFX/Routing/MDF_FOA to DMS.jsfx"
 REV "FX Devices Gain Reduction Scope" "FX Devices Gain Reduction Scope.jsfx"
 REV "FXD (Mix)RackMixer" "ReaTeam Scripts/FX/BryanChi_FX Devices/FXD (Mix)RackMixer.jsfx"
@@ -4992,8 +5021,8 @@ REV Filther "Saike Tools/Filther/Filther.jsfx"
 REV "Filther [ReaJS-Compatibility]" "Saike Tools/reajs_compatibility/Filther_compat.jsfx"
 REV "Flange Baby" sstillwell/flangebaby
 REV Flanger guitar/flanger
-REV "Flattop Clipper (chmaha)" "chmaha Scripts/Various/flattop.jsfx"
-REV "Flutternutter (chmaha)" "chmaha Scripts/Various/Flutternutter.jsfx"
+REV "Flattop Clipper (chmaha)" "chmaha airwindows JSFX Ports/Various/flattop.jsfx"
+REV "Flutternutter (chmaha)" "chmaha airwindows JSFX Ports/Various/Flutternutter.jsfx"
 REV "ForRetroRec(Audio) v20151213(b1)" "utility/ForRetroRec(Audio) v20151213(b1)"
 REV "ForRetroRec(MIDI) v20151213" "utility/ForRetroRec(MIDI) v20151213"
 REV "Fourier series square wave oscillator" Tale/examples/fourier_series
@@ -5005,8 +5034,8 @@ REV "Gaussian Noise Generator" schwa/gaussian_noise_generator
 REV "General Dynamics (Cockos)" dynamics/general_dynamics
 REV "General Dynamics (Cockos) Track Inspector" dynamics/general_dynamics_track_inspector
 REV "Generate Sampling Notes (a10)" "DarkStar/MIDI Note Generator"
-REV "Genesis Console Bus (chmaha)" "chmaha Scripts/Consoles/GenesisBus.jsfx"
-REV "Genesis Console Channel (chmaha)" "chmaha Scripts/Consoles/GenesisChannel.jsfx"
+REV "Genesis Console Bus (chmaha)" "chmaha airwindows JSFX Ports/Consoles/GenesisBus.jsfx"
+REV "Genesis Console Channel (chmaha)" "chmaha airwindows JSFX Ports/Consoles/GenesisChannel.jsfx"
 REV "Global Sampler" "BirdBird ReaScript Testing/Global Sampler/BirdBird_Global Sampler.jsfx"
 REV "GlobalSliders (globally synchronised sliders)" IX/GlobalSliders.jsfx
 REV "Globally synchronised sliders (for parameter linking)" IXix/GlobalSliders
@@ -5022,9 +5051,10 @@ REV "Graphical Waveshaper" waveshapers/graphdist
 REV Gravity "Beaunus Scripts/JSFX/beaunus_Gravity.jsfx"
 REV "Green Circles Meter S2 (Tukan)" "Tukan/Green Circles Meter S2 (Tukan)"
 REV "Green Dynamic EQ S2 (Tukan)" "Tukan/Green Dynamic EQ S2 (Tukan)"
-REV "GroovyDither (chmaha)" "chmaha Scripts/Dithers/GroovyDither.jsfx"
+REV "GroovyDither (chmaha)" "chmaha airwindows JSFX Ports/Dithers/GroovyDither.jsfx"
 REV "Growl [Build 140730]" Supermaailma/Growl
 REV "Guitar Amp (Tukan)" "Tukan/Guitar Amp (Tukan)"
+REV "Guitar Station S2 (Tukan)" "Tukan/Guitar Station S2 (Tukan)"
 REV "HBC-2 Stereo Hybrid Bus Compressor" "SonicAnomaly JSFX/Plugins/HBC-2.jsfx"
 REV "HBC-2 Stereo Hybrid Bus Compressor (ZenoMOD)" "LBX Plugins/HBC-2 Stereo Hybrid Bus Compressor (ZenoMOD)"
 REV "HBC-5 5.1 Hybrid Bus Compressor" "SonicAnomaly JSFX/Plugins/HBC-5.jsfx"
@@ -5035,8 +5065,8 @@ REV "Hadamard Variable Delay Array" "ReaTeam JSFX/Reverb/TiaR_HadamVerb.jsfx"
 REV "Hammer And Chord (Polyphonic Synth/Resonator by Geraint Luff)" "Geraint's JSFX/Synth/Hammer-And-Chord/Hammer And Chord.jsfx"
 REV "Hammer And String (Synth/Resonator by Geraint Luff)" "Geraint's JSFX/Synth/Hammer-And-String/Hammer And String.jsfx"
 REV "Hard Clipper" "ReaTeam JSFX/Dynamic/sinefabula_Hard Clipper.jsfx"
-REV "Heft Bass (chmaha)" "chmaha Scripts/Various/Heft.jsfx"
-REV "Hippity Hoppity Lo-Fi (chmaha)" "chmaha Scripts/Various/Hippity Hoppity.jsfx"
+REV "Heft Bass (chmaha)" "chmaha airwindows JSFX Ports/Various/Heft.jsfx"
+REV "Hippity Hoppity Lo-Fi (chmaha)" "chmaha airwindows JSFX Ports/Various/Hippity Hoppity.jsfx"
 REV "Holds each note until next note is pressed." "mbncp/MIDI Note Hold"
 REV "Huge Booty Bass Enhancer" sstillwell/hugebooty
 REV "Humonica - Synth & Harmoniser (by Geraint Luff)" "Geraint's JSFX/Synth/Humonica/Humonica.jsfx"
@@ -5044,7 +5074,7 @@ REV "Incoming Program Change messages change the MIDI channel" "DarkStar/MIDI Pr
 REV "Inline Input Viewer (MCP embedded)" "ReaTeam JSFX/Utility/jsh_Inline Input Viewer (MCP embedded).jsfx"
 REV "Input switcher. Useful for A/B comparisons. v3.1" IXix/Switcher3
 REV "Inter Track Parameter Modulation" "ReaTeam JSFX/Utility/mschnell_Inter Track Parameter Modulation.jsfx"
-REV "Interstellar Reverb (chmaha)" "chmaha Scripts/Reverbs/Interstellar.jsfx"
+REV "Interstellar Reverb (chmaha)" "chmaha airwindows JSFX Ports/Reverbs/Interstellar.jsfx"
 REV "Invert CC value" "breeder/Invert CC"
 REV "Invert CC value [breeder/test]" breeder/test
 REV "JRK/Juan_R bend by semitones" "Juan_R's Reaperism/MIDI/MIDI-jrk_juan_r-stepped-pitchbend-by-semitones.jsfx"
@@ -5106,7 +5136,7 @@ REV "Low-pass filter" Tale/examples/rbj_filter
 REV "Low-pass filter [Tale/examples/zdf_filter]" Tale/examples/zdf_filter
 REV "Low-pass windowed FIR filter" Tale/examples/window1
 REV "Low-pass windowed FIR/FFT filter" Tale/examples/window2
-REV "Lyra Compressor (chmaha)" "chmaha Scripts/Various/Lyra.jsfx"
+REV "Lyra Compressor (chmaha)" "chmaha airwindows JSFX Ports/Various/Lyra.jsfx"
 REV "MB MIDI Event Filter" "ReaTeam JSFX/MIDI/MB_MIDI Event Filter.jsfx"
 REV "MB MIDI Event Filter2 (v1.0)" Mabian/MB_Filter2
 REV "MB MIDI Event Filter2 (v1.0) [midi/MB_Filter2]" midi/MB_Filter2
@@ -5188,6 +5218,7 @@ REV "MIDI Note Hold" midi/midi_note_hold
 REV "MIDI Note Randomize" sstillwell/randomizer
 REV "MIDI Note Repeater" midi/midi_note_repeater
 REV "MIDI Note Repeater [Default Key Map B1 - A4]" "ReaTeam JSFX/MIDI/willdevelop_MIDI Note Repeater [Default Key Map B1 - A4].jsfx"
+REV "MIDI Note Velocity Warper (a04)" "DarkStar/MIDI Velocity Wrapper"
 REV "MIDI Note-On Delay" midi/midinoteondelay
 REV "MIDI Notes Octave Transpose Shift" "X-Raym Scripts/JSFX/MIDI/X-Raym_MIDI notes octave transpose shift.jsfx"
 REV "MIDI Off Velocity Limiter" "zaibuyidao Scripts/JSFX/MIDI Off Velocity Limiter.jsfx"
@@ -5277,9 +5308,9 @@ REV "MS Decoder with separate decoding gains" "BinbinHfr Scripts/Jsfx/bbh_MS_dec
 REV "MS Encoder with separate encoding gains" "BinbinHfr Scripts/Jsfx/bbh_MS_encoder_gains.jsfx"
 REV "MTC Logger" midi/mtc_logger
 REV Macros Macros.jsfx
-REV "Mad Hatter Compressor (chmaha)" "chmaha Scripts/Various/MadHatter.jsfx"
-REV "MagicFairyDust Console Saturation (chmaha)" "chmaha Scripts/Consoles/MagicFairyDust.jsfx"
-REV "Magnétique Tape Emulation (chmaha)" "chmaha Scripts/Various/Magnetique.jsfx"
+REV "Mad Hatter Compressor (chmaha)" "chmaha airwindows JSFX Ports/Various/MadHatter.jsfx"
+REV "MagicFairyDust Console Saturation (chmaha)" "chmaha airwindows JSFX Ports/Consoles/MagicFairyDust.jsfx"
+REV "Magnétique Tape Emulation (chmaha)" "chmaha airwindows JSFX Ports/Various/Magnetique.jsfx"
 REV "Major Tom Compressor" sstillwell/majortom
 REV "Major Tom Compressor (ZenoMOD)" "LBX Plugins/majortom LBX (ZenoMOD)"
 REV "Makey Makey MIDI Notes Channel" "X-Raym MIDI Makey Makey/JSFX/X-Raym_Makey Makey MIDI Notes Channel.jsfx"
@@ -5298,7 +5329,7 @@ REV "Midi Auto Engage" "ReaTeam JSFX/Utility/mschnell_Midi Auto Engage.jsfx"
 REV "Midi CC Table" "ReaTeam JSFX/Utility/mschnell_Midi CC Table.jsfx"
 REV "Midi Channel CC Keyswitcher" "Arran/MIDI Note Channel CC Keyswitcher"
 REV "Midi Volume Control" "ReaTeam JSFX/Utility/mschnell_MIDI Volume Control.jsfx"
-REV "Millie Brightness EQ (chmaha)" "chmaha Scripts/Various/Millie.jsfx"
+REV "Millie Brightness EQ (chmaha)" "chmaha airwindows JSFX Ports/Various/Millie.jsfx"
 REV Mod-izer "Saike Tools/Modizer/modizer.jsfx"
 REV "Modulation (Tukan)" "Tukan/Modulation (Tukan)"
 REV "Modulation 2 (Tukan)" "Tukan/Modulation 2 (Tukan)"
@@ -5313,7 +5344,7 @@ REV "Mono. [Witti/MDA/mda_degrade_01]" Witti/MDA/mda_degrade_01
 REV "Mono. [Witti/MDA/mda_rezfilter]" Witti/MDA/mda_rezfilter
 REV "Mono/poly synth" Tale/examples/array2
 REV "Moog 4-Pole Filter" Liteon/moog24db
-REV "MuTube Compressor (chmaha)" "chmaha Scripts/Various/MuTube.jsfx"
+REV "MuTube Compressor (chmaha)" "chmaha airwindows JSFX Ports/Various/MuTube.jsfx"
 REV "Multi Channel MIDI Keyswitch" "Reddiesel41264/Multi Channel MIDI Keyswitch"
 REV "Multi Sine Generator" "ReaTeam JSFX/Utility/mschnell_Multi_Sin_Generator.jsfx"
 REV "Multi Waveshaper" Liteon/waveshapermulti
@@ -5321,7 +5352,7 @@ REV "Multiband Processor (Tukan)" "Tukan/Multiband Processor (Tukan)"
 REV "Multichannel Volume Trim" "ReaTeam JSFX/Utility/ReaperBlog_Multichannel Volume Trim.jsfx"
 REV "Multichannel Volume Trim 2" "ReaTeam JSFX/Utility/ReaperBlog_Multichannel Volume Trim 2.jsfx"
 REV "Multimode RC filter" Tale/rc_filter
-REV "Multisine Chebyshev Filter (chmaha)" "chmaha Scripts/Various/multisine.jsfx"
+REV "Multisine Chebyshev Filter (chmaha)" "chmaha airwindows JSFX Ports/Various/multisine.jsfx"
 REV "Mute monitor when recording" "ReaTeam JSFX/Utility/mschnell_Mute monitor when recording.jsfx"
 REV "Mute on loop" "X-Raym Scripts/JSFX/X-Raym_Mute on loop.jsfx"
 REV MuteOnStop IX/MuteOnStop.jsfx
@@ -5331,12 +5362,14 @@ REV "NC76 S2 (Tukan)" "Tukan/NC76 S2 (Tukan)"
 REV "NC76B (Tukan)" "Tukan/NC76B (Tukan)"
 REV "NP1136 Peak Limiter" Liteon/np1136peaklimiter
 REV "NP1136 Peak Limiter (ZenoMOD)" "LBX Plugins/np1136peaklimiter LBX (ZenoMOD)"
-REV "NW8 Plate Reverb (chmaha)" "chmaha Scripts/Reverbs/NW8PlateReverb.jsfx"
+REV 'NW8 "A" Plate Reverb (chmaha)' "chmaha airwindows JSFX Ports/Reverbs/NW8PlateReverb.jsfx"
+REV 'NW8 "B" Plate Reverb (chmaha)' "chmaha airwindows JSFX Ports/Reverbs/NW8BPlateReverb.jsfx"
+REV 'NW8 "C" Plate Reverb (chmaha)' "chmaha airwindows JSFX Ports/Reverbs/NW8CPlateReverb.jsfx"
 REV "Nabla MIDI Delay" "Nabla Tools/midi_nabla_delay"
 REV "Negative Harmony" "DarkStar/MIDI Negative Harmony"
 REV "New FFT filter" filters/fft-filter
 REV "New FFT pitch-experimenter" pitch/fft-ps
-REV "Nintenda Dither (chmaha)" "chmaha Scripts/Dithers/Nintenda.jsfx"
+REV "Nintenda Dither (chmaha)" "chmaha airwindows JSFX Ports/Dithers/Nintenda.jsfx"
 REV NoiseBuzz "RCJacH Scripts/JSFX/Audio/NoiseBuzz.jsfx"
 REV "Non-Linear Processor" Liteon/nonlinear
 REV "Note Duplicator" "ReaTeam JSFX/MIDI/cfillion_Note Duplicator.jsfx"
@@ -5348,20 +5381,20 @@ REV "Note to CC" "X-Raym Scripts/JSFX/MIDI/X-Raym_Note to CC.jsfx"
 REV "Nymphes Control Freak" "FTC Tools/JSFX/Nymphes Control Freak.jsfx"
 REV Offset "Beaunus Scripts/JSFX/beaunus_Offset.jsfx"
 REV "Orange EQ S2 (Tukan)" "Tukan/Orange EQ S2 (Tukan)"
-REV "Orpheus Console Bus In (chmaha)" "chmaha Scripts/Consoles/Orpheus_Bus_In.jsfx"
-REV "Orpheus Console Bus Out (chmaha)" "chmaha Scripts/Consoles/Orpheus_Bus_Out.jsfx"
-REV "Orpheus Console Channel In (chmaha)" "chmaha Scripts/Consoles/Orpheus_Channel_In.jsfx"
-REV "Orpheus Console Channel Out (chmaha)" "chmaha Scripts/Consoles/Orpheus_Channel_Out.jsfx"
-REV "Orpheus Console Sub|Aux In (chmaha)" "chmaha Scripts/Consoles/Orpheus_Sub_In.jsfx"
-REV "Orpheus Console Sub|Aux Out (chmaha)" "chmaha Scripts/Consoles/Orpheus_Sub_Out.jsfx"
-REV "Orpheus Lite Console Bus (chmaha)" "chmaha Scripts/Consoles/Orpheus_Lite_Bus.jsfx"
-REV "Orpheus Lite Console Channel (chmaha)" "chmaha Scripts/Consoles/Orpheus_Lite_Channel.jsfx"
+REV "Orpheus Console Bus In (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Orpheus_Bus_In.jsfx"
+REV "Orpheus Console Bus Out (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Orpheus_Bus_Out.jsfx"
+REV "Orpheus Console Channel In (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Orpheus_Channel_In.jsfx"
+REV "Orpheus Console Channel Out (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Orpheus_Channel_Out.jsfx"
+REV "Orpheus Console Sub|Aux In (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Orpheus_Sub_In.jsfx"
+REV "Orpheus Console Sub|Aux Out (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Orpheus_Sub_Out.jsfx"
+REV "Orpheus Lite Console Bus (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Orpheus_Lite_Bus.jsfx"
+REV "Orpheus Lite Console Channel (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Orpheus_Lite_Channel.jsfx"
 REV "Oscilloscope Meter (Cockos)" analysis/gfxscope
 REV "Oscilloscope w/ beat retrigger" "ReaTeam JSFX/Utility/jw_gfxscope-beat-retrigger.jsfx"
 REV "Output switcher" "ply Scripts/JSFX/Routing/ply_output_switcher.jsfx"
 REV "Oversampled distortion" Tale/examples/oversample1
 REV "Oversampled sawtooth oscillator" Tale/examples/oversample2
-REV "Oxonia Compressor (chmaha)" "chmaha Scripts/Various/Oxonia.jsfx"
+REV "Oxonia Compressor (chmaha)" "chmaha airwindows JSFX Ports/Various/Oxonia.jsfx"
 REV "Ozzifier Chorus" sstillwell/ozzifier
 REV "PRNG Plotter" Liteon/prngplot
 REV "PadSynth (by Geraint Luff)" "Geraint's JSFX/Synth/PadSynth/pad-synth.jsfx"
@@ -5375,7 +5408,7 @@ REV "Parallel Splitter x3" "ACendan Scripts/Utility/Parallel Splitter x3.jsfx"
 REV "Paranoia Mangler" "remaincalm_org/Paranoia Mangler"
 REV "Paranoia Mangler [remaincalm_org/paranoia_mangler]" remaincalm_org/paranoia_mangler
 REV "Partials (Saike)" "Saike Tools/partials/saike_partials.jsfx"
-REV "Pascal Compressor (chmaha)" "chmaha Scripts/Various/Pascal.jsfx"
+REV "Pascal Compressor (chmaha)" "chmaha airwindows JSFX Ports/Various/Pascal.jsfx"
 REV "Peak Needle 2 (Tukan)" "Tukan/Peak Needle (Tukan)"
 REV "Phase Rotator" "utility/Phase Adjust"
 REV "Phase Rotator [utility/phase_adjust]" utility/phase_adjust
@@ -5386,14 +5419,14 @@ REV "Phase Vocoder Stereo Template [ReaTeam Scripts/FX/BryanChi_FX Devices/cookd
 REV "Phase Vocoder Stereo Transposer" Tukan/S2GFX/cookdsp/pvtrans-example
 REV "Phase Vocoder Stereo Transposer [ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pvtrans-example]" "ReaTeam Scripts/FX/BryanChi_FX Devices/cookdsp/pvtrans-example"
 REV "Phase-Meter (Click to refresh)" Liteon/phasemetergfx
-REV "Phasity Delay Timing Tool (chmaha)" "chmaha Scripts/Various/Phasity.jsfx"
-REV "PhiVerb Reverb (chmaha)" "chmaha Scripts/Reverbs/PhiVerb.jsfx"
+REV "Phasity Delay Timing Tool (chmaha)" "chmaha airwindows JSFX Ports/Various/Phasity.jsfx"
+REV "PhiVerb Reverb (chmaha)" "chmaha airwindows JSFX Ports/Reverbs/PhiVerb.jsfx"
 REV "Piano Display (by Geraint Luff)" "Geraint/Piano Display"
 REV "Piano Display (by Geraint Luff) [Geraint's JSFX/Utility/Piano-Display/piano-display.jsfx]" "Geraint's JSFX/Utility/Piano-Display/piano-display.jsfx"
 REV "Ping Pong Pan" loser/ppp
 REV "Pink Noise Generator" Liteon/pinknoisegen
 REV "Pink noise generator" Tale/examples/noise
-REV "PirateDither (chmaha)" "chmaha Scripts/Dithers/PirateDither.jsfx"
+REV "PirateDither (chmaha)" "chmaha airwindows JSFX Ports/Dithers/PirateDither.jsfx"
 REV "Pitch Down-Shifter" pitch/pitchdown
 REV "Pitch Down-Shifter 2" pitch/pitch2
 REV "Pitch Shifter 2" pitch/superpitch
@@ -5403,7 +5436,7 @@ REV "PitchWheel Control Center" "ReaTeam JSFX/MIDI/mbncp_PitchWheel.jsfx"
 REV "PlayState Mixer : Souk21" "Souk21 ReaPack/JSFX/PlayState Mixer.jsfx"
 REV "Plugin Parameters Modulator" Whatsup/Parameter_Modulator
 REV "Pop rocks" "Saike Tools/Poprocks/poprocks.jsfx"
-REV "Port-and-Lemon Compressor / Gate (chmaha)" "chmaha Scripts/Various/port-and-lemon.jsfx"
+REV "Port-and-Lemon Compressor / Gate (chmaha)" "chmaha airwindows JSFX Ports/Various/port-and-lemon.jsfx"
 REV "Pre-Arranged Looper" "ReaTeam JSFX/Utility/jcgurango_Pre-Arranged Looper.jsfx"
 REV "Pre-Arranged MIDI Looper" "ReaTeam JSFX/Utility/jcgurango_MIDI Arranged Looper.jsfx"
 REV "PreAmp (Tukan)" "Tukan/PreAmp (Tukan)"
@@ -5480,8 +5513,8 @@ REV ReaperTon-MIDIChordState ReaperTon-MIDIChordState
 REV Reaticulate Reaticulate/jsfx/Reaticulate.jsfx
 REV Rectify "Beaunus Scripts/JSFX/beaunus_Rectify.jsfx"
 REV "Red Lexikan S2 (Tukan)" "Tukan/Red Lexikan S2 (Tukan)"
-REV "ReelDither (chmaha)" "chmaha Scripts/Dithers/ReelDither.jsfx"
-REV "Reelty Tape Emulation (chmaha)" "chmaha Scripts/Various/Reelty.jsfx"
+REV "ReelDither (chmaha)" "chmaha airwindows JSFX Ports/Dithers/ReelDither.jsfx"
+REV "Reelty Tape Emulation (chmaha)" "chmaha airwindows JSFX Ports/Various/Reelty.jsfx"
 REV "Remove redundant CC messages [v1.06]" "DarkStar/MIDI Remove Redundant CC"
 REV "Resonant Lowpass Filter" filters/resonantlowpass
 REV RetrospectiveRecord_tracker "MPL Scripts/JSFX/RetrospectiveRecord_tracker.jsfx"
@@ -5491,8 +5524,8 @@ REV "Ripple Phaser (by Geraint Luff)" "Geraint's JSFX/Delay/Ripple/Ripple.jsfx"
 REV "Route Note On" "ReaTeam JSFX/Routing/mschnell_Midi_Route_Note_On.jsfx"
 REV S.LA.X "SonicAnomaly JSFX/Plugins/SLAX.jsfx"
 REV "S.LA.X (ZenoMOD)" "LBX Plugins/SonicAnomaly JSFX (ZenoMOD)/SLAX LBX (ZenoMOD).jsfx"
-REV "SAW — Seriously Amazing Widener (chmaha)" "chmaha Scripts/Various/SeriouslyAmazingWidener.jsfx"
-REV "SAW2 — Seriously Amazing Widener 2 (chmaha)" "chmaha Scripts/Various/SeriouslyAmazingWidener2.jsfx"
+REV "SAW — Seriously Amazing Widener (chmaha)" "chmaha airwindows JSFX Ports/Various/SeriouslyAmazingWidener.jsfx"
+REV "SAW2 — Seriously Amazing Widener 2 (chmaha)" "chmaha airwindows JSFX Ports/Various/SeriouslyAmazingWidener2.jsfx"
 REV "SC Filter (Tukan)" "Tukan/SC Filter (Tukan)"
 REV "SEG - Smooth Expander Gate" "Supermaailma/SEG Gate"
 REV "SEGX2 - Smooth Dual Band Expander Gate" "Supermaailma/SEGX2 Gate"
@@ -5543,7 +5576,7 @@ REV "Shepard Paradoxical Synth" "ReaTeam JSFX/Synth/TiaR_Shepard Paradoxical Syn
 REV "Show Current Tempo" Whatsup/ShowTempo
 REV "Shows the range of an instrument in concert pitch or written range, and filter notes outside the range." Davisan/dvn-InstrumentRange
 REV "Silence Meter" "X-Raym Scripts/JSFX/X-Raym_Silence meter.jsfx"
-REV "Sillons Vinyl Emulation (chmaha)" "chmaha Scripts/Various/Sillons.jsfx"
+REV "Sillons Vinyl Emulation (chmaha)" "chmaha airwindows JSFX Ports/Various/Sillons.jsfx"
 REV "Simple 1-Pole Filter" Liteon/simplelp6db
 REV "Simple 1-Pole Filter (phase corrected)" "ERSH plugins and effects/JSFX/ersh_simplelp6db.jsfx"
 REV "Simple MIDI mono synth" Tale/examples/midi_queue1
@@ -5554,7 +5587,7 @@ REV "Simple mono/poly synth" Tale/mono_synth
 REV "Sine Sweep Generator" synthesis/sine_sweep
 REV "Sine wave wavetable oscillator" Tale/examples/wavetable
 REV "Sine/cosine wave oscillator" Tale/examples/sine
-REV "Six-Dither Sid (chmaha)" "chmaha Scripts/Dithers/six-dither_sid.jsfx"
+REV "Six-Dither Sid (chmaha)" "chmaha airwindows JSFX Ports/Dithers/six-dither_sid.jsfx"
 REV "Skope II [Build 160930]" "SonicAnomaly JSFX/Plugins/Skope2.jsfx"
 REV "Skope [Build 140325]" Supermaailma/Skope
 REV "Slider and MIDI CC" "ReaTeam JSFX/MIDI/mschnell_MIDI Slider and MIDI CC.jsfx"
@@ -5562,10 +5595,10 @@ REV "Slider to MIDI NRPM" "ReaTeam JSFX/MIDI/mschnell_Slider to MIDI NRPM.jsfx"
 REV "Slider to Midi PS" "ReaTeam JSFX/Utility/mschnell_Slider to Midi PS.jsfx"
 REV "Smooth Limiter (by Geraint Luff)" "Geraint's JSFX/Utility/Smooth-Limiter/Smooth Limiter.jsfx"
 REV "Smooth Limiter (by Geraint Luff) (ZenoMOD)" "LBX Plugins/Smooth Limiter LBX (ZenoMOD)"
-REV "Snippity Soft Clipper (chmaha)" "chmaha Scripts/Various/Snippity.jsfx"
+REV "Snippity Soft Clipper (chmaha)" "chmaha airwindows JSFX Ports/Various/Snippity.jsfx"
 REV "Soft Bell/Chime (by Geraint Luff)" "Geraint's JSFX/Synth/Soft-Bell/Soft-Bell.jsfx"
 REV "Soft Clipper/Limiter" schwa/soft_clipper
-REV "Solar Wind Aural Exciter (chmaha)" "chmaha Scripts/Various/Solar_Wind.jsfx"
+REV "Solar Wind Aural Exciter (chmaha)" "chmaha airwindows JSFX Ports/Various/Solar_Wind.jsfx"
 REV "Sonic Enhancer" Liteon/sonic_enhancer
 REV "Speaker Mix" "ERSH plugins and effects/JSFX/ersh_speaker_mix.jsfx"
 REV "Spectral Hold (Cockos)" synthesis/spectral_hold
@@ -5579,7 +5612,7 @@ REV "Split to 4 channels" "Split To 4 Channels.jsfx"
 REV "Spring-Box Delay-Reverb (by Geraint Luff)" "Geraint's JSFX/Delay/Spring-Box/Spring-Box.jsfx"
 REV "Square Pusher Distortion [mrlimbic]" "mrlimbic scripts/JSFX/mrlimbic_square_pusher_distorion.jsfx"
 REV "Squashman (beta)" "Saike Tools/Squashman/Squashman.jsfx"
-REV "Stan Dither (chmaha)" "chmaha Scripts/Dithers/Stan.jsfx"
+REV "Stan Dither (chmaha)" "chmaha airwindows JSFX Ports/Dithers/Stan.jsfx"
 REV "State Variable Morphing Filter" Liteon/statevariable
 REV "Step sequencing (replace mode) by cfillion" "ReaTeam Scripts/MIDI Editor/cfillion_Step sequencing (replace mode).jsfx"
 REV "Stereo 1+2 in, select output pair(s)" Witti/Utility/output_selector
@@ -5600,7 +5633,7 @@ REV "Subtractive Stereo Enhancer" sstillwell/width
 REV "SumThing (Tukan)" "Tukan/SumThing (Tukan)"
 REV "SumThing SI (Tukan)" "Tukan/SumThing SI (Tukan)"
 REV "Super8 MIDI-controlled synchronized looper (Cockos)" loopsamplers/super8
-REV "Supersonic Filter (chmaha)" "chmaha Scripts/Consoles/Supersonic.jsfx"
+REV "Supersonic Filter (chmaha)" "chmaha airwindows JSFX Ports/Consoles/Supersonic.jsfx"
 REV "Surround Pan - Stereo To 5.1" "Supermaailma/Surround Pan"
 REV "Surround Pan 2.1" "SonicAnomaly JSFX/Plugins/Surround Pan 2.jsfx"
 REV "Sustain pedal to note length" "cfillion/Sustain to note length"
@@ -5619,7 +5652,7 @@ REV "Time Adjustment Delay [delay/time_adjustment]" delay/time_adjustment
 REV "Time Delay by Distance" "ReaTeam JSFX/Utility/CoreyScogin_TimeDelayByDistance.jsfx"
 REV "Time Difference Pan" "loser/Haas Delay Pan"
 REV "Time Difference Pan [loser/timeDifferencePan]" loser/timeDifferencePan
-REV "Titan Capacitor Distortion (chmaha)" "chmaha Scripts/Various/Titan.jsfx"
+REV "Titan Capacitor Distortion (chmaha)" "chmaha airwindows JSFX Ports/Various/Titan.jsfx"
 REV "Tone Gate" "remaincalm_org/Tone Gate"
 REV "Tone Gate [remaincalm_org/tonegate]" remaincalm_org/tonegate
 REV "Tone Generator" "synthesis/Tone Generator"
@@ -5651,7 +5684,7 @@ REV "Tube Harmonics ( Amp Version )" Liteon/tubeharmonics_amp
 REV "Tube amp" Tale/tube_amp
 REV "Turn audio signal into velocity-sensitive drum trigger" sstillwell/drumtrigger
 REV "Turquoise Limiter S2 (Tukan)" "Tukan/Turquoise Limiter S2 (Tukan)"
-REV "Twilight Dither (chmaha)" "chmaha Scripts/Dithers/Twilight.jsfx"
+REV "Twilight Dither (chmaha)" "chmaha airwindows JSFX Ports/Dithers/Twilight.jsfx"
 REV "Upward Expander" loser/UpwardExpander
 REV "Use slider1 for parameter modulation linking." Witti/ParaMod/control_slider_fine
 REV "Use slider1 for parameter modulation linking. [Witti/ParaMod/control_slider_fine_2]" Witti/ParaMod/control_slider_fine_2
@@ -5670,12 +5703,13 @@ REV "VU Meter (Summed)" Liteon/vumetergfxsum
 REV "VU Meter (ZenoMOD)" "LBX Plugins/VU Meter (ZenoMOD)"
 REV "VU Meter (ZenoMOD) [ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx]" "ReaTeam JSFX/Utility/zenomod_VU Meter (ZenoMOD).jsfx"
 REV "VU meter" meters/vumeter
-REV "Valvity Tube Saturation (chmaha)" "chmaha Scripts/Various/Valvity.jsfx"
+REV "Valvity Tube Saturation (chmaha)" "chmaha airwindows JSFX Ports/Various/Valvity.jsfx"
 REV "VariBus Comp (Tukan)" "Tukan/VariBus Comp (Tukan)"
 REV "VariBus Comp S2 (Tukan)" "Tukan/VariBus Comp S2 (Tukan)"
 REV "Velocity == Probability" "IXix/MIDI Probalocity"
 REV "Velocity == Probability [midi/MIDI_Probalocity]" midi/MIDI_Probalocity
 REV "Velocity Slider" "ReaTeam Scripts/MIDI Editor/kl_Preset velocity/Velocity Slider.jsfx"
+REV "Velocity Smoother v0.92" "TheBestMeICanBe/VelocitySmoother v0.92.jsfx"
 REV "Velocity randomizer" True-grue/velrand
 REV "Verb Ducker (Tukan)" "Tukan/Verb Ducker (Tukan)"
 REV "Vibrato (by Geraint Luff)" "Geraint's JSFX/Delay/Vibrato/Vibrato.jsfx"
@@ -5688,7 +5722,7 @@ REV "Volume utility +-10db (sample accurate automation)" "ReaTeam JSFX/Utility/n
 REV "Volume/Pan Smoother" utility/volume_pan
 REV "Volume/Pan Smoother v5" breeder/Volume
 REV "Volume/Pan Smoother v5 [utility/volume_pan_sample_accurate_auto]" utility/volume_pan_sample_accurate_auto
-REV "WTFDither (chmaha)" "chmaha Scripts/Dithers/WTFDither.jsfx"
+REV "WTFDither (chmaha)" "chmaha airwindows JSFX Ports/Dithers/WTFDither.jsfx"
 REV "W_Comp (ZenoMOD)" "LBX Plugins/w_comp LBX (ZenoMOD)"
 REV Wah-Wah guitar/wah
 REV "Warble - Pitch Shifter (by Geraint Luff)" "Geraint's JSFX/Pitch Correction/Warble/Warble.jsfx"
@@ -5703,7 +5737,7 @@ REV "XQ Drum Converter" "xeewaj/XQ Drum Converter"
 REV "XQ Drum Deviator" "xeewaj/XQ Drum Deviator"
 REV "XQ Drum Equalizer" "xeewaj/XQ Drum Equalizer"
 REV "XY Pad" "ReaTeam JSFX/MIDI/mschnell_XY Pad.jsfx"
-REV "Xonnos Dither (chmaha)" "chmaha Scripts/Dithers/Xonnos Dither.jsfx"
+REV "Xonnos Dither (chmaha)" "chmaha airwindows JSFX Ports/Dithers/Xonnos Dither.jsfx"
 REV "Xorshift noise generator" Tale/examples/uint
 REV "Yutani Mono Bass Synth [Saike] (BETA)" "Saike Tools/Yutani/Saike_Yutani.jsfx"
 REV "Ze Big Chorus" "ReaTeam JSFX/Modulation/TiaR_Ze Big Chorus.jsfx"
