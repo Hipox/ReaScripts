@@ -1,11 +1,11 @@
-1;VST: ReaLimit (Cockos);1;0;1;true;true;0;1
-2;JS: Sweeping Resonant Lowpass Filter;0;20.0;20000.0;true;true;20.0;20000.0
-3;JS: JS: StereoTilt (Mono-to-Stereo);1;6.6;1;true;true;0;1
-4;VST3: Newfangled Saturate (Newfangled Audio);0;0;1;true;true;0;1
-5;JS: MIDI Examiner;0;0;1;true;true;0;1
-6;JS: RS5K_manager_MIDIBUS_choke;6;0;1;true;true;0;1
-7;VST: Unfiltered Audio Fault (Plugin Alliance);0;0;1;true;true;0;1
-8;JS: VOLA2;9;0.0;1.0;true;true;0.0;1.0
-9;VST: ReaLimit (Cockos);3;0.0;1.0;true;true;0.0;1.0
-10;_emptyString_;0;0;1;true;true;0;1
-11;_emptyString_;0;0;1;true;true;0;1
+5;JS: JS: StereoTilt (Mono-to-Stereo);1;6.6;1;true;true;0;1
+1;JS: MIDI Examiner;0;0;1;true;true;0;1
+2;JS: RS5K_manager_MIDIBUS_choke;6;0;1;true;true;0;1
+3;JS: Sweeping Resonant Lowpass Filter;0;20.0;20000.0;true;true;20.0;20000.0
+4;JS: VOLA2;9;0.0;1.0;true;true;0.0;1.0
+6;VST3: Newfangled Saturate (Newfangled Audio);0;0;1;true;true;0;1
+10;VST: ERA 6 De-Clipper (accusonus);0;0;1;true;true;0;1
+11;VST: Gatekeeper (Polyverse Music);0;0;1;true;true;0;1
+7;VST: ReaLimit (Cockos);3;0;1;true;true;0;1
+8;VST: ReaLimit (Cockos);1;0.0;1.0;true;true;0.0;1.0
+9;VST: Unfiltered Audio Fault (Plugin Alliance);0;0;1;true;true;0;1

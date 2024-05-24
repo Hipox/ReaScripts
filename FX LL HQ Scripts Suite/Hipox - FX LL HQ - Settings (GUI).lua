@@ -50,6 +50,9 @@ If either of these scenarios happen, a snapshot BEFORE has to be taken and verif
 [X] move all Database Files to another folder inside this directory
 [ ] when autosave on, before changing to another valid database, save current database
 [ ] add capture button to FX Identifier table cell to capture all parameters in existing row (probably just modify "Capture Last Touched FX Parameter" button) 
+[ ] light up whole rows where something can be captured for better visualization wihout filtering - that means rows without FX Identifier or those whose FX Identifier matches last touched FX etc.
+[ ] seamless integration TABLE and FILE, do not let user be confused, let it be as intuitive as possible (autosaves etc.)
+[ ] restructuralise the design, best into multiple files same as EQ in PYTHON 2N - use Controller, GUI file etc. - means REBUILD using MVC design pattern.
 ]]--
 
 local reaper, r = reaper, reaper
@@ -1795,7 +1798,7 @@ end
                 -- fx_ll_hq.print("New rows count without removed rows == " .. rows_count - count_removed_rows .. "\n")
                 local snapshot_rows_numbers = CreateSnapshotRowsNumbers()
                 rows_count = fx_ll_hq.RemoveRowFromCsvTable(fx_ll_hq.csvUserDatabase, row)
-                fx_ll_hq.fx_ll_hq.MakeRowsSequencePermament_ReNumberRows(fx_ll_hq.csvUserDatabase, snapshot_rows_numbers)
+                fx_ll_hq.MakeRowsSequencePermament_ReNumberRows(fx_ll_hq.csvUserDatabase, snapshot_rows_numbers)
                 fx_ll_hq.print("New rows count == " .. rows_count .. "\n")
                 modify_changes_counter()
                 ImGui.PopID(ctx)

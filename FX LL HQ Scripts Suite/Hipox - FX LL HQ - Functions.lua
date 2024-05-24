@@ -1233,6 +1233,14 @@ function fx_ll_hq.CompareUserDatabaseTableAndCsvFile(csvMeta)
    return ret
 end
 
+function IsPathValid(path)
+   local success, message = os.rename(path, path)
+   if success then
+     return true
+   else
+     return false
+   end
+end
 
 function fx_ll_hq.IsDatabaseTableValid(csvMeta)
    -- TODO make sure this self even exists

@@ -9,7 +9,7 @@ global_mode_switch_ProcessTakeFXs;true
 reallm_pref_action_AllowAutomaticStartup;false
 reallm_pref_action_ProcessMonitorChain;true
 reallm_pref_action_SetLlmAndHqmForPlugins;true
-reallm_pref_action_PDC_Limit;1.0
+reallm_pref_action_PDC_Limit;0.6
 --- GUI Settings ---
 paths_section_header_open;1
 global_mode_switch_settings_header_open;1
