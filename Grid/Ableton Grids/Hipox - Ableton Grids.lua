@@ -8,7 +8,7 @@
 -- @changelog
 --   + Initial ReaPack release
 -- @provides
---   Libraries/json.lua
+--   ../../Libraries/json.lua
 --   Grid/Ableton Grids/ableton_extract_grid.py
 --   Grid/Ableton Grids/create_custom_ableton_set_and_open.py
 --   [data] Grid/Ableton Grids/Reaper_Warp_Template_modified Project/**
