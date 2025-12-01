@@ -1,7 +1,10 @@
 -- @description Ableton Grids (ReaImGui GUI)
 -- @version 1.0.0
 -- @author Hipox
--- @link https://github.com/Hipox/ReaScripts
+-- @links
+--  GitHub Repository https://github.com/Hipox/ReaScripts
+--  Forum Thread http://forum.cockos.com/showthread.php?t=169127
+-- @donation https://paypal.me/Hipox
 -- @about
 --   GUI tool that extracts beat grids from Ableton Live .als
 --   projects and creates custom Ableton sets from REAPER items.
@@ -9,9 +12,10 @@
 --   + Initial ReaPack release
 -- @provides
 --   ../../Libraries/json.lua
---   Grid/Ableton Grids/ableton_extract_grid.py
---   Grid/Ableton Grids/create_custom_ableton_set_and_open.py
+--   ableton_extract_grid.py
+--   create_custom_ableton_set_and_open.py
 --   [data] Grid/Ableton Grids/Reaper_Warp_Template_modified Project/**
+--   [main] Grid/Ableton Grids/Hipox - Ableton Grids.lua
 
 -- Requires:
 --   - ReaImGui extension
