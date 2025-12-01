@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <index version="1" name="Hipox Scripts" commit="457a56e2dc023fa378d10e6e0417aa6e6561bf35">
   <metadata>
-    <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+    <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Hipox's Scripts for {\field{\*\fldinst{HYPERLINK "http://reaper.fm"}}{\fldrslt{\ul
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 Hipox's Scripts for {\field{\*\fldinst{HYPERLINK "http://reaper.fm"}}{\fldrslt{\ul
 Cockos REAPER
 }}}
 \par}
@@ -17,7 +17,7 @@ cfillion
 }}}
 . It serves users for easy downloading and updating.\par}
 {\pard \qc \f0 \sa180 \li0 \fi0 \emdash\emdash\emdash\emdash\emdash\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Manual ReaPack Installation\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel1 \b \fs32 Manual ReaPack Installation\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 If for some reasons you deleted the link to this repo from ReaPack, you can add it back by importing the following {\field{\*\fldinst{HYPERLINK "https://github.com/Hipox/ReaScripts/raw/master/index.xml"}}{\fldrslt{\ul
 index.xml
 }}}
