@@ -1,16 +1,15 @@
 -- @description Ableton Grids
 -- @author Hipox
--- @version 1.0.1
+-- @version 1.0.2
 -- @changelog
---   + little fixes
+--   + fix repository name
 -- @links
 --  GitHub Repository https://github.com/Hipox/ReaScripts
 --  Forum Thread http://forum.cockos.com/showthread.php?t=169127
--- @donations https://lnk.bio/hipox
+-- @donation https://lnk.bio/hipox
 -- @about
 --   GUI tool that extracts beat grids from Ableton Live .als
 --   projects and creates custom Ableton sets from REAPER items.
-
 -- @provides
 --   ../../Libraries/json.lua
 --   ableton_extract_grid.py
