@@ -18,8 +18,6 @@
 --   - ableton_extract_grid.py
 --   - create_custom_ableton_set_and_open.py
 --   - json.lua
---
--- Put this script in the same folder as the Python + json.lua files.
 
 local SCRIPT_NAME = ({reaper.get_action_context()})[2]:match("([^/\\_]+)%.lua$")
 
