@@ -4,9 +4,7 @@
 -- @links
 --  GitHub Repository https://github.com/Hipox/ReaScripts
 --  Forum Thread http://forum.cockos.com/showthread.php?t=169127
--- @donations
---  https://paypal.me/hipox
---  https://www.ko-fi.com/hipox
+-- @donations https://lnk.bio/hipox
 -- @about
 --   GUI tool that extracts beat grids from Ableton Live .als
 --   projects and creates custom Ableton sets from REAPER items.
@@ -1203,11 +1201,8 @@ local function loop()
                 if ImGui.MenuItem(ctx, "Reaper Forum Thread (help & talk)") then
                     OpenURL("http://www.documentation-link.com") -- TODO: real link
                 end
-                if ImGui.MenuItem(ctx, "Donate") then
-                    OpenURL("http://www.donation-link.com") -- TODO
-                end
-                if ImGui.MenuItem(ctx, "Contact") then
-                    OpenURL("https://lnk.bio/reahipox")
+                if ImGui.MenuItem(ctx, "Social Sites & Donate") then
+                    OpenURL("https://lnk.bio/hipox")
                 end
                 ImGui.EndMenu(ctx)
             end
