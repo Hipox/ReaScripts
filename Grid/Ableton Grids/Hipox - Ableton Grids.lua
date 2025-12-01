@@ -73,17 +73,17 @@ This script requires Python to run Ableton grid extraction.
 Install Python:
 
 WINDOWS:
-  1) Download from https://www.python.org/downloads/windows/
-  2) IMPORTANT: Check "Add Python to PATH" during installation.
+    1) Download from https://www.python.org/downloads/windows/
+    2) IMPORTANT: Check "Add Python to PATH" during installation.
 
 macOS:
-  Run in Terminal:
-      brew install python
-  or install from python.org
+    Run in Terminal:
+        brew install python
+    or install from python.org
 
 LINUX:
-  Install from package manager, e.g.:
-      sudo apt install python3
+    Install from package manager, e.g.:
+        sudo apt install python3
 
 GUI will NOT open until Python is available.]]
     )
@@ -92,14 +92,14 @@ end
 
 if not reaper.ImGui_GetBuiltinPath then
     reaper.MB("This script requires ReaImGui." ..
-      "Please install it via ReaPack, and check that it's up to date in the 'Extensions' menu. \z" ..
-      "Install it from ReaPack > Browse packages.",
-      "Missing ImGui", 0)
+    "Please install it via ReaPack, and check that it's up to date in the 'Extensions' menu. \z" ..
+    "Install it from ReaPack > Browse packages.",
+    "Missing ImGui", 0)
     return
-  end
-  
-  package.path = reaper.ImGui_GetBuiltinPath() .. '/?.lua'
-  local ImGui = require 'imgui' '0.9.1'
+end
+
+package.path = reaper.ImGui_GetBuiltinPath() .. '/?.lua'
+local ImGui = require 'imgui' '0.9.1'
 
 -- Option tables for GUI + config
 
@@ -1220,10 +1220,10 @@ local function loop()
 
 Quantize grid:
 - Uses Ableton BPM/grid info to insert tempo markers into REAPER
-so the *project grid* matches the warped audio.
+    so the *project grid* matches the warped audio.
 - Best used when the item playback rate is 1.0 (rate slider = 1.000).
-- If you don't want items moving with tempo changes, consider setting
-the track or project timebase to "Time" before running this mode.
+- If you don't want items moving with tempo changes, consider setting   
+    the track or project timebase to "Time" before running this mode.
 ]])
 
         -- APPLY_TYPE combo (label is hidden by using ##)
@@ -1391,7 +1391,7 @@ Nearest bar:
 
 If left empty:
 - The Python script will open the .als file with the system default
-  application for .als (usually Ableton Live).
+    application for .als (usually Ableton Live).
 
 If set:
 - The script will first try to launch Ableton using this path.
@@ -1399,8 +1399,8 @@ If set:
 
 Examples:
 - Windows:  C:\ProgramData\Ableton\Live 12 Suite\Program\Ableton Live 12 Suite.exe
-- macOS:    /Applications/Ableton Live 11 Suite.app
-- Linux/Wine:  /home/user/.wine/drive_c/.../Ableton Live 11 Suite.exe
+- macOS:    /Applications/Ableton Live 12 Suite.app
+- Linux/Wine:  /home/user/.wine/drive_c/.../Ableton Live 12 Suite.exe
 ]])
 
         -- Path input + Browse button on same line
