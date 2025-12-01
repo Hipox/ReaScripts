@@ -1,6 +1,6 @@
--- @description Ableton Grids (ReaImGui GUI)
--- @version 1.0.0
+-- @description Ableton Grids
 -- @author Hipox
+-- @version 1.0.0
 -- @links
 --  GitHub Repository https://github.com/Hipox/ReaScripts
 --  Forum Thread http://forum.cockos.com/showthread.php?t=169127

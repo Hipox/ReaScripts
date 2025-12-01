@@ -1,3 +1,5 @@
+# @author Hipox
+# @description Ableton Create Custom Set and Open
 # @noindex
 # NoIndex: true
 # helper script for Ableton Grids (not a standalone ReaScript)

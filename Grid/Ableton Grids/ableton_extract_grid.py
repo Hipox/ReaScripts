@@ -1,6 +1,8 @@
+# @author Hipox
+# @description Ableton Extract Grid
 # @noindex
 # NoIndex: true
-# helper script for Ableton Grids (not a standalone ReaScript)
+# @about helper script for Ableton Grids (not a standalone ReaScript)
 
 import gzip
 import json

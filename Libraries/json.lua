@@ -1,3 +1,4 @@
+-- @description A JSON encoding/decoding library in pure Lua.
 -- @noindex
 -- NoIndex: true
 
