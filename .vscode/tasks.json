@@ -1,0 +1,66 @@
+{   
+    "version": "2.0.0",
+    "tasks": [
+        // {
+        //     "label": "Run Reaper Script",
+        //     "type": "shell",
+        //     "command": "C:/Program Files/REAPER (x64)/reaper.exe",
+        //     "args": [
+        //         "-nonewinst",
+        //         "${file}"
+        //     ],
+        //     "problemMatcher": []   
+        // },
+        // {
+        //     "label": "Run Save ReaClip HIPOX MOD",
+        //     "type": "shell",
+        //     "command": "C:/Program Files/REAPER (x64)/reaper.exe",
+        //     "args": [
+        //         "-nonewinst",
+        //         "${workspaceFolder}\\ReaClips HIPOX MOD\\pcp_Save ReaClip (selected items) HIPOX MOD.lua"
+        //     ],
+        //     "problemMatcher": []
+        // },
+        // {
+        //     "label": "Run Hipox Djay Script",
+        //     "type": "shell",
+        //     "command": "C:/Program Files/REAPER (x64)/reaper.exe",
+        //     "args": [
+        //         "-nonewinst",
+        //         "${workspaceFolder}\\Djay BeatGrid\\Hipox - Get Project Time from Source Time (include stretch markers).lua"
+        //     ],
+        //     "problemMatcher": []
+        // },
+        // {
+        //     "label": "Debug Script",
+        //     "command": "${command:workbench.action.debug.start}"
+        // },
+        {
+            "label": "Debug and Run",
+            "dependsOrder": "sequence", //"parallel",
+            "dependsOn": [
+                "Debug Script",
+                "Run Reaper Script"
+            ],
+            "problemMatcher": [],
+        },
+        // {
+        //     "label": "Debug and Run ReaClip HM",
+        //     "dependsOrder": "parallel",
+        //     "dependsOn": [
+        //         "Debug Script",
+        //         "Run Save ReaClip HIPOX MOD"
+        //     ],
+        //     "problemMatcher": [],
+        // },
+        // {
+        //     "label": "Debug and Run Djay BG",
+        //     "dependsOrder": "parallel",
+        //     "dependsOn": [
+        //         "Debug Script",
+        //         "Run Hipox Djay Script"
+        //     ],
+        //     "problemMatcher": [],
+        // },
+    ]
+}
