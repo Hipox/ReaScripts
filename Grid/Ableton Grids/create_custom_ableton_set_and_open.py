@@ -30,7 +30,6 @@ out_als = BASE_DIR / als_dir_name / (f"{default_als_name}_modified.als")
 start_bar = 5          # bar where the clip should start (1 = bar 1)
 beats_per_bar = 4      # assuming 4/4; change if needed
 
-
 def get_audio_tracks_and_clips(root: ET.Element):
     """
     Return a list of (AudioTrack, AudioClip) pairs, one per AudioTrack, in order.
