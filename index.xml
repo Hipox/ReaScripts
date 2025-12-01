@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Hipox Scripts" commit="966ca6c21b439789a150883c36439dbe94a2d55f">
+<index version="1" name="Hipox Scripts" commit="570c22d3be5aaed52af16672e056d5638b8eedff">
   <category name="Grid/Ableton Grids">
     <reapack name="Hipox - Ableton Grids.lua" type="script" desc="Ableton Grids">
       <metadata>
@@ -65,6 +65,32 @@
         <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_modified">https://github.com/Hipox/ReaScripts/raw/966ca6c21b439789a150883c36439dbe94a2d55f/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_modified</source>
         <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_modified.als">https://github.com/Hipox/ReaScripts/raw/966ca6c21b439789a150883c36439dbe94a2d55f/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_modified.als</source>
         <source main="main">https://github.com/Hipox/ReaScripts/raw/966ca6c21b439789a150883c36439dbe94a2d55f/Grid/Ableton%20Grids/Hipox%20-%20Ableton%20Grids.lua</source>
+      </version>
+      <version name="1.0.3" author="Hipox" time="2025-12-01T18:58:57Z">
+        <changelog><![CDATA[+ fix reapack metadata]]></changelog>
+        <source file="../../Libraries/json.lua">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Libraries/json.lua</source>
+        <source file="ableton_extract_grid.py">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/ableton_extract_grid.py</source>
+        <source file="create_custom_ableton_set_and_open.py">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/create_custom_ableton_set_and_open.py</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Desktop.ini">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Desktop.ini</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_1.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_1.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_10.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_10.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_11.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_11.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_12.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_12.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_13.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_13.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_14.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_14.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_15.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_15.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_16.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_16.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_2.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_2.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_3.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_3.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_4.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_4.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_5.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_5.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_6.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_6.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_7.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_7.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_8.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_8.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_9.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_9.als</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_modified">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_modified</source>
+        <source type="data" file="Reaper_Warp_Template_modified Project/Reaper_Warp_Template_modified.als">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Reaper_Warp_Template_modified%20Project/Reaper_Warp_Template_modified.als</source>
+        <source main="main">https://github.com/Hipox/ReaScripts/raw/570c22d3be5aaed52af16672e056d5638b8eedff/Grid/Ableton%20Grids/Hipox%20-%20Ableton%20Grids.lua</source>
       </version>
     </reapack>
   </category>
