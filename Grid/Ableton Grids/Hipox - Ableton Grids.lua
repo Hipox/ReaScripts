@@ -4,7 +4,9 @@
 -- @links
 --  GitHub Repository https://github.com/Hipox/ReaScripts
 --  Forum Thread http://forum.cockos.com/showthread.php?t=169127
--- @donation https://paypal.me/Hipox
+-- @donations
+--  https://paypal.me/hipox
+-- https://www.ko-fi.com/hipox
 -- @about
 --   GUI tool that extracts beat grids from Ableton Live .als
 --   projects and creates custom Ableton sets from REAPER items.
