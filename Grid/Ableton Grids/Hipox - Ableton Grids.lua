@@ -14,14 +14,16 @@
 --   ../../Libraries/json.lua
 --   ableton_extract_grid.py
 --   create_custom_ableton_set_and_open.py
---   [data] Grid/Ableton Grids/Reaper_Warp_Template_modified Project/**
---   [main] Grid/Ableton Grids/Hipox - Ableton Grids.lua
+--   [data] Reaper_Warp_Template_modified Project/**
+--   [main] Hipox - Ableton Grids.lua
 
 -- Requires:
 --   - ReaImGui extension
 --   - ableton_extract_grid.py
 --   - create_custom_ableton_set_and_open.py
 --   - json.lua
+--  - Python installed and available in PATH
+--  - Ableton Live 11+ (for creating sets and extracting grids)
 
 local SCRIPT_NAME = ({reaper.get_action_context()})[2]:match("([^/\\_]+)%.lua$")
 
