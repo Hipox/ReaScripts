@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Hipox Scripts" commit="5caa44b77f15ccf2e009cdeb74e2a71255785183">
+<index version="1" name="Hipox Scripts" commit="26f099c1010024291b87b333452ef716112940fc">
   <category name="Grid/Ableton Grids">
     <reapack name="Hipox - Ableton Grids.lua" type="script" desc="Ableton Grids">
       <metadata>
