@@ -1,8 +1,8 @@
 -- @description Ableton Grids
 -- @author Hipox
--- @version 1.0.3
+-- @version 1.0.4
 -- @changelog
---   + fix reapack metadata
+--   + a lot of functionality upgrades
 -- @links
 --  GitHub Repository https://github.com/Hipox/ReaScripts
 --  Forum Thread http://forum.cockos.com/showthread.php?t=169127
@@ -114,6 +114,50 @@ local APPLY_TYPE_OPTIONS = {
     },
 }
 
+BAR_SPACING_OPTIONS = {
+    {
+        value = 0,
+        label = "First & last marker",
+    },
+    {
+        value       = 1,
+        label = "1 bar",
+    },
+    {
+        value       = 2,
+        label = "2 bars",
+    },
+    {
+        value       = 4,
+        label = "4 bars",
+    },
+    {
+        value       = 8,
+        label = "8 bars",
+    },
+    {
+        value       = 16,
+        label = "16 bars",
+    },
+    {
+        value       = 32,
+        label = "32 bars",
+    },
+    {
+        value       = 64,
+        label = "64 bars",
+    },
+    {
+        value       = 128,
+        label = "128 bars",
+    },
+    {
+        value       = 256,
+        label = "256 bars",
+    },
+}
+
+
 local STRAIGHT_TEMPO_OPTIONS = {
     {
         value       = "stretch_markers",
@@ -140,6 +184,75 @@ local SNAP_MODE_OPTIONS = {
     },
 }
 
+local hm_apply_type =
+[[Stretch item:
+- Keeps the existing REAPER tempo map.
+- Writes Ableton warp markers as stretch markers into the item.
+- Good when you want to warp the audio to match the current grid.
+
+Quantize grid:
+- Uses Ableton BPM/grid info to insert tempo markers into REAPER
+    so the *project grid* matches the warped audio.
+- Best used when the item playback rate is 1.0 (rate slider = 1.000).
+- If you don't want items moving with tempo changes, consider setting   
+    the track or project timebase to "Time" before running this mode.]]
+
+local hm_use_straight_grid =
+[[When enabled:
+- If the Python analysis detected a stable straight BPM (either warped as "Straight" in Ableton or detected as such),
+    the script will treat that file as straight-tempo.
+- Stretch mode will use straight BPM behaviour (stretch_markers / playrate modes).
+- Quantize mode will insert a single clean tempo marker at that BPM.
+
+When disabled:
+- Even if a straight BPM was detected, the script will use the full variable BPM grid.]]
+
+local hm_mark_item_edges =
+[[REAPER can change the start/end edges of items during processing.
+
+When this option is enabled:
+- The script inserts two take markers (__EDGE_START / __EDGE_END)
+    at the exact visible item boundaries BEFORE processing.
+- This lets you see precisely which part of the source was visible before the processing.]]
+
+local hm_snap_mode =
+[[Controls where the first visible warp marker lands on the grid:
+
+Nearest grid line (QN):
+- Snap to the nearest quarter-note grid position.
+- Original behaviour.
+
+First beat of next bar or current bar:
+- Always pushes the item forward to the next bar start or stays at the current bar start if already there.
+
+Nearest bar:
+- Chooses the closest bar start, but won't move the item start before 0.0.]]
+
+local hm_ableton_path =
+[[Optional path to Ableton Live executable (.exe) or app (.app).
+
+If left empty:
+- The Python script will open the .als file with the system default
+    application for .als (usually Ableton Live).
+
+If set:
+- The script will first try to launch Ableton using this path.
+- If it fails or is invalid, it falls back to the default behaviour.
+
+Examples:
+- Windows:  C:\ProgramData\Ableton\Live 12 Suite\Program\Ableton Live 12 Suite.exe
+- macOS:    /Applications/Ableton Live 12 Suite.app
+- Linux/Wine:  /home/user/.wine/drive_c/.../Ableton Live 12 Suite.exe]]
+
+local hm_bar_spacing =
+[[Ableton by default sets 1 warp marker per bar.
+Here you can thin out the grid markers by choosing a spacing:
+
+1 bar  = marker every bar (default)
+2 bars = marker every 2 bars (bars 1,3,5,...)
+4 bars = marker every 4 bars (bars 1,5,9,...)
+8 bars = marker every 8 bars (bars 1,9,17,...)
+etc.]]
 -----------------------------------------
 -- PATHS & GLOBALS
 -----------------------------------------
@@ -151,7 +264,7 @@ package.path = repo_root   .. sep .. "Libraries" .. sep .. "?.lua"
     .. ";" .. package.path
     .. ";" .. script_path .. sep .. "?.lua"
 
-require "json"
+local json = require "json"
 
 local python_script_grid  = script_path .. sep .. "ableton_extract_grid.py"
 local python_script_set   = script_path .. sep .. "create_custom_ableton_set_and_open.py"
@@ -221,6 +334,18 @@ local function save_ext_str(key, val)
     reaper.SetExtState(EXT_SECTION, key, tostring(val), true)
 end
 
+local function load_ext_int(key, default)
+    local v = reaper.GetExtState(EXT_SECTION, key)
+    if v == "" then return default end
+    local n = tonumber(v)
+    if not n then return default end
+    return math.floor(n)
+end
+
+local function save_ext_int(key, val)
+    reaper.SetExtState(EXT_SECTION, key, tostring(math.floor(val or 0)), true)
+end
+
 -- Load config (with defaults)
 local apply_type         = load_ext_str("APPLY_TYPE", "stretch_item")     -- "stretch_item" or "quantize_grid"
 local set_snap_offset    = load_ext_bool("SET_SNAP_OFFSET", true)
@@ -228,9 +353,8 @@ local mark_item_edges    = load_ext_bool("MARK_ITEM_EDGES", false)
 local straight_tempo_mode = load_ext_str("STRAIGHT_TEMPO_MODE", "stretch_markers") -- "stretch_markers" or "playrate"
 local snap_mode          = load_ext_str("SNAP_MODE", "nearest_bar")       -- "nearest_qn", "next_bar", "nearest_bar"
 local use_straight_grid  = load_ext_bool("USE_STRAIGHT_GRID", false)
-local beats_per_bar = tonumber(load_ext_str("BEATS_PER_BAR", "4")) or 4
-if beats_per_bar < 1 then beats_per_bar = 4 end
-local ableton_exe_path = load_ext_str("ABLETON_EXE_PATH", "")
+local ableton_path = load_ext_str("ABLETON_EXE_PATH", "")
+local bar_spacing = load_ext_int("BAR_SPACING", 1)
 -----------------------------------------
 -- HELPERS – ITEMS & JSON
 -----------------------------------------
@@ -379,7 +503,6 @@ end
 -----------------------------------------
 -- CORE MATH HELPERS
 -----------------------------------------
-
 -- Snap item to grid based on first visible source time.
 -- snap_mode:
 --   "next_bar"    = snap to first beat of next bar
@@ -591,15 +714,12 @@ local function ShareStretchMarkers(
     item_pos,
     anchor_qn,
     used_idx,
-    beats_per_bar,
     use_straight_for_this_item,
     straight_bpm,
+    beats_per_bar_quarter,
     set_snap_offset
 )
     if not take or type(src_times) ~= "table" or #src_times == 0 then return end
-
-    beats_per_bar = math.floor(beats_per_bar or 1)
-    if beats_per_bar < 1 then beats_per_bar = 4 end
 
     local proj = 0
     local item = reaper.GetMediaItemTake_Item(take)
@@ -640,49 +760,124 @@ local function ShareStretchMarkers(
     ----------------------------------------------------------------
     if use_straight_for_this_item and straight_tempo_mode == "stretch_markers" then
 
-        --------------------------------------------------------
-        --    Use the *anchored* source time as reference
-        --    This is the warp marker closest to the item edge
-        --    (used_idx), which was also used for snapping.
-        --------------------------------------------------------
         used_idx = used_idx or 1
         local anchor_src_time = src_times[used_idx] or src_times[1] or 0.0
+        local last_src_time   = src_times[#src_times] or anchor_src_time
+
+        if not straight_bpm or straight_bpm <= 0 then
+            return
+        end
 
         -- seconds per beat based on BPM
         local sec_per_beat = 60 / straight_bpm
 
-        local n = 0
-        while true do
-            -- project beat index, anchored at anchor_qn
-            local beat_index = anchor_qn + n * beats_per_bar
-            local beat_time  = reaper.TimeMap2_beatsToTime(proj, beat_index)
-            local destpos    = beat_time - item_pos
+        ------------------------------------------------------------
+        -- BAR SPACING:
+        --   bar_spacing = 1 -> marker every bar
+        --   bar_spacing = 2 -> marker every 2 bars
+        --   bar_spacing = 4 -> marker every 4 bars
+        --
+        -- beats_per_bar_quarter is in quarter-note beats (e.g. 4 for 4/4, 3 for 3/4, 2.5 for 5/8)
+        -- We step in beats by:
+        --   step_beats = beats_per_bar_quarter * bar_spacing
+        ------------------------------------------------------------
+        local first_last_mode = (bar_spacing == 0)
 
-            -- Skip markers strictly before item start
-            if destpos < -1e-6 then
-                n = n + 1
-            else
-                -- Stop once we pass item end
-                if destpos > item_len + 1e-6 then
-                    break
+        -- local sec_per_bar = sec_per_beat * beats_per_bar_quarter
+
+        if first_last_mode then
+            ------------------------------------------------------------
+            -- "First & last marker" mode for straight stretch:
+            -- Only set the first and the last marker within the item.
+            ------------------------------------------------------------
+            local first_set   = false
+            local first_dest  = nil
+            local first_src   = nil
+            local last_dest   = nil
+            local last_src    = nil
+
+            local n = 0
+            while true do
+                local beat_index = anchor_qn + n * beats_per_bar_quarter
+                local beat_time  = reaper.TimeMap2_beatsToTime(proj, beat_index)
+                local destpos    = beat_time - item_pos
+
+                if destpos < -1e-6 then
+                    n = n + 1
+                else
+                    if destpos > item_len + 1e-6 then
+                        break
+                    end
+
+                    local src_time = anchor_src_time + (n * beats_per_bar_quarter) * sec_per_beat
+
+                    -- NEW: stop once we step beyond the straight source span
+                    if src_time > last_src_time + 1e-6 then
+                        break
+                    end
+
+                    if not first_set then
+                        first_set  = true
+                        first_dest = destpos
+                        first_src  = src_time
+                    else
+                        last_dest  = destpos
+                        last_src   = src_time
+                    end
+
+                    n = n + 1
                 end
-
-                -- SOURCE TIME = anchor_src_time + offset * sec_per_beat
-                local src_time = anchor_src_time + (n * beats_per_bar) * sec_per_beat
-
-                reaper.SetTakeStretchMarker(
-                    take,
-                    -1,
-                    destpos,
-                    src_time
-                )
-
-                n = n + 1
             end
-        end
 
-        reaper.UpdateArrange()
-        return
+            if first_set and first_dest and first_src then
+                reaper.SetTakeStretchMarker(take, -1, first_dest, first_src)
+                if last_dest and last_src and math.abs(last_dest - first_dest) > 1e-6 then
+                    reaper.SetTakeStretchMarker(take, -1, last_dest, last_src)
+                end
+            end
+
+            reaper.UpdateArrange()
+            return
+        else
+            ------------------------------------------------------------
+            -- Normal straight grid spacing: every N bars.
+            ------------------------------------------------------------
+            local step_beats = beats_per_bar_quarter * bar_spacing
+
+            local n = 0
+            while true do
+                local beat_index = anchor_qn + n * step_beats
+                local beat_time  = reaper.TimeMap2_beatsToTime(proj, beat_index)
+                local destpos    = beat_time - item_pos
+
+                if destpos < -1e-6 then
+                    n = n + 1
+                else
+                    if destpos > item_len + 1e-6 then
+                        break
+                    end
+
+                    local src_time = anchor_src_time + (n * step_beats) * sec_per_beat
+
+                    -- NEW: don't generate markers beyond source end
+                    if src_time > last_src_time + 1e-6 then
+                        break
+                    end
+
+                    reaper.SetTakeStretchMarker(
+                        take,
+                        -1,
+                        destpos,
+                        src_time
+                    )
+
+                    n = n + 1
+                end
+            end
+
+            reaper.UpdateArrange()
+            return
+        end
     end
 
     ----------------------------------------------------------------
@@ -739,35 +934,101 @@ local function ShareStretchMarkers(
     
     ----------------------------------------------------------------
     -- GENERAL CASE (non-straight analysis)
+    -- Also respect bar_spacing if we know beats_per_bar_quarter.
     ----------------------------------------------------------------
     local beat0 = (src_beats and src_beats[used_idx]) or 0
 
-    for i = 1, #src_times do
-        local src_time  = src_times[i]
-        local this_beat = (src_beats and src_beats[i]) or (beat0 + (i - used_idx))
+    local spacing = tonumber(bar_spacing) or 1
+    local first_last_mode = (spacing == 0)
+    if spacing < 1 then spacing = 1 end
 
-        local delta_beats = this_beat - beat0
-        local beat_index  = anchor_qn + delta_beats
+    if first_last_mode then
+        ------------------------------------------------------------
+        -- "First & last marker" mode for variable grid stretch:
+        -- Only set markers at used_idx (anchor) and at the last index.
+        ------------------------------------------------------------
+        local indices = {}
 
-        local beat_time   = reaper.TimeMap2_beatsToTime(proj, beat_index)
-        local destpos     = beat_time - item_pos
+        if used_idx and used_idx >= 1 and used_idx <= #src_times then
+            table.insert(indices, used_idx)
+        end
+        if #src_times >= 1 then
+            local last_i = #src_times
+            if last_i ~= used_idx then
+                table.insert(indices, last_i)
+            end
+        end
 
-        reaper.SetTakeStretchMarker(
-            take,
-            -1,
-            destpos,
-            src_time
-        )
+        local already = {}
+
+        for _, i in ipairs(indices) do
+            if not already[i] then
+                already[i] = true
+
+                local src_time  = src_times[i]
+                local this_beat = (src_beats and src_beats[i]) or (beat0 + (i - used_idx))
+
+                local delta_beats = this_beat - beat0
+                local beat_index  = anchor_qn + delta_beats
+
+                local beat_time   = reaper.TimeMap2_beatsToTime(proj, beat_index)
+                local destpos     = beat_time - item_pos
+
+                reaper.SetTakeStretchMarker(
+                    take,
+                    -1,
+                    destpos,
+                    src_time
+                )
+            end
+        end
+
+        reaper.UpdateArrange()
+        return
+    else
+        ------------------------------------------------------------
+        -- Normal thinning: keep anchor, last, and bars matching spacing.
+        ------------------------------------------------------------
+        for i = 1, #src_times do
+            local src_time  = src_times[i]
+            local this_beat = (src_beats and src_beats[i]) or (beat0 + (i - used_idx))
+
+            if beats_per_bar_quarter and beats_per_bar_quarter > 0 then
+                local bar_idx = math.floor((this_beat - beat0) / beats_per_bar_quarter + 0.0001)
+
+                local is_anchor = (i == used_idx)
+                local is_last   = (i == #src_times)
+
+                if (bar_idx % spacing ~= 0) and (not is_anchor) and (not is_last) then
+                    goto continue_stretch
+                end
+            end
+
+            local delta_beats = this_beat - beat0
+            local beat_index  = anchor_qn + delta_beats
+
+            local beat_time   = reaper.TimeMap2_beatsToTime(proj, beat_index)
+            local destpos     = beat_time - item_pos
+
+            reaper.SetTakeStretchMarker(
+                take,
+                -1,
+                destpos,
+                src_time
+            )
+
+            ::continue_stretch::
+        end
+
+        reaper.UpdateArrange()
+        return
     end
-
-    reaper.UpdateArrange()
 end
-
 -----------------------------------------
 -- TEMPO GRID FROM BPM LIST
 -----------------------------------------
 
-local function ApplyBPMListToBeats(bpms, times, beats, item, start_index, clear_in_item, use_straight_for_this_item, straight_bpm)
+local function ApplyBPMListToBeats(bpms, times, beats, item, start_index, clear_in_item, use_straight_for_this_item, straight_bpm, beats_per_bar_quarter)
     local proj = 0
     if not item then return end
     if type(bpms) ~= "table" or #bpms == 0 then return end
@@ -778,6 +1039,16 @@ local function ApplyBPMListToBeats(bpms, times, beats, item, start_index, clear_
 
     local take = reaper.GetActiveTake(item)
     if not take then return end
+
+    -- Freeze item in absolute time while we manipulate the tempo map
+    local orig_attachmode = reaper.GetMediaItemInfo_Value(item, "C_BEATATTACHMODE")
+    reaper.SetMediaItemInfo_Value(item, "C_BEATATTACHMODE", 0)  -- 0 = time
+
+    local function RestoreAttachMode()
+        if orig_attachmode ~= nil then
+            reaper.SetMediaItemInfo_Value(item, "C_BEATATTACHMODE", orig_attachmode)
+        end
+    end
 
     -- In grid mode we don't want stretch markers
     local num = reaper.GetTakeNumStretchMarkers(take)
@@ -837,55 +1108,100 @@ local function ApplyBPMListToBeats(bpms, times, beats, item, start_index, clear_
     --    This is the "first visible first beat" anchor in the project.
     ----------------------------------------------------------------
     local anchor_src_time = times[first_idx]
+    local last_src_time   = times[last_idx] or anchor_src_time
     local anchor_time     = item_pos + (anchor_src_time - startoffs) / playrate
-    -- anchor_time is where we want the tempo change to start.
 
     ----------------------------------------------------------------
-    -- 3) STRAIGHT GRID: use Python's decision + BPM from JSON
+    -- IMPORTANT FIX:
+    -- After deleting tempo markers inside the item, the time↔QN map
+    -- can shift slightly. Re-snap anchor_time to the current grid
+    -- so the first tempo marker (and straight grid) sit exactly
+    -- on a REAPER grid line.
     ----------------------------------------------------------------
-    if use_straight_for_this_item then
+    do
+        local qn_anchor = reaper.TimeMap2_timeToQN(proj, anchor_time)
+        anchor_time     = reaper.TimeMap2_QNToTime(proj, math.floor(qn_anchor + 0.5))
+    end
+    -- anchor_time is now exactly on the project grid.
+    -- SPECIAL CASE: bar_spacing == 0 → "First & last marker" mode
+    -- For tempo grid, this means: only set a single tempo marker at anchor_time.
+    local spacing_mode_first_last = (bar_spacing == 0)
 
-        if not straight_bpm or straight_bpm <= 0 then
-            return
+    if spacing_mode_first_last then
+        local bpm
+
+        if use_straight_for_this_item and straight_bpm and straight_bpm > 0 then
+            bpm = straight_bpm
+        else
+            -- Fallback: first positive BPM in range, or 120 as a safety default
+            for i = first_idx, last_idx do
+                local b = bpms[i]
+                if b and b > 0 then
+                    bpm = b
+                    break
+                end
+            end
+            if not bpm then bpm = 120 end
         end
 
-        -- Single tempo marker at the first visible bar in the item.
         reaper.SetTempoTimeSigMarker(
             proj,
             -1,
             anchor_time,
             -1,
             -1,
-            straight_bpm,
+            bpm,
             0,
             0,
             false
         )
-
+        RestoreAttachMode()
         reaper.UpdateTimeline()
         return
     end
-
     ----------------------------------------------------------------
-    -- 4) GENERAL CASE (multi-BPM / non-straight analysis)
+    -- 3) STRAIGHT GRID: use Python's decision + BPM from JSON
+    --    When bar_spacing > 0, insert straight tempo markers every N bars.
+    --    (bar_spacing == 0 is handled above as "First & last marker".)
     ----------------------------------------------------------------
-    local qn        = reaper.TimeMap2_timeToQN(proj, anchor_time)
-    local anchor_qn = math.floor(qn + 0.5)
+    if use_straight_for_this_item then
 
-    local beat0 = (type(beats) == "table" and beats[first_idx]) or 0
+        if not straight_bpm or straight_bpm <= 0 then
+            RestoreAttachMode()
+            reaper.UpdateTimeline()
+            return
+        end
 
-    for i = first_idx, last_idx do
-        local bpm = bpms[i]
-        if bpm and bpm > 0 then
-            local this_beat   = (type(beats) == "table" and beats[i]) or (beat0 + (i - first_idx))
-            local delta_beats = this_beat - beat0
-            local beat_index  = anchor_qn + delta_beats
+        local spacing = tonumber(bar_spacing) or 1
+        if spacing < 1 then spacing = 1 end
 
-            local timepos
-            if i == first_idx then
-                timepos = anchor_time
-            else
-                timepos = reaper.TimeMap2_QNToTime(proj, beat_index)
+        local bpb = beats_per_bar_quarter or 4
+        local sec_per_bar = (60.0 / straight_bpm) * bpb
+
+        -- Re-read item position/length in case they shifted slightly
+        local item_pos = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
+        local item_len = reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
+        local item_end = item_pos + item_len
+
+        ----------------------------------------------------------------
+        -- NEW: limit the straight grid by the visible source span.
+        -- Anchor: anchor_src_time  ->  anchor_time
+        -- Last  : last_src_time    ->  straight_end_time
+        ----------------------------------------------------------------
+        local visible_src_duration = math.max(0, (last_src_time or anchor_src_time) - anchor_src_time)
+        local straight_end_time    = anchor_time + visible_src_duration
+
+        -- Final limit: never go beyond the current item end OR the
+        -- musical end implied by the warp/source data.
+        local limit_end = math.min(item_end, straight_end_time)
+
+        local t0 = anchor_time
+        local k  = 0
+
+        while true do
+            local timepos = t0 + k * sec_per_bar * spacing
+            if timepos > limit_end + 1e-6 then
+                break
             end
 
             reaper.SetTempoTimeSigMarker(
@@ -894,15 +1210,215 @@ local function ApplyBPMListToBeats(bpms, times, beats, item, start_index, clear_
                 timepos,
                 -1,
                 -1,
-                bpm,
+                straight_bpm,
                 0,
                 0,
                 false
             )
+
+            k = k + 1
+        end
+
+        RestoreAttachMode()
+        reaper.UpdateTimeline()
+        return
+    end
+
+
+
+    ----------------------------------------------------------------
+    -- 4) GENERAL CASE (multi-BPM / non-straight analysis)
+    --    Bar spacing: compute a single BPM per N-bar chunk.
+    ----------------------------------------------------------------
+    local qn        = reaper.TimeMap2_timeToQN(proj, anchor_time)
+    local anchor_qn = math.floor(qn + 0.5)
+
+    local beats_tbl = (type(beats) == "table") and beats or nil
+    local beat0     = (beats_tbl and beats_tbl[first_idx]) or 0
+
+    local spacing = tonumber(bar_spacing) or 1
+    if spacing < 1 then spacing = 1 end
+
+    ----------------------------------------------------------------
+    -- CASE A: no usable bar info or spacing == 1 → original behaviour
+    ----------------------------------------------------------------
+    if spacing == 1 or (not beats_tbl) or not beats_per_bar_quarter or beats_per_bar_quarter <= 0 then
+        for i = first_idx, last_idx do
+            local bpm = bpms[i]
+            if bpm and bpm > 0 then
+                local this_beat   = (beats_tbl and beats_tbl[i]) or (beat0 + (i - first_idx))
+                local delta_beats = this_beat - beat0
+                local beat_index  = anchor_qn + delta_beats
+
+                local timepos
+                if i == first_idx then
+                    timepos = anchor_time
+                else
+                    timepos = reaper.TimeMap2_QNToTime(proj, beat_index)
+                end
+
+                reaper.SetTempoTimeSigMarker(
+                    proj,
+                    -1,
+                    timepos,
+                    -1,
+                    -1,
+                    bpm,
+                    0,
+                    0,
+                    false
+                )
+            end
+        end
+
+        RestoreAttachMode()
+        reaper.UpdateTimeline()
+        return
+    end
+
+    ----------------------------------------------------------------
+    -- CASE B: spacing > 1 and we know beats_per_bar_quarter
+    -- Strategy:
+    --   1) Choose "kept" warp indices at bar multiples (0, N, 2N, ...).
+    --   2) For each consecutive pair (i0 -> i1) of kept indices, compute
+    --        BPM_chunk = 60 * (Δbeats / Δtime)
+    --      using times + beats over that whole block.
+    --   3) Insert a tempo marker at the start of each block.
+    ----------------------------------------------------------------
+    local bpb = beats_per_bar_quarter
+
+    -- 1) Build list of indices we keep as block boundaries
+    local kept = {}
+
+    for i = first_idx, last_idx do
+        local this_beat = beats_tbl[i] or (beat0 + (i - first_idx))
+
+        if i == first_idx then
+            -- Always keep the first visible marker
+            table.insert(kept, i)
+        else
+            local bar_idx = math.floor((this_beat - beat0) / bpb + 0.0001)
+
+            -- Keep markers on bar multiples, and also ensure we keep
+            -- the last one so we can form the final chunk.
+            if (bar_idx % spacing == 0) or (i == last_idx) then
+                table.insert(kept, i)
+            end
         end
     end
 
+    if #kept < 2 then
+        -- Not enough points to form at least one chunk → fallback to full resolution
+        for i = first_idx, last_idx do
+            local bpm = bpms[i]
+            if bpm and bpm > 0 then
+                local this_beat   = (beats_tbl and beats_tbl[i]) or (beat0 + (i - first_idx))
+                local delta_beats = this_beat - beat0
+                local beat_index  = anchor_qn + delta_beats
+
+                local timepos
+                if i == first_idx then
+                    timepos = anchor_time
+                else
+                    timepos = reaper.TimeMap2_QNToTime(proj, beat_index)
+                end
+
+                reaper.SetTempoTimeSigMarker(
+                    proj,
+                    -1,
+                    timepos,
+                    -1,
+                    -1,
+                    bpm,
+                    0,
+                    0,
+                    false
+                )
+            end
+        end
+
+        RestoreAttachMode()
+        reaper.UpdateTimeline()
+        return
+    end
+
+    ----------------------------------------------------------------
+    -- 2) For each chunk [kept[k] .. kept[k+1]], compute BPM and set marker
+    ----------------------------------------------------------------
+    local last_bpm = nil
+
+    for k = 1, (#kept - 1) do
+        local i0 = kept[k]
+        local i1 = kept[k+1]
+
+        local b0 = beats_tbl[i0] or (beat0 + (i0 - first_idx))
+        local b1 = beats_tbl[i1] or (beat0 + (i1 - first_idx))
+
+        local t0 = times[i0]
+        local t1 = times[i1]
+
+        local delta_beats = b1 - b0
+        local delta_time  = t1 - t0
+
+        local bpm = last_bpm or 120
+        if delta_time > 0 and delta_beats > 0 then
+            bpm = 60.0 * (delta_beats / delta_time)
+            last_bpm = bpm
+        end
+
+        local this_beat  = b0
+        local beat_index = anchor_qn + (this_beat - beat0)
+
+        local timepos
+        if k == 1 then
+            -- First chunk starts exactly at anchor_time
+            timepos = anchor_time
+        else
+            timepos = reaper.TimeMap2_QNToTime(proj, beat_index)
+        end
+
+        reaper.SetTempoTimeSigMarker(
+            proj,
+            -1,
+            timepos,
+            -1,
+            -1,
+            bpm,
+            0,
+            0,
+            false
+        )
+    end
+
+        ----------------------------------------------------------------
+    -- Optional final marker at the very last warp point
+    -- (only makes sense if we had at least one chunk with a BPM).
+    ----------------------------------------------------------------
+    if last_bpm and last_bpm > 0 then
+        local last_i = kept[#kept]
+
+        local b_last = beats_tbl[last_i] or (beat0 + (last_i - first_idx))
+        local delta_beats_last = b_last - beat0
+        local beat_index_last  = anchor_qn + delta_beats_last
+
+        local timepos_last = reaper.TimeMap2_QNToTime(proj, beat_index_last)
+
+        reaper.SetTempoTimeSigMarker(
+            proj,
+            -1,
+            timepos_last,
+            -1,
+            -1,
+            last_bpm,
+            0,
+            0,
+            false
+        )
+    end
+
+    RestoreAttachMode()
     reaper.UpdateTimeline()
+
 end
 
 -----------------------------------------
@@ -921,26 +1437,43 @@ local function Action_CreateAbletonSetFromSelection()
         return
     end
 
-    -- Build args: first the Ableton path, then audio paths
     local args = {}
-    table.insert(args, ableton_exe_path or "")
+
+    -- Only pass flag if user actually set a path
+    if ableton_path ~= nil and ableton_path ~= "" then
+        table.insert(args, "--ableton_path=" .. ableton_path)
+    end
 
     for _, info in ipairs(takes) do
         table.insert(args, info.path)
     end
 
     local output = send_array_to_python_script(python_script_set, args)
+    -- msg(output)
 
     if not output or output == "" then
         msg("Python (create set) returned empty output.")
         return
     end
-
 end
 
 -----------------------------------------
 -- ACTION 2: APPLY ABLETON BEATGRID
 -----------------------------------------
+
+local function ResetWarpAndPlayrate(item, take)
+    if not take or not item then return end
+
+    -- Remove all stretch markers (warp)
+    local num = reaper.GetTakeNumStretchMarkers(take)
+    for idx = num - 1, 0, -1 do
+        reaper.DeleteTakeStretchMarkers(take, idx)
+    end
+
+    -- Normalise playrate
+    reaper.SetMediaItemTakeInfo_Value(take, "D_PLAYRATE", 1.0)
+    reaper.UpdateItemInProject(item)
+end
 
 local function Action_ApplyAbletonBeatgridToSelection()
     if not verify_file_exists(python_script_grid) then
@@ -954,12 +1487,13 @@ local function Action_ApplyAbletonBeatgridToSelection()
         return
     end
 
-    local paths = {}
+    local args = {}
+
     for _, info in ipairs(takes) do
-        table.insert(paths, info.path)
+        table.insert(args, info.path)
     end
 
-    local output = send_array_to_python_script(python_script_grid, paths)
+    local output = send_array_to_python_script(python_script_grid, args)
 
     if not output or output == "" then
         msg("Python returned empty output.")
@@ -975,11 +1509,13 @@ local function Action_ApplyAbletonBeatgridToSelection()
     local data = load_json_result(json_results_path)
     if not data then return end
 
-    local paths_list = data["paths_list"]
-    local times_list = data["times_list"]
-    local beats_list = data["beats_list"]
-    local bpms_list  = data["bpms_list"]
-    local straight_bpm_list = data["straight_bpm_list"]
+    local paths_list                 = data["paths_list"]
+    local times_list                 = data["times_list"]
+    local beats_list                 = data["beats_list"]
+    local bpms_list                  = data["bpms_list"]
+    local straight_bpm_list          = data["straight_bpm_list"]
+    local time_sig_num_list          = data["time_sig_num_list"]
+    local time_sig_den_list          = data["time_sig_den_list"]
 
     if type(paths_list) ~= "table" or type(times_list) ~= "table" then
         msg("JSON missing paths_list or times_list.")
@@ -996,12 +1532,15 @@ local function Action_ApplyAbletonBeatgridToSelection()
             -- Only store first occurrence for this path; duplicates will share the same grid
             if not path_map[norm] then
                 path_map[norm] = {
-                    times    = (type(times_list)    == "table" and times_list[idx])    or nil,
-                    beats    = (type(beats_list)    == "table" and beats_list[idx])    or nil,
-                    bpms     = (type(bpms_list)     == "table" and bpms_list[idx])     or nil,
-                    straight_bpm = (type(straight_bpm_list) == "table" and straight_bpm_list[idx]) or nil
+                    times                 = (type(times_list)                 == "table" and times_list[idx])                 or nil,
+                    beats                 = (type(beats_list)                 == "table" and beats_list[idx])                 or nil,
+                    bpms                  = (type(bpms_list)                  == "table" and bpms_list[idx])                  or nil,
+                    straight_bpm          = (type(straight_bpm_list)          == "table" and straight_bpm_list[idx])          or nil,
+                    time_sig_num          = (type(time_sig_num_list)          == "table" and time_sig_num_list[idx])          or nil,
+                    time_sig_den          = (type(time_sig_den_list)          == "table" and time_sig_den_list[idx])          or nil,
                 }
             end
+
         end
     end
 
@@ -1014,14 +1553,7 @@ local function Action_ApplyAbletonBeatgridToSelection()
     reaper.Undo_BeginBlock()
 
     for _, info in ipairs(takes) do
-        local take = info.take
-        local item = info.item
-        local num = reaper.GetTakeNumStretchMarkers(take)
-        for idx = num-1, 0, -1 do
-            reaper.DeleteTakeStretchMarkers(take, idx)
-        end
-        reaper.SetMediaItemTakeInfo_Value(take, "D_PLAYRATE", 1.0)
-        reaper.UpdateItemInProject(item)
+        ResetWarpAndPlayrate(info.item, info.take)
     end
 
     for i, info in ipairs(takes) do
@@ -1039,6 +1571,9 @@ local function Action_ApplyAbletonBeatgridToSelection()
             local src_beats    = entry.beats
             local src_bpms     = entry.bpms
             local straight_bpm = tonumber(entry.straight_bpm) or 0.0
+            local ts_num = tonumber(entry.time_sig_num) or 4
+            local ts_den = tonumber(entry.time_sig_den) or 4
+            local beats_per_bar_quarter = ts_num * (4 / ts_den)
 
             local use_straight_for_this_item = (use_straight_grid and straight_bpm > 0)
 
@@ -1064,7 +1599,8 @@ local function Action_ApplyAbletonBeatgridToSelection()
                             used_idx,
                             true,             -- clear existing tempo markers inside item
                             use_straight_for_this_item,
-                            straight_bpm      -- pre-rounded BPM from Python (if straight)
+                            straight_bpm,      -- pre-rounded BPM from Python (if straight)
+                            beats_per_bar_quarter
                         )
                     else
                         msg("No BPM list for path " .. tostring(info.path) .. ", skipping tempo map.")
@@ -1083,12 +1619,11 @@ local function Action_ApplyAbletonBeatgridToSelection()
                         item_pos,
                         anchor_qn,
                         used_idx,
-                        beats_per_bar,
                         use_straight_for_this_item,
-                        straight_bpm,    -- from JSON bpms_list (already rounded in Python)
+                        straight_bpm,          -- from JSON (already rounded in Python)
+                        beats_per_bar_quarter, -- now derived from Num/Den
                         set_snap_offset
                     )
-
 
                 else
                     msg("Unknown APPLY_TYPE: " .. tostring(apply_type))
@@ -1115,6 +1650,7 @@ local window_flags =
 local apply_combo_width         = nil
 local straight_mode_combo_width = nil
 local snap_mode_combo_width     = nil
+local bar_spacing_combo_width  = nil
 local combo_widths_initialized  = false
 
 local function HelpMarker(desc)
@@ -1174,6 +1710,16 @@ local function InitComboWidths()
     end
     straight_mode_combo_width = max_w + 40
 
+    -- Bar spacing: same idea
+    max_w = 0
+    for _, opt in ipairs(BAR_SPACING_OPTIONS) do
+        local w1 = ({ ImGui.CalcTextSize(ctx, opt.label) })[1]
+        local w2 = ({ ImGui.CalcTextSize(ctx, opt.label) })[1]
+        if w1 > max_w then max_w = w1 end
+        if w2 > max_w then max_w = w2 end
+    end
+    bar_spacing_combo_width = max_w + 40
+
     -- Snap mode: same idea
     max_w = 0
     for _, opt in ipairs(SNAP_MODE_OPTIONS) do
@@ -1212,19 +1758,7 @@ local function loop()
         -- APPLY_TYPE combo
         -- "Apply type" label + help marker
         ImGui.Text(ctx, "Apply type")
-        HelpMarker(
-[[Stretch item:
-- Keeps the existing REAPER tempo map.
-- Writes Ableton warp markers as stretch markers into the item.
-- Good when you want to warp the audio to match the current grid.
-
-Quantize grid:
-- Uses Ableton BPM/grid info to insert tempo markers into REAPER
-    so the *project grid* matches the warped audio.
-- Best used when the item playback rate is 1.0 (rate slider = 1.000).
-- If you don't want items moving with tempo changes, consider setting   
-    the track or project timebase to "Time" before running this mode.
-]])
+        HelpMarker(hm_apply_type)
 
         -- APPLY_TYPE combo (label is hidden by using ##)
         -- figure out current index + label
@@ -1247,6 +1781,29 @@ Quantize grid:
             ImGui.EndCombo(ctx)
         end
 
+        ImGui.Text(ctx, "Bar spacing:")
+    
+        ImGui.SameLine(ctx)
+        local bar_spacing_idx = FindOptionIndex(BAR_SPACING_OPTIONS, bar_spacing)
+        local bar_spacing_opt = BAR_SPACING_OPTIONS[bar_spacing_idx]
+        local bar_spacing_label = bar_spacing_opt.label
+
+        if bar_spacing_combo_width then
+            ImGui.SetNextItemWidth(ctx, bar_spacing_combo_width)
+        end
+
+        if ImGui.BeginCombo(ctx, "##BarSpacingCombo", bar_spacing_label) then
+            for i, opt in ipairs(BAR_SPACING_OPTIONS) do
+                local is_selected = (opt.value == bar_spacing)
+                if ImGui.Selectable(ctx, opt.label, is_selected) then
+                    bar_spacing = opt.value
+                    save_ext_int("BAR_SPACING", bar_spacing)
+                end
+            end
+            ImGui.EndCombo(ctx)
+        end
+
+        HelpMarker(hm_bar_spacing)
 
         -- Toggle options
         local changed
@@ -1259,16 +1816,7 @@ Quantize grid:
         if changed then
             save_ext_bool("USE_STRAIGHT_GRID", use_straight_grid)
         end
-        HelpMarker(
-[[When enabled:
-- If the Python analysis detected a stable straight BPM (either warped as "Straight" in Ableton or detected as such),
-    the script will treat that file as straight-tempo.
-- Stretch mode will use straight BPM behaviour (stretch_markers / playrate modes).
-- Quantize mode will insert a single clean tempo marker at that BPM.
-
-When disabled:
-- Even if a straight BPM was detected, the script will use the full variable BPM grid.
-]])
+        HelpMarker(hm_use_straight_grid)
         
         -- Snap mode (always relevant, affects how items are placed on the grid)
 
@@ -1296,35 +1844,6 @@ When disabled:
                 end
                 ImGui.EndCombo(ctx)
             end
-
-            -- When using straight grid + playrate mode,
-            -- allow user to define beats_per_bar (must be >= 1).
-            ImGui.Text(ctx, "Beats per bar")
-            HelpMarker(
-[[Number of beats in one bar for straight tempo in playrate mode.
-
-Examples:
-- 4  → standard 4/4 bar
-- 3  → 3/4 feel
-- 5+ → odd meters
-
-Must be 1 or higher.]])
-
-            ImGui.SetNextItemWidth(ctx, 80)
-            local changed_int
-            changed_int, beats_per_bar = ImGui.InputInt(
-                ctx,
-                "##BeatsPerBar",
-                beats_per_bar,
-                1, 4
-            )
-
-            if changed_int then
-                if beats_per_bar < 1 then
-                    beats_per_bar = 1
-                end
-                save_ext_str("BEATS_PER_BAR", beats_per_bar)
-            end
         end
 
         ImGui.Separator(ctx)
@@ -1334,28 +1853,10 @@ Must be 1 or higher.]])
             save_ext_bool("MARK_ITEM_EDGES", mark_item_edges)
         end
 
-        HelpMarker(
-[[REAPER can change the start/end edges of items during processing.
-
-When this option is enabled:
-- The script inserts two take markers (__EDGE_START / __EDGE_END)
-    at the exact visible item boundaries BEFORE processing.
-- This lets you see precisely which part of the source was visible before the processing.]])
+        HelpMarker(hm_mark_item_edges)
 
         ImGui.Text(ctx, "Snap first visible beat to")
-        HelpMarker(
-[[Controls where the first visible warp marker lands on the grid:
-
-Nearest grid line (QN):
-- Snap to the nearest quarter-note grid position.
-- Original behaviour.
-
-First beat of next bar or current bar:
-- Always pushes the item forward to the next bar start or stays at the current bar start if already there.
-
-Nearest bar:
-- Chooses the closest bar start, but won't move the item start before 0.0.
-]])
+        HelpMarker(hm_snap_mode)
 
         local snap_idx  = FindOptionIndex(SNAP_MODE_OPTIONS, snap_mode)
         local snap_opt  = SNAP_MODE_OPTIONS[snap_idx]
@@ -1386,48 +1887,33 @@ Nearest bar:
         ------------------------------------------------------------
         ImGui.Separator(ctx)
         ImGui.Text(ctx, "Ableton executable / app (optional)")
-        HelpMarker(
-[[Optional path to Ableton Live executable (.exe) or app (.app).
-
-If left empty:
-- The Python script will open the .als file with the system default
-    application for .als (usually Ableton Live).
-
-If set:
-- The script will first try to launch Ableton using this path.
-- If it fails or is invalid, it falls back to the default behaviour.
-
-Examples:
-- Windows:  C:\ProgramData\Ableton\Live 12 Suite\Program\Ableton Live 12 Suite.exe
-- macOS:    /Applications/Ableton Live 12 Suite.app
-- Linux/Wine:  /home/user/.wine/drive_c/.../Ableton Live 12 Suite.exe
-]])
+        HelpMarker(hm_ableton_path)
 
         -- Path input + Browse button on same line
         local input_width = 280
         ImGui.SetNextItemWidth(ctx, input_width)
         local changed_path
-        changed_path, ableton_exe_path = ImGui.InputText(
+        changed_path, ableton_path = ImGui.InputText(
             ctx,
             "##AbletonExePath",
-            ableton_exe_path or ""
+            ableton_path or ""
         )
         if changed_path then
-            save_ext_str("ABLETON_EXE_PATH", ableton_exe_path)
+            save_ext_str("ABLETON_EXE_PATH", ableton_path)
         end
 
         ImGui.SameLine(ctx)
         if ImGui.Button(ctx, "Browse...", 90, 0) then
             -- Start in current path if set, otherwise in script folder
-            local initial = (ableton_exe_path ~= "" and ableton_exe_path) or script_path
+            local initial = (ableton_path ~= "" and ableton_path) or script_path
             local retval, file = reaper.GetUserFileNameForRead(
                 initial,
                 "Select Ableton executable / app",
                 ""
             )
             if retval and file and file ~= "" then
-                ableton_exe_path = file
-                save_ext_str("ABLETON_EXE_PATH", ableton_exe_path)
+                ableton_path = file
+                save_ext_str("ABLETON_EXE_PATH", ableton_path)
             end
         end        
 

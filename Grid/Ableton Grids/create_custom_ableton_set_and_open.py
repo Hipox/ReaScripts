@@ -125,29 +125,61 @@ def launch_als(out_als: Path, ableton_path: str) -> None:
     except Exception as e:
         print(f"[ERROR] Failed to launch ALS via system association: {e}", file=sys.stderr)
 
+def parse_cli_args(argv):
+    """
+    Parse common CLI args:
 
-def main():
+    Recognized flags (both forms supported):
+      --ableton_path=/path/to/Ableton
+      --ableton_path /path/to/Ableton
 
-    # --- ARGUMENTS FROM REAPER/LUA ---
-    # We expect:
-    #   argv[1] = Ableton executable / app path (can be "" if not used)
-    #   argv[2+] = audio file paths
-    #
-    # We also ignore any flags like --check-deps just in case.
-    raw_args = sys.argv[1:]
+    Everything that is NOT a recognized flag/value pair is treated
+    as a positional argument (audio file path).
 
-    ableton_path = ""
+    Returns:
+        ableton_path:    str | None
+        paths:          list[str]
+    """
+    ableton_path = None
     paths = []
 
-    if raw_args:
-        ableton_path = raw_args[0] or ""
-        paths = raw_args[1:]
+    i = 0
+    while i < len(argv):
+        arg = argv[i]
+
+        # ---- Ableton exe ----
+        if arg == "--ableton_path":
+            # Expect value in next arg
+            if i + 1 < len(argv):
+                ableton_path = argv[i + 1]
+                i += 2
+                continue
+            else:
+                # No value provided -> ignore flag
+                i += 1
+                continue
+
+        elif arg.startswith("--ableton_path="):
+            ableton_path = arg.split("=", 1)[1]
+            i += 1
+            continue
+
+        # ---- Unknown thing: treat as positional (path) ----
+        else:
+            paths.append(arg)
+            i += 1
+
+    return ableton_path, paths
+
+def main(argv=None):
+    if argv is None:
+        argv = sys.argv[1:]
+    ableton_path, paths = parse_cli_args(argv)
 
     # Fallback (for testing from terminal if no audio paths given)
     if not paths:
         paths = [
             r"D:\WORKDIR\MUSIC\Reaper Default Save Path\test ableton beatgrids\Media\Earth, Wind & Fire - September.flac",
-            r"D:\WORKDIR\MUSIC\Reaper Default Save Path\test ableton bea...ia\Rvssian, Lil Baby, Byron Messia - Choppa (Original Mix).flac"
         ]
 
     # pick a template ALS depending on number of paths
