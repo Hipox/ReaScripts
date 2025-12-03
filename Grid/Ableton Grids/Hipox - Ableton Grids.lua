@@ -1,8 +1,8 @@
 -- @description Ableton Grids
 -- @author Hipox
--- @version 1.0.6
+-- @version 1.0.7
 -- @changelog
---   + small help tweaks and version bump
+--   + update to Ableton project location 
 -- @links
 --  GitHub Repository https://github.com/Hipox/ReaScripts
 --  Forum Thread http://forum.cockos.com/showthread.php?t=169127
@@ -14,7 +14,7 @@
 --   ../../Libraries/json.lua
 --   ableton_extract_grid.py
 --   create_custom_ableton_set_and_open.py
---   [data] Reaper_Warp_Template_modified Project/**
+--   Reaper_Warp_Template_modified Project/**
 --   [main] Hipox - Ableton Grids.lua
 
 -- Requires:
