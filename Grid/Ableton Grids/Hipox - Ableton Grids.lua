@@ -1,9 +1,9 @@
 --[[
 @description Ableton Grids
 @author Hipox
-@version 1.0.10
+@version 1.0.11
 @changelog
-    + fix reapack tags
+    + fix reapack tags again
 @links
     GitHub Repository https://github.com/Hipox/ReaScripts
     Forum Thread http://forum.cockos.com/showthread.php?t=169127
@@ -17,7 +17,6 @@
     ableton_extract_grid.py
     ../../Libraries/json.lua
     Reaper_Warp_Template_modified Project/**/*
-    ../../Libraries/json.lua
 
 Requires:
     - ReaImGui extension
