@@ -1,30 +1,28 @@
--- @description Ableton Grids
--- @author Hipox
--- @version 1.0.7
--- @changelog
---   + update to Ableton project location 
--- @links
---  GitHub Repository https://github.com/Hipox/ReaScripts
---  Forum Thread http://forum.cockos.com/showthread.php?t=169127
--- @donation https://lnk.bio/hipox
--- @about
---   GUI tool that extracts beat grids from Ableton Live .als
---   projects and creates custom Ableton sets from REAPER items.
--- @provides
---   ../../Libraries/json.lua
---   ableton_extract_grid.py
---   create_custom_ableton_set_and_open.py
---   Reaper_Warp_Template_modified Project/**
---   [main] Hipox - Ableton Grids.lua
+--[[
+@description Ableton Grids
+@author Hipox
+@version 1.0.8
+@changelog
+    + update reapack tags
+@links
+    GitHub Repository https://github.com/Hipox/ReaScripts
+    Forum Thread http://forum.cockos.com/showthread.php?t=169127
+@donation https://lnk.bio/hipox
+@about
+    GUI tool that extracts beat grids from Ableton Live .als
+    projects and creates custom Ableton sets from REAPER items.
+@provides
+[nomain] .
+[main] Hipox - Ableton Grids.lua
 
--- Requires:
---   - ReaImGui extension
---   - ableton_extract_grid.py
---   - create_custom_ableton_set_and_open.py
---   - json.lua
---  - Python installed and available in PATH
---  - Ableton Live 11+ (for creating sets and extracting grids)
-
+Requires:
+    - ReaImGui extension
+    - ableton_extract_grid.py
+    - create_custom_ableton_set_and_open.py
+    - json.lua
+    - Python installed and available in PATH
+    - Ableton Live 11+ (for creating sets and extracting grids)
+--]]
 local SCRIPT_NAME = ({reaper.get_action_context()})[2]:match("([^/\\_]+)%.lua$")
 
 local function msg(s)
