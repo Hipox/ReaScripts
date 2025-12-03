@@ -762,6 +762,8 @@ local function ShareStretchMarkers(
     if not anchor_qn or not used_idx then
         local retval, measures, cml, fullbeats, cdenom =
             reaper.TimeMap2_timeToBeats(proj, item_pos)
+
+        fullbeats = fullbeats or 0
         anchor_qn = math.ceil(fullbeats)
         used_idx  = 1
     end
