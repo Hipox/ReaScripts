@@ -1,8 +1,8 @@
 -- @description Ableton Grids
 -- @author Hipox
--- @version 1.0.5
+-- @version 1.0.6
 -- @changelog
---   + a lot of internal changes
+--   + small help tweaks and version bump
 -- @links
 --  GitHub Repository https://github.com/Hipox/ReaScripts
 --  Forum Thread http://forum.cockos.com/showthread.php?t=169127
@@ -190,7 +190,7 @@ local hm_apply_type =
 - Writes Ableton warp markers as stretch markers into the item.
 - Good when you want to warp the audio to match the current grid.
 
-Quantize grid:
+Quantize project grid:
 - Uses Ableton BPM/grid info to insert tempo markers into REAPER
     so the *project grid* matches the warped audio.
 - Best used when the item playback rate is 1.0 (rate slider = 1.000).
@@ -1913,6 +1913,8 @@ local function loop()
             -- ImGui.Separator(ctx)
             ImGui.Text(ctx, "Straight tempo mode")
 
+            HelpMarker(hm_straight_tempo_mode)
+
             -- current index + label
             local mode_idx = FindOptionIndex(STRAIGHT_TEMPO_OPTIONS, straight_tempo_mode)
             local mode_opt = STRAIGHT_TEMPO_OPTIONS[mode_idx]
@@ -1931,9 +1933,8 @@ local function loop()
                 end
                 ImGui.EndCombo(ctx)
             end
-        end
 
-        HelpMarker(hm_straight_tempo_mode)
+        end
 
         ImGui.Separator(ctx)
 
