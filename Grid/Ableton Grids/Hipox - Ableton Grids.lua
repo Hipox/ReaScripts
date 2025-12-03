@@ -12,8 +12,8 @@
     GUI tool that extracts beat grids from Ableton Live .als
     projects and creates custom Ableton sets from REAPER items.
 @provides
-[nomain] .
-[main] Hipox - Ableton Grids.lua
+    [nomain] .
+    [main] Hipox - Ableton Grids.lua
 
 Requires:
     - ReaImGui extension
