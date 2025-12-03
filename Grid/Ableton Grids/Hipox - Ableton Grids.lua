@@ -1714,7 +1714,7 @@ local function Action_ApplyAbletonBeatgridToSelection()
                     msg("Unknown APPLY_TYPE: " .. tostring(apply_type))
                 end
             else
-                msg("No src_times for path: " .. tostring(info.path) .. ", skipping.")
+                -- msg("No src_times for path: " .. tostring(info.path) .. ", skipping.")
             end
         end
     end
