@@ -1,9 +1,9 @@
 --[[
 @description Ableton Grids
 @author Hipox
-@version 1.0.11
+@version 1.0.12
 @changelog
-    + fix reapack tags again
+    + little updates to the GUI
 @links
     GitHub Repository https://github.com/Hipox/ReaScripts
     Forum Thread http://forum.cockos.com/showthread.php?t=169127
@@ -1843,6 +1843,15 @@ local function loop()
             ImGui.EndMenuBar(ctx)
         end
 
+        -- Button 1: create/open Ableton set
+        if ImGui.Button(ctx, "1) Create & open Ableton set from items selection", -1, 0) then
+            Action_CreateAbletonSetFromSelection()
+        end
+
+        ImGui.Spacing(ctx)
+        ImGui.Separator(ctx)
+        ImGui.Spacing(ctx)
+
         -- APPLY_TYPE combo
         -- "Apply type" label + help marker
         ImGui.Text(ctx, "Apply type")
@@ -1937,7 +1946,7 @@ local function loop()
 
         end
 
-        ImGui.Separator(ctx)
+        -- ImGui.Separator(ctx)
 
         changed, mark_item_edges = ImGui.Checkbox(ctx, "Mark item edges as take markers before processing", mark_item_edges)
         if changed then
@@ -1976,7 +1985,9 @@ local function loop()
         ------------------------------------------------------------
         -- Ableton executable path (optional)
         ------------------------------------------------------------
+        ImGui.Spacing(ctx)
         ImGui.Separator(ctx)
+        ImGui.Spacing(ctx)
         ImGui.Text(ctx, "Ableton executable / app (optional)")
         HelpMarker(hm_ableton_path)
 
@@ -2008,15 +2019,8 @@ local function loop()
             end
         end        
 
-        ImGui.Separator(ctx)
-        ImGui.Text(ctx, "Actions (work on currently selected items)")
         ImGui.Spacing(ctx)
-
-        -- Button 1: create/open Ableton set
-        if ImGui.Button(ctx, "1) Create & open Ableton set from selection", -1, 0) then
-            Action_CreateAbletonSetFromSelection()
-        end
-
+        ImGui.Separator(ctx)
         ImGui.Spacing(ctx)
 
         -- Button 2: apply beatgrid
