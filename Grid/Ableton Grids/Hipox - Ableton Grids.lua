@@ -1,7 +1,7 @@
 --[[
 @description Ableton Grids
 @author Hipox
-@version 1.0.8
+@version 1.0.9
 @changelog
     + update reapack tags
 @links
@@ -12,8 +12,12 @@
     GUI tool that extracts beat grids from Ableton Live .als
     projects and creates custom Ableton sets from REAPER items.
 @provides
-    [nomain] .
     [main] Hipox - Ableton Grids.lua
+    create_custom_ableton_set_and_open.py
+    ableton_extract_grid.py
+    json.lua
+    Reaper_Warp_Template_modified Project/**/*
+    ../../Libraries/json.lua
 
 Requires:
     - ReaImGui extension
