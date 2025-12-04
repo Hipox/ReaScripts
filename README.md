@@ -11,3 +11,11 @@ If for some reasons you deleted the link to this repo from ReaPack, you can add 
 ```
 https://github.com/Hipox/ReaScripts/raw/master/index.xml
 ```
+## Donations are highly appreciated!
+[Ko-Fi](https://www.ko-fi.com/hipox)
+[PayPal](https://paypal.me/hipox)
+
+
+
+
+
