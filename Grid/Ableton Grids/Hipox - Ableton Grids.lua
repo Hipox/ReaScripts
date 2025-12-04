@@ -1,12 +1,12 @@
 --[[
 @description Ableton Grids
 @author Hipox
-@version 1.0.12
+@version 1.0.13
 @changelog
-    + little updates to the GUI
+    + some updates before release
 @links
     GitHub Repository https://github.com/Hipox/ReaScripts
-    Forum Thread http://forum.cockos.com/showthread.php?t=169127
+    Forum Thread https://forum.cockos.com/showthread.php?p=2907984#post2907984
 @donation https://lnk.bio/hipox
 @about
     GUI tool that extracts beat grids from Ableton Live .als
@@ -198,6 +198,17 @@ Quantize project grid:
 - If you don't want items moving with tempo changes, consider setting   
     the track or project timebase to "Time" before running this mode.]]
 
+local hm_insert_time_sig =
+[[When enabled:
+- The script will insert a time signature marker
+    at the same position as the first visible stretch/tempo marker created
+    based on information from Ableton for each processed item.
+- The time-signature uses the numerator/denumerator values from the JSON
+    (e.g. 4/4, 3/4, 7/8).
+
+When disabled:
+- No time signature markers are inserted.]]
+
 local hm_use_straight_grid =
 [[When enabled:
 - If the Python analysis detected a stable straight BPM (either warped as "Straight" in Ableton or detected as such),
@@ -284,6 +295,8 @@ local json_results_path = script_path .. sep ..  "ableton_result.json"
 
 local EXT_SECTION = "Hipox_Ableton_Grids"
 
+local MAX_ITEMS_COUNT = 16
+
 local function verify_file_exists(path)
     if reaper.file_exists(path) then
         return true
@@ -361,6 +374,7 @@ end
 -- Load config (with defaults)
 local apply_type         = load_ext_str("APPLY_TYPE", "stretch_item")     -- "stretch_item" or "quantize_grid"
 local set_snap_offset    = load_ext_bool("SET_SNAP_OFFSET", true)
+local insert_time_sig    = load_ext_bool("INSERT_TIME_SIG", false)
 local mark_item_edges    = load_ext_bool("MARK_ITEM_EDGES", false)
 local straight_tempo_mode = load_ext_str("STRAIGHT_TEMPO_MODE", "stretch_markers") -- "stretch_markers" or "playrate"
 local snap_mode          = load_ext_str("SNAP_MODE", "nearest_bar")       -- "nearest_qn", "next_bar", "nearest_bar"
@@ -515,6 +529,67 @@ end
 -----------------------------------------
 -- CORE MATH HELPERS
 -----------------------------------------
+
+------------------------------------------------------------
+-- Update or create a time-signature marker at target_time.
+-- - If a tempo marker exists there (within epsilon), only
+--   Num/Den are updated, BPM and shape are preserved.
+-- - If none exists, a new marker is created using the
+--   current project tempo at that time (so tempo map audio
+--   behaviour does not change).
+------------------------------------------------------------
+local function UpdateOrCreateTimeSigAtPosition(proj, target_time, ts_num, ts_den, epsilon)
+    proj    = proj or 0
+    epsilon = epsilon or 1e-6
+    ts_num  = tonumber(ts_num) or 0
+    ts_den  = tonumber(ts_den) or 0
+
+    if not target_time or ts_num <= 0 or ts_den <= 0 then
+        return
+    end
+
+    -- 1) Try to find an existing marker at this position
+    local count = reaper.CountTempoTimeSigMarkers(proj)
+    for i = 0, count - 1 do
+        local ok, timepos, measurepos, beatpos, bpm, cur_num, cur_den, lineartempo =
+            reaper.GetTempoTimeSigMarker(proj, i)
+
+        if ok and math.abs(timepos - target_time) <= epsilon then
+            -- Only update Num/Den, keep everything else exactly as is
+            reaper.SetTempoTimeSigMarker(
+                proj,
+                i,
+                timepos,    -- unchanged
+                measurepos, -- unchanged
+                beatpos,    -- unchanged
+                bpm,        -- unchanged BPM
+                ts_num,     -- new numerator
+                ts_den,     -- new denominator
+                lineartempo -- unchanged
+            )
+            return
+        end
+    end
+
+    -- 2) No marker there → create one, but copy current tempo
+    local bpm_here = reaper.TimeMap_GetDividedBpmAtTime(target_time)
+    bpm_here = tonumber(bpm_here) or 120
+    if bpm_here <= 0 then bpm_here = 120 end
+
+    reaper.SetTempoTimeSigMarker(
+        proj,
+        -1,
+        target_time,
+        -1,
+        -1,
+        0,   -- whatever tempo is already there
+        ts_num,
+        ts_den,
+        false       -- use standard (non-linear) segment
+    )
+end
+
+
 -- Snap item to grid based on first visible source time.
 -- snap_mode:
 --   "next_bar"    = snap to first beat of next bar
@@ -527,6 +602,7 @@ end
 --
 -- Returns: new_item_start, anchor_qn, used_index, snap_offset
 local function SnapItemToGridByTimesArray(item, times, snap_mode, set_snap_offset)
+
     local proj = 0
 
     if not item or type(times) ~= "table" or #times == 0 then
@@ -574,6 +650,9 @@ local function SnapItemToGridByTimesArray(item, times, snap_mode, set_snap_offse
     local visible_offset = (used_src_time - startoffs) / playrate      -- seconds from item start
     local t_proj         = old_item_start + visible_offset             -- absolute project time
 
+
+    -- UpdateOrCreateTimeSigAtPosition(proj, t_proj, ts_num, ts_den)  -- default to 4/4 if needed
+
     ------------------------------------------------------------
     -- 3) Optionally set snap offset to that visible point
     ------------------------------------------------------------
@@ -600,7 +679,8 @@ local function SnapItemToGridByTimesArray(item, times, snap_mode, set_snap_offse
     -- MODE: snap to FIRST BEAT OF NEXT BAR
     ----------------------------------------------------------------
     if snap_mode == "next_bar" then
-        local retval, measures, cml, fullbeats, cdenom =
+        -- retval = beats since start of *current* measure
+        local beats_since_measure, measures, cml, fullbeats, cdenom =
             reaper.TimeMap2_timeToBeats(proj, t_proj)
 
         local beats_per_measure = cml
@@ -608,7 +688,8 @@ local function SnapItemToGridByTimesArray(item, times, snap_mode, set_snap_offse
             beats_per_measure = 4 -- fallback
         end
 
-        local cur_measure_start_beats = fullbeats - (fullbeats % beats_per_measure)
+        -- Correct bar start even if previous measures have different lengths
+        local cur_measure_start_beats = fullbeats - beats_since_measure
 
         -- If the anchor is already (within tolerance) on the bar start,
         -- don't move the item, but DO return a valid anchor_qn so that
@@ -645,7 +726,8 @@ local function SnapItemToGridByTimesArray(item, times, snap_mode, set_snap_offse
     -- (but don't choose a bar that would move item start < 0)
     ----------------------------------------------------------------
     elseif snap_mode == "nearest_bar" then
-        local retval, measures, cml, fullbeats, cdenom =
+        -- retval = beats since start of *current* measure
+        local beats_since_measure, measures, cml, fullbeats, cdenom =
             reaper.TimeMap2_timeToBeats(proj, t_proj)
 
         local beats_per_measure = cml
@@ -653,7 +735,8 @@ local function SnapItemToGridByTimesArray(item, times, snap_mode, set_snap_offse
             beats_per_measure = 4 -- fallback
         end
 
-        local cur_measure_start_beats = fullbeats - (fullbeats % beats_per_measure)
+        -- This gives you the correct bar start even across mixed 4/4, 3/4, etc.
+        local cur_measure_start_beats = fullbeats - beats_since_measure
         local prev_beats = cur_measure_start_beats
         local next_beats = cur_measure_start_beats + beats_per_measure
 
@@ -716,6 +799,7 @@ local function SnapItemToGridByTimesArray(item, times, snap_mode, set_snap_offse
     -- 5) Apply new position & update item
     ------------------------------------------------------------
     reaper.SetMediaItemInfo_Value(item, "D_POSITION", new_item_start)
+    -- UpdateOrCreateTimeSigAtPosition(proj, new_item_start + visible_offset, ts_num, ts_den)
     reaper.UpdateItemInProject(item)
 
     return new_item_start, anchor_qn, used_index, snap_offset
@@ -1051,6 +1135,7 @@ end
 local function ApplyBPMListToBeats(bpms, times, beats, item, start_index, clear_in_item, use_straight_for_this_item, straight_bpm, beats_per_bar_quarter)
     local proj = 0
     if not item then return end
+    
     if type(bpms) ~= "table" or #bpms == 0 then return end
     if type(times) ~= "table" or #times == 0 then return end
 
@@ -1186,8 +1271,8 @@ local function ApplyBPMListToBeats(bpms, times, beats, item, start_index, clear_
             0,
             false
         )
-
-        -- And at last visible marker, if it’s meaningfully different
+        
+        -- Last marker keeps whatever time sig already exists (0,0)
         if last_time and math.abs(last_time - first_time) > 1e-6 then
             reaper.SetTempoTimeSigMarker(
                 proj,
@@ -1315,7 +1400,7 @@ local function ApplyBPMListToBeats(bpms, times, beats, item, start_index, clear_
                     0,
                     0,
                     false
-                )
+                )                
             end
         end
 
@@ -1481,7 +1566,11 @@ local function Action_CreateAbletonSetFromSelection()
 
     local takes = CollectSelectedAudioActiveTakes()
     if #takes == 0 then
-        -- msg("No selected audio items with active takes found.")
+        return
+    end
+
+    if #takes > MAX_ITEMS_COUNT then
+        msg("Too many selected items (max " .. MAX_ITEMS_COUNT .. ").")
         return
     end
 
@@ -1492,12 +1581,24 @@ local function Action_CreateAbletonSetFromSelection()
         table.insert(args, "--ableton_path=" .. ableton_path)
     end
 
+    -- NEW: de-duplicate by normalized path
+    local seen = {}
+    local unique_paths = {}
+
     for _, info in ipairs(takes) do
-        table.insert(args, info.path)
+        local norm = NormalizePath(info.path)
+        if not seen[norm] then
+            seen[norm] = true
+            table.insert(unique_paths, info.path)
+        end
+    end
+
+    -- Now send only unique paths to Python
+    for _, p in ipairs(unique_paths) do
+        table.insert(args, p)
     end
 
     local output = send_array_to_python_script(python_script_set, args)
-    -- msg(output)
 
     if not output or output == "" then
         msg("Python (create set) returned empty output.")
@@ -1522,6 +1623,27 @@ end
 --     reaper.SetMediaItemTakeInfo_Value(take, "D_PLAYRATE", 1.0)
 --     reaper.UpdateItemInProject(item)
 -- end
+
+local function CreateTimeSigInserter(proj, anchor_time, insert_time_sig, ts_num, ts_den)
+    proj            = proj or 0
+    insert_time_sig = (insert_time_sig == true)
+
+    local ts_num_val = tonumber(ts_num) or 0
+    local ts_den_val = tonumber(ts_den) or 0
+    if ts_num_val <= 0 or ts_den_val <= 0 then
+        insert_time_sig = false
+    end
+
+    anchor_time = tonumber(anchor_time)
+
+    return function()
+        if not insert_time_sig then return end
+        if not anchor_time then return end
+        insert_time_sig = false -- only once per item
+
+        UpdateOrCreateTimeSigAtPosition(proj, anchor_time, ts_num_val, ts_den_val)
+    end
+end
 
 local function ResetWarpAndPlayrate(item, take)
     if not take or not item then return end
@@ -1670,10 +1792,35 @@ local function Action_ApplyAbletonBeatgridToSelection()
                 end
 
                 ResetWarpAndPlayrate(item, take)
-
-                local item_pos, anchor_qn, used_idx, snap_offset =
-                SnapItemToGridByTimesArray(item, src_times, snap_mode, set_snap_offset)
             
+                local item_pos, anchor_qn, used_idx, snap_offset =
+                    SnapItemToGridByTimesArray(item, src_times, snap_mode, set_snap_offset)
+
+                -- Anchor the time-signature exactly where the item snaps:
+                -- item_pos (current item start) + snap_offset (triangle) when available.
+                local anchor_time
+
+                if snap_offset ~= nil then
+                    -- Snap offset is in seconds from item start
+                    anchor_time = (item_pos or 0) + snap_offset
+                elseif type(anchor_qn) == "number" then
+                    -- Fallback: derive from the musical position
+                    anchor_time = reaper.TimeMap2_QNToTime(0, anchor_qn)
+                else
+                    -- Last fallback: use item start
+                    anchor_time = item_pos
+                end
+
+                local MaybeInsertTimeSig = CreateTimeSigInserter(
+                    0,
+                    anchor_time,
+                    insert_time_sig,
+                    ts_num,
+                    ts_den
+                )
+
+
+                -- MaybeInsertTimeSig()
 
                 if apply_type == "quantize_grid" then
 
@@ -1690,6 +1837,10 @@ local function Action_ApplyAbletonBeatgridToSelection()
                             straight_bpm,      -- pre-rounded BPM from Python (if straight)
                             beats_per_bar_quarter
                         )
+
+                        if MaybeInsertTimeSig then
+                            MaybeInsertTimeSig()
+                        end
                     else
                         msg("No BPM list for path " .. tostring(info.path) .. ", skipping tempo map.")
                     end
@@ -1712,6 +1863,10 @@ local function Action_ApplyAbletonBeatgridToSelection()
                         beats_per_bar_quarter, -- now derived from Num/Den
                         set_snap_offset
                     )
+
+                    if MaybeInsertTimeSig then
+                        MaybeInsertTimeSig()
+                    end
 
                 else
                     msg("Unknown APPLY_TYPE: " .. tostring(apply_type))
@@ -1833,7 +1988,7 @@ local function loop()
         if ImGui.BeginMenuBar(ctx) then
             if ImGui.BeginMenu(ctx, "Links") then
                 if ImGui.MenuItem(ctx, "Reaper Forum Thread (help & talk)") then
-                    OpenURL("http://www.documentation-link.com") -- TODO: real link
+                    OpenURL("https://forum.cockos.com/showthread.php?p=2907984#post2907984") -- TODO: real link
                 end
                 if ImGui.MenuItem(ctx, "Social Sites & Donate") then
                     OpenURL("https://lnk.bio/hipox")
@@ -1981,6 +2136,12 @@ local function loop()
         if changed then
             save_ext_bool("SET_SNAP_OFFSET", set_snap_offset)
         end
+
+        changed, insert_time_sig = ImGui.Checkbox(ctx, "Insert time signature marker", insert_time_sig)
+        if changed then
+            save_ext_bool("INSERT_TIME_SIG", insert_time_sig)
+        end
+        HelpMarker(hm_insert_time_sig)
 
         ------------------------------------------------------------
         -- Ableton executable path (optional)
