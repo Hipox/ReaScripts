@@ -1,9 +1,9 @@
 --[[
 @description Ableton Grids
 @author Hipox
-@version 1.0.13
+@version 1.0.14
 @changelog
-    + some updates before release
+    + little text update
 @links
     GitHub Repository https://github.com/Hipox/ReaScripts
     Forum Thread https://forum.cockos.com/showthread.php?p=2907984#post2907984
@@ -2137,7 +2137,7 @@ local function loop()
             save_ext_bool("SET_SNAP_OFFSET", set_snap_offset)
         end
 
-        changed, insert_time_sig = ImGui.Checkbox(ctx, "Insert time signature marker", insert_time_sig)
+        changed, insert_time_sig = ImGui.Checkbox(ctx, "Insert time signature to first visible marker", insert_time_sig)
         if changed then
             save_ext_bool("INSERT_TIME_SIG", insert_time_sig)
         end
