@@ -1,9 +1,13 @@
 --[[
 @description Ableton Grids
 @author Hipox
-@version 1.0.14
+@version 1.0.15
 @changelog
-    + little text update
+    + add Options menu with Debug mode toggle
+    + added extensive debug logging for Python detection and execution (visible in REAPER Console when Debug mode is ON)
+    + various internal improvements to Python executable detection and other areas
+    + add Feedback text to GUI for better user communication
+    + add Python path override option in GUI
 @links
     GitHub Repository https://github.com/Hipox/ReaScripts
     Forum Thread https://forum.cockos.com/showthread.php?p=2907984#post2907984
@@ -28,68 +32,272 @@ Requires:
 --]]
 local SCRIPT_NAME = ({reaper.get_action_context()})[2]:match("([^/\\_]+)%.lua$")
 
-local function msg(s)
+local feedback_text = "Ready."
+
+local UI_MSG = {
+    RETRY_DEBUG = "Enable Debug mode and retry, then check the Console.",
+    SETUP_NEEDED_SHORT = "Setup needed. Check the REAPER Console for details.",
+    TEMPLATE_MISSING = "Template project is missing required files.",
+    MISSING_AUDIO_ON_DISK = "Selected audio files are missing on disk.",
+    PYTHON_MISSING = "Python not found. Set the Python path (or install Python) and try again.",
+}
+
+local UI = {}
+
+function UI.set(text)
+    feedback_text = tostring(text or "")
+end
+
+function UI.working(text)
+    UI.set("Working: " .. tostring(text or ""))
+end
+
+function UI.error(text)
+    UI.set("Error: " .. tostring(text or ""))
+end
+
+local function console_only(s)
     reaper.ShowConsoleMsg(tostring(s) .. "\n")
+end
+
+local debug_mode = false
+
+local Log = {}
+
+function Log.info(text)
+    console_only(tostring(text))
+end
+
+function Log.debug(text)
+    if not debug_mode then return end
+    Log.info("[Ableton Grids][Debug] " .. tostring(text))
+end
+
+-- Backward-compatible wrappers used throughout the file.
+local function set_feedback(s) UI.set(s) end
+local function feedback_working(s) UI.working(s) end
+local function feedback_error(s) UI.error(s) end
+local function msg(s) Log.info(s) end
+local function dbg(s) Log.debug(s) end
+
+-- Debug formatting helpers (readability)
+local debug_run_seq = 0
+local pending_action_debug_run_id = nil
+local current_action_debug_run_id = nil
+
+local function DebugNewRunId()
+    debug_run_seq = debug_run_seq + 1
+    return debug_run_seq
+end
+
+local function DebugHeader(run_id, label)
+    if not debug_mode then return end
+    dbg(("========== RUN %d START: %s =========="):format(tonumber(run_id) or 0, tostring(label or "")))
+    dbg(("RUN %d | %-18s = %s"):format(tonumber(run_id) or 0, "timestamp", os.date("%Y-%m-%d %H:%M:%S")))
+end
+
+local function DebugSection(run_id, title)
+    if not debug_mode then return end
+    dbg(("---------- RUN %d %s ----------"):format(tonumber(run_id) or 0, tostring(title or "")))
+end
+
+local function DebugKV(run_id, key, value)
+    if not debug_mode then return end
+    dbg(("RUN %d | %-18s = %s"):format(tonumber(run_id) or 0, tostring(key or ""), tostring(value)))
+end
+
+local function DebugOutcome(run_id, outcome)
+    if not debug_mode then return end
+    dbg(("========== RUN %d END: %s =========="):format(tonumber(run_id) or 0, tostring(outcome or "")))
+end
+
+local python_cmd = nil
+
+local function quote_if_needed(s)
+    s = tostring(s or "")
+    if s == "" then return s end
+    if s:match("%s") and not s:match('^".*"$') then
+        return '"' .. s .. '"'
+    end
+    return s
+end
+
+local function exec_process(cmd, timeout_ms)
+    return reaper.ExecProcess(tostring(cmd or ""), timeout_ms or 3000)
+end
+
+local function is_windows()
+    return (reaper.GetOS() or ""):match("^Win") ~= nil
+end
+
+local function is_macos()
+    return (reaper.GetOS() or ""):match("OSX") ~= nil
+end
+
+local function cmd_exe_wrap(full_cmd)
+    -- Runs via cmd.exe so PATH resolution and shell builtins (where) work.
+    -- Needs double quotes to preserve embedded quoting.
+    return 'cmd.exe /c "' .. tostring(full_cmd or ""):gsub('"', '\\"') .. '"'
+end
+
+local function python_smoke_test(cmd_prefix)
+    if not cmd_prefix or cmd_prefix == "" then return false end
+    local test_cmd = tostring(cmd_prefix) .. ' -c "print(123)"'
+    dbg("Python smoke test ExecProcess: " .. test_cmd)
+    local out, code = exec_process(test_cmd, 3000)
+    if out and out:match("123") then
+        -- Some REAPER builds/platforms return a nil exit code even on success.
+        -- Treat matching output as success when exit code is nil.
+        if code == nil or tonumber(code) == 0 then
+            return true
+        end
+    end
+
+    -- On Windows, fall back to running through cmd.exe for better PATH resolution.
+    if is_windows() then
+        dbg("Python smoke test ExecProcess (cmd.exe wrap): " .. cmd_exe_wrap(test_cmd))
+        local out2, code2 = exec_process(cmd_exe_wrap(test_cmd), 3000)
+        if out2 and out2:match("123") then
+            if code2 == nil or tonumber(code2) == 0 then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
+local function ExtractPythonishPathEntries(path_str)
+    local out = {}
+    local seen = {}
+    path_str = tostring(path_str or "")
+    if path_str == "" then return out end
+    local sep = is_windows() and ";" or ":"
+    for entry in path_str:gmatch("[^" .. sep .. "]+") do
+        local e = entry:gsub("^%s+", ""):gsub("%s+$", "")
+        if e ~= "" then
+            local el = e:lower()
+            if el:find("python", 1, true) or el:find("py", 1, true) then
+                if not seen[e] then
+                    table.insert(out, e)
+                    seen[e] = true
+                end
+            end
+        end
+    end
+    return out
+end
+
+local function DumpPythonDetectionDebug()
+    console_only("[Ableton Grids] Python detection debug start")
+    console_only("OS: " .. tostring(reaper.GetOS() or "(unknown)"))
+
+    local p = os.getenv("PATH") or ""
+    local entries = ExtractPythonishPathEntries(p)
+    if #entries == 0 then
+        console_only("PATH: (no Python-like entries found)")
+    else
+        console_only("PATH entries containing 'py'/'python':")
+        for i, e in ipairs(entries) do
+            if i > 40 then
+                console_only("- ... (truncated)")
+                break
+            end
+            console_only("- " .. e)
+        end
+    end
+
+    if is_windows() then
+        local function dump_where(label, what)
+            local out, code = exec_process('cmd.exe /c where ' .. what, 3000)
+            console_only(label .. " (exit " .. tostring(code) .. "):")
+            if out and out ~= "" then
+                console_only(out)
+            else
+                console_only("(no output)")
+            end
+        end
+        dump_where("where py", "py")
+        dump_where("where python", "python")
+        dump_where("where python3", "python3")
+    end
+
+    console_only("[Ableton Grids] Python detection debug end")
 end
 
 -----------------------------------------
 -- CHECK PYTHON INSTALLATION
 -----------------------------------------
 local function detect_python()
-    local os = reaper.GetOS()
+    local os_str = reaper.GetOS() or ""
 
-    -- Windows: try python.exe
-    if os:match("^Win") then
-        local test = reaper.ExecProcess('python --version', 3000)
-        if test and test:match("Python") then
-            return "python"
-        else
-            return nil
+    -- We return a *command prefix* that ExecProcess can run, e.g.:
+    --   "py -3"  (Windows launcher)
+    --   "python3"
+    --   "C:\\Path With Spaces\\python.exe" (quoted)
+    local prefixes = {}
+
+    if os_str:match("^Win") then
+        prefixes = { "py -3", "py", "python", "python3" }
+
+        -- Extra robustness: if PATH contains Python folders but the command
+        -- name isn't resolving, try full executable paths found in PATH.
+        local env_path = os.getenv("PATH") or ""
+        local seen = {}
+        for _, p in ipairs(prefixes) do seen[p] = true end
+
+        for entry in env_path:gmatch("[^;]+") do
+            entry = entry:gsub("^%s+", ""):gsub("%s+$", "")
+            if entry ~= "" then
+                local pyexe = entry .. "\\python.exe"
+                local py3exe = entry .. "\\python3.exe"
+                local pylauncher = entry .. "\\py.exe"
+                if reaper.file_exists(pyexe) then
+                    local q = quote_if_needed(pyexe)
+                    if not seen[q] then table.insert(prefixes, 1, q); seen[q] = true end
+                end
+                if reaper.file_exists(py3exe) then
+                    local q = quote_if_needed(py3exe)
+                    if not seen[q] then table.insert(prefixes, 1, q); seen[q] = true end
+                end
+                if reaper.file_exists(pylauncher) then
+                    local q = quote_if_needed(pylauncher)
+                    if not seen[q] then table.insert(prefixes, 1, q); seen[q] = true end
+                end
+            end
         end
+
+        -- Also scan common per-user install dir: %LOCALAPPDATA%\Programs\Python\Python3xx\python.exe
+        local localapp = os.getenv("LOCALAPPDATA")
+        if localapp and localapp ~= "" then
+            local base = localapp .. "\\Programs\\Python"
+            local i = 0
+            while true do
+                local sub = reaper.EnumerateSubdirectories(base, i)
+                if not sub then break end
+                local maybe = base .. "\\" .. sub .. "\\python.exe"
+                if reaper.file_exists(maybe) then
+                    local q = quote_if_needed(maybe)
+                    if not seen[q] then table.insert(prefixes, 1, q); seen[q] = true end
+                end
+                i = i + 1
+            end
+        end
+    else
+        prefixes = { "python3", "python" }
     end
 
-    -- macOS / Linux: python3 is default
-    local test = reaper.ExecProcess('python3 --version', 3000)
-    if test and test:match("Python") then
-        return "python3"
-    end
-
-    -- Last fallback: try plain python
-    local test2 = reaper.ExecProcess('python --version', 3000)
-    if test2 and test2:match("Python") then
-        return "python"
+    for _, cmd_prefix in ipairs(prefixes) do
+        if python_smoke_test(cmd_prefix) then
+            return cmd_prefix
+        end
     end
 
     return nil
 end
 
 -- Run Python check BEFORE opening GUI
-local detected_python = detect_python()
-if not detected_python then
-    msg(
-[[Python could not be found on this system.
-
-This script requires Python to run Ableton grid extraction.
-
-Install Python:
-
-WINDOWS:
-    1) Download from https://www.python.org/downloads/windows/
-    2) IMPORTANT: Check "Add Python to PATH" during installation.
-
-macOS:
-    Run in Terminal:
-        brew install python
-    or install from python.org
-
-LINUX:
-    Install from package manager, e.g.:
-        sudo apt install python3
-
-GUI will NOT open until Python is available.]]
-    )
-    return  -- stop script completely, skip GUI
-end
+-- (Auto-detect happens after config load so user override is respected.)
 
 if not reaper.ImGui_GetBuiltinPath then
     reaper.MB("This script requires ReaImGui." ..
@@ -266,6 +474,20 @@ Examples:
 - macOS:    /Applications/Ableton Live 12 Suite.app
 - Linux/Wine:  /home/user/.wine/drive_c/.../Ableton Live 12 Suite.exe]]
 
+local hm_python_path =
+[[Optional path to the Python executable.
+
+If left empty:
+- The script auto-detects Python (recommended).
+
+If set:
+- The script will use this exact Python when launching the helper .py scripts.
+
+Examples:
+- Windows:  C:\Users\Peter\AppData\Local\Programs\Python\Python314\python.exe
+- macOS:    /usr/local/bin/python3
+- Linux:    /usr/bin/python3]]
+
 local hm_marker_spacing =
 [[Ableton by default sets 1 warp marker per bar.
 Here you can thin out the grid markers by choosing a spacing:
@@ -287,7 +509,17 @@ package.path = repo_root   .. sep .. "Libraries" .. sep .. "?.lua"
     .. ";" .. package.path
     .. ";" .. script_path .. sep .. "?.lua"
 
-local json = require "json"
+local json = nil
+do
+    local ok, res = pcall(require, "json")
+    if ok then
+        json = res
+    else
+        msg("Could not load json.lua (Libraries/json.lua).")
+        dbg(res)
+        feedback_error("Missing dependency: json.lua (see console).")
+    end
+end
 
 local python_script_grid  = script_path .. sep .. "ableton_extract_grid.py"
 local python_script_set   = script_path .. sep .. "create_custom_ableton_set_and_open.py"
@@ -296,6 +528,28 @@ local json_results_path = script_path .. sep ..  "ableton_result.json"
 local EXT_SECTION = "Hipox_Ableton_Grids"
 
 local MAX_ITEMS_COUNT = 16
+
+local deps_ok = true
+local deps_report = ""
+local last_deps_report_printed = nil
+
+local VerifyDependencies
+
+local function PrintDepsReport(force)
+    if not deps_report or deps_report == "" then return end
+    if force or deps_report ~= last_deps_report_printed then
+        console_only("[Ableton Grids] Dependency report:\n" .. tostring(deps_report) .. "\n")
+        last_deps_report_printed = deps_report
+    end
+end
+
+local function ShowDepsBlocked()
+    -- Refresh the report so it's not stale.
+    VerifyDependencies()
+    -- Always print help to the Console when blocked (even if Debug mode is OFF).
+    PrintDepsReport(true)
+    set_feedback(UI_MSG.SETUP_NEEDED_SHORT)
+end
 
 local function verify_file_exists(path)
     if reaper.file_exists(path) then
@@ -306,34 +560,152 @@ local function verify_file_exists(path)
     end
 end
 
+local function path_exists(path)
+    if not path or path == "" then return false end
+    if reaper.file_exists(path) then return true end
+
+    -- Some platforms (notably macOS .app bundles) may be directories.
+    -- Reaper's file_exists may not always report directories, so check parent folder.
+    local parent = path:match("^(.*)[/\\]")
+    local name = path:match("[^/\\]+$")
+    if not parent or not name then return false end
+
+    local i = 0
+    while true do
+        local sub = reaper.EnumerateSubdirectories(parent, i)
+        if not sub then break end
+        if sub == name then return true end
+        i = i + 1
+    end
+
+    return false
+end
+
 local function NormalizePath(path)
     if not path then return "" end
     -- unify slashes and lowercase for case-insensitive match on Windows
     path = path:gsub("\\", "/")
-    path = path:lower()
+    if reaper.GetOS():match("^Win") then
+        path = path:lower()
+    end
     return path
 end
 
 
-local function get_python_exe()
-    local os = reaper.GetOS()
-    -- "Win32" / "Win64" / "OSX10.15" / "Linux" etc.
-    if os:match("^Win") then
-        return "python"
-    else
-        return "python3"   -- most common on macOS / Linux
+local function get_python_cmd()
+    local override = reaper.GetExtState(EXT_SECTION, "PYTHON_EXE_PATH")
+    if override and override ~= "" then
+        -- If user picked a file path, quote it. If user typed a command prefix (e.g. "py -3"), keep as-is.
+        if reaper.file_exists(override) then
+            return quote_if_needed(override)
+        end
+        return tostring(override)
     end
+    return python_cmd
 end
 
-local function send_array_to_python_script(py_script, arr)
+local function ReadTextFile(path)
+    local f = io.open(path, "r")
+    if not f then return nil end
+    local content = f:read("*a")
+    f:close()
+    return content
+end
 
-    local py = get_python_exe()
-    local cmd = '"' .. py .. '" "' .. py_script .. '"'
+local function send_array_to_python_script(py_script, arr, run_id)
+
+    local py = get_python_cmd()
+    if not py or py == "" then
+        feedback_error(UI_MSG.PYTHON_MISSING)
+        return "", 127
+    end
+
+    local cmd = py .. ' "' .. py_script .. '"'
+    local debug_log_path = nil
+    if debug_mode then
+        debug_log_path = script_path .. sep .. "ableton_debug.log"
+        cmd = cmd .. ' "--debug=' .. debug_log_path .. '"'
+    end
     for _, v in ipairs(arr) do
         cmd = cmd .. ' "' .. v .. '"'
     end
     local timeout_ms = 500000
-    return reaper.ExecProcess(cmd, timeout_ms)
+
+    if debug_mode and not run_id then
+        run_id = DebugNewRunId()
+        DebugHeader(run_id, "Python run")
+    end
+
+    local t0 = reaper.time_precise and reaper.time_precise() or nil
+    if debug_mode then
+        DebugSection(run_id, "PY RUN")
+        DebugKV(run_id, "python_cmd", py)
+        DebugKV(run_id, "script", py_script)
+        DebugKV(run_id, "args_count", #arr)
+        if #arr > 0 then
+            for i = 1, #arr do
+                DebugKV(run_id, ("arg[%d]"):format(i), tostring(arr[i]))
+            end
+        end
+        DebugKV(run_id, "timeout_ms", timeout_ms)
+        DebugKV(run_id, "debug_log_path", debug_log_path or "(none)")
+    end
+
+    DebugKV(run_id, "exec", "ExecProcess")
+    DebugKV(run_id, "cmd", cmd)
+    local output, exitcode = reaper.ExecProcess(cmd, timeout_ms)
+
+    if debug_mode then
+        local dt_ms = nil
+        if t0 and reaper.time_precise then
+            dt_ms = math.floor((reaper.time_precise() - t0) * 1000 + 0.5)
+        end
+        DebugSection(run_id, "PY RESULT")
+        DebugKV(run_id, "duration_ms", dt_ms or "(unknown)")
+        DebugKV(run_id, "exitcode", exitcode)
+        DebugKV(run_id, "captured_output_len", (output and #tostring(output)) or 0)
+        if output ~= nil and output ~= "" then
+            dbg(("RUN %d | captured_output (stdout/stderr):\n%s"):format(tonumber(run_id) or 0, tostring(output)))
+        else
+            DebugKV(run_id, "captured_output", "(empty)")
+        end
+
+        local outcome = nil
+        if exitcode == nil then
+            outcome = "UNKNOWN (exitcode=nil)"
+        else
+            local n = tonumber(exitcode)
+            if n == 0 then outcome = "OK"
+            elseif n == 1 then outcome = "FAIL (exit=1)"
+            elseif n == 2 then outcome = "BAD INPUT (exit=2)"
+            else outcome = "FAIL (exit=" .. tostring(exitcode) .. ")" end
+        end
+        DebugKV(run_id, "outcome", outcome)
+    end
+
+    if debug_mode and debug_log_path then
+        DebugSection(run_id, "PY LOG")
+        msg("[Ableton Grids][Debug] Python log: " .. tostring(debug_log_path))
+        if reaper.file_exists(debug_log_path) then
+            local content = ReadTextFile(debug_log_path)
+            if content and content ~= "" then
+                console_only(content)
+            else
+                console_only("(empty debug log)")
+            end
+            os.remove(debug_log_path)
+        else
+            console_only("(debug log file was not created)")
+        end
+    end
+
+    if exitcode and tonumber(exitcode) and tonumber(exitcode) ~= 0 then
+        if debug_mode then
+            msg("[Ableton Grids][Debug] Python process failed (exit code " .. tostring(exitcode) .. ").")
+        end
+    end
+
+    return output, exitcode
 end
 -----------------------------------------
 -- CONFIG (runtime, extstate-backed)
@@ -380,7 +752,221 @@ local straight_tempo_mode = load_ext_str("STRAIGHT_TEMPO_MODE", "stretch_markers
 local snap_mode          = load_ext_str("SNAP_MODE", "nearest_bar")       -- "nearest_qn", "next_bar", "nearest_bar"
 local use_straight_grid  = load_ext_bool("USE_STRAIGHT_GRID", false)
 local ableton_path = load_ext_str("ABLETON_EXE_PATH", "")
+local python_path_override = load_ext_str("PYTHON_EXE_PATH", "")
 local marker_spacing = load_ext_int("MARKER_SPACING", 1)
+debug_mode               = load_ext_bool("DEBUG_MODE", false)
+
+-- Python auto-detect (only if no override is set)
+if not python_path_override or python_path_override == "" then
+    python_cmd = detect_python()
+    if not python_cmd then
+        if debug_mode then
+            DumpPythonDetectionDebug()
+        end
+        msg(
+[[Python could not be found on this system.
+
+This script requires Python to run Ableton grid extraction.
+
+Install Python:
+
+WINDOWS:
+    1) Download from https://www.python.org/downloads/windows/
+    2) IMPORTANT: Check "Add Python to PATH" during installation.
+
+macOS:
+    Run in Terminal:
+        brew install python
+    or install from python.org
+
+LINUX:
+    Install from package manager, e.g.:
+        sudo apt install python3]]
+        )
+        feedback_error("Python not found. Install Python or set the Python path, then try again.")
+    end
+end
+
+VerifyDependencies = function()
+    local issues = {}
+    local notes = {}
+
+    local os_str = reaper.GetOS() or "(unknown OS)"
+    local reaper_ver = reaper.GetAppVersion and reaper.GetAppVersion() or "(unknown REAPER version)"
+
+    -- Python
+    local py_effective = get_python_cmd()
+    if python_path_override and python_path_override ~= "" then
+        if not python_smoke_test(py_effective) then
+            table.insert(issues, "Python override set but not runnable via REAPER")
+        end
+    else
+        if not python_cmd or python_cmd == "" then
+            table.insert(issues, "Python not found")
+        else
+            if not python_smoke_test(python_cmd) then
+                table.insert(issues, "Python found but not executable via REAPER")
+            end
+        end
+    end
+
+    -- Scripts
+    if not reaper.file_exists(python_script_grid) then
+        table.insert(issues, "Missing: ableton_extract_grid.py")
+    end
+    if not reaper.file_exists(python_script_set) then
+        table.insert(issues, "Missing: create_custom_ableton_set_and_open.py")
+    end
+
+    -- Template project / ALS files
+    local template_dir = script_path .. sep .. "Reaper_Warp_Template_modified Project"
+    if not path_exists(template_dir) then
+        table.insert(issues, "Missing: Reaper_Warp_Template_modified Project")
+    else
+        local grid_als = template_dir .. sep .. "Reaper_Warp_Template_modified.als"
+        if not reaper.file_exists(grid_als) then
+            table.insert(issues, "Missing: Reaper_Warp_Template_modified.als")
+        end
+        -- Basic sanity: ensure at least the smallest and largest templates exist.
+        local t1 = template_dir .. sep .. "Reaper_Warp_Template_1.als"
+        local tmax = template_dir .. sep .. "Reaper_Warp_Template_" .. tostring(MAX_ITEMS_COUNT) .. ".als"
+        if not reaper.file_exists(t1) then
+            table.insert(issues, "Missing: Reaper_Warp_Template_1.als")
+        end
+        if not reaper.file_exists(tmax) then
+            table.insert(issues, "Missing: Reaper_Warp_Template_" .. tostring(MAX_ITEMS_COUNT) .. ".als")
+        end
+    end
+
+    -- json.lua
+    local json_lua_path = repo_root .. sep .. "Libraries" .. sep .. "json.lua"
+    if not reaper.file_exists(json_lua_path) then
+        table.insert(issues, "Missing: Libraries/json.lua")
+    elseif not json or type(json.decode) ~= "function" then
+        table.insert(issues, "json.lua present but failed to load")
+    end
+
+    -- Ableton path (only if user set it)
+    if ableton_path and ableton_path ~= "" then
+        if not path_exists(ableton_path) then
+            table.insert(issues, "Ableton executable path is invalid")
+        end
+    else
+        table.insert(notes, "Ableton path empty: will use system default app for .als")
+    end
+
+    deps_ok = (#issues == 0)
+
+    -- User-facing status (short, vital information only)
+    if deps_ok then
+        set_feedback("Ready.")
+    else
+        local first = issues[1] or "Missing dependencies"
+        local more = (#issues > 1) and (" (+" .. tostring(#issues - 1) .. " more)") or ""
+        set_feedback("Setup needed: " .. tostring(first) .. more .. ".")
+    end
+
+    local report = {}
+    table.insert(report, "Environment:")
+    table.insert(report, "- OS: " .. tostring(os_str))
+    table.insert(report, "- REAPER: " .. tostring(reaper_ver))
+    table.insert(report, "- Python override: " .. ((python_path_override and python_path_override ~= "") and tostring(python_path_override) or "(empty / auto-detect)"))
+    table.insert(report, "- Python cmd: " .. tostring(py_effective or "(not found)"))
+    table.insert(report, "- Script path: " .. tostring(script_path))
+    table.insert(report, deps_ok and "Dependencies OK." or "Dependencies NOT OK.")
+    if #issues > 0 then
+        table.insert(report, "Issues:")
+        for _, s in ipairs(issues) do
+            table.insert(report, "- " .. s)
+        end
+    end
+    if #notes > 0 then
+        table.insert(report, "Notes:")
+        for _, s in ipairs(notes) do
+            table.insert(report, "- " .. s)
+        end
+    end
+
+    if not deps_ok then
+        local fixes = {}
+        local function want_fix(predicate)
+            for _, s in ipairs(issues) do
+                if predicate(s) then return true end
+            end
+            return false
+        end
+
+        if want_fix(function(s) return tostring(s):match("Python") ~= nil end) then
+            table.insert(fixes, "Python:")
+            table.insert(fixes, "- If you already have Python: set the Python executable path in the GUI.")
+            table.insert(fixes, "- If not installed: install Python 3 from https://www.python.org/ (Windows: check 'Add Python to PATH').")
+        end
+        if want_fix(function(s) return tostring(s):match("Missing: ableton_extract_grid%.py") ~= nil or tostring(s):match("Missing: create_custom_ableton_set_and_open%.py") ~= nil end) then
+            table.insert(fixes, "Helper scripts:")
+            table.insert(fixes, "- Reinstall/update this package (ReaPack or GitHub) so the .py files sit next to the .lua.")
+        end
+        if want_fix(function(s) return tostring(s):match("Reaper_Warp_Template_modified") ~= nil end) then
+            table.insert(fixes, "Template project:")
+            table.insert(fixes, "- Reinstall/update the package so the 'Reaper_Warp_Template_modified Project' folder exists next to the script.")
+        end
+        if want_fix(function(s) return tostring(s):match("json%.lua") ~= nil end) then
+            table.insert(fixes, "json.lua:")
+            table.insert(fixes, "- Reinstall/update the package so Libraries/json.lua is present and loadable.")
+        end
+        if want_fix(function(s) return tostring(s):match("Ableton executable path") ~= nil end) then
+            table.insert(fixes, "Ableton path:")
+            table.insert(fixes, "- Clear the Ableton path field to use the system default, or browse to the correct executable/app.")
+        end
+
+        if #fixes > 0 then
+            table.insert(report, "")
+            table.insert(report, "How to fix:")
+            for _, s in ipairs(fixes) do
+                table.insert(report, s)
+            end
+            table.insert(report, "")
+            table.insert(report, "Tip: Open the Console via View > Console in REAPER.")
+        end
+    end
+
+    deps_report = table.concat(report, "\n")
+
+    dbg("Dependency check:")
+    for _, line in ipairs(report) do
+        dbg(line)
+    end
+
+    -- Even when Debug mode is OFF, dependency problems should explain themselves in the Console.
+    if not deps_ok then
+        PrintDepsReport(false)
+    end
+end
+
+-- Verify on startup (and show status in feedback box)
+VerifyDependencies()
+
+local function DumpUiStateForDebug(run_id, action_label)
+    if not debug_mode or not run_id then return end
+    DebugSection(run_id, "UI STATE")
+    DebugKV(run_id, "label", action_label or "(unknown action)")
+    DebugKV(run_id, "debug_mode", debug_mode)
+    DebugKV(run_id, "apply_type", apply_type)
+    DebugKV(run_id, "marker_spacing", marker_spacing)
+    DebugKV(run_id, "snap_mode", snap_mode)
+    DebugKV(run_id, "set_snap_offset", set_snap_offset)
+    DebugKV(run_id, "insert_time_sig", insert_time_sig)
+    DebugKV(run_id, "use_straight_grid", use_straight_grid)
+    DebugKV(run_id, "straight_tempo_mode", straight_tempo_mode)
+    DebugKV(run_id, "mark_item_edges", mark_item_edges)
+    DebugKV(run_id, "ableton_path", (ableton_path and ableton_path ~= "") and ableton_path or "(empty)")
+    DebugKV(run_id, "python_override", (python_path_override and python_path_override ~= "") and python_path_override or "(empty / auto-detect)")
+    DebugKV(run_id, "python_cmd_detected", python_cmd or "(nil)")
+    DebugKV(run_id, "python_cmd_effective", get_python_cmd() or "(nil)")
+    DebugKV(run_id, "script_path", script_path)
+    DebugKV(run_id, "grid_script", python_script_grid)
+    DebugKV(run_id, "set_script", python_script_set)
+    DebugKV(run_id, "json_results_path", json_results_path)
+end
 -----------------------------------------
 -- HELPERS – ITEMS & JSON
 -----------------------------------------
@@ -465,9 +1051,16 @@ end
 
 
 local function load_json_result(json_path)
+    if not json or type(json.decode) ~= "function" then
+        msg("JSON library not available (json.lua).")
+        feedback_error("Missing dependency: json.lua")
+        return nil
+    end
+
     local f = io.open(json_path, "r")
     if not f then
         msg("Cannot open JSON file: " .. tostring(json_path))
+        feedback_error("Could not open result JSON. Try again (and enable Debug mode if needed).")
         return nil
     end
     local content = f:read("*a")
@@ -476,6 +1069,7 @@ local function load_json_result(json_path)
     local ok, data = pcall(json.decode, content)
     if not ok or type(data) ~= "table" then
         msg("JSON decode error")
+        feedback_error("Result JSON could not be parsed. Try again (and enable Debug mode if needed).")
         return nil
     end
 
@@ -1561,24 +2155,43 @@ end
 local function Action_CreateAbletonSetFromSelection()
     if not verify_file_exists(python_script_set) then
         msg("Python script not found: " .. python_script_set)
+        feedback_error("Python script not found: create_custom_ableton_set_and_open.py")
         return
     end
 
+    local num_sel_items = reaper.CountSelectedMediaItems(0)
+    if num_sel_items == 0 then
+        feedback_error("No items selected. Select one or more audio items first.")
+        return
+    end
+
+    dbg("Action: Create set")
+    dbg("selected_media_items: " .. tostring(num_sel_items))
+
     local takes = CollectSelectedAudioActiveTakes()
     if #takes == 0 then
+        feedback_error("No valid audio items in selection. Select audio items (MIDI items are ignored) with an active take.")
         return
     end
 
     if #takes > MAX_ITEMS_COUNT then
         msg("Too many selected items (max " .. MAX_ITEMS_COUNT .. ").")
+        feedback_error("Too many selected items (max " .. MAX_ITEMS_COUNT .. ").")
         return
     end
 
+    dbg("Create set: selected takes=" .. tostring(#takes))
+
     local args = {}
 
-    -- Only pass flag if user actually set a path
+    -- Only pass flag if user actually set a valid path
     if ableton_path ~= nil and ableton_path ~= "" then
-        table.insert(args, "--ableton_path=" .. ableton_path)
+        if path_exists(ableton_path) then
+            table.insert(args, "--ableton_path=" .. ableton_path)
+        else
+            msg("Ableton executable path is invalid: " .. tostring(ableton_path))
+            set_feedback("Warning: Ableton executable path is invalid; using system default app for .als.")
+        end
     end
 
     -- NEW: de-duplicate by normalized path
@@ -1595,15 +2208,53 @@ local function Action_CreateAbletonSetFromSelection()
 
     -- Now send only unique paths to Python
     for _, p in ipairs(unique_paths) do
-        table.insert(args, p)
+        if reaper.file_exists(p) then
+            table.insert(args, p)
+        else
+            dbg("Missing source file on disk: " .. tostring(p))
+        end
     end
 
-    local output = send_array_to_python_script(python_script_set, args)
+    if #args == 0 then
+        feedback_error(UI_MSG.MISSING_AUDIO_ON_DISK)
+        return
+    end
+
+    -- Preflight: ensure the required template ALS exists for this count.
+    local template_dir = script_path .. sep .. "Reaper_Warp_Template_modified Project"
+    local needed_template = template_dir .. sep .. "Reaper_Warp_Template_" .. tostring(#args) .. ".als"
+    if not reaper.file_exists(needed_template) then
+        dbg("Missing template ALS: " .. tostring(needed_template))
+        feedback_error(UI_MSG.TEMPLATE_MISSING)
+        return
+    end
+
+    dbg("Create set: unique audio paths=" .. tostring(#unique_paths))
+
+    local output, exitcode = send_array_to_python_script(python_script_set, args)
+
+    if debug_mode then
+        local ec_str = (exitcode == nil) and "nil" or tostring(exitcode)
+        console_only("[Ableton Grids][Debug] Python (create set) exit code: " .. ec_str)
+        if output ~= nil and output ~= "" then
+            console_only("[Ableton Grids][Debug] Python (create set) captured output:\n" .. tostring(output))
+        else
+            console_only("[Ableton Grids][Debug] Python (create set) captured output: (empty)")
+        end
+    end
+
+    if exitcode and tonumber(exitcode) and tonumber(exitcode) ~= 0 then
+        feedback_error("Create set failed. " .. UI_MSG.RETRY_DEBUG)
+        return
+    end
 
     if not output or output == "" then
         msg("Python (create set) returned empty output.")
+        feedback_error("Create set failed. " .. UI_MSG.RETRY_DEBUG)
         return
     end
+
+    set_feedback("Done. Ableton set created and opened.")
 end
 
 -----------------------------------------
@@ -1688,33 +2339,114 @@ local function ResetWarpAndPlayrate(item, take)
 end
 
 local function Action_ApplyAbletonBeatgridToSelection()
+    local run_id = nil
+    if debug_mode then
+        run_id = current_action_debug_run_id
+        if not run_id then
+            run_id = DebugNewRunId()
+            DebugHeader(run_id, "Action 2 (Apply Ableton beatgrid)")
+            DumpUiStateForDebug(run_id, "Action 2 (Apply Ableton beatgrid)")
+        end
+        DebugSection(run_id, "ACTION")
+    end
+
     if not verify_file_exists(python_script_grid) then
         msg("Python script not found: " .. python_script_grid)
+        feedback_error("Python script not found: ableton_extract_grid.py")
+        if run_id then DebugOutcome(run_id, "ABORT: missing ableton_extract_grid.py") end
         return
+    end
+
+    local num_sel_items = reaper.CountSelectedMediaItems(0)
+    if num_sel_items == 0 then
+        feedback_error("No items selected. Select one or more audio items first.")
+        if run_id then DebugOutcome(run_id, "ABORT: no items selected") end
+        return
+    end
+
+    if run_id then
+        DebugKV(run_id, "action", "Extract/apply grid")
+        DebugKV(run_id, "selected_media_items", num_sel_items)
     end
 
     local takes = CollectSelectedAudioActiveTakes()
     if #takes == 0 then
         -- msg("No selected audio items with active takes found.")
+        feedback_error("No valid audio items in selection. Select audio items (MIDI items are ignored) with an active take.")
+        if run_id then DebugOutcome(run_id, "ABORT: no valid audio takes") end
         return
     end
+
+    if run_id then DebugKV(run_id, "selected_takes", #takes) end
 
     local args = {}
 
     for _, info in ipairs(takes) do
-        table.insert(args, info.path)
+        if reaper.file_exists(info.path) then
+            table.insert(args, info.path)
+        else
+            dbg("Missing source file on disk: " .. tostring(info.path))
+        end
     end
 
-    local output = send_array_to_python_script(python_script_grid, args)
-
-    if not output or output == "" then
-        msg("Python returned empty output.")
+    if #args == 0 then
+        feedback_error(UI_MSG.MISSING_AUDIO_ON_DISK)
+        if run_id then DebugOutcome(run_id, "ABORT: selected files missing on disk") end
         return
     end
 
-    local json_path = output:match("([^\r\n]+)%s*$")
+    if run_id then DebugKV(run_id, "paths_count", #args) end
+
+    -- Preflight: ensure the grid-template ALS exists.
+    local template_dir = script_path .. sep .. "Reaper_Warp_Template_modified Project"
+    local grid_als = template_dir .. sep .. "Reaper_Warp_Template_modified.als"
+    if not reaper.file_exists(grid_als) then
+        dbg("Missing grid ALS: " .. tostring(grid_als))
+        feedback_error(UI_MSG.TEMPLATE_MISSING)
+        if run_id then DebugOutcome(run_id, "ABORT: missing template ALS") end
+        return
+    end
+
+    local output, exitcode = send_array_to_python_script(python_script_grid, args, run_id)
+
+    if exitcode and tonumber(exitcode) and tonumber(exitcode) ~= 0 then
+        feedback_error("Extract grid failed. " .. UI_MSG.RETRY_DEBUG)
+        if run_id then DebugOutcome(run_id, "FAIL: python exit=" .. tostring(exitcode)) end
+        return
+    end
+
+    if not output or output == "" then
+        msg("Python returned empty output.")
+        feedback_error("Apply grid failed. " .. UI_MSG.RETRY_DEBUG)
+        if run_id then DebugOutcome(run_id, "FAIL: python output empty") end
+        return
+    end
+
+    local json_path = nil
+    for line in output:gmatch("[^\r\n]+") do
+        local trimmed = tostring(line):match("^%s*(.-)%s*$")
+        if trimmed and trimmed ~= "" and trimmed:lower():match("%.json$") then
+            json_path = trimmed
+        end
+    end
+    if not json_path then
+        json_path = output:match("([^\r\n]+)%s*$")
+    end
+    if run_id then
+        DebugKV(run_id, "python_json_path", json_path)
+    else
+        dbg("python reported json_path: " .. tostring(json_path))
+    end
     if not json_path or json_path == "" then
         msg("Could not parse JSON path from Python output.")
+        feedback_error("Apply grid failed. " .. UI_MSG.RETRY_DEBUG)
+        if run_id then DebugOutcome(run_id, "FAIL: could not parse json path") end
+        return
+    end
+
+    if not reaper.file_exists(json_results_path) then
+        feedback_error("Apply grid failed. " .. UI_MSG.RETRY_DEBUG)
+        if run_id then DebugOutcome(run_id, "FAIL: ableton_result.json missing") end
         return
     end
 
@@ -1731,6 +2463,8 @@ local function Action_ApplyAbletonBeatgridToSelection()
 
     if type(paths_list) ~= "table" or type(times_list) ~= "table" then
         msg("JSON missing paths_list or times_list.")
+        feedback_error("Apply grid failed. " .. UI_MSG.RETRY_DEBUG)
+        if run_id then DebugOutcome(run_id, "FAIL: JSON missing paths_list/times_list") end
         return
     end
 
@@ -1759,10 +2493,15 @@ local function Action_ApplyAbletonBeatgridToSelection()
 
     if next(path_map) == nil then
         msg("No valid path entries in JSON.")
+        feedback_error("Apply grid failed: no valid path entries in JSON.")
+        if run_id then DebugOutcome(run_id, "FAIL: no valid path entries in JSON") end
         return
     end
 
     reaper.Undo_BeginBlock()
+
+    local applied_count = 0
+    local skipped_count = 0
 
     for i, info in ipairs(takes) do
         local item = info.item
@@ -1774,6 +2513,7 @@ local function Action_ApplyAbletonBeatgridToSelection()
 
         if not entry then
             msg("No JSON data for path: " .. tostring(info.path))
+            skipped_count = skipped_count + 1
         else
             local src_times    = entry.times
             local src_beats    = entry.beats
@@ -1786,6 +2526,7 @@ local function Action_ApplyAbletonBeatgridToSelection()
             local use_straight_for_this_item = (use_straight_grid and straight_bpm > 0)
 
             if src_times and type(src_times) == "table" and #src_times > 0 then
+                applied_count = applied_count + 1
 
                 if mark_item_edges then
                     MarkItemEdgesAsTakeMarkers(take)
@@ -1873,11 +2614,19 @@ local function Action_ApplyAbletonBeatgridToSelection()
                 end
             else
                 -- msg("No src_times for path: " .. tostring(info.path) .. ", skipping.")
+                skipped_count = skipped_count + 1
             end
         end
     end
 
     reaper.Undo_EndBlock("Import Ableton warp grid (" .. apply_type .. ")", -1)
+    set_feedback("Done: Applied grid to " .. tostring(applied_count) .. " item(s). Skipped " .. tostring(skipped_count) .. ".")
+    if run_id then
+        DebugSection(run_id, "RESULT")
+        DebugKV(run_id, "applied_count", applied_count)
+        DebugKV(run_id, "skipped_count", skipped_count)
+        DebugOutcome(run_id, "OK")
+    end
 end
 
 -----------------------------------------
@@ -1889,6 +2638,8 @@ local ctx = ImGui.CreateContext(SCRIPT_NAME)
 local window_flags =
     ImGui.WindowFlags_AlwaysAutoResize +
     ImGui.WindowFlags_MenuBar
+
+local pending_action = nil
 
 local apply_combo_width         = nil
 local straight_mode_combo_width = nil
@@ -1977,6 +2728,27 @@ local function InitComboWidths()
 end
 
 local function loop()
+    -- Run any queued action first (so the previous frame can display "Working..." feedback)
+    if pending_action then
+        local action = pending_action
+        local run_id = pending_action_debug_run_id
+        pending_action = nil
+        pending_action_debug_run_id = nil
+
+        if not deps_ok then
+            ShowDepsBlocked()
+            if run_id then DebugOutcome(run_id, "ABORT: dependencies not OK") end
+        else
+            current_action_debug_run_id = run_id
+            if action == "create_set" then
+                Action_CreateAbletonSetFromSelection()
+            elseif action == "apply_grid" then
+                Action_ApplyAbletonBeatgridToSelection()
+            end
+            current_action_debug_run_id = nil
+        end
+    end
+
     ImGui.SetNextWindowSize(ctx, 430, 230, ImGui.Cond_FirstUseEver)
     local visible, open = ImGui.Begin(ctx, SCRIPT_NAME, true, window_flags)
 
@@ -1995,12 +2767,34 @@ local function loop()
                 end
                 ImGui.EndMenu(ctx)
             end
+
+            if ImGui.BeginMenu(ctx, "Options") then
+                local rv
+                rv, debug_mode = ImGui.MenuItem(ctx, "Debug mode", nil, debug_mode)
+                if rv then
+                    save_ext_bool("DEBUG_MODE", debug_mode)
+                    if debug_mode then
+                        set_feedback("Debug mode enabled.")
+                        dbg("Debug mode enabled")
+                    else
+                        set_feedback("Debug mode disabled.")
+                    end
+                end
+                ImGui.EndMenu(ctx)
+            end
             ImGui.EndMenuBar(ctx)
         end
 
         -- Button 1: create/open Ableton set
         if ImGui.Button(ctx, "1) Create & open Ableton set from items selection", -1, 0) then
-            Action_CreateAbletonSetFromSelection()
+            if pending_action then
+                set_feedback("Already working. Please wait...")
+            elseif not deps_ok then
+                ShowDepsBlocked()
+            else
+                feedback_working("creating Ableton set...")
+                pending_action = "create_set"
+            end
         end
 
         ImGui.Spacing(ctx)
@@ -2163,22 +2957,69 @@ local function loop()
         )
         if changed_path then
             save_ext_str("ABLETON_EXE_PATH", ableton_path)
+            VerifyDependencies()
         end
 
         ImGui.SameLine(ctx)
         if ImGui.Button(ctx, "Browse...", 90, 0) then
             -- Start in current path if set, otherwise in script folder
             local initial = (ableton_path ~= "" and ableton_path) or script_path
+            local ext = ""
+            if is_windows() then
+                ext = "exe"
+            elseif is_macos() then
+                ext = "app"
+            end
             local retval, file = reaper.GetUserFileNameForRead(
                 initial,
                 "Select Ableton executable / app",
-                ""
+                ext
             )
             if retval and file and file ~= "" then
                 ableton_path = file
                 save_ext_str("ABLETON_EXE_PATH", ableton_path)
+                VerifyDependencies()
             end
         end        
+
+        ------------------------------------------------------------
+        -- Python executable path (optional)
+        ------------------------------------------------------------
+        ImGui.Spacing(ctx)
+        ImGui.Text(ctx, "Python executable (optional)")
+        HelpMarker(hm_python_path)
+
+        ImGui.SetNextItemWidth(ctx, input_width)
+        local changed_py
+        changed_py, python_path_override = ImGui.InputText(
+            ctx,
+            "##PythonExePath",
+            python_path_override or ""
+        )
+        if changed_py then
+            save_ext_str("PYTHON_EXE_PATH", python_path_override)
+            if not python_path_override or python_path_override == "" then
+                python_cmd = detect_python()
+            end
+            VerifyDependencies()
+        end
+
+        ImGui.SameLine(ctx)
+        if ImGui.Button(ctx, "Browse##Python", 90, 0) then
+            local initial_py = (python_path_override ~= "" and python_path_override) or script_path
+            local ext = ""
+            if is_windows() then ext = "exe" end
+            local ok, file = reaper.GetUserFileNameForRead(
+                initial_py,
+                "Select Python executable",
+                ext
+            )
+            if ok and file and file ~= "" then
+                python_path_override = file
+                save_ext_str("PYTHON_EXE_PATH", python_path_override)
+                VerifyDependencies()
+            end
+        end
 
         ImGui.Spacing(ctx)
         ImGui.Separator(ctx)
@@ -2186,8 +3027,42 @@ local function loop()
 
         -- Button 2: apply beatgrid
         if ImGui.Button(ctx, "2) Apply Ableton beatgrid to selected items", -1, 0) then
-            Action_ApplyAbletonBeatgridToSelection()
+            if pending_action then
+                set_feedback("Already working. Please wait...")
+            elseif not deps_ok then
+                ShowDepsBlocked()
+            else
+                if debug_mode then
+                    local run_id = DebugNewRunId()
+                    pending_action_debug_run_id = run_id
+                    DebugHeader(run_id, "Button 2 (Apply Ableton beatgrid)")
+                    DumpUiStateForDebug(run_id, "Button 2 (Apply Ableton beatgrid)")
+                else
+                    pending_action_debug_run_id = nil
+                end
+                feedback_working("extracting/applying beatgrid...")
+                pending_action = "apply_grid"
+            end
         end
+
+        ImGui.Spacing(ctx)
+
+        -- Feedback area (read-only)
+        ImGui.Text(ctx, "Feedback")
+        local line_h
+        if ImGui.GetTextLineHeightWithSpacing then
+            line_h = ImGui.GetTextLineHeightWithSpacing(ctx)
+        elseif ImGui.GetTextLineHeight then
+            line_h = ImGui.GetTextLineHeight(ctx)
+        else
+            line_h = (ImGui.GetFontSize(ctx) or 14) + 2
+        end
+        local feedback_h = (line_h * 2) + 6
+        local _child_visible = ImGui.BeginChild(ctx, "##FeedbackText", -1, feedback_h, 0)
+        ImGui.PushTextWrapPos(ctx, 0)
+        ImGui.Text(ctx, feedback_text)
+        ImGui.PopTextWrapPos(ctx)
+        ImGui.EndChild(ctx)
 
         ImGui.End(ctx)
     end

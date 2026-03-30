@@ -7,9 +7,46 @@
 import gzip
 import json
 import sys
+import traceback
 import xml.etree.ElementTree as ET
 from pathlib import Path
 import statistics
+import platform
+import os
+import time
+
+
+DEBUG = False
+DEBUG_LOG_PATH = None
+
+
+def dbg(*parts):
+    if not DEBUG:
+        return
+    msg = " ".join(str(p) for p in parts)
+    line = f"[DEBUG] {msg}\n"
+    if DEBUG_LOG_PATH:
+        try:
+            DEBUG_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+            with DEBUG_LOG_PATH.open("a", encoding="utf-8") as f:
+                f.write(line)
+        except Exception:
+            # Best-effort: if writing fails, fall back to stderr (don't break stdout contract)
+            print(line, end="", file=sys.stderr)
+    else:
+        print(line, end="", file=sys.stderr)
+
+
+def dbg_run_header(argv):
+    dbg("----- ableton_extract_grid.py -----")
+    dbg("timestamp:", time.strftime("%Y-%m-%d %H:%M:%S"))
+    dbg("python:", sys.executable)
+    dbg("python_version:", sys.version.replace("\n", " "))
+    dbg("platform:", platform.platform())
+    dbg("sys.platform:", sys.platform)
+    dbg("cwd:", os.getcwd())
+    dbg("script:", str(Path(__file__).resolve()))
+    dbg("argv:", repr(list(argv)))
 
 
 def check_dependencies():
@@ -320,24 +357,62 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv[1:]
 
-    paths = [Path(p) for p in argv]
+    global DEBUG, DEBUG_LOG_PATH
+    filtered = []
+    i = 0
+    while i < len(argv):
+        a = argv[i]
 
-    if not paths:
-        paths = [
-            Path(r"D:\WORKDIR\MUSIC\Reaper Default Save Path\test ableton beatgrids\Media\Earth, Wind & Fire - September.flac"),
-            Path(r"D:\WORKDIR\MUSIC\Reaper Default Save Path\test ableton beatgrids\test ableton beatgrids_2\Media\Rvssian, Lil Baby, Byron Messia - Choppa (Original Mix).flac"),
-            Path(r"C:\Users\Peter\Downloads\test djay\Sing2Piano - Amazing Grace (Key of F) - Piano Karaoke Version.mp3"),
-        ]
+        if a == "--debug":
+            DEBUG = True
+            # Support: --debug <logpath>
+            if i + 1 < len(argv):
+                nxt = argv[i + 1].strip().strip('"')
+                if nxt and not nxt.startswith("-"):
+                    DEBUG_LOG_PATH = Path(nxt)
+                    i += 2
+                    continue
+            i += 1
+            continue
+        if a.startswith("--debug="):
+            val = a.split("=", 1)[1].strip().strip('"')
+            if val in ("", "0", "false", "False"):
+                DEBUG = False
+            else:
+                DEBUG = True
+                # If the value looks like a path, treat it as the debug log destination.
+                if ("/" in val) or ("\\" in val) or val.lower().endswith(".log"):
+                    DEBUG_LOG_PATH = Path(val)
+            i += 1
+            continue
 
+        filtered.append(a)
+        i += 1
+
+    paths = [Path(p) for p in filtered]
+
+    if DEBUG:
+        dbg_run_header(argv)
+        dbg("audio_paths_count:", len(paths))
+        for i, p in enumerate(paths[:20]):
+            dbg(f"audio_path[{i}]", str(p))
+        if len(paths) > 20:
+            dbg("audio_path list truncated (>", len(paths), ")")
+
+    dbg("Args paths:", len(paths))
 
     # All CLI args are treated as audio file paths.
-    # if not paths:
-    #     # No files given – nothing to do.
-    #     print("failed")
-    #     return
+    # If none were provided, fail safely without guessing.
+    if not paths:
+        dbg("[ERROR] No audio paths provided. Nothing to do.")
+        print("failed")
+        sys.exit(2)
 
     if not out_als.exists():
         raise FileNotFoundError(f"ALS not found: {out_als}")
+
+    dbg("Using ALS:", out_als)
+    dbg("JSON out path:", out_path)
 
     root = load_als_root(out_als)
 
@@ -354,8 +429,12 @@ def main(argv=None):
     }
 
     for idx, audio_file in enumerate(paths):
+        dbg("Processing:", audio_file)
+        if not audio_file.exists():
+            dbg("[WARN] Audio file does not exist:", str(audio_file))
         clip = find_clip_for_audio(root, audio_file)
         if clip is None:
+            dbg("No clip found for:", audio_file)
             continue
 
         # --- Time signature ---
@@ -408,6 +487,8 @@ def main(argv=None):
     with out_path.open("w", encoding="utf-8") as fh:
         json.dump(output, fh)
 
+    dbg("Wrote JSON:", out_path)
+
     if any(len(t) > 0 for t in output["times_list"]):
         # Lua script expects the JSON path on stdout when success
         print(str(out_path))
@@ -416,4 +497,18 @@ def main(argv=None):
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        if DEBUG and DEBUG_LOG_PATH:
+            try:
+                with DEBUG_LOG_PATH.open("a", encoding="utf-8") as f:
+                    f.write("[ERROR] Unhandled exception:\n")
+                    f.write(traceback.format_exc())
+                    f.write("\n")
+            except Exception:
+                pass
+        # Keep stdout contract clean: avoid traceback spam.
+        # Lua expects either JSON path (success) or 'failed' (failure).
+        print("failed")
+        sys.exit(1)

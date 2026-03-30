@@ -10,7 +10,43 @@ from pathlib import Path
 import subprocess
 import sys
 import os
+import traceback
 # import soundfile as sf
+import platform
+import time
+
+
+DEBUG = False
+DEBUG_LOG_PATH = None
+
+
+def dbg(*parts):
+    if not DEBUG:
+        return
+    msg = " ".join(str(p) for p in parts)
+    line = f"[DEBUG] {msg}\n"
+    if DEBUG_LOG_PATH:
+        try:
+            DEBUG_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+            with DEBUG_LOG_PATH.open("a", encoding="utf-8") as f:
+                f.write(line)
+        except Exception:
+            # Best-effort fallback (don't break stdout contract)
+            print(line, end="", file=sys.stderr)
+    else:
+        print(line, end="", file=sys.stderr)
+
+
+def dbg_run_header(argv):
+    dbg("----- create_custom_ableton_set_and_open.py -----")
+    dbg("timestamp:", time.strftime("%Y-%m-%d %H:%M:%S"))
+    dbg("python:", sys.executable)
+    dbg("python_version:", sys.version.replace("\n", " "))
+    dbg("platform:", platform.platform())
+    dbg("sys.platform:", sys.platform)
+    dbg("cwd:", os.getcwd())
+    dbg("script:", str(Path(__file__).resolve()))
+    dbg("argv:", repr(list(argv)))
 
 # def check_dependencies():
 #     missing = []
@@ -84,6 +120,7 @@ def launch_als(out_als: Path, ableton_path: str) -> None:
     """
     # Always print the ALS path for the caller (REAPER Lua)
     print(out_als)
+    dbg("Ableton path arg:", (ableton_path or "").strip() or "<empty>")
 
     als_str = str(out_als)
     exe = (ableton_path or "").strip()
@@ -97,33 +134,32 @@ def launch_als(out_als: Path, ableton_path: str) -> None:
             try:
                 if sys.platform == "darwin" and exe.endswith(".app"):
                     # Launch specific .app with ALS as argument
+                    dbg("Launching Ableton via macOS .app:", exe)
                     subprocess.Popen(["open", "-a", exe, als_str])
                 else:
                     # Generic: run the executable with ALS path
+                    dbg("Launching Ableton via executable:", exe)
                     subprocess.Popen([exe, als_str])
                 return
             except Exception as e:
-                print(
-                    f"[WARN] Failed to launch Ableton via provided path: {exe} ({e})",
-                    file=sys.stderr,
-                )
+                dbg("[WARN] Failed to launch Ableton via provided path:", exe, "error:", repr(e))
         else:
-            print(
-                f"[WARN] Provided Ableton path is not valid: {exe}",
-                file=sys.stderr,
-            )
+            dbg("[WARN] Provided Ableton path is not valid:", exe)
 
     # --- 2) Fallback: system default for .als ---
     try:
         if sys.platform.startswith("win"):
             # Default associated app (usually Ableton Live)
+            dbg("Launching via system association (Windows os.startfile)")
             os.startfile(als_str)  # type: ignore[attr-defined]
         elif sys.platform == "darwin":
+            dbg("Launching via system association (macOS open)")
             subprocess.Popen(["open", als_str])
         else:
+            dbg("Launching via system association (Linux xdg-open)")
             subprocess.Popen(["xdg-open", als_str])
     except Exception as e:
-        print(f"[ERROR] Failed to launch ALS via system association: {e}", file=sys.stderr)
+        dbg("[ERROR] Failed to launch ALS via system association:", repr(e))
 
 def parse_cli_args(argv):
     """
@@ -140,12 +176,36 @@ def parse_cli_args(argv):
         ableton_path:    str | None
         paths:          list[str]
     """
+    global DEBUG, DEBUG_LOG_PATH
     ableton_path = None
     paths = []
 
     i = 0
     while i < len(argv):
         arg = argv[i]
+
+        # ---- Debug ----
+        if arg == "--debug":
+            DEBUG = True
+            # Support: --debug <logpath>
+            if i + 1 < len(argv):
+                nxt = argv[i + 1].strip().strip('"')
+                if nxt and not nxt.startswith("-"):
+                    DEBUG_LOG_PATH = Path(nxt)
+                    i += 2
+                    continue
+            i += 1
+            continue
+        elif arg.startswith("--debug="):
+            val = arg.split("=", 1)[1].strip().strip('"')
+            if val in ("", "0", "false", "False"):
+                DEBUG = False
+            else:
+                DEBUG = True
+                if ("/" in val) or ("\\" in val) or val.lower().endswith(".log"):
+                    DEBUG_LOG_PATH = Path(val)
+            i += 1
+            continue
 
         # ---- Ableton exe ----
         if arg == "--ableton_path":
@@ -176,14 +236,25 @@ def main(argv=None):
         argv = sys.argv[1:]
     ableton_path, paths = parse_cli_args(argv)
 
-    # Fallback (for testing from terminal if no audio paths given)
+    if DEBUG:
+        dbg_run_header(argv)
+        dbg("ableton_path:", repr(ableton_path))
+        dbg("audio_paths_count:", len(paths))
+        for i, p in enumerate(paths[:20]):
+            dbg(f"audio_path[{i}]", p)
+        if len(paths) > 20:
+            dbg("audio_path list truncated (>", len(paths), ")")
+
+    # If no audio paths were provided, fail safely.
     if not paths:
-        paths = [
-            r"D:\WORKDIR\MUSIC\Reaper Default Save Path\test ableton beatgrids\Media\Earth, Wind & Fire - September.flac",
-        ]
+        dbg("[ERROR] No audio paths provided. Nothing to do.")
+        sys.exit(2)
 
     # pick a template ALS depending on number of paths
     als_path = BASE_DIR / als_dir_name / return_als_name(len(paths))
+
+    dbg("template_als:", str(als_path))
+    dbg("output_als:", str(out_als))
 
     if not als_path.exists():
         raise FileNotFoundError(f"ALS not found: {als_path}")
@@ -209,6 +280,8 @@ def main(argv=None):
     for idx, p in enumerate(paths):
         track, clip = track_clip_pairs[idx]  # Track idx+1
         audio_file = Path(p)
+
+        dbg("processing_index:", idx, "audio_file:", str(audio_file))
 
         # 3a) Read audio file info
         if not audio_file.exists():
@@ -349,10 +422,25 @@ def main(argv=None):
     with gzip.open(out_als, "wb") as f:
         f.write(new_xml_bytes)
 
+    dbg("wrote_output_als:", str(out_als), "exists:", out_als.exists())
+
     if out_als.exists():
         launch_als(out_als, ableton_path)
     else:
         print("")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        if DEBUG and DEBUG_LOG_PATH:
+            try:
+                with DEBUG_LOG_PATH.open("a", encoding="utf-8") as f:
+                    f.write("[ERROR] Unhandled exception:\n")
+                    f.write(traceback.format_exc())
+                    f.write("\n")
+            except Exception:
+                pass
+        # Keep stdout contract clean: no traceback to stderr.
+        # On failure, print nothing (Lua treats empty output as failure) and exit non-zero.
+        sys.exit(1)
