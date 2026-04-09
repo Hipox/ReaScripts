@@ -1,7 +1,7 @@
 --[[
 @description Quantize Existing Stretch Markers to Grid (ImGui)
 @author Hipox
-@version 1.0.0
+@version 1.0.6
 @about
   Lightweight standalone tool to snap the first visible stretch marker of the
   first selected *audio* item to the project grid, then quantize the item's
@@ -90,6 +90,78 @@ end
 local function dbg(text)
   if not debug_mode then return end
   reaper.ShowConsoleMsg('[Quantize Stretch Markers] ' .. tostring(text) .. '\n')
+end
+
+local function dbg_kv(key, value)
+  if not debug_mode then return end
+  dbg(('%-18s = %s'):format(tostring(key), tostring(value)))
+end
+
+local function dbg_marker_table(prefix, markers, item_pos, playrate)
+  if not debug_mode then return end
+  if not markers then return end
+
+  local proj = 0
+  playrate = tonumber(playrate) or 1.0
+  if playrate == 0 then playrate = 1.0 end
+  dbg(prefix .. (': count=%d'):format(#markers))
+
+  for i, m in ipairs(markers) do
+    if i > 40 then
+      dbg(prefix .. ': ... (truncated)')
+      break
+    end
+
+    -- NOTE: when take playrate != 1, REAPER's stretch marker "pos" is in take-time units
+    -- and maps to project seconds by dividing by playrate.
+    local proj_time = (tonumber(item_pos) or 0) + (tonumber(m.pos) or 0) / playrate
+    local qn = reaper.TimeMap2_timeToQN(proj, proj_time)
+    dbg(('%s[%02d] idx=%s pos=%.9f srcpos=%.9f qn=%.9f t=%.9f slope=%.6f'):format(
+      prefix,
+      i,
+      tostring(m.idx),
+      tonumber(m.pos) or -1,
+      tonumber(m.srcpos) or -1,
+      tonumber(qn) or -1,
+      tonumber(proj_time) or -1,
+      tonumber(m.slope) or 0
+    ))
+  end
+end
+
+local function GetTakeMapState(item, take)
+  local startoffs = reaper.GetMediaItemTakeInfo_Value(take, 'D_STARTOFFS') or 0.0
+  local playrate = reaper.GetMediaItemTakeInfo_Value(take, 'D_PLAYRATE') or 1.0
+  if playrate == 0 then playrate = 1.0 end
+  local item_len = reaper.GetMediaItemInfo_Value(item, 'D_LENGTH') or 0.0
+  return startoffs, playrate, item_len
+end
+
+local function FindFirstVisibleMarkerBySrcpos(markers, startoffs, item_len, playrate)
+  local src_visible_start = startoffs
+  local src_visible_end = startoffs + (item_len * playrate)
+
+  for _, m in ipairs(markers or {}) do
+    local srcpos = tonumber(m.srcpos)
+    if srcpos and srcpos >= src_visible_start - 1e-6 and srcpos <= src_visible_end + 1e-6 then
+      return m, src_visible_start, src_visible_end
+    end
+  end
+
+  return nil, src_visible_start, src_visible_end
+end
+
+local function dbg_anchor_musical_pos(timepos)
+  if not debug_mode then return end
+  local proj = 0
+  if not timepos then return end
+  local beats_since_measure, measures, cml, fullbeats = reaper.TimeMap2_timeToBeats(proj, timepos)
+  dbg(('anchor_musical: measure=%s beat_in_measure=%.6f beats_per_measure=%s fullbeats=%.6f'):format(
+    tostring(measures),
+    tonumber(beats_since_measure) or -1,
+    tostring(cml),
+    tonumber(fullbeats) or -1
+  ))
 end
 
 ------------------------------------------------------------
@@ -184,31 +256,39 @@ local function delete_all_stretch_markers(take)
 end
 
 local function find_first_visible_marker(markers, item_len)
+  -- Stretch marker positions can occasionally be tiny negatives (e.g. -1e-8)
+  -- due to floating point residue. Treat those as 0 so "first marker" logic
+  -- matches user expectation and the Ableton Grids script behaviour.
+  local eps = 1e-6
+
   for _, m in ipairs(markers) do
-    if m.pos ~= nil and m.pos >= -1e-9 and m.pos <= item_len + 1e-9 then
+    if m.pos ~= nil and m.pos >= -eps and m.pos <= item_len + eps then
+      if m.pos < 0 and math.abs(m.pos) <= eps then
+        m.pos = 0
+      end
       return m
     end
   end
   return nil
 end
 
--- Returns: new_item_start, anchor_qn, snapped_time
-local function SnapItemToGridByMarker(item, marker_pos_in_item, snap_mode_value, set_snap_offset_value)
+-- marker_offset_seconds is the visible offset in PROJECT seconds from the item start.
+-- Returns: new_item_start, anchor_qn, snapped_time, snap_offset
+local function SnapItemToGridByMarker(item, marker_offset_seconds, snap_mode_value, set_snap_offset_value)
   local proj = 0
 
   local old_item_start = reaper.GetMediaItemInfo_Value(item, 'D_POSITION')
   local item_len = reaper.GetMediaItemInfo_Value(item, 'D_LENGTH')
 
-  marker_pos_in_item = tonumber(marker_pos_in_item)
-  if not marker_pos_in_item then return nil end
+  marker_offset_seconds = tonumber(marker_offset_seconds)
+  if not marker_offset_seconds then return nil end
 
-  local t_proj = old_item_start + marker_pos_in_item
-
-  local snap_offset
-  if set_snap_offset_value then
-    snap_offset = clamp(marker_pos_in_item, 0, item_len)
-    reaper.SetMediaItemInfo_Value(item, 'D_SNAPOFFSET', snap_offset)
+  -- Normalize near-zero negatives to 0 (common FP residue).
+  if marker_offset_seconds < 0 and marker_offset_seconds > -1e-6 then
+    marker_offset_seconds = 0
   end
+
+  local t_proj = old_item_start + marker_offset_seconds
 
   local new_item_start, anchor_qn, snapped_time
 
@@ -225,7 +305,15 @@ local function SnapItemToGridByMarker(item, marker_pos_in_item, snap_mode_value,
     if math.abs(t_proj - cur_measure_start_time) <= epsilon then
       anchor_qn = cur_measure_start_beats
       snapped_time = cur_measure_start_time
-      return old_item_start, anchor_qn, snapped_time
+
+      local snap_offset
+      if set_snap_offset_value then
+        snap_offset = clamp(marker_offset_seconds, 0, item_len)
+        reaper.SetMediaItemInfo_Value(item, 'D_SNAPOFFSET', snap_offset)
+        reaper.UpdateItemInProject(item)
+      end
+
+      return old_item_start, anchor_qn, snapped_time, snap_offset
     end
 
     anchor_qn = cur_measure_start_beats + beats_per_measure
@@ -236,7 +324,7 @@ local function SnapItemToGridByMarker(item, marker_pos_in_item, snap_mode_value,
       snapped_time = reaper.TimeMap2_beatsToTime(proj, anchor_qn)
     end
 
-    new_item_start = snapped_time - marker_pos_in_item
+    new_item_start = snapped_time - marker_offset_seconds
     if new_item_start < 0 then new_item_start = 0 end
 
   elseif snap_mode_value == 'nearest_bar' then
@@ -252,8 +340,8 @@ local function SnapItemToGridByMarker(item, marker_pos_in_item, snap_mode_value,
     local prev_time = reaper.TimeMap2_beatsToTime(proj, prev_beats)
     local next_time = reaper.TimeMap2_beatsToTime(proj, next_beats)
 
-    local prev_start = prev_time - marker_pos_in_item
-    local next_start = next_time - marker_pos_in_item
+    local prev_start = prev_time - marker_offset_seconds
+    local next_start = next_time - marker_offset_seconds
 
     local prev_valid = (prev_start >= 0)
     local next_valid = true
@@ -274,7 +362,7 @@ local function SnapItemToGridByMarker(item, marker_pos_in_item, snap_mode_value,
       snapped_time = next_time
     end
 
-    new_item_start = snapped_time - marker_pos_in_item
+    new_item_start = snapped_time - marker_offset_seconds
     if new_item_start < 0 then new_item_start = 0 end
 
   else
@@ -282,21 +370,27 @@ local function SnapItemToGridByMarker(item, marker_pos_in_item, snap_mode_value,
     anchor_qn = math.floor((qn or 0) + 0.5)
 
     -- Avoid snapping that would move the item start < 0
-    local min_snapped_time = marker_pos_in_item
+    local min_snapped_time = marker_offset_seconds
     local min_qn = reaper.TimeMap2_timeToQN(proj, min_snapped_time)
     if min_qn and anchor_qn < min_qn then
       anchor_qn = math.ceil(min_qn)
     end
 
     snapped_time = reaper.TimeMap2_QNToTime(proj, anchor_qn)
-    new_item_start = snapped_time - marker_pos_in_item
+    new_item_start = snapped_time - marker_offset_seconds
     if new_item_start < 0 then new_item_start = 0 end
   end
 
   reaper.SetMediaItemInfo_Value(item, 'D_POSITION', new_item_start)
+
+  local snap_offset
+  if set_snap_offset_value then
+    snap_offset = clamp(marker_offset_seconds, 0, item_len)
+    reaper.SetMediaItemInfo_Value(item, 'D_SNAPOFFSET', snap_offset)
+  end
   reaper.UpdateItemInProject(item)
 
-  return new_item_start, anchor_qn, snapped_time
+  return new_item_start, anchor_qn, snapped_time, snap_offset
 end
 
 local function get_time_sig_at_time(proj, time)
@@ -333,7 +427,7 @@ local function get_qn_per_beat_at_time(proj, time)
   return 4.0 / den
 end
 
-local function QuantizeStretchMarkers(take, markers, anchor_marker, anchor_qn, item_pos, snapped_time, unit)
+local function QuantizeStretchMarkers(take, markers, anchor_marker, anchor_qn, item_pos, snapped_time, unit, playrate)
   local proj = 0
 
   if not take or not markers or #markers == 0 then return false, 'No stretch markers.' end
@@ -342,7 +436,11 @@ local function QuantizeStretchMarkers(take, markers, anchor_marker, anchor_qn, i
 
   unit = unit or 'beats'
 
-  local anchor_time = snapped_time or (item_pos + (anchor_marker.pos or 0))
+  playrate = tonumber(playrate) or 1.0
+  if playrate == 0 then playrate = 1.0 end
+
+  -- anchor_marker.pos is in take-time units; map to project seconds by /playrate.
+  local anchor_time = snapped_time or (item_pos + (tonumber(anchor_marker.pos) or 0) / playrate)
 
   local step_qn
   if unit == 'bars' then
@@ -358,16 +456,23 @@ local function QuantizeStretchMarkers(take, markers, anchor_marker, anchor_qn, i
   -- no longer refer to the same marker.
   -- To avoid this, we compute the new list, delete all, and re-insert.
 
+  -- "Beats" and "Bars" modes expect the existing stretch markers to already
+  -- represent consecutive beats/bars (one marker per unit). We keep the
+  -- marker count and order, and re-space them evenly from the anchored marker.
   local anchor_idx0 = anchor_marker.idx
   local epsilon = 1e-6
   local new_markers = {}
   local last_pos = nil
 
   for _, m in ipairs(markers) do
-    local delta = m.idx - anchor_idx0
-    local target_qn = anchor_qn + delta * step_qn
+    local delta_units = (tonumber(m.idx) or 0) - (tonumber(anchor_idx0) or 0)
+    local target_qn = anchor_qn + delta_units * step_qn
     local target_time = reaper.TimeMap2_QNToTime(proj, target_qn)
-    local new_pos = target_time - item_pos
+    local new_pos_seconds = target_time - item_pos
+
+    -- IMPORTANT: SetTakeStretchMarker expects take-time units. Convert project seconds
+    -- offset into take-time by multiplying by playrate (same mapping Ableton Grids uses).
+    local new_pos = new_pos_seconds * playrate
 
     if last_pos ~= nil and new_pos <= last_pos + epsilon then
       new_pos = last_pos + epsilon
@@ -415,17 +520,34 @@ local function ApplyToSelection()
   end
 
   local take = reaper.GetActiveTake(item)
+  local startoffs, playrate, item_len = GetTakeMapState(item, take)
+  if debug_mode then
+    dbg('--- APPLY START ---')
+    dbg_kv('take_playrate', reaper.GetMediaItemTakeInfo_Value(take, 'D_PLAYRATE'))
+    dbg_kv('take_startoffs', reaper.GetMediaItemTakeInfo_Value(take, 'D_STARTOFFS'))
+    dbg_kv('item_pos_before', reaper.GetMediaItemInfo_Value(item, 'D_POSITION'))
+    dbg_kv('item_len', reaper.GetMediaItemInfo_Value(item, 'D_LENGTH'))
+    dbg_kv('snap_offset_before', reaper.GetMediaItemInfo_Value(item, 'D_SNAPOFFSET'))
+  end
+
   local markers = get_stretch_markers(take)
   if #markers == 0 then
     set_status('Selected take has no stretch markers.')
     return
   end
 
-  dbg('--- APPLY START ---')
   dbg(('Marker count=%d'):format(#markers))
+  dbg_marker_table('Markers(before)', markers, reaper.GetMediaItemInfo_Value(item, 'D_POSITION'), playrate)
 
-  local item_len = reaper.GetMediaItemInfo_Value(item, 'D_LENGTH')
-  local first_visible = find_first_visible_marker(markers, item_len)
+  -- Use source-visibility ONLY to choose the anchor marker.
+  -- Do NOT drop offscreen markers during quantize; keep marker count unchanged.
+  local first_visible, src_vis_start, src_vis_end = FindFirstVisibleMarkerBySrcpos(markers, startoffs, item_len, playrate)
+  if debug_mode then
+    dbg_kv('src_visible_start', src_vis_start)
+    dbg_kv('src_visible_end', src_vis_end)
+    dbg_kv('visible_anchor_found', first_visible ~= nil)
+  end
+
   if not first_visible then
     set_status('No stretch markers fall within the visible item range.')
     return
@@ -440,8 +562,30 @@ local function ApplyToSelection()
 
   reaper.Undo_BeginBlock()
 
-  local marker_pos = first_visible.pos
-  local new_item_pos, anchor_qn, snapped_time = SnapItemToGridByMarker(item, marker_pos, snap_mode, set_snap_offset)
+  -- Compute the visible offset (project seconds) of the anchor marker, same as Ableton Grids:
+  -- visible_offset = (srcpos - startoffs) / playrate
+  local marker_srcpos = tonumber(first_visible.srcpos) or 0
+  local marker_offset_seconds = (marker_srcpos - startoffs) / playrate
+  if marker_offset_seconds < 0 and marker_offset_seconds > -1e-6 then marker_offset_seconds = 0 end
+
+  if debug_mode then
+    dbg_kv('anchor_srcpos', marker_srcpos)
+    dbg_kv('anchor_offset_s', marker_offset_seconds)
+  end
+
+  -- Match Ableton Grids expectations: if you're quantizing to bars, snapping the
+  -- first marker to a *bar* makes more sense than snapping to a generic QN.
+  local effective_snap_mode = snap_mode
+  if quantize_unit == 'bars' and snap_mode == 'nearest_qn' then
+    effective_snap_mode = 'nearest_bar'
+  end
+
+  if debug_mode and effective_snap_mode ~= snap_mode then
+    dbg_kv('snap_mode_selected', snap_mode)
+    dbg_kv('snap_mode_effective', effective_snap_mode)
+  end
+
+  local new_item_pos, anchor_qn, snapped_time, snap_offset = SnapItemToGridByMarker(item, marker_offset_seconds, effective_snap_mode, set_snap_offset)
   if not new_item_pos then
     reaper.Undo_EndBlock('Quantize stretch markers to grid (failed)', -1)
     set_status('Failed to snap item to grid.')
@@ -449,20 +593,40 @@ local function ApplyToSelection()
   end
 
   dbg(('Snap: mode=%s new_item_pos=%.6f anchor_qn=%.6f snapped_time=%.6f'):format(
-    tostring(snap_mode),
+    tostring(effective_snap_mode),
     tonumber(new_item_pos) or -1,
     tonumber(anchor_qn) or -1,
     tonumber(snapped_time) or -1
   ))
 
+  dbg_anchor_musical_pos(snapped_time)
+
+  if set_snap_offset then
+    dbg_kv('snap_offset_set', snap_offset)
+    dbg_kv('snap_offset_after', reaper.GetMediaItemInfo_Value(item, 'D_SNAPOFFSET'))
+
+    -- Verify that snap offset (item_pos + snap_offset) matches the anchor marker time.
+    local item_pos_now = reaper.GetMediaItemInfo_Value(item, 'D_POSITION')
+    local snap_abs = (tonumber(item_pos_now) or 0) + (tonumber(snap_offset) or 0)
+    local marker_abs = (tonumber(item_pos_now) or 0) + (tonumber(marker_offset_seconds) or 0)
+    dbg_kv('snap_abs_time', snap_abs)
+    dbg_kv('marker_abs_time', marker_abs)
+    dbg_kv('snap_minus_marker', snap_abs - marker_abs)
+  end
+
   if insert_time_sig then
-    UpdateOrCreateTimeSigAtPosition(0, snapped_time or (new_item_pos + marker_pos), ts_num, ts_den)
+    UpdateOrCreateTimeSigAtPosition(0, snapped_time or (new_item_pos + marker_offset_seconds), ts_num, ts_den)
   end
 
   -- Re-read item pos after snapping
   local item_pos_after = reaper.GetMediaItemInfo_Value(item, 'D_POSITION')
 
-  local ok, msg = QuantizeStretchMarkers(take, markers, first_visible, anchor_qn, item_pos_after, snapped_time, quantize_unit)
+  local ok, msg = QuantizeStretchMarkers(take, markers, first_visible, anchor_qn, item_pos_after, snapped_time, quantize_unit, playrate)
+
+  if debug_mode then
+    local markers_after = get_stretch_markers(take)
+    dbg_marker_table('Markers(after)', markers_after, item_pos_after, playrate)
+  end
 
   reaper.UpdateItemInProject(item)
   reaper.UpdateArrange()
