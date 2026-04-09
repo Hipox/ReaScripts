@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Hipox Scripts" commit="dd8f7e5f313fba712bacb08f187c7cf818b10ff8">
+<index version="1" name="Hipox Scripts" commit="a2305932761c8379b77fe0c580ff9ea3a92240ae">
+  <category name="Grid">
+    <reapack name="Hipox_Quantize Existing Stretch Markers to Grid (ImGui).lua" type="script" desc="Quantize Existing Stretch Markers to Grid (ImGui)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Lightweight standalone tool to snap the first visible stretch marker of the first selected {\i audio} item to the project grid, then quantize the item's existing stretch markers to either beats or bars.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Works directly on stretch markers already present in the active take.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Optionally sets the item snap offset to the first visible stretch marker.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Optionally inserts/updates a time signature marker at the first marker.\sa180\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0.0" author="Hipox (derived), modified by GitHub Copilot" time="2026-04-09T11:27:36Z">
+        <source main="main">https://github.com/Hipox/ReaScripts/raw/a2305932761c8379b77fe0c580ff9ea3a92240ae/Grid/Hipox_Quantize%20Existing%20Stretch%20Markers%20to%20Grid%20(ImGui).lua</source>
+      </version>
+    </reapack>
+  </category>
   <category name="Grid/Ableton Grids">
     <reapack name="Hipox - Ableton Grids.lua" type="script" desc="Ableton Grids">
       <metadata>
