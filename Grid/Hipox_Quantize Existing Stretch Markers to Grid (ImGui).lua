@@ -1,6 +1,6 @@
 --[[
 @description Quantize Existing Stretch Markers to Grid (ImGui)
-@author Hipox (derived), modified by GitHub Copilot
+@author Hipox
 @version 1.0.0
 @about
   Lightweight standalone tool to snap the first visible stretch marker of the
@@ -489,9 +489,11 @@ end
 local ctx = ImGui.CreateContext(SCRIPT_NAME)
 
 local function loop()
-  ImGui.SetNextWindowSize(ctx, 430, 220, ImGui.Cond_FirstUseEver)
+  local flags = ImGui.WindowFlags_AlwaysAutoResize
+    | ImGui.WindowFlags_NoScrollbar
+    | ImGui.WindowFlags_NoScrollWithMouse
 
-  local visible, open = ImGui.Begin(ctx, SCRIPT_NAME, true)
+  local visible, open = ImGui.Begin(ctx, SCRIPT_NAME, true, flags)
   if visible then
     ImGui.Text(ctx, 'Operates on stretch markers already in the selected item.')
     ImGui.Separator(ctx)
@@ -571,8 +573,9 @@ local function loop()
   if open then
     reaper.defer(loop)
   else
-    if reaper.ImGui_DestroyContext then
-      reaper.ImGui_DestroyContext(ctx)
+    local destroy = reaper['ImGui_DestroyContext']
+    if type(destroy) == 'function' then
+      destroy(ctx)
     end
   end
 end
